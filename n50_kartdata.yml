@@ -5,6 +5,6 @@ updated: '2026-09-02'
 outputs: xsd
 scopes:
 - name: Ny datakilde
-  url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/N50Kartdata20210301.xml
+  url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/N5000Kartdata-20230401.xml
   generator: xmi
   description: ''
