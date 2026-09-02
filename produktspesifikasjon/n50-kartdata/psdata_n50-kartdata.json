@@ -430,6 +430,25 @@
         ],
         "deliveryScope": "Tjeneste"
       }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "GML/XSD-skjema: ny-datakilde",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/n50-kartdata/ny-datakilde/schema/xsd/INPUT/ny-datakilde.xsd",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "XSD"
+          }
+        ]
+      }
     }
   ],
   "metadataSection": {
