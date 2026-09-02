@@ -434,6 +434,25 @@
     {
       "delivery": {
         "deliveryMedium": {
+          "deliveryMediumName": "GeoPackage: ny-datakilde",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/n50-kartdata/ny-datakilde/ny-datakilde.gpkg",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "GPKG"
+          }
+        ]
+      }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
           "deliveryMediumName": "GML/XSD-skjema: ny-datakilde",
           "deliveryService": {
             "serviceEndpoint": "https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/n50-kartdata/ny-datakilde/schema/xsd/INPUT/ny-datakilde.xsd",
