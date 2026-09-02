@@ -1,0 +1,130 @@
+@startuml
+' For wide diagrams, render with: plantuml -DPLANTUML_LIMIT_SIZE=16384 ...
+' The 'scale max' directive below caps the rendered output to prevent the
+' default PlantUML 4096px size limit from cropping the diagram.
+scale max 4000*4000
+
+title N50 Kartdata - Ny datakilde - Arealdekke
+
+skinparam backgroundColor #F5F5F5
+skinparam shadowing false
+skinparam RoundCorner 6
+skinparam ArrowColor #6C8198
+skinparam wrapWidth 200
+skinparam class {
+  BackgroundColor #FBF2E8
+  BorderColor #9C8578
+  FontColor #2D201A
+  HeaderBackgroundColor #EFE1D6
+  HeaderFontColor #2D201A
+  AttributeIconSize 0
+}
+skinparam note {
+  BackgroundColor #FFFFFF
+  BorderColor #6C8198
+  FontColor #2D201A
+}
+skinparam stereotypeCBackgroundColor #EAD9CE
+skinparam stereotypeCBorderColor #9C8578
+skinparam stereotypeCFontColor #2D201A
+
+package "Arealdekke" {
+
+  class Lufthavn <<featureType>> {
+    + posisjon [0..1] : GM_Point
+    + lufthavntype [0..1] : Lufthavntype
+    + trafikktype [0..1] : Trafikktype
+    + iataKode [0..1] : IATAKode
+    + icaoKode [0..1] : ICAOKode
+    + lufthavneier [0..1] : CharacterString
+    + navn [0..1] : CharacterString
+  }
+
+  class ElvBekk <<featureType>> {
+    + senterlinje [0..1] : GM_Curve
+  }
+
+  class Arealbrukgrense <<featureType>> {
+    + grense [1] : GM_Curve
+  }
+
+  class Havflate <<featureType>> {
+    + område [1] : GM_Surface
+  }
+
+  class Kystkontur <<featureType>> {
+    + grense [1] : GM_Curve
+  }
+
+  class "Innsjøkant" as Innsj_kant <<featureType>> {
+    + grense [1] : GM_Curve
+  }
+
+  class Skog <<featureType>> {
+    + område [1] : GM_Surface
+  }
+
+  class "ÅpentOmråde" as _pentOmr_de <<featureType>> {
+    + område [1] : GM_Surface
+  }
+
+  class "SnøIsbre" as Sn_Isbre <<featureType>> {
+    + område [1] : GM_Surface
+  }
+
+  class Tettbebyggelse <<featureType>> {
+    + posisjon [0..1] : GM_Point
+    + tettbebyggelsestype [1] : Tettbebyggelsestype
+  }
+
+  class "Innsjø" as Innsj_ <<featureType>> {
+    + område [1] : GM_Surface
+    + høyde [0..1] : Integer
+  }
+}
+
+package "Eksterne referanser" <<Frame>> {
+  class Dataavgrensning <<Generelle typer>> {
+  }
+  class FiktivDelelinje <<Generelle typer>> {
+  }
+  class SOSI_Objekt_Flater <<Generelle typer>> {
+  }
+  class SOSI_Objekt_PunkterOgLinjer <<Generelle typer>> {
+  }
+}
+
+SOSI_Objekt_PunkterOgLinjer <|-- Lufthavn
+SOSI_Objekt_PunkterOgLinjer <|-- ElvBekk
+SOSI_Objekt_PunkterOgLinjer <|-- Arealbrukgrense
+SOSI_Objekt_Flater <|-- Havflate
+Havflate --> Dataavgrensning : avgrensesAvDataavgrensning [0..*]
+Havflate --> FiktivDelelinje : avgrensesAvFiktivDelelinje [0..*]
+Havflate --> Kystkontur : avgrensesAvKystkontur [0..*]
+SOSI_Objekt_PunkterOgLinjer <|-- Kystkontur
+SOSI_Objekt_PunkterOgLinjer <|-- Innsj_kant
+SOSI_Objekt_Flater <|-- Skog
+Skog --> Dataavgrensning : avgrensesAvDataavgrensning [0..*]
+Skog --> FiktivDelelinje : avgrensesAvFiktivDelelinje [0..*]
+Skog --> Arealbrukgrense : avgrensesAvArealbrukgrense [0..*]
+Skog --> Kystkontur : avgrensesAvKystkontur [0..*]
+Skog --> Innsj_kant : avgrensesAvInnsjøkant [0..*]
+SOSI_Objekt_Flater <|-- _pentOmr_de
+_pentOmr_de --> Dataavgrensning : avgrensesAvDataavgrensning [0..*]
+_pentOmr_de --> FiktivDelelinje : avgrensesAvFiktivDelelinje [0..*]
+_pentOmr_de --> Arealbrukgrense : avgrensesAvArealbrukgrense [0..*]
+_pentOmr_de --> Kystkontur : avgrensesAvKystkontur [0..*]
+_pentOmr_de --> Innsj_kant : avgrensesAvInnsjøkant [0..*]
+SOSI_Objekt_Flater <|-- Sn_Isbre
+Sn_Isbre --> Dataavgrensning : avgrensesAvDataavgrensning [0..*]
+Sn_Isbre --> FiktivDelelinje : avgrensesAvFiktivDelelinje [0..*]
+Sn_Isbre --> Arealbrukgrense : avgrensesAvArealbrukgrense [0..*]
+Sn_Isbre --> Kystkontur : avgrensesAvKystkontur [0..*]
+Sn_Isbre --> Innsj_kant : avgrensesAvInnsjøkant [0..*]
+SOSI_Objekt_PunkterOgLinjer <|-- Tettbebyggelse
+SOSI_Objekt_Flater <|-- Innsj_
+Innsj_ --> Dataavgrensning : avgrensesAvDataavgrensning [0..*]
+Innsj_ --> FiktivDelelinje : avgrensesAvFiktivDelelinje [0..*]
+Innsj_ --> Innsj_kant : avgrensesAvInnsjøkant [0..*]
+
+@enduml

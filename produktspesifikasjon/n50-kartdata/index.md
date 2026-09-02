@@ -88,7 +88,7 @@ Dataene egner seg blant annet for fremstilling av topografiske kart, temakart, t
 
 
 
-<a href="ny-datakilde/ny-datakilde_feature_catalogue.png" title="Klikk for stor visning"><img src="ny-datakilde/ny-datakilde_feature_catalogue.png" alt="Datamodell Ny datakilde" style="max-width: 100%; height: auto;" /></a>
+<a href="ny-datakilde/ny-datakilde_feature_catalogue_overview.png" title="Klikk for stor visning"><img src="ny-datakilde/ny-datakilde_feature_catalogue_overview.png" alt="Datamodell Ny datakilde" style="max-width: 100%; height: auto;" /></a>
 
 
 
@@ -157,6 +157,7 @@ Dataene egner seg blant annet for fremstilling av topografiske kart, temakart, t
 | Topografisk Norgeskart gråtone WMS | [Lenke](https://wms.geonorge.no/skwms1/wms.topograatone?service=wms&request=getcapabilities) | WMS-tjeneste | png |  |
 | Topografisk norgeskart WMTS / cache | [Lenke](https://cache.kartverket.no/v1/wmts/1.0.0/WMTSCapabilities.xml) | WMTS-tjeneste | OGC WMTS |  |
 | Bakgrunnskart for Matrikkelen WMS | [Lenke](https://wms.geonorge.no/skwms1/wms.matrikkel_bakgrunn2/?service=wms&request=getcapabilities) | WMS-tjeneste | OGC WMS |  |
+| GML/XSD-skjema: ny-datakilde | [Lenke](https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/n50-kartdata/ny-datakilde/schema/xsd/INPUT/ny-datakilde.xsd) | Nedlasting | XSD |  |
 
 ## Metadata
 

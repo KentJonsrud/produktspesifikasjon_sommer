@@ -1,0 +1,1548 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nydatakilde="https://skjema.geonorge.no/SOSI/produktspesifikasjon/n50-kartdata/ny-datakilde/1.0" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://skjema.geonorge.no/SOSI/produktspesifikasjon/n50-kartdata/ny-datakilde/1.0" version="1.0">
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="https://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="AnnenBåtrute" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:AnnenBåtruteType">
+    <annotation>
+      <documentation>båtrute som ikke kan karakteriseres som passasjer- eller bilferje
+
+
+-- Definition --
+boat route which cannot be characterised as passenger ferry or car ferry</documentation>
+    </annotation>
+  </element>
+  <complexType name="AnnenBåtruteType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger objektets sentrale del</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AnnenBåtrutePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:AnnenBåtrute"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Arealbrukgrense" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:ArealbrukgrenseType">
+    <annotation>
+      <documentation>avgrensning av de ulike arealbruksflatene
+
+Merknad:
+Kode for bruken av arealet legges på flaten, dvs på representasjonspunktet der dette representerer flata.
+
+
+-- Definition --
+delimitation of the various land use areas Note: Land use code is assigned to the surface, i.e. on the representation point which represents this surface.</documentation>
+    </annotation>
+  </element>
+  <complexType name="ArealbrukgrenseType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ArealbrukgrensePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Arealbrukgrense"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Bane" substitutionGroup="nydatakilde:SOSI_Objekt_Linjer_Samferdsel" type="nydatakilde:BaneType">
+    <annotation>
+      <documentation>teoretisk linje som representerer ett enkelt eller flere parallelle spor som del av en banestrekning
+
+
+-- Definition --
+theoretical line which represents a single or several parallel tracks as part of a railway line
+
+
+&lt;font color="#008000"&gt;-- INSPIRE --&lt;/font&gt;
+&lt;font color="#008000"&gt;Maps to RailwayLink&lt;/font&gt;</documentation>
+      <appinfo>
+        <sc:taggedValue tag="SOSI_navn">BANE</sc:taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="BaneType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_Linjer_SamferdselType">
+        <sequence>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger objektets sentrale del</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BanePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Bane"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Dataavgrensning" substitutionGroup="nydatakilde:SOSI_Objekt_Hjelpelinjer" type="nydatakilde:DataavgrensningType">
+    <annotation>
+      <documentation>generell avgrensningslinje, f.eks. mellom datasett med ulik kvalitet, innhold eller detaljering</documentation>
+    </annotation>
+  </element>
+  <complexType name="DataavgrensningType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_HjelpelinjerType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="DataavgrensningPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Dataavgrensning"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="ElvBekk" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:ElvBekkType">
+    <annotation>
+      <documentation>mindre vannvei for rennende vann representert ved senterlinje</documentation>
+    </annotation>
+  </element>
+  <complexType name="ElvBekkType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger objektets sentrale del
+
+-- Definition --
+cource follwed by the central part of the object</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">Kurve</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ElvBekkPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:ElvBekk"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="FellesTekst" substitutionGroup="gml:AbstractFeature" type="nydatakilde:FellesTekstType">
+    <annotation>
+      <documentation>abstrakt objekt som bærer en felles egenskaper som brukes på tekstobjektene</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="FellesTekstType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="geometri" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>kurve-geometri på tekstobjekter brukes slik: Punkt nr. 1 på kurva er objektets referansekoordinat. Punkt nr. 2 er tekstens plasseringskoordinat. Punkt nr. 3 angir retning på teksten. Dersom kurva inneholder flere koordinater angir disse forløp på teksten.</documentation>
+            </annotation>
+          </element>
+          <element name="streng" type="string">
+            <annotation>
+              <documentation>teksten som skal presenteres på kartet</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">STRENG</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppdateringsdato" type="date">
+            <annotation>
+              <documentation>dato for siste endring på objektetdataene
+
+-Definition-
+Date and time at which this version of the spatial object was inserted or changed in the spatial data set.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPDATERINGSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="tekstformatering" type="nydatakilde:TekstformateringPropertyType">
+            <annotation>
+              <documentation>ulike egenskaper til brukt for å presentere teksten på mediumet</documentation>
+            </annotation>
+          </element>
+          <element name="fulltekst" type="string">
+            <annotation>
+              <documentation>navnet i SSR som skal vises på kartet. Vil i de fleste tilfeller være likt Streng, men kan avvike dersom det av kartografiske hensyn bare vises deler av navnet e.l.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">FULLTEKST</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FellesTekstPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:FellesTekst"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="FiktivDelelinje" substitutionGroup="nydatakilde:SOSI_Objekt_Hjelpelinjer" type="nydatakilde:FiktivDelelinjeType">
+    <annotation>
+      <documentation>linje for å dele opp store flateobjekter
+
+Merknad:
+En del produktspesifikasjoner benytter spesifikke fiktive delelinjer.</documentation>
+    </annotation>
+  </element>
+  <complexType name="FiktivDelelinjeType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_HjelpelinjerType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FiktivDelelinjePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:FiktivDelelinje"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Fylkesgrense" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:FylkesgrenseType">
+    <annotation>
+      <documentation>avgrensning av fylke</documentation>
+      <appinfo>
+        <sc:taggedValue tag="SOSI_navn">FYLKESGRENSE</sc:taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="FylkesgrenseType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FylkesgrensePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Fylkesgrense"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Grunnlinje" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:GrunnlinjeType">
+    <annotation>
+      <documentation>rette linjer trukket opp mellom punkter på de ytterste nes og skjær som stikker opp av havet ved lavvann (fjære sjø)
+
+Merknad:
+Med rett linje forstås den korteste linje mellom to punkt (såkalt geodetisk linje).</documentation>
+    </annotation>
+  </element>
+  <complexType name="GrunnlinjeType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GrunnlinjePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Grunnlinje"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Havflate" substitutionGroup="nydatakilde:SOSI_Objekt_Flater" type="nydatakilde:HavflateType">
+    <annotation>
+      <documentation>havområde som avgrenses av Kystkontur, Kystsperre, HavElvSperre og KystkonturTekniskAnlegg
+
+
+-- Definition --
+sea area which is delimited by Coastline, CoastDelineation, SeaRiverDelineation and ShorelineConstruction</documentation>
+    </annotation>
+  </element>
+  <complexType name="HavflateType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_FlaterType">
+        <sequence>
+          <element name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>objektets utstrekning
+
+-- Definition --
+area over which an object extends</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvDataavgrensning" type="nydatakilde:DataavgrensningPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvFiktivDelelinje" type="nydatakilde:FiktivDelelinjePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvKystkontur" type="nydatakilde:KystkonturPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="HavflatePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Havflate"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Innsjø" substitutionGroup="nydatakilde:SOSI_Objekt_Flater" type="nydatakilde:InnsjøType">
+    <annotation>
+      <documentation>en ferskvannsflate som ikke er renndende vann
+
+
+-- Definition --
+Freshwater surface which is not running water.</documentation>
+    </annotation>
+  </element>
+  <complexType name="InnsjøType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_FlaterType">
+        <sequence>
+          <element name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>objektets utstrekning
+
+-- Definition --
+area over which an object extends</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">Flate</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="høyde" type="integer">
+            <annotation>
+              <documentation>registrert høyde for vannspeilet.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">HØYDE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvDataavgrensning" type="nydatakilde:DataavgrensningPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvFiktivDelelinje" type="nydatakilde:FiktivDelelinjePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvInnsjøkant" type="nydatakilde:InnsjøkantPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="InnsjøPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Innsjø"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Innsjøkant" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:InnsjøkantType">
+    <annotation>
+      <documentation>konturlinje mellom land og innsjø
+
+
+-- Definition --
+Demarkation line between land and lake surface.</documentation>
+    </annotation>
+  </element>
+  <complexType name="InnsjøkantType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener
+
+-- Definition --
+course follwing the transition between different real world phenomena</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="InnsjøkantPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Innsjøkant"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="KantUtsnitt" substitutionGroup="nydatakilde:SOSI_Objekt_Hjelpelinjer" type="nydatakilde:KantUtsnittType">
+    <annotation>
+      <documentation>avgrensning av et utsnitt</documentation>
+    </annotation>
+  </element>
+  <complexType name="KantUtsnittType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_HjelpelinjerType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="KantUtsnittPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:KantUtsnitt"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Kommune" substitutionGroup="nydatakilde:SOSI_Objekt_Flater" type="nydatakilde:KommuneType">
+    <annotation>
+      <documentation>inndeling i administrative og politiske enheter innenfor fylket
+
+Merknad: Tilsvarer NUTS 5 og LAU 2 på internasjonalt statistisk nivå</documentation>
+      <appinfo>
+        <sc:taggedValue tag="SOSI_navn">KOMMUNE</sc:taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="KommuneType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_FlaterType">
+        <sequence>
+          <element name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>objektets utstrekning</documentation>
+            </annotation>
+          </element>
+          <element name="kommunenummer" type="gml:CodeType">
+            <annotation>
+              <documentation>nummerering av kommuner i henhold til Statistisk sentralbyrå sin offisielle liste
+
+Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med ledende null. Kommune benyttes for kopling mot en rekke andre registre som også benytter 4 siffer.
+
+-- Definition - -
+numbering of municipalities in accordance with Statistics Norway’s official list
+Note: It must be following that municipality number always consists of 4 digits, i.e. sometimes with leading zero. Municipality is used for establishing relations to a number of other registers which also use 4 digits.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/inndelinger/inndelingsbase/kommunenummer</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">KOMMUNENUMMER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="kommunenavn" type="string">
+            <annotation>
+              <documentation>offisielt navn på kommunen</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KOMMUNENAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="fylkesnummer" type="string">
+            <annotation>
+              <documentation>nummerering av kommuner i henhold til Statistisk sentralbyrå sin offisielle liste</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">FYLKESNUMMER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="fylkesnavn" type="string">
+            <annotation>
+              <documentation>offisielt navn på fylket</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">FYLKESNAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvTerritorialgrense" type="nydatakilde:TerritorialgrensePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvRiksgrense" type="nydatakilde:RiksgrensePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvKommunegrense" type="nydatakilde:KommunegrensePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvFylkesgrense" type="nydatakilde:FylkesgrensePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="KommunePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Kommune"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Kommunegrense" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:KommunegrenseType">
+    <annotation>
+      <documentation>avgrensing av kommune</documentation>
+      <appinfo>
+        <sc:taggedValue tag="SOSI_navn">KOMMUNEGRENSE</sc:taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="KommunegrenseType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="KommunegrensePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Kommunegrense"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Kystkontur" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:KystkonturType">
+    <annotation>
+      <documentation>grense mellom land og sjø, definert som midlere høyvannslinje
+
+Merknad:
+Tilsvarer COALNE i S-57
+
+
+-- Definition --
+boundary between land and sea, defined as the mean high water line Note: Corresponds to COALNE in S-57</documentation>
+    </annotation>
+  </element>
+  <complexType name="KystkonturType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener
+
+-- Definition --
+course follwing the transition between different real world phenomena</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">Kurve</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="KystkonturPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Kystkontur"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Lufthavn" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:LufthavnType">
+    <annotation>
+      <documentation>land- eller sjøområde (med bygninger, installasjoner og utstyr) som helt eller delvis brukes for luftfartøyers avgang, landing og annen manøvrering på bakken</documentation>
+    </annotation>
+  </element>
+  <complexType name="LufthavnType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>sted som objektet eksisterer på</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">Punkt</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lufthavntype" type="gml:CodeType">
+            <annotation>
+              <documentation>angivelse av type lufthavn</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/lufthavntype</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">LUFTHAVNTYPE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="trafikktype" type="gml:CodeType">
+            <annotation>
+              <documentation>beskrivelse av rutetrafikk</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/trafikktype</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">TRAFIKKTYPE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="iataKode" type="gml:CodeType">
+            <annotation>
+              <documentation>unik kode for lufthavner.
+
+Merknad1: Ikke alle lufthavner har IATA kode.
+Merknad 2: Bare norske lufthavner er tatt med her.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/iatakode</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">IATA_KODE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="icaoKode" type="gml:CodeType">
+            <annotation>
+              <documentation>angivelse av lufthavn ved &lt;a href="C:\\wiki\\Kode"&gt;&lt;font color="#0000ff"&gt;&lt;u&gt;kode&lt;/u&gt;&lt;/font&gt;&lt;/a&gt; på fire &lt;a href="C:\\w\\index.php?title=Alfanumerisk&amp;action=edit&amp;redlink=1"&gt;&lt;font color="#0000ff"&gt;&lt;u&gt;alfanumeriske&lt;/u&gt;&lt;/font&gt;&lt;/a&gt; &lt;a href="C:\\wiki\\Tegn"&gt;&lt;font color="#0000ff"&gt;&lt;u&gt;tegn&lt;/u&gt;&lt;/font&gt;&lt;/a&gt;.
+
+Merknad: Den første bokstaven tilordnes etter kontinent og angir et land eller en gruppe land på det samme kontinentet. Den andre bokstaven angir landet og de to siste angir lufthavn.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/icaokode</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">ICAO_KODE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lufthavneier" type="string">
+            <annotation>
+              <documentation>eier av lufthavn</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">LUFTHAVNEIER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="navn" type="string">
+            <annotation>
+              <documentation>navn på flyplass
+
+Merknad: Benyttes spesielt for de flyplasser som ikke har IATA eller ICAO kode</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">NAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LufthavnPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Lufthavn"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="MålemetodeType">
+    <annotation>
+      <documentation>metode som ligger til grunn for registrering av posisjon
+
+
+-- Definition - -
+method on which registration of position is based</documentation>
+    </annotation>
+    <union memberTypes="nydatakilde:MålemetodeEnumerationType nydatakilde:MålemetodeOtherType"/>
+  </simpleType>
+  <simpleType name="MålemetodeEnumerationType">
+    <annotation>
+      <documentation>metode som ligger til grunn for registrering av posisjon
+
+
+-- Definition - -
+method on which registration of position is based</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Genererte data Generalisering">
+        <annotation>
+          <documentation>Genererte data: Generalisering</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MålemetodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Naturverngrense" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:NaturverngrenseType">
+    <annotation>
+      <documentation>avgrenser et naturvernområde</documentation>
+    </annotation>
+  </element>
+  <complexType name="NaturverngrenseType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">Kurve</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="NaturverngrensePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Naturverngrense"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Naturvernområde" substitutionGroup="nydatakilde:SOSI_Objekt_Flater" type="nydatakilde:NaturvernområdeType">
+    <annotation>
+      <documentation>naturvernområde</documentation>
+      <appinfo>
+        <sc:taggedValue tag="SOSI_navn">verneform</sc:taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="NaturvernområdeType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_FlaterType">
+        <sequence>
+          <element name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>objektets utstrekning</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">Flate</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="vernedato" type="date">
+            <annotation>
+              <documentation>dato for vern av området</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">VERNEDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="verneform" type="gml:CodeType">
+            <annotation>
+              <documentation>ulike type vern sortert under forskjellige lovverk og med tilhørende restriksjoner</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/verneform</sc:targetCodeListURI>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="navn" type="string">
+            <annotation>
+              <documentation>navn på naturvernområdet</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">NAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvNaturverngrense" type="nydatakilde:NaturverngrensePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="NaturvernområdePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Naturvernområde"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="NavneobjektgruppeType">
+    <annotation>
+      <documentation>inndeling i kategorier under hver hovedgruppe.</documentation>
+    </annotation>
+    <union memberTypes="nydatakilde:NavneobjektgruppeEnumerationType nydatakilde:NavneobjektgruppeOtherType"/>
+  </simpleType>
+  <simpleType name="NavneobjektgruppeEnumerationType">
+    <annotation>
+      <documentation>inndeling i kategorier under hver hovedgruppe.</documentation>
+    </annotation>
+    <restriction base="string"/>
+  </simpleType>
+  <simpleType name="NavneobjektgruppeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="NavneobjekthovedgruppeType">
+    <annotation>
+      <documentation>hovedgruppene følger i hovedsak Inspire "NamedPlaceTypeValue", men populatedPlace og building er samlet under bebyggelse og hydrography er delt mellom sjø og ferskvann.</documentation>
+    </annotation>
+    <union memberTypes="nydatakilde:NavneobjekthovedgruppeEnumerationType nydatakilde:NavneobjekthovedgruppeOtherType"/>
+  </simpleType>
+  <simpleType name="NavneobjekthovedgruppeEnumerationType">
+    <annotation>
+      <documentation>hovedgruppene følger i hovedsak Inspire "NamedPlaceTypeValue", men populatedPlace og building er samlet under bebyggelse og hydrography er delt mellom sjø og ferskvann.</documentation>
+    </annotation>
+    <restriction base="string"/>
+  </simpleType>
+  <simpleType name="NavneobjekthovedgruppeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="NavneobjekttypeType">
+    <annotation>
+      <documentation>stedets navneobjekttype er en underinndeling av navneobjektgruppene som igjen er inndeling av navneobjekthovedgruppene.</documentation>
+    </annotation>
+    <union memberTypes="nydatakilde:NavneobjekttypeEnumerationType nydatakilde:NavneobjekttypeOtherType"/>
+  </simpleType>
+  <simpleType name="NavneobjekttypeEnumerationType">
+    <annotation>
+      <documentation>stedets navneobjekttype er en underinndeling av navneobjektgruppene som igjen er inndeling av navneobjekthovedgruppene.</documentation>
+    </annotation>
+    <restriction base="string"/>
+  </simpleType>
+  <simpleType name="NavneobjekttypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="NøyaktighetType">
+    <annotation>
+      <documentation>punktstandardavviket i grunnriss for punkter samt tverravvik for linjer
+
+Merknad:
+Oppgitt i cm</documentation>
+    </annotation>
+    <union memberTypes="nydatakilde:NøyaktighetEnumerationType nydatakilde:NøyaktighetOtherType"/>
+  </simpleType>
+  <simpleType name="NøyaktighetEnumerationType">
+    <annotation>
+      <documentation>punktstandardavviket i grunnriss for punkter samt tverravvik for linjer
+
+Merknad:
+Oppgitt i cm</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="100000">
+        <annotation>
+          <documentation>Nøyaktigheten varierer med +/-1000 m</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="NøyaktighetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject" type="nydatakilde:PosisjonskvalitetType"/>
+  <complexType name="PosisjonskvalitetType">
+    <sequence>
+      <element name="målemetode" type="nydatakilde:MålemetodeType">
+        <annotation>
+          <documentation>metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss</documentation>
+        </annotation>
+      </element>
+      <element name="nøyaktighet" type="nydatakilde:NøyaktighetType">
+        <annotation>
+          <documentation>punktstandardavviket i grunnriss for punkter samt tverravvik for linjer
+
+Merknad:
+Oppgitt i cm</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">NØYAKTIGHET</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PosisjonskvalitetPropertyType">
+    <sequence>
+      <element ref="nydatakilde:Posisjonskvalitet"/>
+    </sequence>
+  </complexType>
+  <element name="Riksgrense" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:RiksgrenseType">
+    <annotation>
+      <documentation>avgrensningen av nasjonen Norge mot andre nasjoner
+
+Merknad:
+Delvis avledet fra norsk svensk riksgrensemodell
+
+--Definition--
+delimitation of the country of Norway over against other countries Note:Partially derived from the Norwegian-Swedish national boundary model</documentation>
+      <appinfo>
+        <sc:taggedValue tag="SOSI_navn">RIKSGRENSE</sc:taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="RiksgrenseType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">Kurve</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="RiksgrensePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Riksgrense"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="SOSI_Objekt_Flater" substitutionGroup="gml:AbstractFeature" type="nydatakilde:SOSI_Objekt_FlaterType">
+    <annotation>
+      <documentation>abstrakt supertype som samler fellesegenskaper og assosiasjoner som gjelder objekttyper som bare har flategeometri</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="SOSI_Objekt_FlaterType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="oppdateringsdato" type="date">
+            <annotation>
+              <documentation>dato for siste endring på objektetdataene
+
+-Definition-
+Date and time at which this version of the spatial object was inserted or changed in the spatial data set.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPDATERINGSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvKantUtsnitt" type="nydatakilde:KantUtsnittPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SOSI_Objekt_FlaterPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:SOSI_Objekt_Flater"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="SOSI_Objekt_Hjelpelinjer" substitutionGroup="gml:AbstractFeature" type="nydatakilde:SOSI_Objekt_HjelpelinjerType">
+    <annotation>
+      <documentation>abstrakt objekt som bærer en rekke egenskaper som er til felles for KantUtsnitt, Dataavgrensning og FiktivDelelinje i dette applikasjonsskjemaet</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="SOSI_Objekt_HjelpelinjerType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="oppdateringsdato" type="date">
+            <annotation>
+              <documentation>dato for siste endring på objektetdataene
+
+-Definition-
+Date and time at which this version of the spatial object was inserted or changed in the spatial data set.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPDATERINGSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SOSI_Objekt_HjelpelinjerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:SOSI_Objekt_Hjelpelinjer"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="SOSI_Objekt_Linjer_Samferdsel" substitutionGroup="gml:AbstractFeature" type="nydatakilde:SOSI_Objekt_Linjer_SamferdselType">
+    <annotation>
+      <documentation>abstrakt objekt som bærer en rekke egenskaper som er til felles for flere objekttyper i underpakke Samferdsel i dette applikasjonsskjemaet</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="SOSI_Objekt_Linjer_SamferdselType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="medium" type="gml:CodeType">
+            <annotation>
+              <documentation>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+På bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/mediumsamferdsel</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">MEDIUM</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="oppdateringsdato" type="date">
+            <annotation>
+              <documentation>dato for siste endring på objektetdataene
+
+-Definition-
+Date and time at which this version of the spatial object was inserted or changed in the spatial data set.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPDATERINGSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="kvalitet" type="nydatakilde:PosisjonskvalitetPropertyType">
+            <annotation>
+              <documentation>beskrivelse av kvaliteten på stedfestingen</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KVALITET</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SOSI_Objekt_Linjer_SamferdselPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:SOSI_Objekt_Linjer_Samferdsel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="SOSI_Objekt_PunkterOgLinjer" substitutionGroup="gml:AbstractFeature" type="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+    <annotation>
+      <documentation>abstrakt objekt som bærer en rekke egenskaper som er til felles for flere objekttyper med punkt- eller linjegeometri i underpakkene Administrative områder, Arealdekke, Bygninger og anlegg, Restriksjonsområder og Samferdsel i dette applikasjonsskjemaet</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="SOSI_Objekt_PunkterOgLinjerType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="oppdateringsdato" type="date">
+            <annotation>
+              <documentation>dato for siste endring på objektetdataene
+
+-Definition-
+Date and time at which this version of the spatial object was inserted or changed in the spatial data set.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">OPPDATERINGSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="kvalitet" type="nydatakilde:PosisjonskvalitetPropertyType">
+            <annotation>
+              <documentation>beskrivelse av kvaliteten på stedfestingen</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SOSI_Objekt_PunkterOgLinjerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:SOSI_Objekt_PunkterOgLinjer"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Skog" substitutionGroup="nydatakilde:SOSI_Objekt_Flater" type="nydatakilde:SkogType">
+    <annotation>
+      <documentation>alle typer skogsmark som barskog, lauvskog og blandingsskog
+
+Merknad: Også hogstflater - selv om nyplanting ikke er synlig.  Omfatter alle slags skogboniteter, også storvokste vierkrattbelter i Nord-Norge
+
+
+-- Definition --
+all types of forest land, such as coniferous forest, deciduous forest and mixed forest</documentation>
+    </annotation>
+  </element>
+  <complexType name="SkogType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_FlaterType">
+        <sequence>
+          <element name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>objektets utstrekning
+
+-- Definition --
+area over which an object extends</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvDataavgrensning" type="nydatakilde:DataavgrensningPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvFiktivDelelinje" type="nydatakilde:FiktivDelelinjePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvArealbrukgrense" type="nydatakilde:ArealbrukgrensePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvKystkontur" type="nydatakilde:KystkonturPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvInnsjøkant" type="nydatakilde:InnsjøkantPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SkogPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Skog"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="SnøIsbre" substitutionGroup="nydatakilde:SOSI_Objekt_Flater" type="nydatakilde:SnøIsbreType">
+    <annotation>
+      <documentation>grense mellom snø eller isbre og barmark der det er usikkert om det er isbre eller snø
+
+
+Merknad:
+Isbre kan også være en del av evig snø, særlig når breens kantlinje ikke kan defineres (og registreres) som Isbre.  Den gamle koden for isbre er overført til dette objektet !
+
+
+-- Definition --
+Snow or glacier and bare ground where it is uncertain if it is snow or glacier. Note: A snowfield can also be a part of perpetual snow, especially when the glacier's edge cannot be defined and registered as a glacier.</documentation>
+    </annotation>
+  </element>
+  <complexType name="SnøIsbreType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_FlaterType">
+        <sequence>
+          <element name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>objektets utstrekning
+
+-- Definition --
+area over which an object extends</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">Flate</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvDataavgrensning" type="nydatakilde:DataavgrensningPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvFiktivDelelinje" type="nydatakilde:FiktivDelelinjePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvArealbrukgrense" type="nydatakilde:ArealbrukgrensePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvKystkontur" type="nydatakilde:KystkonturPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvInnsjøkant" type="nydatakilde:InnsjøkantPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SnøIsbrePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:SnøIsbre"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Stasjon" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:StasjonType">
+    <annotation>
+      <documentation>representasjonspunkt for stasjon, holdeplass eller godsterminal
+
+
+-- Definition --
+representation point for station, stopping place or freight terminal</documentation>
+    </annotation>
+  </element>
+  <complexType name="StasjonType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>sted som objektet eksisterer på
+
+-- Definition --
+location where the object exists</documentation>
+            </annotation>
+          </element>
+          <element name="navn" type="string">
+            <annotation>
+              <documentation>navn på stasjon
+
+-- Definition --
+name of a station</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">NAVN</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="StasjonPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Stasjon"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="StedsnavnTekst" substitutionGroup="nydatakilde:FellesTekst" type="nydatakilde:StedsnavnTekstType">
+    <annotation>
+      <documentation>Stedsnavntekst er stedsnavn fra SSR tilpasset visning på kart</documentation>
+    </annotation>
+  </element>
+  <complexType name="StedsnavnTekstType">
+    <complexContent>
+      <extension base="nydatakilde:FellesTekstType">
+        <sequence>
+          <element name="navneobjekthovedgruppe" type="nydatakilde:NavneobjekthovedgruppeType">
+            <annotation>
+              <documentation>hovedgruppene følger i hovedsak Inspire "NamedPlaceTypeValue", men populatedPlace og building er samlet under bebyggelse og hydrography er delt mellom sjø og ferskvann.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/stedsnavn/navneobjekthovedgruppe</sc:targetCodeListURI>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="navneobjektgruppe" type="nydatakilde:NavneobjektgruppeType">
+            <annotation>
+              <documentation>inndeling i kategorier under hver hovedgruppe.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/stedsnavn/navneobjektgruppe</sc:targetCodeListURI>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="navneobjekttype" type="nydatakilde:NavneobjekttypeType">
+            <annotation>
+              <documentation>stedets navneobjekttype er en underinndeling av navneobjektgruppene som igjen er inndeling av navneobjekthovedgruppene.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/stedsnavn/navneobjekttype</sc:targetCodeListURI>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="språk" type="gml:CodeType">
+            <annotation>
+              <documentation>angir hvilket språk teksten hører til, norsk, kvensk, nordsamisk, lulesamisk, sørsamisk osv.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/stedsnavn/spr%C3%A5kkode</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">SPRÅK</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stedsnavnnummer" type="integer">
+            <annotation>
+              <documentation>stedsnummer, stedsnavnnummer og skrivemåtenummer skal sammen utgjøre en såkalt tematisk id som brukes av registerførere som opplslagsnummer. identifikatoren ligner litt på Gnr/Bnr/Fnr.
+
+&lt;b&gt;Stedsnavnnummer&lt;/b&gt; er et løpende nummer (starter på 1) systemet gir stedsnavnet som en identifikator. stedsnavnnummeret er kun unikt under ett stedsnummer og kan ikke brukes om igjen for dette stedet.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">STEDSNAVNNUMMER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="språkprioritering" type="gml:CodeType">
+            <annotation>
+              <documentation>stedsnavnet sin prioritering i forhold til de ulike språkgruppene</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/stedsnavn/spr%C3%A5kprioriteringkode</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">SPRÅKPRIORITERING</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stedsnummer" type="integer">
+            <annotation>
+              <documentation>stedsnummer, stedsnavnsnummer og skrivemåtenummer skal sammen utgjøre en såkalt tematisk id som brukes av registerførere som opplslagsnummer. Identifikatoren ligner litt på Gnr/Bnr/Fnr.
+
+&lt;b&gt;Stedsnummeret&lt;/b&gt; er et løpende nummer systemet gir stedet som en identifikator. Stedsnummeret er unikt og kan ikke brukes om igjen.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">STEDSNUMMER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="skrivemåtenummer" type="integer">
+            <annotation>
+              <documentation>stedsnummer, stedsnavnsnummer og skrivemåtenummer skal sammen utgjøre en såkalt tematisk id som brukes av registerførere som opplslagsnummer. Identifikatoren ligner litt på Gnr/Bnr/Fnr.
+
+&lt;b&gt;Skrivemåtenummer&lt;/b&gt; er et løpende nummer systemet gir skrivemåten som en identifikator. skrivemåtenummeret er kun unikt under ett stedsnavnsnummer og kan ikke brukes om igjen for dette stedsnavnet.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">SKRIVEMÅTENUMMER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="StedsnavnTekstPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:StedsnavnTekst"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="TekstReferansePunkt" substitutionGroup="gml:AbstractObject" type="nydatakilde:TekstReferansePunktType"/>
+  <complexType name="TekstReferansePunktType">
+    <sequence>
+      <element name="tekstReferansePunktNord" type="gml:CodeType">
+        <annotation>
+          <documentation>vertikal plassering av teksten.
+Merknad: N50 Kartdata plasseres alltid teksten langs bunnlinja, dvs. TRNORD = 0</documentation>
+          <appinfo>
+            <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/tekstreferansepunktnord</sc:targetCodeListURI>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="tekstReferansePunktØst" type="gml:CodeType">
+        <annotation>
+          <documentation>horisontal plassering av teksten</documentation>
+          <appinfo>
+            <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/tekstreferansepunkt%C3%B8st</sc:targetCodeListURI>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="TekstReferansePunktPropertyType">
+    <sequence>
+      <element ref="nydatakilde:TekstReferansePunkt"/>
+    </sequence>
+  </complexType>
+  <element name="Tekstformatering" substitutionGroup="gml:AbstractObject" type="nydatakilde:TekstformateringType"/>
+  <complexType name="TekstformateringType">
+    <sequence>
+      <element minOccurs="0" name="tekstReferansepunkt" type="nydatakilde:TekstReferansePunktPropertyType">
+        <annotation>
+          <documentation>tekstens referansepunkt er det stedet på teksten hvor en tekstplassering refererer seg til.</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">TREF</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="tegnavstand" type="integer">
+        <annotation>
+          <documentation>avstanden mellom bokstavene i teksten, enhet er prosent</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">TEGNAVSTAND</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="skriftkode" type="gml:CodeType">
+        <annotation>
+          <documentation>produktavhengig koplingsnøkkel mot presentasjonsinformasjon</documentation>
+          <appinfo>
+            <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/skriftkode</sc:targetCodeListURI>
+            <sc:taggedValue tag="SOSI_navn">SKRIFTKODE</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="skrifttype" type="string">
+        <annotation>
+          <documentation>angivelse av den skrifttype eller font som skal benyttes. Default skrifttype er ARIAL
+Merknad: For samiske tegn anbefales SK Sans Serif, nedlastbart fra Statens kartverks nettsider</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">SKRIFTTYPE</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="referansemålestokk" type="integer">
+        <annotation>
+          <documentation>egenskap som beskriver hvilken målestokk (oppgitt som målestokkstall) denne teksten er redigert for, både størrelse og
+plassering. Kan benyttes for å velge hvilke tekster som skal tegnes ut i ulike målestokker.</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">REFMSTK</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="TekstformateringPropertyType">
+    <sequence>
+      <element ref="nydatakilde:Tekstformatering"/>
+    </sequence>
+  </complexType>
+  <element name="Territorialgrense" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:TerritorialgrenseType">
+    <annotation>
+      <documentation>avgrensning i havet av statens suverenitetsområde, beregnet 12 nm (22 224 m) utenfor og parallelt med grunnlinjen</documentation>
+      <appinfo>
+        <sc:taggedValue tag="SOSI_navn">TERRITORIALGRENSE</sc:taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="TerritorialgrenseType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="TerritorialgrensePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Territorialgrense"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Tettbebyggelse" substitutionGroup="nydatakilde:SOSI_Objekt_PunkterOgLinjer" type="nydatakilde:TettbebyggelseType">
+    <annotation>
+      <documentation>sammenhengende bebygd område (overveiende boligbegyggelse) hvor husene i hovedsak ligger tettere enn 50 meter
+
+
+-- Definition --
+continuous, developed area (predominantly residential) where the buildings, for the most part, are closer than 50 metres apart</documentation>
+    </annotation>
+  </element>
+  <complexType name="TettbebyggelseType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_PunkterOgLinjerType">
+        <sequence>
+          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>sted som objektet eksisterer på</documentation>
+            </annotation>
+          </element>
+          <element name="tettbebyggelsestype" type="gml:CodeType">
+            <annotation>
+              <documentation>Klassifisering av tettbebyggelse etter innbyggertall</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/tettbebyggelsestype</sc:targetCodeListURI>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="TettbebyggelsePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Tettbebyggelse"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Veglenke" substitutionGroup="nydatakilde:SOSI_Objekt_Linjer_Samferdsel" type="nydatakilde:VeglenkeType">
+    <annotation>
+      <documentation>Objekttype som representerer lenker i vegnettet
+Eksempel: NVDB Referanselenkedeler</documentation>
+    </annotation>
+  </element>
+  <complexType name="VeglenkeType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_Linjer_SamferdselType">
+        <sequence>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger objektets sentrale del</documentation>
+            </annotation>
+          </element>
+          <element name="typeVeg" type="gml:CodeType">
+            <annotation>
+              <documentation>type veg</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/typeveg</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">TYPEVEG</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vegsystem" type="nydatakilde:VegsystemPropertyType">
+            <annotation>
+              <documentation>definerer hvilke deler av vegnettet som forvaltningsmessig hører sammen</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="motorvegtype" type="gml:CodeType">
+            <annotation>
+              <documentation>klassifisering av veger etter grad av vilkår med hensyn til f.eks. fart, avkjøringer/kryss og antall kjørefelt</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/motorvegtype</sc:targetCodeListURI>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VeglenkePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Veglenke"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Vegsystem" substitutionGroup="gml:AbstractObject" type="nydatakilde:VegsystemType"/>
+  <complexType name="VegsystemType">
+    <sequence>
+      <element minOccurs="0" name="vegkategori" type="gml:CodeType">
+        <annotation>
+          <documentation>kategorisering som angir på hvilket nivå vegmyndigheten for strekningen ligger</documentation>
+          <appinfo>
+            <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/vegkategori</sc:targetCodeListURI>
+            <sc:taggedValue tag="SOSI_navn">VEGKATEGORI</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="vegfase" type="gml:CodeType">
+        <annotation>
+          <documentation>angir vegens fase i livet</documentation>
+          <appinfo>
+            <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/kartdata/vegfase</sc:targetCodeListURI>
+            <sc:taggedValue tag="SOSI_navn">VEGFASE</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="vegnummer" type="integer">
+        <annotation>
+          <documentation>angir hvilke deler av vegnettet som rutemessig hører sammen</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">VEGNUMMER</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="VegsystemPropertyType">
+    <sequence>
+      <element ref="nydatakilde:Vegsystem"/>
+    </sequence>
+  </complexType>
+  <element name="ÅpentOmråde" substitutionGroup="nydatakilde:SOSI_Objekt_Flater" type="nydatakilde:ÅpentOmrådeType">
+    <annotation>
+      <documentation>område som ikke er klassifisert som annet tema i henhold til gjeldende produktspesifikasjon</documentation>
+    </annotation>
+  </element>
+  <complexType name="ÅpentOmrådeType">
+    <complexContent>
+      <extension base="nydatakilde:SOSI_Objekt_FlaterType">
+        <sequence>
+          <element name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>objektets utstrekning</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvDataavgrensning" type="nydatakilde:DataavgrensningPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvFiktivDelelinje" type="nydatakilde:FiktivDelelinjePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvArealbrukgrense" type="nydatakilde:ArealbrukgrensePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvKystkontur" type="nydatakilde:KystkonturPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvInnsjøkant" type="nydatakilde:InnsjøkantPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ÅpentOmrådePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:ÅpentOmråde"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>
