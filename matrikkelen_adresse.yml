@@ -1,0 +1,10 @@
+metadataId: f7df7a18-b30f-4745-bd64-d0863812350c
+output_directory: produktspesifikasjon
+product_slug: matrikkelen_adresse
+updated: '2026-09-02'
+outputs: xsd
+scopes:
+- name: Ny datakilde
+  url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/Matrikkelen-Adresse_20200501.xml
+  generator: xmi
+  description: ''
