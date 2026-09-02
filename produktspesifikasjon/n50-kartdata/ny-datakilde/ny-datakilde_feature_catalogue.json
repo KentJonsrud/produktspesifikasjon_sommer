@@ -1,66 +1,40 @@
 [
   {
-    "name": "SOSI_Objekt_PunkterOgLinjer",
-    "description": "abstrakt objekt som bærer en rekke egenskaper som er til felles for flere objekttyper med punkt- eller linjegeometri i underpakkene Administrative områder, Arealdekke, Bygninger og anlegg, Restriksjonsområder og Samferdsel i dette applikasjonsskjemaet",
+    "name": "FiktivDelelinje",
+    "description": "linje for å dele opp store flateobjekter\n\nMerknad:\nEn del produktspesifikasjoner benytter spesifikke fiktive delelinjer.",
     "attributes": [
       {
-        "name": "oppdateringsdato",
-        "type": "Date",
-        "description": "dato for siste endring på objektetdataene\n\n-Definition-\nDate and time at which this version of the spatial object was inserted or changed in the spatial data set.",
-        "cardinality": "1",
-        "taggedValues": {
-          "SOSI_navn": "OPPDATERINGSDATO"
-        }
-      },
-      {
-        "name": "kvalitet",
-        "type": "Posisjonskvalitet",
-        "description": "beskrivelse av kvaliteten på stedfestingen",
-        "cardinality": "1",
-        "attributes": [
-          {
-            "name": "målemetode",
-            "type": "Målemetode",
-            "description": "metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss",
-            "cardinality": "1",
-            "valueDomain": {
-              "kind": "codelist",
-              "listedValues": [
-                {
-                  "value": "Genererte data Generalisering",
-                  "label": "Genererte data: Generalisering"
-                }
-              ],
-              "definition": "metode som ligger til grunn for registrering av posisjon\n\n\n-- Definition - -\nmethod on which registration of position is based",
-              "asDictionary": "false"
-            }
-          },
-          {
-            "name": "nøyaktighet",
-            "type": "Nøyaktighet",
-            "description": "punktstandardavviket i grunnriss for punkter samt tverravvik for linjer\n\nMerknad:\nOppgitt i cm",
-            "cardinality": "1",
-            "valueDomain": {
-              "kind": "codelist",
-              "listedValues": [
-                {
-                  "value": "100000",
-                  "label": "Nøyaktigheten varierer med +/-1000 m"
-                }
-              ],
-              "definition": "punktstandardavviket i grunnriss for punkter samt tverravvik for linjer\n\nMerknad:\nOppgitt i cm",
-              "asDictionary": "false"
-            },
-            "taggedValues": {
-              "SOSI_navn": "NØYAKTIGHET"
-            }
-          }
-        ]
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
       }
     ],
-    "abstract": true,
+    "abstract": false,
     "relationships": {
-      "inheritance": [],
+      "inheritance": [
+        "SOSI_Objekt_Hjelpelinjer"
+      ],
+      "associations": []
+    },
+    "package": "Generelle typer"
+  },
+  {
+    "name": "Dataavgrensning",
+    "description": "generell avgrensningslinje, f.eks. mellom datasett med ulik kvalitet, innhold eller detaljering",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Hjelpelinjer"
+      ],
       "associations": []
     },
     "package": "Generelle typer"
@@ -87,26 +61,6 @@
     "package": "Generelle typer"
   },
   {
-    "name": "Dataavgrensning",
-    "description": "generell avgrensningslinje, f.eks. mellom datasett med ulik kvalitet, innhold eller detaljering",
-    "attributes": [
-      {
-        "name": "grense",
-        "type": "GM_Curve",
-        "description": "forløp som følger overgang mellom ulike fenomener",
-        "cardinality": "1"
-      }
-    ],
-    "abstract": false,
-    "relationships": {
-      "inheritance": [
-        "SOSI_Objekt_Hjelpelinjer"
-      ],
-      "associations": []
-    },
-    "package": "Generelle typer"
-  },
-  {
     "name": "SOSI_Objekt_Linjer_Samferdsel",
     "description": "abstrakt objekt som bærer en rekke egenskaper som er til felles for flere objekttyper i underpakke Samferdsel i dette applikasjonsskjemaet",
     "attributes": [
@@ -123,6 +77,15 @@
         },
         "taggedValues": {
           "SOSI_navn": "MEDIUM"
+        }
+      },
+      {
+        "name": "datafangstdato",
+        "type": "Date",
+        "description": "dato når objektet siste gang ble registrert/observert/målt i terrenget",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "DATAFANGSTDATO"
         }
       },
       {
@@ -150,14 +113,9 @@
             "cardinality": "1",
             "valueDomain": {
               "kind": "codelist",
-              "listedValues": [
-                {
-                  "value": "Genererte data Generalisering",
-                  "label": "Genererte data: Generalisering"
-                }
-              ],
               "definition": "metode som ligger til grunn for registrering av posisjon\n\n\n-- Definition - -\nmethod on which registration of position is based",
-              "asDictionary": "false"
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/m%C3%A5lemetode"
             }
           },
           {
@@ -167,14 +125,211 @@
             "cardinality": "1",
             "valueDomain": {
               "kind": "codelist",
-              "listedValues": [
-                {
-                  "value": "100000",
-                  "label": "Nøyaktigheten varierer med +/-1000 m"
-                }
-              ],
               "definition": "punktstandardavviket i grunnriss for punkter samt tverravvik for linjer\n\nMerknad:\nOppgitt i cm",
-              "asDictionary": "false"
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/n%c3%b8yaktighet"
+            },
+            "taggedValues": {
+              "SOSI_navn": "NØYAKTIGHET"
+            }
+          }
+        ]
+      }
+    ],
+    "abstract": true,
+    "relationships": {
+      "inheritance": [],
+      "associations": []
+    },
+    "package": "Generelle typer"
+  },
+  {
+    "name": "SOSI_Objekt_Flater",
+    "description": "abstrakt supertype som samler fellesegenskaper og assosiasjoner som gjelder objekttyper som bare har flategeometri",
+    "attributes": [
+      {
+        "name": "oppdateringsdato",
+        "type": "Date",
+        "description": "dato for siste endring på objektetdataene\n\n-Definition-\nDate and time at which this version of the spatial object was inserted or changed in the spatial data set.",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "OPPDATERINGSDATO"
+        }
+      }
+    ],
+    "abstract": true,
+    "relationships": {
+      "inheritance": [],
+      "associations": [
+        {
+          "target": "KantUtsnitt",
+          "role": "avgrensesAvKantutsnitt",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Generelle typer"
+  },
+  {
+    "name": "SOSI_Objekt_Sperrelinjer",
+    "description": "abstrakt objekt som bærer en rekke egenskaper som er felles for alle sperrelinjer i dette applikasjonsskjemaet",
+    "attributes": [
+      {
+        "name": "oppdateringsdato",
+        "type": "Date",
+        "description": "dato for siste endring på objektdataene",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "OPPDATERINGSDATO"
+        }
+      }
+    ],
+    "abstract": true,
+    "relationships": {
+      "inheritance": [],
+      "associations": []
+    },
+    "package": "Generelle typer"
+  },
+  {
+    "name": "SOSI_Objekt_Kombinasjon_Ulike_Geometrityper",
+    "description": "abstrakt objekt som bærer en rekke egenskaper som er til felles for alle objekttyper med en kombinasjon av punkt- og flategeometri eller linje- og flategeometri i dette applikasjonsskjemaet",
+    "attributes": [
+      {
+        "name": "datafangstdato",
+        "type": "Date",
+        "description": "dato når objektet siste gang ble registrert/observert/målt i terrenget",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "DATAFANGSTDATO"
+        }
+      },
+      {
+        "name": "oppdateringsdato",
+        "type": "Date",
+        "description": "dato for siste endring på objektetdataene\n\n-Definition-\nDate and time at which this version of the spatial object was inserted or changed in the spatial data set.",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "OPPDATERINGSDATO"
+        }
+      },
+      {
+        "name": "kvalitet",
+        "type": "Posisjonskvalitet",
+        "description": "beskrivelse av kvaliteten på stedfestingen",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "målemetode",
+            "type": "Målemetode",
+            "description": "metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "metode som ligger til grunn for registrering av posisjon\n\n\n-- Definition - -\nmethod on which registration of position is based",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/m%C3%A5lemetode"
+            }
+          },
+          {
+            "name": "nøyaktighet",
+            "type": "Nøyaktighet",
+            "description": "punktstandardavviket i grunnriss for punkter samt tverravvik for linjer\n\nMerknad:\nOppgitt i cm",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "punktstandardavviket i grunnriss for punkter samt tverravvik for linjer\n\nMerknad:\nOppgitt i cm",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/n%c3%b8yaktighet"
+            },
+            "taggedValues": {
+              "SOSI_navn": "NØYAKTIGHET"
+            }
+          }
+        ]
+      }
+    ],
+    "abstract": true,
+    "relationships": {
+      "inheritance": [],
+      "associations": [
+        {
+          "target": "KantUtsnitt",
+          "role": "avgrensesAvKantUtsnitt",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Generelle typer"
+  },
+  {
+    "name": "SOSI_Objekt_PunkterOgLinjer_Høyde",
+    "description": "abstrakt objekt som bærer en rekke egenskaper som er til felles for flere objekttyper i underpakke Høyde i dette applikasjonsskjemaet",
+    "attributes": [
+      {
+        "name": "medium",
+        "type": "MediumHøyde",
+        "description": "objektets beliggenhet i forhold til jordoverflaten\n\nEksempel:\nPå bro, i tunnel, inne i et bygningsmessig anlegg, etc.",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "objektets beliggenhet i forhold til jordoverflaten\n\nEksempel:\nVeg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/mediumh%C3%B8yde"
+        },
+        "taggedValues": {
+          "SOSI_navn": "MEDIUM"
+        }
+      },
+      {
+        "name": "datafangstdato",
+        "type": "Date",
+        "description": "dato når objektet siste gang ble registrert/observert/målt i terrenget",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "DATAFANGSTDATO"
+        }
+      },
+      {
+        "name": "oppdateringsdato",
+        "type": "Date",
+        "description": "dato for siste endring på objektetdataene\n\n-Definition-\nDate and time at which this version of the spatial object was inserted or changed in the spatial data set.",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "OPPDATERINGSDATO"
+        }
+      },
+      {
+        "name": "kvalitet",
+        "type": "Posisjonskvalitet",
+        "description": "beskrivelse av kvaliteten på stedfestingen",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "KVALITET"
+        },
+        "attributes": [
+          {
+            "name": "målemetode",
+            "type": "Målemetode",
+            "description": "metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "metode som ligger til grunn for registrering av posisjon\n\n\n-- Definition - -\nmethod on which registration of position is based",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/m%C3%A5lemetode"
+            }
+          },
+          {
+            "name": "nøyaktighet",
+            "type": "Nøyaktighet",
+            "description": "punktstandardavviket i grunnriss for punkter samt tverravvik for linjer\n\nMerknad:\nOppgitt i cm",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "punktstandardavviket i grunnriss for punkter samt tverravvik for linjer\n\nMerknad:\nOppgitt i cm",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/n%c3%b8yaktighet"
             },
             "taggedValues": {
               "SOSI_navn": "NØYAKTIGHET"
@@ -211,9 +366,18 @@
     "package": "Generelle typer"
   },
   {
-    "name": "SOSI_Objekt_Flater",
-    "description": "abstrakt supertype som samler fellesegenskaper og assosiasjoner som gjelder objekttyper som bare har flategeometri",
+    "name": "SOSI_Objekt_PunkterOgLinjer",
+    "description": "abstrakt objekt som bærer en rekke egenskaper som er til felles for flere objekttyper med punkt- eller linjegeometri i underpakkene Administrative områder, Arealdekke, Bygninger og anlegg, Restriksjonsområder og Samferdsel i dette applikasjonsskjemaet",
     "attributes": [
+      {
+        "name": "datafangstdato",
+        "type": "Date",
+        "description": "dato når objektet siste gang ble registrert/observert/målt i terrenget",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "DATAFANGSTDATO"
+        }
+      },
       {
         "name": "oppdateringsdato",
         "type": "Date",
@@ -222,44 +386,53 @@
         "taggedValues": {
           "SOSI_navn": "OPPDATERINGSDATO"
         }
+      },
+      {
+        "name": "kvalitet",
+        "type": "Posisjonskvalitet",
+        "description": "beskrivelse av kvaliteten på stedfestingen",
+        "cardinality": "1",
+        "attributes": [
+          {
+            "name": "målemetode",
+            "type": "Målemetode",
+            "description": "metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "metode som ligger til grunn for registrering av posisjon\n\n\n-- Definition - -\nmethod on which registration of position is based",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/m%C3%A5lemetode"
+            }
+          },
+          {
+            "name": "nøyaktighet",
+            "type": "Nøyaktighet",
+            "description": "punktstandardavviket i grunnriss for punkter samt tverravvik for linjer\n\nMerknad:\nOppgitt i cm",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "punktstandardavviket i grunnriss for punkter samt tverravvik for linjer\n\nMerknad:\nOppgitt i cm",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/n%c3%b8yaktighet"
+            },
+            "taggedValues": {
+              "SOSI_navn": "NØYAKTIGHET"
+            }
+          }
+        ]
       }
     ],
     "abstract": true,
     "relationships": {
       "inheritance": [],
-      "associations": [
-        {
-          "target": "KantUtsnitt",
-          "role": "avgrensesAvKantUtsnitt",
-          "cardinality": "0..*"
-        }
-      ]
-    },
-    "package": "Generelle typer"
-  },
-  {
-    "name": "FiktivDelelinje",
-    "description": "linje for å dele opp store flateobjekter\n\nMerknad:\nEn del produktspesifikasjoner benytter spesifikke fiktive delelinjer.",
-    "attributes": [
-      {
-        "name": "grense",
-        "type": "GM_Curve",
-        "description": "forløp som følger overgang mellom ulike fenomener",
-        "cardinality": "1"
-      }
-    ],
-    "abstract": false,
-    "relationships": {
-      "inheritance": [
-        "SOSI_Objekt_Hjelpelinjer"
-      ],
       "associations": []
     },
     "package": "Generelle typer"
   },
   {
-    "name": "Territorialgrense",
-    "description": "avgrensning i havet av statens suverenitetsområde, beregnet 12 nm (22 224 m) utenfor og parallelt med grunnlinjen",
+    "name": "AvtaltAvgrensningslinje",
+    "description": "avtalt avgrensningslinje til havs basert på folkerettslig bindende avtaler\n\nMerknad:\nAvtalt avgrensningslinje vil normalt gjelde alle aktuelle former for kyststatsjurisdiksjon. Detaljene vil framgå av den aktuelle avgrensningsavtale.",
     "attributes": [
       {
         "name": "grense",
@@ -277,12 +450,62 @@
     },
     "package": "Administrative_områder",
     "taggedValues": {
-      "SOSI_navn": "TERRITORIALGRENSE"
+      "SOSI_navn": "AVTALTAVGRENSNINGSLINJE"
     }
   },
   {
-    "name": "Grunnlinje",
-    "description": "rette linjer trukket opp mellom punkter på de ytterste nes og skjær som stikker opp av havet ved lavvann (fjære sjø)\n\nMerknad:\nMed rett linje forstås den korteste linje mellom to punkt (såkalt geodetisk linje).",
+    "name": "Teiggrensepunkt",
+    "description": "koordinatbestemt punkt som er påvist, beskrevet og/eller markert spesielt i den geografiske avgrensinga av teigen\n\n\n-- Definition --\npoint established by coordinates, which is proven, described and/or marked specifically in the geographical demarcation of the parcel Note: Can also be am auxiliary point for technical registration purposes Note: A boundary point is placed either at the beginning or end of a parcel boundary.",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Punkt"
+        }
+      },
+      {
+        "name": "grensepunkttype",
+        "type": "Grensepunkttype",
+        "description": "angivelse av hva slags grensemerke som er brukt i terrenget. Sier også om grensepunktet er merket i terrenget, eller om det bare er et registreringsteknisk punkt.\n\n-- Definition --\nstatement of what kind of grensemerke which is used in the terrain. Indicates also whether the boundary point is marked in the terrain, or whether it is merely a point for technical registration purposes.",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "Angivelse av hva slags grensemerke som er brukt i terrenget.",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/grensepunkttype"
+        },
+        "taggedValues": {
+          "SOSI_navn": "GRENSEPUNKTTYPE"
+        }
+      },
+      {
+        "name": "grensepunktnummer",
+        "type": "CharacterString",
+        "description": "Kommunens nummerering av grensepunkt",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "GRENSEPUNKTNUMMER"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Administrative_områder",
+    "taggedValues": {
+      "SOSI_navn": "TEIGGRENSEPUNKT"
+    }
+  },
+  {
+    "name": "Fylkesgrense",
+    "description": "avgrensning av fylke",
     "attributes": [
       {
         "name": "grense",
@@ -298,7 +521,10 @@
       ],
       "associations": []
     },
-    "package": "Administrative_områder"
+    "package": "Administrative_områder",
+    "taggedValues": {
+      "SOSI_navn": "FYLKESGRENSE"
+    }
   },
   {
     "name": "Kommune",
@@ -311,6 +537,15 @@
         "cardinality": "1"
       },
       {
+        "name": "kommunenavn",
+        "type": "CharacterString",
+        "description": "offisielt navn på kommunen",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "KOMMUNENAVN"
+        }
+      },
+      {
         "name": "kommunenummer",
         "type": "Kommunenummer",
         "description": "nummerering av kommuner i henhold til Statistisk sentralbyrå sin offisielle liste\n\nMerknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med ledende null. Kommune benyttes for kopling mot en rekke andre registre som også benytter 4 siffer.\n\n-- Definition - -\nnumbering of municipalities in accordance with Statistics Norway’s official list\nNote: It must be following that municipality number always consists of 4 digits, i.e. sometimes with leading zero. Municipality is used for establishing relations to a number of other registers which also use 4 digits.",
@@ -320,18 +555,6 @@
           "definition": "nummerering av kommuner i henhold til Statistisk sentralbyrå sin offisielle liste samt et utvalg av utgåtte numre\n\nMerknad: Det presiseres at kommune alltid skal ha 4 sifre, dvs. eventuelt med ledende null. Kommune benyttes for kopling mot en rekke andre registre som også benytter 4 sifre.\n\nMerknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske tegn eller tankestrek. Det betyr at det vil forekomme avvik mellom definisjonene i denne lista i SOSI modellregister og definisjonene i offisielt standarddokument.",
           "asDictionary": "true",
           "codeList": "https://register.geonorge.no/sosi-kodelister/inndelinger/inndelingsbase/kommunenummer"
-        },
-        "taggedValues": {
-          "SOSI_navn": "KOMMUNENUMMER"
-        }
-      },
-      {
-        "name": "kommunenavn",
-        "type": "CharacterString",
-        "description": "offisielt navn på kommunen",
-        "cardinality": "1",
-        "taggedValues": {
-          "SOSI_navn": "KOMMUNENAVN"
         }
       },
       {
@@ -360,8 +583,13 @@
       ],
       "associations": [
         {
-          "target": "Territorialgrense",
-          "role": "avgrensesAvTerritorialgrense",
+          "target": "AvtaltAvgrensningslinje",
+          "role": "avgrensesAvAvtaltAvgrensningslinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Fylkesgrense",
+          "role": "avgrensesAvFylkesgrense",
           "cardinality": "0..*"
         },
         {
@@ -370,13 +598,13 @@
           "cardinality": "0..*"
         },
         {
-          "target": "Kommunegrense",
-          "role": "avgrensesAvKommunegrense",
+          "target": "Territorialgrense",
+          "role": "avgrensesAvTerritorialgrense",
           "cardinality": "0..*"
         },
         {
-          "target": "Fylkesgrense",
-          "role": "avgrensesAvFylkesgrense",
+          "target": "Kommunegrense",
+          "role": "avgrensesAvKommunegrense",
           "cardinality": "0..*"
         }
       ]
@@ -384,52 +612,6 @@
     "package": "Administrative_områder",
     "taggedValues": {
       "SOSI_navn": "KOMMUNE"
-    }
-  },
-  {
-    "name": "Fylkesgrense",
-    "description": "avgrensning av fylke",
-    "attributes": [
-      {
-        "name": "grense",
-        "type": "GM_Curve",
-        "description": "forløp som følger overgang mellom ulike fenomener",
-        "cardinality": "1"
-      }
-    ],
-    "abstract": false,
-    "relationships": {
-      "inheritance": [
-        "SOSI_Objekt_PunkterOgLinjer"
-      ],
-      "associations": []
-    },
-    "package": "Administrative_områder",
-    "taggedValues": {
-      "SOSI_navn": "FYLKESGRENSE"
-    }
-  },
-  {
-    "name": "Kommunegrense",
-    "description": "avgrensing av kommune",
-    "attributes": [
-      {
-        "name": "grense",
-        "type": "GM_Curve",
-        "description": "forløp som følger overgang mellom ulike fenomener",
-        "cardinality": "1"
-      }
-    ],
-    "abstract": false,
-    "relationships": {
-      "inheritance": [
-        "SOSI_Objekt_PunkterOgLinjer"
-      ],
-      "associations": []
-    },
-    "package": "Administrative_områder",
-    "taggedValues": {
-      "SOSI_navn": "KOMMUNEGRENSE"
     }
   },
   {
@@ -459,9 +641,554 @@
     }
   },
   {
+    "name": "Grunnlinje",
+    "description": "rette linjer trukket opp mellom punkter på de ytterste nes og skjær som stikker opp av havet ved lavvann (fjære sjø)\n\nMerknad:\nMed rett linje forstås den korteste linje mellom to punkt (såkalt geodetisk linje).",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Administrative_områder"
+  },
+  {
+    "name": "Kommunegrense",
+    "description": "avgrensing av kommune",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Administrative_områder",
+    "taggedValues": {
+      "SOSI_navn": "KOMMUNEGRENSE"
+    }
+  },
+  {
+    "name": "Grunnlinjepunkt",
+    "description": "knekkpunkt på grunnlinjen",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Punkt"
+        }
+      },
+      {
+        "name": "grunnlinjepunktnavn",
+        "type": "CharacterString",
+        "description": "angivelse av navn på grunnlinjen",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "GRUNNLINJENAVN"
+        }
+      },
+      {
+        "name": "grunnlinjepunktnummer",
+        "type": "CharacterString",
+        "description": "angivelse av nummeret på grunnlinjen",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "GRUNNLINJENUMMER"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Administrative_områder"
+  },
+  {
+    "name": "Territorialgrense",
+    "description": "avgrensning i havet av statens suverenitetsområde, beregnet 12 nm (22 224 m) utenfor og parallelt med grunnlinjen",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Administrative_områder",
+    "taggedValues": {
+      "SOSI_navn": "TERRITORIALGRENSE"
+    }
+  },
+  {
+    "name": "ElvMidtlinje",
+    "description": "kunstig objekt hvor senterlinjen er en fiktiv linje som skjøter sammen en-strekselver gjennom en elveflate",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Park",
+    "description": "grøntområde i by- eller tettbygd område, opparbeidet og vedlikeholdt med plenareal, beplantninger, vannpartier og lignende\n\n\n-- Definition --\ngreen area in a city or densely populated area, worked up and maintained, with lawns, planting, water features, etc.",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Flomløpkant",
+    "description": "begrensningslinje for store markerte elveløp hvor det pga regulering eller andre årsaker bare det en sjelden gang er vannføring\n\n\n-- Definition --\nDemarkation line for large river courses where water flow is occational due to regulation or other causes.",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "ElvelinjeFiktiv",
+    "description": "Kunstig objekt hvor senterlinjen representerer en fiktiv linje som skjøter sammen lenker der det er hull i beskrivelsen av vannforløp\n\n-- Definition –\nArtificial objekt where the center linje represents a fictious line joining links where there are gaps in the description of water courses",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Skog",
+    "description": "alle typer skogsmark som barskog, lauvskog og blandingsskog\n\nMerknad: Også hogstflater - selv om nyplanting ikke er synlig.  Omfatter alle slags skogboniteter, også storvokste vierkrattbelter i Nord-Norge\n\n\n-- Definition --\nall types of forest land, such as coniferous forest, deciduous forest and mixed forest",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "ElveKant",
+    "description": "konturlinje mellom land og elveflate\n\n\n-- Definition --\nDemarkation line between land and river surface.",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "InnsjøInnsjøSperre",
+    "description": "hjelpelinje for avgrensning av en innsjø mot en annen innsjø der det ikke er elv mellom\n\n\n-- Definition --\nConstruction line for delimitation of lake surface from another lake where there is no river between them.",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Sperrelinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Myr",
+    "description": "åpent ikke skogvokst område med myrvegetasjon\n\nMerknad:  Myra kan være bevokst, men da av få eller små trær.  Grøftet myr som er blitt skogmark tas IKKE med\n\n\n-- Definition --\nopen, non-forested area with marsh vegetation",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "ÅpentOmråde",
+    "description": "område som ikke er klassifisert som annet tema i henhold til gjeldende produktspesifikasjon",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Gravplass",
+    "description": "areal hvor gravlegging kan finne sted i en grav  innenfor gravfelt",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Flate"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantregulert",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke",
+    "taggedValues": {
+      "SOSI_navn": "Gravplass"
+    }
+  },
+  {
+    "name": "Kystkontur",
+    "description": "grense mellom land og sjø, definert som midlere høyvannslinje\n\nMerknad:\nTilsvarer COALNE i S-57\n\n\n-- Definition --\nboundary between land and sea, defined as the mean high water line Note: Corresponds to COALNE in S-57",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Kurve"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Arealbrukgrense",
+    "description": "avgrensning av de ulike arealbruksflatene\n\nMerknad:\nKode for bruken av arealet legges på flaten, dvs på representasjonspunktet der dette representerer flata.\n\n\n-- Definition --\ndelimitation of the various land use areas Note: Land use code is assigned to the surface, i.e. on the representation point which represents this surface.",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
     "name": "Lufthavn",
     "description": "land- eller sjøområde (med bygninger, installasjoner og utstyr) som helt eller delvis brukes for luftfartøyers avgang, landing og annen manøvrering på bakken",
     "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "Flate"
+        }
+      },
       {
         "name": "posisjon",
         "type": "GM_Point",
@@ -548,6 +1275,208 @@
         "taggedValues": {
           "SOSI_navn": "NAVN"
         }
+      },
+      {
+        "name": "retning",
+        "type": "Retning",
+        "description": "linjestykke i planet med retning",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "retningsverdi",
+            "type": "Real",
+            "description": "generelt element med angivelse av retning",
+            "cardinality": "1",
+            "taggedValues": {
+              "SOSI_navn": "RETN"
+            }
+          },
+          {
+            "name": "retningsenhet",
+            "type": "Retningsenhet",
+            "description": "enhet for retning",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "enhet for retning",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/retningsenhet"
+            }
+          },
+          {
+            "name": "retningsreferanse",
+            "type": "Retningsreferanse",
+            "description": "referansesystem for retning",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "referansesystem for retning",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/retningsreferanse"
+            }
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Kombinasjon_Ulike_Geometrityper"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "FerskvannTørrfall",
+    "description": "sandbanker og avleiringer i elv/bekk som oversvømmes ved normal høyvannsføring\n\nMerknad:\nFlatene avgrenses av FerskvannTørrfallKant og elve- eller kanalkant som grenser inn til tørrfallet.\n\n\n-- Definition --\nBanks of sand or sediments in rivers and brooks which is flooded during high water levels.",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "FerskvannTørrfallkant",
+          "role": "avgrensesAvFerskvanntørrfallkant",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "SportIdrettPlass",
+    "description": "område hvor det utøves sport og idrett\n\n\n-- Definition --\narea where sports and athletics are engaged in??",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "KanalGrøft",
+    "description": "rennende vann der forløpet er menneskeskapt\n\n\n-- Definition --\nRunning water where the water course is made by humans.",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Kurve"
+        }
+      },
+      {
+        "name": "vannBredde",
+        "type": "VannBredde",
+        "description": "gir informasjon om hvordan elv/bekk og kanal/grøft grovt er klassifisert etter bredde\n\n-- Definition --\ngives information about how a river/brook and a channel/trench are classified according to width",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "grov klassifikasjon av vassdrag etter gjennomsnittelig bredde over lengre strekninger\n\n\n-- Definition - -\nRough classification of river system according to average width over longer sections.",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/vannbredde"
+        },
+        "taggedValues": {
+          "SOSI_navn": "VANNBR"
+        }
       }
     ],
     "abstract": false,
@@ -566,10 +1495,22 @@
       {
         "name": "senterlinje",
         "type": "GM_Curve",
-        "description": "forløp som følger objektets sentrale del\n\n-- Definition --\ncource follwed by the central part of the object",
-        "cardinality": "0..1",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1",
         "taggedValues": {
           "SOSI_navn": "Kurve"
+        }
+      },
+      {
+        "name": "vannbredde",
+        "type": "VannBredde",
+        "description": "grov klassifikasjon av vassdrag etter gjennomsnittelig bredde over lengre strekninger\n\n\n-- Definition - -\nRough classification of river system according to average width over longer sections.",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "grov klassifikasjon av vassdrag etter gjennomsnittelig bredde over lengre strekninger\n\n\n-- Definition - -\nRough classification of river system according to average width over longer sections.",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/vannbredde"
         }
       }
     ],
@@ -583,8 +1524,8 @@
     "package": "Arealdekke"
   },
   {
-    "name": "Arealbrukgrense",
-    "description": "avgrensning av de ulike arealbruksflatene\n\nMerknad:\nKode for bruken av arealet legges på flaten, dvs på representasjonspunktet der dette representerer flata.\n\n\n-- Definition --\ndelimitation of the various land use areas Note: Land use code is assigned to the surface, i.e. on the representation point which represents this surface.",
+    "name": "FerskvannTørrfallkant",
+    "description": "avgrensningslinje for FerskvannTørrfall\n\n\n-- Definition --\nDemarkation line for FreshwaterForeshoreEdge",
     "attributes": [
       {
         "name": "grense",
@@ -603,72 +1544,13 @@
     "package": "Arealdekke"
   },
   {
-    "name": "Havflate",
-    "description": "havområde som avgrenses av Kystkontur, Kystsperre, HavElvSperre og KystkonturTekniskAnlegg\n\n\n-- Definition --\nsea area which is delimited by Coastline, CoastDelineation, SeaRiverDelineation and ShorelineConstruction",
-    "attributes": [
-      {
-        "name": "område",
-        "type": "GM_Surface",
-        "description": "objektets utstrekning\n\n-- Definition --\narea over which an object extends",
-        "cardinality": "1"
-      }
-    ],
-    "abstract": false,
-    "relationships": {
-      "inheritance": [
-        "SOSI_Objekt_Flater"
-      ],
-      "associations": [
-        {
-          "target": "Dataavgrensning",
-          "role": "avgrensesAvDataavgrensning",
-          "cardinality": "0..*"
-        },
-        {
-          "target": "FiktivDelelinje",
-          "role": "avgrensesAvFiktivDelelinje",
-          "cardinality": "0..*"
-        },
-        {
-          "target": "Kystkontur",
-          "role": "avgrensesAvKystkontur",
-          "cardinality": "0..*"
-        }
-      ]
-    },
-    "package": "Arealdekke"
-  },
-  {
-    "name": "Kystkontur",
-    "description": "grense mellom land og sjø, definert som midlere høyvannslinje\n\nMerknad:\nTilsvarer COALNE i S-57\n\n\n-- Definition --\nboundary between land and sea, defined as the mean high water line Note: Corresponds to COALNE in S-57",
-    "attributes": [
-      {
-        "name": "grense",
-        "type": "GM_Curve",
-        "description": "forløp som følger overgang mellom ulike fenomener\n\n-- Definition --\ncourse follwing the transition between different real world phenomena",
-        "cardinality": "1",
-        "taggedValues": {
-          "SOSI_navn": "Kurve"
-        }
-      }
-    ],
-    "abstract": false,
-    "relationships": {
-      "inheritance": [
-        "SOSI_Objekt_PunkterOgLinjer"
-      ],
-      "associations": []
-    },
-    "package": "Arealdekke"
-  },
-  {
     "name": "Innsjøkant",
     "description": "konturlinje mellom land og innsjø\n\n\n-- Definition --\nDemarkation line between land and lake surface.",
     "attributes": [
       {
         "name": "grense",
         "type": "GM_Curve",
-        "description": "forløp som følger overgang mellom ulike fenomener\n\n-- Definition --\ncourse follwing the transition between different real world phenomena",
+        "description": "forløp som følger overgang mellom ulike fenomener",
         "cardinality": "1"
       }
     ],
@@ -682,54 +1564,8 @@
     "package": "Arealdekke"
   },
   {
-    "name": "Skog",
-    "description": "alle typer skogsmark som barskog, lauvskog og blandingsskog\n\nMerknad: Også hogstflater - selv om nyplanting ikke er synlig.  Omfatter alle slags skogboniteter, også storvokste vierkrattbelter i Nord-Norge\n\n\n-- Definition --\nall types of forest land, such as coniferous forest, deciduous forest and mixed forest",
-    "attributes": [
-      {
-        "name": "område",
-        "type": "GM_Surface",
-        "description": "objektets utstrekning\n\n-- Definition --\narea over which an object extends",
-        "cardinality": "1"
-      }
-    ],
-    "abstract": false,
-    "relationships": {
-      "inheritance": [
-        "SOSI_Objekt_Flater"
-      ],
-      "associations": [
-        {
-          "target": "Dataavgrensning",
-          "role": "avgrensesAvDataavgrensning",
-          "cardinality": "0..*"
-        },
-        {
-          "target": "FiktivDelelinje",
-          "role": "avgrensesAvFiktivDelelinje",
-          "cardinality": "0..*"
-        },
-        {
-          "target": "Arealbrukgrense",
-          "role": "avgrensesAvArealbrukgrense",
-          "cardinality": "0..*"
-        },
-        {
-          "target": "Kystkontur",
-          "role": "avgrensesAvKystkontur",
-          "cardinality": "0..*"
-        },
-        {
-          "target": "Innsjøkant",
-          "role": "avgrensesAvInnsjøkant",
-          "cardinality": "0..*"
-        }
-      ]
-    },
-    "package": "Arealdekke"
-  },
-  {
-    "name": "ÅpentOmråde",
-    "description": "område som ikke er klassifisert som annet tema i henhold til gjeldende produktspesifikasjon",
+    "name": "BymessigBebyggelse",
+    "description": "kvartalsbebyggelse (bykjerne) med stort innslag av forretnings- og servicebygg\n\nMerknad:\nHusene har overveiende to eller flere etasjer.\n\n\n-- Definition --\ncity block (town centre) with a large element of shops and service buildings. Note: The buildings have predominantly two or more storeys.",
     "attributes": [
       {
         "name": "område",
@@ -745,18 +1581,18 @@
       ],
       "associations": [
         {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
           "target": "Dataavgrensning",
           "role": "avgrensesAvDataavgrensning",
           "cardinality": "0..*"
         },
         {
-          "target": "FiktivDelelinje",
-          "role": "avgrensesAvFiktivDelelinje",
-          "cardinality": "0..*"
-        },
-        {
-          "target": "Arealbrukgrense",
-          "role": "avgrensesAvArealbrukgrense",
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
           "cardinality": "0..*"
         },
         {
@@ -765,8 +1601,397 @@
           "cardinality": "0..*"
         },
         {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
           "target": "Innsjøkant",
           "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Tettbebyggelse",
+    "description": "sammenhengende bebygd område (overveiende boligbegyggelse) hvor husene i hovedsak ligger tettere enn 50 meter\n\n\n-- Definition --\ncontinuous, developed area (predominantly residential) where the buildings, for the most part, are closer than 50 metres apart",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "DyrketMark",
+    "description": "fulldyrket (plogmark), beitemark som er overflatebehandlet og bærhager. Jordbruksareal som ligger brakk i kortere perioder eller brukes til kulturbeite, regnes også som dyrket mark\n\n\n-- Definition --\nfullly cultured (plowed land), pasture with surface treatment, and berry gardens. Farmlands which lie fallow for shorter periods or are used as cultivated pasture, are also regarded as crop land.",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Steintipp",
+    "description": "permanent massedeponering som ikke er skogbevokst og er dominerende i\nlandskapet (f.eks. laget i forbindelse med gruvedrift eller vassdragsutbygging)",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Steinbrudd",
+    "description": "område for steinbrudd\n\n\n-- Definition --\narea for stone quarry. Land use boundary is used as delimitation.",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Rullebane",
+    "description": "avgrenset, rektangulært område på en flyplass på land innrettet for landing og avgang med luftfartøyer",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "HavInnsjøSperre",
+    "description": "en fiktiv linje som definerer grensen mellom hav og innsjø, i samme nivå som kystkontur (middel høyvann)\n\n\n-- Definition --\nConstruction line for delimitation of lake surface where it turns into sea surface. At the same altitude as the shoreline (by middle high tide).",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Sperrelinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "HavElvSperre",
+    "description": "en fiktiv linje som definerer grensa mellom sjø og elv, i samme nivå som kystKontur (middel høyvann)\n\nMerknad:\nDenne er identisk med samme linje nevnt under kapitlet Innsjøer og vassdrag).\n\n\n-- Definition --\na fictitious line which defines the border between sea and river at the same level as coastline (mean high water) Note: This is identical to the same line referred to in the chapter on Lakes and watercourses).",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Kurve"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Sperrelinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Golfbane",
+    "description": "område for golfspilling\n\n\n-- Definition --\narea for golfing",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
           "cardinality": "0..*"
         }
       ]
@@ -780,7 +2005,7 @@
       {
         "name": "område",
         "type": "GM_Surface",
-        "description": "objektets utstrekning\n\n-- Definition --\narea over which an object extends",
+        "description": "objektets utstrekning",
         "cardinality": "1",
         "taggedValues": {
           "SOSI_navn": "Flate"
@@ -794,18 +2019,18 @@
       ],
       "associations": [
         {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
           "target": "Dataavgrensning",
           "role": "avgrensesAvDataavgrensning",
           "cardinality": "0..*"
         },
         {
-          "target": "FiktivDelelinje",
-          "role": "avgrensesAvFiktivDelelinje",
-          "cardinality": "0..*"
-        },
-        {
-          "target": "Arealbrukgrense",
-          "role": "avgrensesAvArealbrukgrense",
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
           "cardinality": "0..*"
         },
         {
@@ -814,43 +2039,21 @@
           "cardinality": "0..*"
         },
         {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
           "target": "Innsjøkant",
           "role": "avgrensesAvInnsjøkant",
           "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
         }
       ]
-    },
-    "package": "Arealdekke"
-  },
-  {
-    "name": "Tettbebyggelse",
-    "description": "sammenhengende bebygd område (overveiende boligbegyggelse) hvor husene i hovedsak ligger tettere enn 50 meter\n\n\n-- Definition --\ncontinuous, developed area (predominantly residential) where the buildings, for the most part, are closer than 50 metres apart",
-    "attributes": [
-      {
-        "name": "posisjon",
-        "type": "GM_Point",
-        "description": "sted som objektet eksisterer på",
-        "cardinality": "0..1"
-      },
-      {
-        "name": "tettbebyggelsestype",
-        "type": "Tettbebyggelsestype",
-        "description": "Klassifisering av tettbebyggelse etter innbyggertall",
-        "cardinality": "1",
-        "valueDomain": {
-          "kind": "codelist",
-          "definition": "Klassifisering av tettbebyggelse etter innbyggertall",
-          "asDictionary": "true",
-          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/tettbebyggelsestype"
-        }
-      }
-    ],
-    "abstract": false,
-    "relationships": {
-      "inheritance": [
-        "SOSI_Objekt_PunkterOgLinjer"
-      ],
-      "associations": []
     },
     "package": "Arealdekke"
   },
@@ -861,10 +2064,19 @@
       {
         "name": "område",
         "type": "GM_Surface",
-        "description": "objektets utstrekning\n\n-- Definition --\narea over which an object extends",
+        "description": "objektets utstrekning",
         "cardinality": "1",
         "taggedValues": {
           "SOSI_navn": "Flate"
+        }
+      },
+      {
+        "name": "vatnLøpenummer",
+        "type": "Integer",
+        "description": "unik identifikasjon på innsjøer som fortløpende løpenummer i henhold til NVEs Innsjøregister\n\n-- Definition --\nunique identification of lakes as consecutive serial number in accordance with the lake register of the NVE (The Norwegian Water Resources and Energy Administration)",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "VATNLNR"
         }
       },
       {
@@ -884,23 +2096,1447 @@
       ],
       "associations": [
         {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
           "target": "Dataavgrensning",
           "role": "avgrensesAvDataavgrensning",
           "cardinality": "0..*"
         },
         {
-          "target": "FiktivDelelinje",
-          "role": "avgrensesAvFiktivDelelinje",
+          "target": "InnsjøInnsjøSperre",
+          "role": "avgrensesAvInnsjøinnsjøsperre",
           "cardinality": "0..*"
         },
         {
           "target": "Innsjøkant",
           "role": "avgrensesAvInnsjøkant",
           "cardinality": "0..*"
+        },
+        {
+          "target": "HavInnsjøSperre",
+          "role": "avgrensesAvHavInnsjøSperre",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøElvSperre",
+          "role": "avgrensesAvInnsjøElvSperre",
+          "cardinality": "0..*"
         }
       ]
     },
     "package": "Arealdekke"
+  },
+  {
+    "name": "InnsjøMidtlinje",
+    "description": "kunstig objekt hvor senterlinjen er en fiktiv linje som skjøter sammen en-strekselver gjennom en innsjøflate",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "Fiktiv senterlinje i innsjø",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Havflate",
+    "description": "havområde som avgrenses av Kystkontur, Kystsperre, HavElvSperre og KystkonturTekniskAnlegg\n\n\n-- Definition --\nsea area which is delimited by Coastline, CoastDelineation, SeaRiverDelineation and ShorelineConstruction",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "HavInnsjøSperre",
+          "role": "avgrensesAvHavInnsjøSperre",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "HavElvSperre",
+          "role": "avgrensesAvHavElvSperre",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "InnsjøRegulert",
+    "description": "en ferskvannsflate som ikke er rennende vann og som er regulert\n\n\n-- Definition --\nFreshwater surface which is not running water, but regulated",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "Flate"
+        }
+      },
+      {
+        "name": "vatnLøpenummer",
+        "type": "Integer",
+        "description": "unik identifikasjon på innsjøer som fortløpende løpenummer i henhold til NVEs Innsjøregister\n\n-- Definition --\nunique identification of lakes as consecutive serial number in accordance with the lake register of the NVE (The Norwegian Water Resources and Energy Administration)",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "VATNLNR"
+        }
+      },
+      {
+        "name": "lavesteRegulerteVannstand",
+        "type": "Integer",
+        "description": "laveste regulerte vannstand - LRV\n\n-- Definition --\nlowest regulated water level",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "LRV"
+        }
+      },
+      {
+        "name": "høyde",
+        "type": "Integer",
+        "description": "for regulerte innsjøer er HØYDE tilsvarende høyeste regulert vannstand (HRV)\n\n-- Definition --\nhighest regulated water level",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "HØYDE"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøInnsjøSperre",
+          "role": "avgrensesAvInnsjøinnsjøsperre",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøElvSperre",
+          "role": "avgrensesAvInnsjøElvSperre",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantregulert",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Elv",
+    "description": "større vannvei for rennende vann representert ved flate",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "FerskvannTørrfallkant",
+          "role": "avgrensesAvFerskvanntørrfallkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "HavElvSperre",
+          "role": "avgrensesAvHavElvSperre",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøElvSperre",
+          "role": "avgrensesAvInnsjøElvSperre",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Industriområde",
+    "description": "område, bebygd eller ubebygd, benyttet til industriformål\n\nMerknad:\nOmfatter også anlegg for vannforsyning, avfallshåndtering og rensing, samt kraftstasjon, transformatorstasjon o.l.\n\n\n-- Definition --\ndeveloped or undeveloped, used for industrial purposes. Also includes installations for water supply, waste handling and cleaning, as well as power plants, transformer substation, etc.",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Foss",
+    "description": "vann i tilnærmet fritt fall\n\nMerknad:\nRepresenteres med punkt eller linje mellom topp og bunn av foss.\n\n\n-- Definition --\nQuoted height of fall for waterfall and cascades.",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "NØ"
+        }
+      },
+      {
+        "name": "retning",
+        "type": "Retning",
+        "description": "linjestykke i planet med retning",
+        "cardinality": "1",
+        "attributes": [
+          {
+            "name": "retningsverdi",
+            "type": "Real",
+            "description": "generelt element med angivelse av retning",
+            "cardinality": "1",
+            "taggedValues": {
+              "SOSI_navn": "RETN"
+            }
+          },
+          {
+            "name": "retningsenhet",
+            "type": "Retningsenhet",
+            "description": "enhet for retning",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "enhet for retning",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/retningsenhet"
+            }
+          },
+          {
+            "name": "retningsreferanse",
+            "type": "Retningsreferanse",
+            "description": "referansesystem for retning",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "referansesystem for retning",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/retningsreferanse"
+            }
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Skjær",
+    "description": "generalisert punktobjekt for små øyer eller landareal\n\n\n-- Definition --\ngeneralised point object for small islands or land area",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Punkt"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "InnsjøkantRegulert",
+    "description": "avgrensningslinje for innsjø som er oppdemt/regulert\n\n\n-- Definition --\nDemarkation line for dammed or regulated lake.",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Tregruppe",
+    "description": "enkeltstående tre eller trær i små grupper\n\nMerknad: Avstanden mellom trærne/gruppene skal være så stor at det ikke kan defineres som et sammenhengende skogsområde\n\n\n-- Definition --\nsingle tree or trees in small groups",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Punkt"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "InnsjøElvSperre",
+    "description": "hjelpelinje for avgrensning av innsjø mot elv eller kanal/grøft\n\n\n-- Definition --\nConstruction line for delimitation of lake surface from river, canal or ditch.",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Sperrelinjer"
+      ],
+      "associations": []
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Alpinbakke",
+    "description": "nedfart for ski med permanent karakter\n\n\n-- Definition --\npermanent downhill ski slope",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "FiktivDelelinje",
+          "role": "avgrensesAvFiktivdelelinje",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Dataavgrensning",
+          "role": "avgrensesAvDataavgrensning",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "ElveKant",
+          "role": "avgrensesAvElveKant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Kystkontur",
+          "role": "avgrensesAvKystkontur",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Arealbrukgrense",
+          "role": "avgrensesAvArealbrukgrense",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "Innsjøkant",
+          "role": "avgrensesAvInnsjøkant",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "InnsjøkantRegulert",
+          "role": "avgrensesAvInnsjøkantRegulert",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Arealdekke"
+  },
+  {
+    "name": "Tårn",
+    "description": "høy bygningsmessig konstruksjon hvor høyden er stor i forhold til bygningens areal i grunnplanet\nMerknad: Omfatter alle tårn med unntak av de tårn som har en mer spesifisert beskrivelse- som f.eks Silo og tank.\nEksempel: Måletårn og stupetårn\n\n\n-- Definition --\nTall building structure in which the height is great in relation to the footprint of the building",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "NØ"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Reingjerde",
+    "description": "gjerde for reindrift\n\n\n-- Definition --\nfence for reindeer husbandry",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Gruve",
+    "description": "ikke dagbrudd og skjerp, hvor gruveinngangen er tydelig\n\n\n-- Definition --\nnot quarry and prospect, where the pit entrance is prominent",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "NØ"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "MastTele",
+    "description": "mast med radio- og telekommunikasjonsutstyr for sending/mottak av telesignaler\n\nMerknad:\nKan benyttes dersom ..KOPLING * 2 * MA\n\n\n-- Definition --\nmast with radio and telecommunication equipment for sending /receiving telecommunications signals. Note: may be used if ..KOPLING * 2 * MA  (KOPLING := coupling)",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Campingplass",
+    "description": "faste anlegg med vaskerom, campinghytter o.l.\n\n\n-- Definition --\npermanent  construction with wash rooms, cabins, etc.",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "NØ"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Lysløype",
+    "description": "løypetrasé som har belysning\n\n\n-- Definition --\ntrail route with lighting",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Parkeringsområde",
+    "description": "område for parkering av kjøretøy",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "NØ"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Navigasjonsinstallasjon",
+    "description": "objekt som hjelper sjøfarende å navigere på sjøen\n\n\n-- Definition --\nobject which helps mariners to navigate at sea",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "NØ"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Taubane",
+    "description": "innretning hvor tau eller vaiere bærer og eller trekker last over en strekning\n\n\n-- Definition --\nfacility where ropes or cables carry and/or pull cargo over some distance",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Vindkraftverk",
+    "description": "kraftverk som nytter vindens energi til å produsere elkraft\n\nMerknad:\nKan benyttes dersom ..KOPLING * 3 * VKST\n\n\n-- Definition --\npower plant which utilises the wind's energy to produce electric power. Note: may be used if ..KOPLING * 3 * VKST   (KOPLING := coupling)",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Pir",
+    "description": "markert utstikkende brygge, normalt med vann under, i sjø\n\n\n-- Definition --\nmarked protruding pier, normally with water underneath, in the sea",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Rørgate",
+    "description": "rør som leder vann frem til foredlingsanlegg\n\n\n-- Definition --\npipes which lead water into processing facility",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Kurve"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Bygning",
+    "description": "bygning som er registrert i Matrikkelen\n\nRepresentasjonspunkt for bygningen. Punktet angis med geometritypen Punkt definert i SOSI\n\nSkal plasseres innenfor bygningens omriss.\n\nPunkt registreres også uten at en har omrisset, men da settes ikke kvalitetsmerket for at den er verifisert mot bygningens omriss.",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "Punkt"
+        }
+      },
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "0..1"
+      },
+      {
+        "name": "bygningstype",
+        "type": "BygningstypeKode",
+        "description": "bygningstype sier hva bygningen er brukt til",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "bygningstype sier hva bygningen er brukt til",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/bygningstypekode"
+        },
+        "taggedValues": {
+          "SOSI_navn": "BYGGTYP_NBR"
+        }
+      },
+      {
+        "name": "hytteinformasjon",
+        "type": "Hytteinformasjon",
+        "description": "informasjon om hytter i form av betjeningsgrad, eier og tilgjengelighet\n\n-- Definition --\nInformation on cabins in the form of identification, services offered and owner",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "betjeningsgrad",
+            "type": "Betjeningsgrad",
+            "description": "beskrivelse av hvilke servicefunksjoner som er tilgengelige\n\n-- Definition --\ndescription of which service functions are available",
+            "cardinality": "0..1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "beskrivelse av hvilke servicefunksjoner som er tilgengelige\n\n\n-- Definition - -\ndescription of which service functions are available",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/betjeningsgrad"
+            },
+            "taggedValues": {
+              "SOSI_navn": "BETJENINGSGRAD"
+            }
+          },
+          {
+            "name": "hytteeier",
+            "type": "Hytteeier",
+            "description": "eieren av en hytte\n\n-- Definition --\nthe owner of a cabin",
+            "cardinality": "0..1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "eieren av en turisthytte\n\n\n-- Definition - -\nthe owner of a cabin",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/hytteeier"
+            },
+            "taggedValues": {
+              "SOSI_navn": "HYTTEEIER"
+            }
+          },
+          {
+            "name": "tilgjengelighet",
+            "type": "Tilgjengelighet",
+            "description": "beskriver om hytta er låst eller ulåst",
+            "cardinality": "0..1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "beskriver om hytta er låst eller ulåst.",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/tilgjengelighet"
+            },
+            "taggedValues": {
+              "SOSI_navn": "TILGJENGELIGHET"
+            }
+          }
+        ]
+      },
+      {
+        "name": "navn",
+        "type": "CharacterString",
+        "description": "navn på turisthytta",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NAVN"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Kombinasjon_Ulike_Geometrityper"
+      ],
+      "associations": [
+        {
+          "target": "Takkant",
+          "role": "avgrensesAvTakkant",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Tankkant",
+    "description": "avgrensning av tank\n\n\n-- Definition --\ndelimitation of tank/vessel",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Kurve"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Molo",
+    "description": "kunstig eller naturlig oppbygning som demper eller tilintetgjør bølgebevegelser i sjøen\n\n\n-- Definition --\nartificial or natural structure which reduces or eliminates waves in the sea",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Skytebaneinnretning",
+    "description": "omriss av tekniske anlegg på skytebane - standplass og skiver som ikke blir registrert som f.eks bygninger og murer\n\n\n-- Definition --\noutline of technical facilities at shooting range - stands and targets that are not registered as building or walls",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Kurve"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Ledning",
+    "description": "begrepet ledning er i modellen generalisert til å bety alle typer langsgående fysiske objekter i ledningstraseen\n\nMerknad:\nDette inkluderer også tunnel, kanal, rør og andre objekter som brukes som omsluttende konstruksjon for andre ledninger.\n\n\n-- Definition --\nin the model, the term line has been generalised to mean all types of longitudinal physical objects in the route. Note: this also includes tunnels, ducts, pipes and other objects used as encasing?? structures for other lines",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Takkant",
+    "description": "bygningens ytre takflateavgrensing\n\nMerknad: Høydereferansen er de målte punktene på taket.\n\nMerknad: Dersom deler av takkanten ikke er synlig kodes den synlige delen som takkant- og den ikke synlige som fiktiv bygningsavgrensning.\n\n\n-- Definition --\nthe external delimitation of the roof surface of the building",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "KaiBrygge",
+    "description": "angivelse av  innretninger som er satt opp for å betjene båter ved lasting- lossing og landligge\nMerknad: Kai er utvidet til også å kunne være bare et fortøyningsanlegg- f.eks. enkeltstående metallring for fastgjøring av skip.\n\n\n-- Definition --\nindication of facilities set up to serve boats during loading, unloading and docking",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Kurve"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Skitrekk",
+    "description": "taubane til å dra skiløper opp bratte bakker\nMerknad: Særlig brukt i alpinbakker\n\n\n-- Definition --\ncableway for pulling skiers up steep slopes",
+    "attributes": [],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "Taubane"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Flytebrygge",
+    "description": "brygge som er forankret til bunn og hvor plasseringen kan avhenge av vind og strømretning\n\n\n-- Definition --\nwharf chained to the bottom and whose location may depend on the direction of the wind and current",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "LuftledningLH",
+    "description": "linje som fører elektrisk kraft over store avstander og der det er usikkert om det er lav- eller høyspentlinje\n\nMerknad:\nKan benyttes dersom ..MEDIUM L og ..LEDNING * 3 8\n\n\n-- Definition --\nline conducting electrical power over large distances and where it is uncertain whether there is a low-voltage or high-voltage line. Note: may be used if ..MEDIUM L and ..LINE * 3 8",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1"
+      },
+      {
+        "name": "flerLinjer",
+        "type": "FlerLinjer",
+        "description": "angivelse av antall kraftlinjer",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "angivelse av antall kraftlinjer",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/flerlinjer"
+        },
+        "taggedValues": {
+          "SOSI_navn": "FLER_LINJER"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Hoppbakke",
+    "description": "anlegg for skihopping med kunstig eller naturlig tilløp\n\n\n-- Definition --\nfacility for ski jumping with artificial or natural approach",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Punkt"
+        }
+      },
+      {
+        "name": "lengde",
+        "type": "Integer",
+        "description": "bakkens lengde i meter",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "LENGDE"
+        }
+      },
+      {
+        "name": "retning",
+        "type": "Retning",
+        "description": "linjestykke i planet med retning",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "RETNING"
+        },
+        "attributes": [
+          {
+            "name": "retningsverdi",
+            "type": "Real",
+            "description": "generelt element med angivelse av retning",
+            "cardinality": "1",
+            "taggedValues": {
+              "SOSI_navn": "RETN"
+            }
+          },
+          {
+            "name": "retningsenhet",
+            "type": "Retningsenhet",
+            "description": "enhet for retning",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "enhet for retning",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/retningsenhet"
+            }
+          },
+          {
+            "name": "retningsreferanse",
+            "type": "Retningsreferanse",
+            "description": "referansesystem for retning",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "referansesystem for retning",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/retningsreferanse"
+            }
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Dam",
+    "description": "konstruksjon for å heve vannspeilet og danne et kunstig vannmagasin, samt regulere vannføringen\n\n\n-- Definition --\nconstruction for elevating the water surface and creating an artifical water reservoir as well as regulating the flow of water",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Kurve"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "SpesiellDetalj",
+    "description": "objekttyper som det er nødvendig å angi av kartografiske hensyn og som ikke fanges opp av definerte objekttyper",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "0..1"
+      },
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "0..1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Tank",
+    "description": "lukkede kar for oppbevaring av gass eller væsker som ikke er registrert som bygning\n\n\n-- Definition --\nclosed tank/vessel for storage of gas or fluids which is not registered as building",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NØ"
+        }
+      },
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "0..1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Kombinasjon_Ulike_Geometrityper"
+      ],
+      "associations": [
+        {
+          "target": "Tankkant",
+          "role": "avgrensesAvTankkant",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Bygninger_og_anlegg"
+  },
+  {
+    "name": "Høydekurve",
+    "description": "linje i terrenget med fast høydeverdi (z-verdi) over referansehøyden\n\nMerknad: Høydekurver skal ikke krysse hverandre, bortsett fra der dette er tilfelle (overheng).\n\n\n-- Definition --\nline in the terrain with a fixed height value (z value) above the reference height",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Kurve"
+        }
+      },
+      {
+        "name": "høyde",
+        "type": "Integer",
+        "description": "angivelse av høydekurvens høyde over høydereferansen i meter\n\n-- Definition --\nindication of the depression curve's height above the height reference in metres - to be given with decimals if necessary",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "HØYDE"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer_Høyde"
+      ],
+      "associations": []
+    },
+    "package": "Høyde"
+  },
+  {
+    "name": "Terrengpunkt",
+    "description": "punkt i terrenget med målt høydeverdi som brukes for å angi høyde på markerte flater i terrenget som for eksempel sadler og store flater, i veg- og gatekryss og andre kryss mellom samferdselslinjer, på gårdsplasser utenfor hovedinnganger og på parkeringsplasser\n\n\n-- Definition --\npoint in the terrain with a measured height value used to indicate the height on pronounced surfaces in the terrain, such as saddles and large surfaces, in road and street intersections and other intersections between transportation lines, in courtyards outside main entrances and in car parks",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Punkt"
+        }
+      },
+      {
+        "name": "høyde",
+        "type": "Integer",
+        "description": "angivelse av punktets høyde, og oppgis i meter\n\n-- Definition --\nindication of the height of the point, to be given with decimals if necessary",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "HØYDE"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer_Høyde"
+      ],
+      "associations": []
+    },
+    "package": "Høyde"
+  },
+  {
+    "name": "TrigonometriskPunkt",
+    "description": "varig merket punkt, markert med bolt eller annet merke, der plane koordinater og høyde er bestemt i et trigonometrisk nett, i et geodetisk system\n\n\n-- Definition --\npermanently marked point, marked with a bolt or other mark in which the plane coordinates and/or height are determined in a Trigonometrical network in a geodetic system",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Punkt"
+        }
+      },
+      {
+        "name": "høyde",
+        "type": "Integer",
+        "description": "angivelse av punktets høyde, og oppgis i meter\n\n-- Definition --\nindication of the height of the point, to be given with decimals if necessary",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "HØYDE"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer_Høyde"
+      ],
+      "associations": []
+    },
+    "package": "Høyde"
+  },
+  {
+    "name": "Forsenkningskurve",
+    "description": "linje i terrenget med fast høydeverdi (z-verdi) som beskriver en forsenkning i terrenget\n\nMerknad: Alle kurver som beskriver en forsenkning skal kodes som forsenkningskurver- ikke bare den nederste kurven.\n\n\n-- Definition --\nline in the terrain with a fixed height value (z value) which describes a depression in the terrain",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Kurve"
+        }
+      },
+      {
+        "name": "høyde",
+        "type": "Integer",
+        "description": "angir forsenkningskurvens  høyde over høydereferansen i meter\n\n-- Definition --\nindicates the depression curve's height above the height reference in metres - to given with decimals if necessary",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "HØYDE"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer_Høyde"
+      ],
+      "associations": []
+    },
+    "package": "Høyde"
+  },
+  {
+    "name": "Hjelpekurve",
+    "description": "linje som følger terrenget med fast høydeverdi (z-verdi) og som brukes for bedre å beskrive terrenget mellom de vanlige høydekurvene\n\nMerknad: Tidligere kalt mellomkurve\n\n\n-- Definition --\nline which follows the terrain with a fixed height value (z value), and which is used to provide a better description of the terrain between the ordinary ??(contour lines / height contours)",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "forløp som følger objektets sentrale del",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Kurve"
+        }
+      },
+      {
+        "name": "høyde",
+        "type": "Integer",
+        "description": "angivelse av hjelpekurvens høyde over høydereferansen i meter\n\n-- Definition --\nindication of the auxiliary curve's height above the height reference in metres - to be given with decimals if necessary",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "HØYDE"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer_Høyde"
+      ],
+      "associations": []
+    },
+    "package": "Høyde"
+  },
+  {
+    "name": "Allmenning",
+    "description": "<font color=\"#0f0f0f\">område som alle, eller en bestemt gruppe har bruksrett til</font>\n<font color=\"#0f0f0f\">\n</font><font color=\"#0f0f0f\">Merknad: Det er ofte vilkår om at den bruksberettigede må ha en eiendom av en viss størrelse. Eksempel på rettigheter er beiterett, hogstrett, fiskerett.</font>",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
+        "cardinality": "1"
+      },
+      {
+        "name": "allmenningtype",
+        "type": "Allmenningtype",
+        "description": "nærmere inndeling av allmenninger",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "nærmere inndeling av allmenninger",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/allmenningtype"
+        }
+      },
+      {
+        "name": "navn",
+        "type": "CharacterString",
+        "description": "navn på området",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "NAVN"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "Allmenninggrense",
+          "role": "avgrensesAvAllmenninggrense",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Restriksjonsområder"
+  },
+  {
+    "name": "Skytefeltgrense",
+    "description": "avgrenser skytefelt",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Restriksjonsområder"
   },
   {
     "name": "Naturverngrense",
@@ -914,6 +3550,26 @@
         "taggedValues": {
           "SOSI_navn": "Kurve"
         }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Restriksjonsområder"
+  },
+  {
+    "name": "Allmenninggrense",
+    "description": "avgrensning av allmenning",
+    "attributes": [
+      {
+        "name": "grense",
+        "type": "GM_Curve",
+        "description": "forløp som følger overgang mellom ulike fenomener",
+        "cardinality": "1"
       }
     ],
     "abstract": false,
@@ -988,27 +3644,104 @@
     }
   },
   {
-    "name": "Bane",
-    "description": "teoretisk linje som representerer ett enkelt eller flere parallelle spor som del av en banestrekning\n\n\n-- Definition --\ntheoretical line which represents a single or several parallel tracks as part of a railway line\n\n\n<font color=\"#008000\">-- INSPIRE --</font>\n<font color=\"#008000\">Maps to RailwayLink</font>",
+    "name": "Skytefelt",
+    "description": "område for militære avdelingers skarpskyteøvelse til lands og/eller til vanns\n\nMerknad: Gjelder også testfelt knyttet til våpen- spregningsindustri\n\n\n-- Definition --\narea where divisions from the armed forces undertake live firing practice on land and/or at sea. Note: Also applies to proving grounds related to the explosive armaments industry",
     "attributes": [
       {
-        "name": "senterlinje",
-        "type": "GM_Curve",
-        "description": "forløp som følger objektets sentrale del",
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "objektets utstrekning",
         "cardinality": "1"
+      },
+      {
+        "name": "navn",
+        "type": "CharacterString",
+        "description": "navn på området",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "NAVN"
+        }
+      },
+      {
+        "name": "skytefeltstatus",
+        "type": "Skytefeltstatus",
+        "description": "angir skytefeltstatus",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "angir skytefeltstatus",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/skytefeltstatus"
+        }
       }
     ],
     "abstract": false,
     "relationships": {
       "inheritance": [
-        "SOSI_Objekt_Linjer_Samferdsel"
+        "SOSI_Objekt_Flater"
+      ],
+      "associations": [
+        {
+          "target": "Skytefeltgrense",
+          "role": "avgrensesAvSkytefeltgrense",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "Restriksjonsområder"
+  },
+  {
+    "name": "Naturvernpunkt",
+    "description": "vernet enkeltobjekt etter gammelt lovverk. Vil ikke bli etablert nye. Trær, stein osv.",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "Punkt"
+        }
+      },
+      {
+        "name": "vernedato",
+        "type": "Date",
+        "description": "dato for vern av området",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "VERNEDATO"
+        }
+      },
+      {
+        "name": "verneform",
+        "type": "Verneform",
+        "description": "ulike typer vern sortert under forskjellige lovverk og med tilhørende restriksjoner",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "verneformer som sorterer under forskjellig lovverk og restriksjoner",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/verneform"
+        }
+      },
+      {
+        "name": "navn",
+        "type": "CharacterString",
+        "description": "navn på naturvernområdet",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "NAVN"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
       ],
       "associations": []
     },
-    "package": "Samferdsel",
-    "taggedValues": {
-      "SOSI_navn": "BANE"
-    }
+    "package": "Restriksjonsområder"
   },
   {
     "name": "Veglenke",
@@ -1023,11 +3756,11 @@
       {
         "name": "typeVeg",
         "type": "TypeVeg",
-        "description": "type veg",
+        "description": "type veg (FormOfWay).",
         "cardinality": "1",
         "valueDomain": {
           "kind": "codelist",
-          "definition": "type veg",
+          "definition": "type veg (FormOfWay).",
           "asDictionary": "true",
           "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/typeveg"
         },
@@ -1053,7 +3786,8 @@
               "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/vegkategori"
             },
             "taggedValues": {
-              "SOSI_navn": "VEGKATEGORI"
+              "SOSI_navn": "VEGKATEGORI",
+              "NVDB_ID": "11276"
             }
           },
           {
@@ -1068,7 +3802,8 @@
               "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/vegfase"
             },
             "taggedValues": {
-              "SOSI_navn": "VEGFASE"
+              "SOSI_navn": "VEGFASE",
+              "NVDB_ID": "11278"
             }
           },
           {
@@ -1077,7 +3812,8 @@
             "description": "angir hvilke deler av vegnettet som rutemessig hører sammen",
             "cardinality": "0..1",
             "taggedValues": {
-              "SOSI_navn": "VEGNUMMER"
+              "SOSI_navn": "VEGNUMMER",
+              "NVDB_ID": "11277"
             }
           }
         ]
@@ -1092,6 +3828,30 @@
           "definition": "klassifisering av veger etter grad av vilkår med hensyn til f.eks. fart, avkjøringer/kryss og antall kjørefelt",
           "asDictionary": "true",
           "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/motorvegtype"
+        }
+      },
+      {
+        "name": "rutemerking",
+        "type": "RuteMerking",
+        "description": "forteller om det er merking  langs en sti, løype, veg, sykkelvei mv",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "forteller om det er merking  langs en sti, løype, veg, sykkelvei mv",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/rutemerking"
+        }
+      },
+      {
+        "name": "vedlikeholdsansvarlig",
+        "type": "Vedlikeholdsansvarlig",
+        "description": "institusjon eller andre som har ansvar for vedlikehold av rute",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "institusjon eller andre som har ansvar for vedlikehold av rute",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/vedlikeholdsansvarlig"
         }
       }
     ],
@@ -1111,7 +3871,7 @@
       {
         "name": "posisjon",
         "type": "GM_Point",
-        "description": "sted som objektet eksisterer på\n\n-- Definition --\nlocation where the object exists",
+        "description": "sted som objektet eksisterer på",
         "cardinality": "1"
       },
       {
@@ -1122,6 +3882,47 @@
         "taggedValues": {
           "SOSI_navn": "NAVN"
         }
+      },
+      {
+        "name": "retning",
+        "type": "Retning",
+        "description": "linjestykke i planet med retning\n\n\n-- Definition - -\ndirected line segment in the plane",
+        "cardinality": "1",
+        "attributes": [
+          {
+            "name": "retningsverdi",
+            "type": "Real",
+            "description": "generelt element med angivelse av retning",
+            "cardinality": "1",
+            "taggedValues": {
+              "SOSI_navn": "RETN"
+            }
+          },
+          {
+            "name": "retningsenhet",
+            "type": "Retningsenhet",
+            "description": "enhet for retning",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "enhet for retning",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/retningsenhet"
+            }
+          },
+          {
+            "name": "retningsreferanse",
+            "type": "Retningsreferanse",
+            "description": "referansesystem for retning",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "referansesystem for retning",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/retningsreferanse"
+            }
+          }
+        ]
       }
     ],
     "abstract": false,
@@ -1134,28 +3935,151 @@
     "package": "Samferdsel"
   },
   {
-    "name": "AnnenBåtrute",
-    "description": "båtrute som ikke kan karakteriseres som passasjer- eller bilferje\n\n\n-- Definition --\nboat route which cannot be characterised as passenger ferry or car ferry",
+    "name": "Vegsperring",
+    "description": "fysisk sperring av vegen\n\n\n-- Definition --\nphysical blockage of the road",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "description": "sted som objektet eksisterer på",
+        "cardinality": "1"
+      },
+      {
+        "name": "vegsperringtype",
+        "type": "Vegsperringtype",
+        "description": "angir type vegsperring\n\n-- Definition --\nindicates type of roadblock",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "angir type vegsperring\n\n\n-- Definition - -\nindicates type of roadblock",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/vegsperringtype"
+        }
+      },
+      {
+        "name": "retning",
+        "type": "Retning",
+        "description": "linjestykke i planet med retning\n\n\n-- Definition - -\ndirected line segment in the plane",
+        "cardinality": "1",
+        "attributes": [
+          {
+            "name": "retningsverdi",
+            "type": "Real",
+            "description": "generelt element med angivelse av retning",
+            "cardinality": "1",
+            "taggedValues": {
+              "SOSI_navn": "RETN"
+            }
+          },
+          {
+            "name": "retningsenhet",
+            "type": "Retningsenhet",
+            "description": "enhet for retning",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "enhet for retning",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/retningsenhet"
+            }
+          },
+          {
+            "name": "retningsreferanse",
+            "type": "Retningsreferanse",
+            "description": "referansesystem for retning",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "referansesystem for retning",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/retningsreferanse"
+            }
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "SOSI_Objekt_PunkterOgLinjer"
+      ],
+      "associations": []
+    },
+    "package": "Samferdsel"
+  },
+  {
+    "name": "Bane",
+    "description": "teoretisk linje som representerer ett enkelt eller flere parallelle spor som del av en banestrekning\n\n\n-- Definition --\ntheoretical line which represents a single or several parallel tracks as part of a railway line\n\n\n<font color=\"#008000\">-- INSPIRE --</font>\n<font color=\"#008000\">Maps to RailwayLink</font>",
     "attributes": [
       {
         "name": "senterlinje",
         "type": "GM_Curve",
         "description": "forløp som følger objektets sentrale del",
         "cardinality": "1"
+      },
+      {
+        "name": "jernbaneinformasjon",
+        "type": "Jernbaneinformasjon",
+        "description": "beskrivelse av jernbanen.",
+        "cardinality": "1",
+        "attributes": [
+          {
+            "name": "anleggstype",
+            "type": "Jernbanetype",
+            "description": "angir type jernbaneanlegg",
+            "cardinality": "0..1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "klassifisering av jernbaneanlegg i hht. konstruksjon/dimensjonering",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/jernbanetype"
+            }
+          },
+          {
+            "name": "banestatus",
+            "type": "Jernbanestatus",
+            "description": "definerer status for drift på en banestrekning. I denne sammenhengen betyr Midlertidig ute av drift at anlegget finnes, men at det ikke er trafikk. Det kan kreves vedlikeholdsarbeid for å sett i drift. Nedlagt betyr at strekningen er nedlagt ved Stortingsvedtak, men at strekningen fortsatt finnes fysisk i terrenget. Nedlagte strekninger kan kreve nytt vedtak for å sette i drift.",
+            "cardinality": "0..1",
+            "valueDomain": {
+              "kind": "codelist",
+              "definition": "definerer status for drift på en banestrekning",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/jernbanestatus"
+            }
+          }
+        ]
+      },
+      {
+        "name": "sporantall",
+        "type": "Sporantall",
+        "description": "definerer antall spor på en banestrekning\n\n-- Definition --\ndefines the number of tracks on a railway line",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "antall jernbanespor",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/sporantall"
+        },
+        "taggedValues": {
+          "SOSI_navn": "SPORANTALL"
+        }
       }
     ],
     "abstract": false,
     "relationships": {
       "inheritance": [
-        "SOSI_Objekt_PunkterOgLinjer"
+        "SOSI_Objekt_Linjer_Samferdsel"
       ],
       "associations": []
     },
-    "package": "Samferdsel"
+    "package": "Samferdsel",
+    "taggedValues": {
+      "SOSI_navn": "BANE"
+    }
   },
   {
     "name": "StedsnavnTekst",
-    "description": "Stedsnavntekst er stedsnavn fra SSR tilpasset visning på kart",
+    "description": "StedsnavnTekst er stedsnavn fra SSR tilpasset visning på kart",
     "attributes": [
       {
         "name": "navneobjekthovedgruppe",
@@ -1211,7 +4135,7 @@
       {
         "name": "stedsnavnnummer",
         "type": "Integer",
-        "description": "stedsnummer, stedsnavnnummer og skrivemåtenummer skal sammen utgjøre en såkalt tematisk id som brukes av registerførere som opplslagsnummer. identifikatoren ligner litt på Gnr/Bnr/Fnr.\n\n<b>Stedsnavnnummer</b> er et løpende nummer (starter på 1) systemet gir stedsnavnet som en identifikator. stedsnavnnummeret er kun unikt under ett stedsnummer og kan ikke brukes om igjen for dette stedet.",
+        "description": "stedsnummer, stedsnavnnummer og skrivemåtenummer skal sammen utgjøre en såkalt tematisk id som brukes av registerførere som opplslagsnummer. identifikatoren ligner litt på Gnr/Bnr/Fnr.\n\n<b>Stedsnavnnummer</b> er et løpende nummer (starter på 1) systemet gir stedsnavnet som en identifikator. stedsnavnnummeret er kun unikt under et stedsnummer og kan ikke brukes om igjen for dette stedsnavnet.",
         "cardinality": "0..1",
         "taggedValues": {
           "SOSI_navn": "STEDSNAVNNUMMER"
@@ -1244,7 +4168,7 @@
       {
         "name": "skrivemåtenummer",
         "type": "Integer",
-        "description": "stedsnummer, stedsnavnsnummer og skrivemåtenummer skal sammen utgjøre en såkalt tematisk id som brukes av registerførere som opplslagsnummer. Identifikatoren ligner litt på Gnr/Bnr/Fnr.\n\n<b>Skrivemåtenummer</b> er et løpende nummer systemet gir skrivemåten som en identifikator. skrivemåtenummeret er kun unikt under ett stedsnavnsnummer og kan ikke brukes om igjen for dette stedsnavnet.",
+        "description": "stedsnummer, stedsnavnsnummer og skrivemåtenummer skal sammen utgjøre en såkalt tematisk id som brukes av registerførere som opplslagsnummer. Identifikatoren ligner litt på Gnr/Bnr/Fnr.\n\n<b>Skrivemåtenummer</b> er et løpende nummer systemet gir skrivemåten som en identifikator. skrivemåtenummeret er kun unikt under et stedsnavnsnummer og kan ikke brukes om igjen for dette stedsnavnet.",
         "cardinality": "0..1",
         "taggedValues": {
           "SOSI_navn": "SKRIVEMÅTENUMMER"
@@ -1289,6 +4213,15 @@
         }
       },
       {
+        "name": "datafangstdato",
+        "type": "Date",
+        "description": "dato når objektet siste gang ble registrert/observert/målt i terrenget\n\nMerknad: I mange tilfeller er denne forskjellig fra Oppdateringsdato, da registrerte endringer kan bufres i en kortere eller lengre periode før disse legges inn i databasen.\nVed førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "DATAFANGSTDATO"
+        }
+      },
+      {
         "name": "tekstformatering",
         "type": "Tekstformatering",
         "description": "ulike egenskaper til brukt for å presentere teksten på mediumet",
@@ -1297,7 +4230,7 @@
           {
             "name": "tekstReferansepunkt",
             "type": "TekstReferansePunkt",
-            "description": "tekstens referansepunkt er det stedet på teksten hvor en tekstplassering refererer seg til.",
+            "description": "tekstens referansepunkt er det stedet på teksten som en tekstplassering refererer seg til.",
             "cardinality": "0..1",
             "taggedValues": {
               "SOSI_navn": "TREF"
@@ -1325,6 +4258,9 @@
                   "definition": "horisontal plassering av teksten",
                   "asDictionary": "true",
                   "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/tekstreferansepunkt%C3%B8st"
+                },
+                "taggedValues": {
+                  "SOSI_navn": "TRØST"
                 }
               }
             ]
@@ -1356,7 +4292,7 @@
           {
             "name": "skrifttype",
             "type": "CharacterString",
-            "description": "angivelse av den skrifttype eller font som skal benyttes. Default skrifttype er ARIAL\nMerknad: For samiske tegn anbefales SK Sans Serif, nedlastbart fra Statens kartverks nettsider",
+            "description": "angivelse av den skrifttype eller font som skal benyttes. Default skrifttype er ARIAL",
             "cardinality": "0..1",
             "taggedValues": {
               "SOSI_navn": "SKRIFTTYPE"
@@ -1386,6 +4322,35 @@
     "abstract": true,
     "relationships": {
       "inheritance": [],
+      "associations": []
+    },
+    "package": "Stedsnavn"
+  },
+  {
+    "name": "PresentasjonTekst",
+    "description": "PresentasjonTekst benyttes for høydetall som skal presenteres på kartet. Kodelista teksttype angir hva slags type objekt høydetall står til.",
+    "attributes": [
+      {
+        "name": "teksttype",
+        "type": "Teksttype",
+        "description": "kodeliste som angir hva slags type objekt teksten beskriver.",
+        "cardinality": "1",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "beskriver hva teksten står til.",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/kartdata/teksttype"
+        },
+        "taggedValues": {
+          "SOSI_navn": "TEKSTTYPE"
+        }
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FellesTekst"
+      ],
       "associations": []
     },
     "package": "Stedsnavn"
