@@ -1,0 +1,3468 @@
+{
+  "$comment": "JSON Schema document created by ShapeChange - https://shapechange.net/",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://skjema.geonorge.no/SOSI/produktspesifikasjon/n50-kartdata/ny-datakilde/nydatakilde/ny-datakilde.json",
+  "definitions": {
+    "Allmenning": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "allmenningtype": {
+              "$ref": "#/definitions/Allmenningtype"
+            },
+            "navn": {
+              "type": "string"
+            },
+            "avgrensesAvAllmenninggrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "allmenningtype",
+            "navn"
+          ]
+        }
+      ]
+    },
+    "Allmenninggrense": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Allmenningtype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Alpinbakke": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Arealbrukgrense": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "AvtaltAvgrensningslinje": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Bane": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Linjer_Samferdsel"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            },
+            "jernbaneinformasjon": {
+              "$ref": "#/definitions/Jernbaneinformasjon"
+            },
+            "sporantall": {
+              "$ref": "#/definitions/Sporantall"
+            }
+          },
+          "required": [
+            "jernbaneinformasjon",
+            "sporantall"
+          ]
+        }
+      ]
+    },
+    "Betjeningsgrad": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Bygning": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Kombinasjon_Ulike_Geometrityper"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "posisjon": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "område": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "bygningstype": {
+              "$ref": "#/definitions/BygningstypeKode"
+            },
+            "hytteinformasjon": {
+              "$ref": "#/definitions/Hytteinformasjon"
+            },
+            "navn": {
+              "type": "string"
+            },
+            "avgrensesAvTakkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "bygningstype"
+          ]
+        }
+      ]
+    },
+    "BygningstypeKode": {
+      "type": "string",
+      "format": "uri"
+    },
+    "BymessigBebyggelse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Campingplass": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            }
+          }
+        }
+      ]
+    },
+    "Dam": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Dataavgrensning": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Hjelpelinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "DyrketMark": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Elv": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvFerskvanntørrfallkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvHavElvSperre": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøElvSperre": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "ElvBekk": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            },
+            "vannbredde": {
+              "$ref": "#/definitions/VannBredde"
+            }
+          },
+          "required": [
+            "vannbredde"
+          ]
+        }
+      ]
+    },
+    "ElvMidtlinje": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "ElveKant": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "ElvelinjeFiktiv": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "FellesTekst": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/LineString.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "streng": {
+          "type": "string"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "datafangstdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "tekstformatering": {
+          "$ref": "#/definitions/Tekstformatering"
+        },
+        "fulltekst": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@type",
+        "fulltekst",
+        "streng",
+        "tekstformatering"
+      ]
+    },
+    "FerskvannTørrfall": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvFerskvanntørrfallkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "FerskvannTørrfallkant": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "FiktivDelelinje": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Hjelpelinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "FlerLinjer": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Flomløpkant": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Flytebrygge": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Forsenkningskurve": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer_Høyde"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            },
+            "høyde": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "høyde"
+          ]
+        }
+      ]
+    },
+    "Foss": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "retning": {
+              "$ref": "#/definitions/Retning"
+            }
+          },
+          "required": [
+            "retning"
+          ]
+        }
+      ]
+    },
+    "Fylkesgrense": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Golfbane": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Gravplass": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantregulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Grensepunkttype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Grunnlinje": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Grunnlinjepunkt": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "grunnlinjepunktnavn": {
+              "type": "string"
+            },
+            "grunnlinjepunktnummer": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "grunnlinjepunktnummer"
+          ]
+        }
+      ]
+    },
+    "Gruve": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            }
+          }
+        }
+      ]
+    },
+    "HavElvSperre": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Sperrelinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "HavInnsjøSperre": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Sperrelinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Havflate": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvHavInnsjøSperre": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvHavElvSperre": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Hjelpekurve": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer_Høyde"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            },
+            "høyde": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "høyde"
+          ]
+        }
+      ]
+    },
+    "Hoppbakke": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "lengde": {
+              "type": "integer"
+            },
+            "retning": {
+              "$ref": "#/definitions/Retning"
+            }
+          },
+          "required": [
+            "lengde",
+            "retning"
+          ]
+        }
+      ]
+    },
+    "Hytteeier": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Hytteinformasjon": {
+      "type": "object",
+      "properties": {
+        "betjeningsgrad": {
+          "$ref": "#/definitions/Betjeningsgrad"
+        },
+        "hytteeier": {
+          "$ref": "#/definitions/Hytteeier"
+        },
+        "tilgjengelighet": {
+          "$ref": "#/definitions/Tilgjengelighet"
+        }
+      }
+    },
+    "Høydekurve": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer_Høyde"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            },
+            "høyde": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "høyde"
+          ]
+        }
+      ]
+    },
+    "IATAKode": {
+      "type": "string",
+      "format": "uri"
+    },
+    "ICAOKode": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Industriområde": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Innsjø": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "vatnLøpenummer": {
+              "type": "integer"
+            },
+            "høyde": {
+              "type": "integer"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøinnsjøsperre": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvHavInnsjøSperre": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøElvSperre": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "InnsjøElvSperre": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Sperrelinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "InnsjøInnsjøSperre": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Sperrelinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "InnsjøMidtlinje": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "InnsjøRegulert": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "https://geojson.org/schema/Polygon.json"
+                }
+              ]
+            },
+            "vatnLøpenummer": {
+              "type": "integer"
+            },
+            "lavesteRegulerteVannstand": {
+              "type": "integer"
+            },
+            "høyde": {
+              "type": "integer"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøinnsjøsperre": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøElvSperre": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantregulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Innsjøkant": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "InnsjøkantRegulert": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Jernbaneinformasjon": {
+      "type": "object",
+      "properties": {
+        "anleggstype": {
+          "$ref": "#/definitions/Jernbanetype"
+        },
+        "banestatus": {
+          "$ref": "#/definitions/Jernbanestatus"
+        }
+      }
+    },
+    "Jernbanestatus": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Jernbanetype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "KaiBrygge": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "KanalGrøft": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            },
+            "vannBredde": {
+              "$ref": "#/definitions/VannBredde"
+            }
+          },
+          "required": [
+            "vannBredde"
+          ]
+        }
+      ]
+    },
+    "KantUtsnitt": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Hjelpelinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Kommune": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "kommunenavn": {
+              "type": "string"
+            },
+            "kommunenummer": {
+              "$ref": "#/definitions/Kommunenummer"
+            },
+            "fylkesnummer": {
+              "type": "string"
+            },
+            "fylkesnavn": {
+              "type": "string"
+            },
+            "avgrensesAvAvtaltAvgrensningslinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvFylkesgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvRiksgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvTerritorialgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKommunegrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "fylkesnavn",
+            "fylkesnummer",
+            "kommunenavn",
+            "kommunenummer"
+          ]
+        }
+      ]
+    },
+    "Kommunegrense": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Kommunenummer": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Kystkontur": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Ledning": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Lufthavn": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Kombinasjon_Ulike_Geometrityper"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "område": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "posisjon": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "lufthavntype": {
+              "$ref": "#/definitions/Lufthavntype"
+            },
+            "trafikktype": {
+              "$ref": "#/definitions/Trafikktype"
+            },
+            "iataKode": {
+              "$ref": "#/definitions/IATAKode"
+            },
+            "icaoKode": {
+              "$ref": "#/definitions/ICAOKode"
+            },
+            "lufthavneier": {
+              "type": "string"
+            },
+            "navn": {
+              "type": "string"
+            },
+            "retning": {
+              "$ref": "#/definitions/Retning"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Lufthavntype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "LuftledningLH": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            },
+            "flerLinjer": {
+              "$ref": "#/definitions/FlerLinjer"
+            }
+          },
+          "required": [
+            "flerLinjer"
+          ]
+        }
+      ]
+    },
+    "Lysløype": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "MastTele": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            }
+          }
+        }
+      ]
+    },
+    "MediumHøyde": {
+      "type": "string",
+      "format": "uri"
+    },
+    "MediumSamferdsel": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Molo": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Motorvegtype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Myr": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Målemetode": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Naturverngrense": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Naturvernområde": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "vernedato": {
+              "type": "string",
+              "format": "date"
+            },
+            "verneform": {
+              "$ref": "#/definitions/Verneform"
+            },
+            "navn": {
+              "type": "string"
+            },
+            "avgrensesAvNaturverngrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "navn",
+            "vernedato",
+            "verneform"
+          ]
+        }
+      ]
+    },
+    "Naturvernpunkt": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "vernedato": {
+              "type": "string",
+              "format": "date"
+            },
+            "verneform": {
+              "$ref": "#/definitions/Verneform"
+            },
+            "navn": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "navn",
+            "vernedato",
+            "verneform"
+          ]
+        }
+      ]
+    },
+    "Navigasjonsinstallasjon": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            }
+          }
+        }
+      ]
+    },
+    "Navneobjektgruppe": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Navneobjekthovedgruppe": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Navneobjekttype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Nøyaktighet": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Park": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Parkeringsområde": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            }
+          }
+        }
+      ]
+    },
+    "Pir": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Posisjonskvalitet": {
+      "type": "object",
+      "properties": {
+        "målemetode": {
+          "$ref": "#/definitions/Målemetode"
+        },
+        "nøyaktighet": {
+          "$ref": "#/definitions/Nøyaktighet"
+        }
+      },
+      "required": [
+        "målemetode",
+        "nøyaktighet"
+      ]
+    },
+    "PresentasjonTekst": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FellesTekst"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "teksttype": {
+              "$ref": "#/definitions/Teksttype"
+            }
+          },
+          "required": [
+            "teksttype"
+          ]
+        }
+      ]
+    },
+    "Reingjerde": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Retning": {
+      "type": "object",
+      "properties": {
+        "retningsverdi": {
+          "type": "number"
+        },
+        "retningsenhet": {
+          "$ref": "#/definitions/Retningsenhet"
+        },
+        "retningsreferanse": {
+          "$ref": "#/definitions/Retningsreferanse"
+        }
+      },
+      "required": [
+        "retningsenhet",
+        "retningsreferanse",
+        "retningsverdi"
+      ]
+    },
+    "Retningsenhet": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Retningsreferanse": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Riksgrense": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Rullebane": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "RuteMerking": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Rørgate": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "SOSI_Objekt_Flater": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "avgrensesAvKantutsnitt": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "@type",
+        "oppdateringsdato"
+      ]
+    },
+    "SOSI_Objekt_Hjelpelinjer": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "@type"
+      ]
+    },
+    "SOSI_Objekt_Kombinasjon_Ulike_Geometrityper": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "datafangstdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "kvalitet": {
+          "$ref": "#/definitions/Posisjonskvalitet"
+        },
+        "avgrensesAvKantUtsnitt": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "@type",
+        "oppdateringsdato"
+      ]
+    },
+    "SOSI_Objekt_Linjer_Samferdsel": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "medium": {
+          "$ref": "#/definitions/MediumSamferdsel"
+        },
+        "datafangstdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "kvalitet": {
+          "$ref": "#/definitions/Posisjonskvalitet"
+        }
+      },
+      "required": [
+        "@type",
+        "datafangstdato",
+        "kvalitet",
+        "oppdateringsdato"
+      ]
+    },
+    "SOSI_Objekt_PunkterOgLinjer": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "datafangstdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "kvalitet": {
+          "$ref": "#/definitions/Posisjonskvalitet"
+        }
+      },
+      "required": [
+        "@type",
+        "datafangstdato",
+        "kvalitet",
+        "oppdateringsdato"
+      ]
+    },
+    "SOSI_Objekt_PunkterOgLinjer_Høyde": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "medium": {
+          "$ref": "#/definitions/MediumHøyde"
+        },
+        "datafangstdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "kvalitet": {
+          "$ref": "#/definitions/Posisjonskvalitet"
+        }
+      },
+      "required": [
+        "@type",
+        "datafangstdato",
+        "kvalitet",
+        "medium",
+        "oppdateringsdato"
+      ]
+    },
+    "SOSI_Objekt_Sperrelinjer": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "@type",
+        "oppdateringsdato"
+      ]
+    },
+    "Skitrekk": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Taubane"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "Skjær": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            }
+          }
+        }
+      ]
+    },
+    "Skog": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Skriftkode": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Skytebaneinnretning": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Skytefelt": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "navn": {
+              "type": "string"
+            },
+            "skytefeltstatus": {
+              "$ref": "#/definitions/Skytefeltstatus"
+            },
+            "avgrensesAvSkytefeltgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "navn",
+            "skytefeltstatus"
+          ]
+        }
+      ]
+    },
+    "Skytefeltgrense": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Skytefeltstatus": {
+      "type": "string",
+      "format": "uri"
+    },
+    "SnøIsbre": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "SpesiellDetalj": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "posisjon": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "senterlinje": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Sporantall": {
+      "type": "string",
+      "format": "uri"
+    },
+    "SportIdrettPlass": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "SpråkKode": {
+      "type": "string",
+      "format": "uri"
+    },
+    "SpråkprioriteringKode": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Stasjon": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "navn": {
+              "type": "string"
+            },
+            "retning": {
+              "$ref": "#/definitions/Retning"
+            }
+          },
+          "required": [
+            "navn",
+            "retning"
+          ]
+        }
+      ]
+    },
+    "StedsnavnTekst": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FellesTekst"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "navneobjekthovedgruppe": {
+              "$ref": "#/definitions/Navneobjekthovedgruppe"
+            },
+            "navneobjektgruppe": {
+              "$ref": "#/definitions/Navneobjektgruppe"
+            },
+            "navneobjekttype": {
+              "$ref": "#/definitions/Navneobjekttype"
+            },
+            "språk": {
+              "$ref": "#/definitions/SpråkKode"
+            },
+            "stedsnavnnummer": {
+              "type": "integer"
+            },
+            "språkprioritering": {
+              "$ref": "#/definitions/SpråkprioriteringKode"
+            },
+            "stedsnummer": {
+              "type": "integer"
+            },
+            "skrivemåtenummer": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "navneobjektgruppe",
+            "navneobjekthovedgruppe",
+            "navneobjekttype"
+          ]
+        }
+      ]
+    },
+    "Steinbrudd": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Steintipp": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Takkant": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Tank": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Kombinasjon_Ulike_Geometrityper"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "posisjon": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "område": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvTankkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Tankkant": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Taubane": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Teiggrensepunkt": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "grensepunkttype": {
+              "$ref": "#/definitions/Grensepunkttype"
+            },
+            "grensepunktnummer": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "grensepunkttype"
+          ]
+        }
+      ]
+    },
+    "TekstReferansePunkt": {
+      "type": "object",
+      "properties": {
+        "tekstReferansePunktNord": {
+          "$ref": "#/definitions/TekstReferansePunktNord"
+        },
+        "tekstReferansePunktØst": {
+          "$ref": "#/definitions/TekstReferansePunktØst"
+        }
+      },
+      "required": [
+        "tekstReferansePunktNord",
+        "tekstReferansePunktØst"
+      ]
+    },
+    "TekstReferansePunktNord": {
+      "type": "string",
+      "format": "uri"
+    },
+    "TekstReferansePunktØst": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Tekstformatering": {
+      "type": "object",
+      "properties": {
+        "tekstReferansepunkt": {
+          "$ref": "#/definitions/TekstReferansePunkt"
+        },
+        "tegnavstand": {
+          "type": "integer"
+        },
+        "skriftkode": {
+          "$ref": "#/definitions/Skriftkode"
+        },
+        "skrifttype": {
+          "type": "string"
+        },
+        "referansemålestokk": {
+          "type": "integer"
+        }
+      }
+    },
+    "Teksttype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Terrengpunkt": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer_Høyde"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "høyde": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "høyde"
+          ]
+        }
+      ]
+    },
+    "Territorialgrense": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Tettbebyggelse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "Tilgjengelighet": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Trafikktype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Tregruppe": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            }
+          }
+        }
+      ]
+    },
+    "TrigonometriskPunkt": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer_Høyde"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "høyde": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "høyde"
+          ]
+        }
+      ]
+    },
+    "TypeVeg": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Tårn": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            }
+          }
+        }
+      ]
+    },
+    "VannBredde": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Vedlikeholdsansvarlig": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Vegfase": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Vegkategori": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Veglenke": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Linjer_Samferdsel"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            },
+            "typeVeg": {
+              "$ref": "#/definitions/TypeVeg"
+            },
+            "vegsystem": {
+              "$ref": "#/definitions/Vegsystem"
+            },
+            "motorvegtype": {
+              "$ref": "#/definitions/Motorvegtype"
+            },
+            "rutemerking": {
+              "$ref": "#/definitions/RuteMerking"
+            },
+            "vedlikeholdsansvarlig": {
+              "$ref": "#/definitions/Vedlikeholdsansvarlig"
+            }
+          },
+          "required": [
+            "typeVeg"
+          ]
+        }
+      ]
+    },
+    "Vegsperring": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            },
+            "vegsperringtype": {
+              "$ref": "#/definitions/Vegsperringtype"
+            },
+            "retning": {
+              "$ref": "#/definitions/Retning"
+            }
+          },
+          "required": [
+            "retning"
+          ]
+        }
+      ]
+    },
+    "Vegsperringtype": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Vegsystem": {
+      "type": "object",
+      "properties": {
+        "vegkategori": {
+          "$ref": "#/definitions/Vegkategori"
+        },
+        "vegfase": {
+          "$ref": "#/definitions/Vegfase"
+        },
+        "vegnummer": {
+          "type": "integer"
+        }
+      }
+    },
+    "Verneform": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Vindkraftverk": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_PunkterOgLinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            }
+          }
+        }
+      ]
+    },
+    "ÅpentOmråde": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Flater"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "avgrensesAvFiktivdelelinje": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvDataavgrensning": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvElveKant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvArealbrukgrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkant": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvInnsjøkantRegulert": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            },
+            "avgrensesAvKystkontur": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    }
+  }
+}
