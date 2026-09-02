@@ -30,21 +30,42 @@ skinparam stereotypeCFontColor #2D201A
 
 package "Generelle typer" {
 
-  abstract class SOSI_Objekt_PunkterOgLinjer <<featureType>> {
-    + oppdateringsdato [1] : Date
-    + kvalitet [1] : Posisjonskvalitet
-  }
-
-  abstract class SOSI_Objekt_Hjelpelinjer <<featureType>> {
-    + oppdateringsdato [0..1] : Date
+  class FiktivDelelinje <<featureType>> {
+    + grense [1] : GM_Curve
   }
 
   class Dataavgrensning <<featureType>> {
     + grense [1] : GM_Curve
   }
 
+  abstract class SOSI_Objekt_Hjelpelinjer <<featureType>> {
+    + oppdateringsdato [0..1] : Date
+  }
+
   abstract class SOSI_Objekt_Linjer_Samferdsel <<featureType>> {
     + medium [0..1] : MediumSamferdsel
+    + datafangstdato [1] : Date
+    + oppdateringsdato [1] : Date
+    + kvalitet [1] : Posisjonskvalitet
+  }
+
+  abstract class SOSI_Objekt_Flater <<featureType>> {
+    + oppdateringsdato [1] : Date
+  }
+
+  abstract class SOSI_Objekt_Sperrelinjer <<featureType>> {
+    + oppdateringsdato [1] : Date
+  }
+
+  abstract class SOSI_Objekt_Kombinasjon_Ulike_Geometrityper <<featureType>> {
+    + datafangstdato [0..1] : Date
+    + oppdateringsdato [1] : Date
+    + kvalitet [0..1] : Posisjonskvalitet
+  }
+
+  abstract class "SOSI_Objekt_PunkterOgLinjer_Høyde" as SOSI_Objekt_PunkterOgLinjer_H_yde <<featureType>> {
+    + medium [1] : MediumHøyde
+    + datafangstdato [1] : Date
     + oppdateringsdato [1] : Date
     + kvalitet [1] : Posisjonskvalitet
   }
@@ -53,12 +74,10 @@ package "Generelle typer" {
     + grense [1] : GM_Curve
   }
 
-  abstract class SOSI_Objekt_Flater <<featureType>> {
+  abstract class SOSI_Objekt_PunkterOgLinjer <<featureType>> {
+    + datafangstdato [1] : Date
     + oppdateringsdato [1] : Date
-  }
-
-  class FiktivDelelinje <<featureType>> {
-    + grense [1] : GM_Curve
+    + kvalitet [1] : Posisjonskvalitet
   }
 
   class Posisjonskvalitet <<dataType>> {
@@ -67,9 +86,10 @@ package "Generelle typer" {
   }
 }
 
-SOSI_Objekt_Hjelpelinjer <|-- Dataavgrensning
-SOSI_Objekt_Hjelpelinjer <|-- KantUtsnitt
-SOSI_Objekt_Flater --> KantUtsnitt : avgrensesAvKantUtsnitt [0..*]
 SOSI_Objekt_Hjelpelinjer <|-- FiktivDelelinje
+SOSI_Objekt_Hjelpelinjer <|-- Dataavgrensning
+SOSI_Objekt_Flater --> KantUtsnitt : avgrensesAvKantutsnitt [0..*]
+SOSI_Objekt_Kombinasjon_Ulike_Geometrityper --> KantUtsnitt : avgrensesAvKantUtsnitt [0..*]
+SOSI_Objekt_Hjelpelinjer <|-- KantUtsnitt
 
 @enduml

@@ -45,8 +45,13 @@ package "Stedsnavn" {
     + geometri [1] : GM_Curve
     + streng [1] : CharacterString
     + oppdateringsdato [0..1] : Date
+    + datafangstdato [0..1] : Date
     + tekstformatering [1] : Tekstformatering
     + fulltekst [1] : CharacterString
+  }
+
+  class PresentasjonTekst <<featureType>> {
+    + teksttype [1] : Teksttype
   }
 
   class Tekstformatering <<dataType>> {
@@ -64,5 +69,6 @@ package "Stedsnavn" {
 }
 
 FellesTekst <|-- StedsnavnTekst
+FellesTekst <|-- PresentasjonTekst
 
 @enduml

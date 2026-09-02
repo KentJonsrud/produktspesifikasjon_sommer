@@ -30,12 +30,39 @@ skinparam stereotypeCFontColor #2D201A
 
 package "Restriksjonsområder" {
 
+  class Allmenning <<featureType>> {
+    + område [1] : GM_Surface
+    + allmenningtype [1] : Allmenningtype
+    + navn [1] : CharacterString
+  }
+
+  class Skytefeltgrense <<featureType>> {
+    + grense [1] : GM_Curve
+  }
+
   class Naturverngrense <<featureType>> {
+    + grense [1] : GM_Curve
+  }
+
+  class Allmenninggrense <<featureType>> {
     + grense [1] : GM_Curve
   }
 
   class "Naturvernområde" as Naturvernomr_de <<featureType>> {
     + område [1] : GM_Surface
+    + vernedato [1] : Date
+    + verneform [1] : Verneform
+    + navn [1] : CharacterString
+  }
+
+  class Skytefelt <<featureType>> {
+    + område [1] : GM_Surface
+    + navn [1] : CharacterString
+    + skytefeltstatus [1] : Skytefeltstatus
+  }
+
+  class Naturvernpunkt <<featureType>> {
+    + posisjon [1] : GM_Point
     + vernedato [1] : Date
     + verneform [1] : Verneform
     + navn [1] : CharacterString
@@ -49,8 +76,15 @@ package "Eksterne referanser" <<Frame>> {
   }
 }
 
+SOSI_Objekt_Flater <|-- Allmenning
+Allmenning --> Allmenninggrense : avgrensesAvAllmenninggrense [0..*]
+SOSI_Objekt_PunkterOgLinjer <|-- Skytefeltgrense
 SOSI_Objekt_PunkterOgLinjer <|-- Naturverngrense
+SOSI_Objekt_PunkterOgLinjer <|-- Allmenninggrense
 SOSI_Objekt_Flater <|-- Naturvernomr_de
 Naturvernomr_de --> Naturverngrense : avgrensesAvNaturverngrense [0..*]
+SOSI_Objekt_Flater <|-- Skytefelt
+Skytefelt --> Skytefeltgrense : avgrensesAvSkytefeltgrense [0..*]
+SOSI_Objekt_PunkterOgLinjer <|-- Naturvernpunkt
 
 @enduml
