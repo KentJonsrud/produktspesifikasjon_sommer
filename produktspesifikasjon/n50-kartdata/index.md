@@ -159,6 +159,7 @@ Dataene egner seg blant annet for fremstilling av topografiske kart, temakart, t
 | Bakgrunnskart for Matrikkelen WMS | [Lenke](https://wms.geonorge.no/skwms1/wms.matrikkel_bakgrunn2/?service=wms&request=getcapabilities) | WMS-tjeneste | OGC WMS |  |
 | GeoPackage: ny-datakilde | [Lenke](https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/n50-kartdata/ny-datakilde/ny-datakilde.gpkg) | Nedlasting | GPKG |  |
 | GML/XSD-skjema: ny-datakilde | [Lenke](https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/n50-kartdata/ny-datakilde/schema/xsd/INPUT/ny-datakilde.xsd) | Nedlasting | XSD |  |
+| JSON Schema: ny-datakilde | [Lenke](https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/n50-kartdata/ny-datakilde/schema/jsonschema/INPUT/nydatakilde/ny-datakilde.json) | Nedlasting | JSON Schema |  |
 
 ## Metadata
 

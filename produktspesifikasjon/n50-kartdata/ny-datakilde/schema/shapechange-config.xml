@@ -37,5 +37,34 @@
    <xi:include href="https://shapechange.net/resources/config/StandardMapEntries.xml" />
    <xi:include href="file:///home/runner/work/produktspesifikasjon_sommer/produktspesifikasjon_sommer/.psactions/shapechange/data/StandardMapEntries_sosi.xml" />
   </TargetXmlSchema>
+  <Target class="de.interactive_instruments.shapechange.core.target.json.JsonSchemaTarget" mode="enabled" inputs="INPUT">
+   <targetParameter name="outputDirectory" value="/home/runner/work/produktspesifikasjon_sommer/produktspesifikasjon_sommer/produktspesifikasjon/n50-kartdata/ny-datakilde/schema/jsonschema" />
+   <targetParameter name="sortedOutput" value="true" />
+   <targetParameter name="jsonSchemaVersion" value="draft-07" />
+   <targetParameter name="jsonBaseUri" value="https://skjema.geonorge.no/SOSI/produktspesifikasjon/n50-kartdata/ny-datakilde" />
+   <targetParameter name="entityTypeName" value="@type" />
+   <targetParameter name="defaultEncodingRule" value="sosiJson" />
+   <targetParameter name="documentationTemplate" value="[[documentation]]" />
+   <targetParameter name="documentationNoValue" value="" />
+   <rules>
+    <EncodingRule name="sosiJson">
+     <rule name="rule-json-cls-basictype" />
+     <rule name="rule-json-cls-codelist-uri-format" />
+     <rule name="rule-json-cls-name-as-entityType" />
+     <rule name="rule-json-cls-primaryGeometry" />
+     <rule name="rule-json-cls-identifierForTypeWithIdentity" />
+     <rule name="rule-json-cls-union-propertyCount" />
+     <rule name="rule-json-cls-valueTypeOptions" />
+     <rule name="rule-json-all-documentation" />
+    </EncodingRule>
+   </rules>
+   <mapEntries>
+    <MapEntry type="Punkt" rule="*" targetType="https://geojson.org/schema/Point.json" param="geometry" />
+    <MapEntry type="Kurve" rule="*" targetType="https://geojson.org/schema/LineString.json" param="geometry" />
+    <MapEntry type="Flate" rule="*" targetType="https://geojson.org/schema/Polygon.json" param="geometry" />
+    <MapEntry type="Sverm" rule="*" targetType="https://geojson.org/schema/MultiPoint.json" param="geometry" />
+   </mapEntries>
+   <xi:include href="https://shapechange.net/resources/config/StandardMapEntries_JSON.xml" />
+  </Target>
  </targets>
 </ShapeChangeConfiguration>
