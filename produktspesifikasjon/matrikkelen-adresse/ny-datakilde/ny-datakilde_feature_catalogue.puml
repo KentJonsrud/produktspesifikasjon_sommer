@@ -1,0 +1,139 @@
+@startuml
+' For wide diagrams, render with: plantuml -DPLANTUML_LIMIT_SIZE=16384 ...
+' The 'scale max' directive below caps the rendered output to prevent the
+' default PlantUML 4096px size limit from cropping the diagram.
+scale max 4000*4000
+
+title Matrikkelen - Adresse - Ny datakilde - Objekttyper
+
+skinparam backgroundColor #F5F5F5
+skinparam shadowing false
+skinparam RoundCorner 6
+skinparam ArrowColor #6C8198
+skinparam wrapWidth 200
+skinparam class {
+  BackgroundColor #FBF2E8
+  BorderColor #9C8578
+  FontColor #2D201A
+  HeaderBackgroundColor #EFE1D6
+  HeaderFontColor #2D201A
+  AttributeIconSize 0
+}
+skinparam note {
+  BackgroundColor #FFFFFF
+  BorderColor #6C8198
+  FontColor #2D201A
+}
+skinparam stereotypeCBackgroundColor #EAD9CE
+skinparam stereotypeCBorderColor #9C8578
+skinparam stereotypeCFontColor #2D201A
+
+package "Objekttyper" {
+
+  class Matrikkeladresse <<featureType>> {
+    + undernummer [0..1] : Integer
+  }
+
+  class Atkomst <<featureType>> {
+    + posisjon [1] : Punkt
+    + typeAtkomst [1] : TypeAtkomst
+    + adresseId [1] : CharacterString
+    + uuidAtkomst [0..1] : CharacterString
+    + uuidAdresse [1] : CharacterString
+  }
+
+  abstract class "SOSI_Objekt-AdresseAtkomst" as SOSI_Objekt_AdresseAtkomst <<featureType>> {
+    + identifikasjonAtkomst [1] : IdentifikasjonAtkomst
+    + oppdateringsdato [1] : Date
+    + datauttaksdato [0..1] : Date
+    + opphav [1] : CharacterString
+  }
+
+  class Vegadresse <<featureType>> {
+    + adressekode [1] : Integer
+    + adressenavn [1] : CharacterString
+    + bokstav [0..1] : CharacterString
+    + nummer [1] : Integer
+  }
+
+  abstract class "SOSI_Objekt-Adresse" as SOSI_Objekt_Adresse <<featureType>> {
+    + identifikasjonAdresse [1] : IdentifikasjonAdresse
+    + oppdateringsdato [1] : Date
+    + datauttaksdato [0..1] : Date
+    + stedfestingVerifisert [1] : Boolean
+  }
+
+  abstract class Adresse <<featureType>> {
+    + adresseTekst [1] : CharacterString
+    + adresseTekstUtenAdressetilleggsnavn [1] : CharacterString
+    + adressetilleggsnavn [0..1] : CharacterString
+    + adressetilleggsnavnKilde [0..1] : AdressetilleggsnavnKildeKode
+    + atkomstId [0..*] : CharacterString
+    + bruksenhetsnummerTekst [0..*] : CharacterString
+    + grunnkrets [1] : GrunnkretsId
+    + kommunenavn [1] : CharacterString
+    + kommunenummer [1] : Kommunenummer
+    + matrikkelnummerAdresse [1] : Matrikkelnummer
+    + postnummerområde [1] : PostnummerområdeId
+    + representasjonspunkt [1] : Punkt
+    + sokn [1] : SokneId
+    + tettsted [0..1] : TettstedId
+    + uuidAdresse [1] : CharacterString
+    + valgkrets [1] : ValgkretsId
+    + uuidAtkomst [0..*] : CharacterString
+  }
+
+  class IdentifikasjonAtkomst <<dataType>> {
+    + atkomstId [1] : CharacterString
+    + navnerom [1] : CharacterString
+    + versjonId [0..1] : CharacterString
+  }
+
+  class IdentifikasjonAdresse <<dataType>> {
+    + adresseId [1] : CharacterString
+    + navnerom [1] : CharacterString
+    + versjonId [0..1] : CharacterString
+  }
+
+  class GrunnkretsId <<dataType>> {
+    + grunnkretsnummer [1] : CharacterString
+    + grunnkretsnavn [0..1] : CharacterString
+  }
+
+  class Matrikkelnummer <<dataType>> {
+    + kommunenummer [1] : Kommunenummer
+    + gardsnummer [1] : Integer
+    + bruksnummer [1] : Integer
+    + festenummer [0..1] : Integer
+    + seksjonsnummer [0..1] : Integer
+  }
+
+  class "PostnummerområdeId" as Postnummeromr_deId <<dataType>> {
+    + postnummer [1] : CharacterString
+    + poststed [0..1] : CharacterString
+  }
+
+  class SokneId <<dataType>> {
+    + soknenummer [0..1] : CharacterString
+    + organisasjonsnummer [1] : Integer
+    + soknenavn [0..1] : CharacterString
+  }
+
+  class TettstedId <<dataType>> {
+    + tettstednummer [1] : CharacterString
+    + tettstednavn [0..1] : CharacterString
+  }
+
+  class ValgkretsId <<dataType>> {
+    + valgkretsnummer [1] : CharacterString
+    + valgkretsnavn [0..1] : CharacterString
+  }
+}
+
+  Adresse <|-- Matrikkeladresse
+  SOSI_Objekt_AdresseAtkomst <|-- Atkomst
+  Adresse <|-- Vegadresse
+  SOSI_Objekt_Adresse <|-- Adresse
+  Adresse --> Atkomst : atkomstpunkt [0..*]
+
+@enduml
