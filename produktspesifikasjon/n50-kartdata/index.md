@@ -63,6 +63,10 @@ logo: "https://register.geonorge.no/data/organizations/971040238_Kartverket_lite
 >
 > - **Klassifisering**: Ugradert
 
+### Formål
+Testing 123
+
+
 ### Bruksområde
 
 Dataene egner seg blant annet for fremstilling av topografiske kart, temakart, turkart/fritidskart, interaktive kart, som datagrunnlag for kartløsninger på internett og i analysesammenheng.
@@ -167,7 +171,7 @@ Dataene egner seg blant annet for fremstilling av topografiske kart, temakart, t
 
 **Metadatastandardversjon**: 2003
 
-**Metadatadato**: 2026-09-02
+**Metadatadato**: 2026-09-03
 
 **språk**: nor
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><ShapeChangeResult xmlns="http://www.interactive-instruments.de/ShapeChange/Result" xmlns:r="http://www.interactive-instruments.de/ShapeChange/Result" config="/home/runner/work/produktspesifikasjon_sommer/produktspesifikasjon_sommer/produktspesifikasjon/n50-kartdata/ny-datakilde/schema/shapechange-config.xml" end="Wed Sep 02 11:27:27 UTC 2026" resultCode="0" start="Wed Sep 02 11:27:20 UTC 2026" version="4.0.0">
+<?xml version="1.0" encoding="UTF-8"?><ShapeChangeResult xmlns="http://www.interactive-instruments.de/ShapeChange/Result" xmlns:r="http://www.interactive-instruments.de/ShapeChange/Result" config="/home/runner/work/produktspesifikasjon_sommer/produktspesifikasjon_sommer/produktspesifikasjon/n50-kartdata/ny-datakilde/schema/shapechange-config.xml" end="Fri Sep 04 08:42:10 UTC 2026" resultCode="0" start="Fri Sep 04 08:42:04 UTC 2026" version="4.0.0">
   <Messages>
     <ProcessFlowInfo message="---------- Semantic validation of ShapeChange configuration: START ----------"/>
     <Info message="Validating input parameters."/>
