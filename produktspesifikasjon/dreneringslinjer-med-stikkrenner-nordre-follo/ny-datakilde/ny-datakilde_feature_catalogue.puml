@@ -30,19 +30,51 @@ skinparam stereotypeCFontColor #2D201A
 
 package "Objekttyper" {
 
-  abstract class HavnetrafikkFellesegenskaper <<featureType>> {
+  class StikkrenneKulvert <<featureType>> {
+    + senterlinje [1] : GM_Curve
+  }
+
+  abstract class "StikkrenneKulvert-NVDB" as StikkrenneKulvert_NVDB <<featureType>> {
+    + tilknyttetLukkaDren [0..1] : TilknyttetLukkaDrenStikkrenneKulvert
+    + gjennomløpForElvBekk [0..1] : GjennomløpForElvBekkStikkrenneKulvert
+    + materialtype [0..1] : MaterialtypeStikkrenneKulvert
+    + tverrsnittsform [0..1] : TverrsnittsformStikkrenneKulvert
+    + typeInnløp [0..1] : TypeInnløpStikkrenneKulvert
+    + typeUtløp [0..1] : TypeUtløpStikkrenneKulvert
+    + lengde [0..1] : Real
+    + indreBredde [0..1] : Real
+    + indreHøyde [0..1] : Real
+    + overfyllingInnløp [0..1] : Real
+    + harInnløpsrist [0..1] : HarInnløpsristStikkrenneKulvert
+    + varmekabler [0..1] : VarmekablerStikkrenneKulvert
+    + etableringsår [0..1] : int
+    + tilleggsinformasjon [0..1] : CharacterString
+    + FKB_ID [0..1] : CharacterString
+    + eier [0..1] : EierStikkrenneKulvert
+    + vedlikeholdsansvarlig [0..1] : VedlikeholdsansvarligStikkrenneKulvert
+  }
+
+  abstract class "Fellesegenskaper-StikkrenneKulvert" as Fellesegenskaper_StikkrenneKulvert <<featureType>> {
+    + datafangstdato [1] : Date
+    + verifiseringsdato [0..1] : Date
+    + kvalitet [1] : Posisjonskvalitet
+    + medium [0..1] : Medium
+    + informasjon [0..1] : CharacterString
+    + høydereferanse [0..1] : LedningHøydereferanse
+  }
+
+  abstract class "Fellesegenskaper-Objektidentifikasjon" as Fellesegenskaper_Objektidentifikasjon <<featureType>> {
     + identifikasjon [1] : Identifikasjon
-    + oppdateringsdato [1] : Date
+    + eksternPeker [0..1] : URI
+    + nvdbPeker [0..1] : URI
   }
 
-  class TrafikkseparasjonFilDel <<featureType>> {
-    + område [1] : Flate
-    + sjørestriksjon [1] : Sjørestriksjon
-  }
-
-  class "Trafikkpolititønne" as Trafikkpolitit_nne <<featureType>> {
-    + posisjon [1] : GM_Point
-    + distrikt [1] : Politidistrikt
+  class Posisjonskvalitet <<dataType>> {
+    + datafangstmetode [1] : Datafangstmetode
+    + nøyaktighet [0..1] : Integer
+    + synbarhet [0..1] : Synbarhet
+    + datafangstmetodeHøyde [0..1] : Datafangstmetode
+    + nøyaktighetHøyde [0..1] : Integer
   }
 
   class Identifikasjon <<dataType>> {
@@ -52,7 +84,8 @@ package "Objekttyper" {
   }
 }
 
-  HavnetrafikkFellesegenskaper <|-- TrafikkseparasjonFilDel
-  HavnetrafikkFellesegenskaper <|-- Trafikkpolitit_nne
+  StikkrenneKulvert_NVDB <|-- StikkrenneKulvert
+  Fellesegenskaper_StikkrenneKulvert <|-- StikkrenneKulvert_NVDB
+  Fellesegenskaper_Objektidentifikasjon <|-- Fellesegenskaper_StikkrenneKulvert
 
 @enduml

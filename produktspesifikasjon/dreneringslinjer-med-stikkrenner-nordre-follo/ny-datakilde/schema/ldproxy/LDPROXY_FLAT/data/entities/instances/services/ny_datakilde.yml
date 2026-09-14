@@ -5,11 +5,7 @@ description: FIXME
 enabled: true
 serviceType: OGC_API
 collections:
-  trafikkpolititønne:
-    id: trafikkpolititønne
-    label: trafikkpolititønne
-    enabled: true
-  trafikkseparasjonfildel:
-    id: trafikkseparasjonfildel
-    label: trafikkseparasjonfildel
+  stikkrennekulvert:
+    id: stikkrennekulvert
+    label: stikkrennekulvert
     enabled: true
