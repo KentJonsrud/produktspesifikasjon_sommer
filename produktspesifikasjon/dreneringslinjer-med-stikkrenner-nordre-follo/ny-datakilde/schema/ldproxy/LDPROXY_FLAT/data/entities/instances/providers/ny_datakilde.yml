@@ -1,0 +1,36 @@
+---
+id: ny_datakilde
+enabled: true
+providerType: FEATURE
+providerSubType: SQL
+nativeCrs:
+  code: 25833
+  forceAxisOrder: NONE
+nativeTimeZone: Europe/Oslo
+connectionInfo:
+  database: FIXME
+  host: FIXME
+  user: FIXME
+  password: FIXME-base64-encoded
+  schemas:
+  - public
+sourcePathDefaults:
+  primaryKey: objid
+  sortKey: objid
+types:
+  stikkrennekulvert:
+    sourcePath: /stikkrennekulvert
+    type: OBJECT
+    objectType: StikkrenneKulvert
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
