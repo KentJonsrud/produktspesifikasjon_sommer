@@ -64,6 +64,25 @@ Dekning kun i deler av tidligere Ski kommune.*
 
 **Nivåbeskrivelse**: Gjelder hele datasettet. Hvis omfang ikke er oppgitt under en overskrift, gjelder teksten for hele datasettet og alle leveranser
 
+### Ny datakilde
+
+**Nivå**: dataset
+
+
+## Datainnhold og struktur
+
+
+
+### Datamodell - Ny datakilde
+
+
+
+<a href="ny-datakilde/ny-datakilde_feature_catalogue_overview.png" title="Klikk for stor visning"><img src="ny-datakilde/ny-datakilde_feature_catalogue_overview.png" alt="Datamodell Ny datakilde" style="max-width: 100%; height: auto;" /></a>
+
+
+
+➡️ [Se full datamodell for omfang "Ny datakilde" (diagram per pakke og objektkatalog)](ny-datakilde/objektkatalog.html)
+
 ## Datakvalitet
 
 **Nivå**: dataset
