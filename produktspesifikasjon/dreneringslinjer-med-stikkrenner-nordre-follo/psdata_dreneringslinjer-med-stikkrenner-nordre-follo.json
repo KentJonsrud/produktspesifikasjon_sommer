@@ -1,0 +1,125 @@
+{
+  "overview": "Denne produktspesifikasjonen er autogenerert fra metadata i Geonorge og datamodell fra SOSI modellregister og/eller OGC API Features. Noe ekstra informasjon kan ha blitt lagt til gjennom manuell prosess. Produktspesifikasjonen er i henhold til standarden: 'Geografisk informasjon - Dataproduktspesifikasjoner' (ISO19131:2022)",
+  "title": "Dreneringslinjer med stikkrenner Nordre Follo",
+  "format": "text/html",
+  "date": {
+    "creation": "2020-12-03",
+    "revision": "2020-12-03"
+  },
+  "language": "nor",
+  "contact": {
+    "organizationName": "Nordre Follo kommune",
+    "logo": "https://register.geonorge.no/data/organizations/922092648_nordre-follo_liten.jpg",
+    "electronicMailAddress": "magnus.haugstad@nordrefollo.kommune.no",
+    "role": "owner"
+  },
+  "identificationSection": {
+    "title": "Dreneringslinjer med stikkrenner Nordre Follo",
+    "abstract": "Dreneringslinjer med kulvert/stikkrenner.\nDekning kun i deler av tidligere Ski kommune.",
+    "supplementalInformation": "Det tas forbehold om feil i kartgrunnlaget.\nDet tas forbehold om riktigheten eller fullstendigheten av kartgrunnlaget. Det kan ikke rettes krav som følge av at disse opplysningene benyttes som grunnlag til beslutninger",
+    "uniqueId": "af36a16e-7a08-4bfd-8c39-68e54e3cc584",
+    "keyword": [
+      "Nordre Follo kommune",
+      "Det offentlige kartgrunnlaget",
+      "fellesDatakatalog",
+      "Basis geodata"
+    ],
+    "restriction": {
+      "legalConstraints": {
+        "accessConstraints": "Åpne data",
+        "useConstraints": "Lisens",
+        "license": "No conditions apply to access and use",
+        "licenseUrl": "http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply"
+      }
+    },
+    "contact": [
+      {
+        "organizationName": "Nordre Follo kommune",
+        "electronicMailAddress": "magnus.haugstad@nordrefollo.kommune.no",
+        "role": "owner"
+      },
+      {
+        "organizationName": "Nordre Follo kommune",
+        "electronicMailAddress": "magnus.haugstad@nordrefollo.kommune.no",
+        "role": "pointOfContact"
+      },
+      {
+        "organizationName": "Nordre Follo kommune",
+        "electronicMailAddress": "magnus.haugstad@nordrefollo.kommune.no",
+        "role": "publisher"
+      }
+    ],
+    "maintenance": "Ukjent",
+    "extent": {
+      "geographicElement": {
+        "westBoundLongitude": "10.71864",
+        "eastBoundLongitude": "10.991982",
+        "southBoundLatitude": "59.618675",
+        "northBoundLatitude": "59.839283"
+      },
+      "temporalElement": {
+        "timePeriod": {
+          "beginPosition": "2020-12-03",
+          "endPosition": "2020-12-03"
+        }
+      }
+    },
+    "date": {
+      "creation": "2020-12-03",
+      "publication": "2020-12-03",
+      "revision": "2020-12-03"
+    },
+    "language": "nor"
+  },
+  "scopeSection": [
+    {
+      "specificationScope": {
+        "scopeIdentification": "Hele datasettet",
+        "level": "dataset",
+        "levelDescription": "Gjelder hele datasettet. Hvis omfang ikke er oppgitt under en overskrift, gjelder teksten for hele datasettet og alle leveranser"
+      }
+    }
+  ],
+  "dataQualitySection": {
+    "scope": {
+      "level": "dataset"
+    }
+  },
+  "maintenanceSection": {
+    "maintenanceAndUpdateFrequency": "Ukjent"
+  },
+  "deliverySection": [
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "Geonorge filnedlastning",
+          "deliveryService": {
+            "serviceEndpoint": "https://nedlasting.geonorge.no/geonorge/kommunaleDokData/af36a16e-7a08-4bfd-8c39-68e54e3cc584.zip",
+            "serviceProperty": {
+              "type": "Geonorge filnedlastning",
+              "value": "GEONORGE:FILEDOWNLOAD"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "metadataSection": {
+    "metadataStandard": "ISO19115:Norsk versjon",
+    "metadataStandardVersion": "2003",
+    "metadataDate": "2025-02-11",
+    "language": "nor",
+    "contact": {
+      "organizationName": "Nordre Follo kommune",
+      "logo": "https://register.geonorge.no/data/organizations/922092648_nordre-follo_liten.jpg",
+      "electronicMailAddress": "magnus.haugstad@nordrefollo.kommune.no",
+      "role": "pointOfContact"
+    },
+    "metadataIdentifier": {
+      "authority": "Geonorge",
+      "code": "af36a16e-7a08-4bfd-8c39-68e54e3cc584",
+      "codeSpace": "https://kartkatalog.geonorge.no/metadata/",
+      "metadataLinkage": "https://kartkatalog.geonorge.no/metadata/af36a16e-7a08-4bfd-8c39-68e54e3cc584"
+    }
+  }
+}
