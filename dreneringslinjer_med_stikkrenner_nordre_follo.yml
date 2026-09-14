@@ -5,6 +5,6 @@ updated: '2026-09-14'
 outputs: geopackage,xsd,jsonschema,odcs,ldproxy
 scopes:
 - name: Ny datakilde
-  url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/StikkrenneKulvert-1.0.xml
+  url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/Havnetrafikk-5.2.xml
   generator: xmi
   description: ''
