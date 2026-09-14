@@ -18,19 +18,47 @@ sourcePathDefaults:
   primaryKey: objid
   sortKey: objid
 types:
-  stikkrennekulvert:
-    sourcePath: /stikkrennekulvert
+  trafikkpolititønne:
+    sourcePath: /trafikkpolititønne
     type: OBJECT
-    objectType: StikkrenneKulvert
+    objectType: Trafikkpolititønne
     properties:
       oid:
         sourcePath: objid
         type: INTEGER
         role: ID
-      senterlinje:
-        sourcePath: senterlinje
+      posisjon:
+        sourcePath: posisjon
         type: GEOMETRY
         role: PRIMARY_GEOMETRY
-        geometryType: LINE_STRING
+        geometryType: POINT
         constraints:
+          required: true
+      distrikt:
+        sourcePath: distrikt
+        type: STRING
+        constraints:
+          codelist: Politidistrikt
+          required: true
+  trafikkseparasjonfildel:
+    sourcePath: /trafikkseparasjonfildel
+    type: OBJECT
+    objectType: TrafikkseparasjonFilDel
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      sjørestriksjon:
+        sourcePath: sjørestriksjon
+        type: STRING
+        constraints:
+          codelist: Sj_restriksjon
           required: true
