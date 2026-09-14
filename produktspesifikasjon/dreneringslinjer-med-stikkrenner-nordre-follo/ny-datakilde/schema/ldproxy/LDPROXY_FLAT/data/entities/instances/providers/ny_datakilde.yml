@@ -1,0 +1,94 @@
+---
+id: ny_datakilde
+enabled: true
+providerType: FEATURE
+providerSubType: SQL
+nativeCrs:
+  code: 25833
+  forceAxisOrder: NONE
+nativeTimeZone: Europe/Oslo
+connectionInfo:
+  database: FIXME
+  host: FIXME
+  user: FIXME
+  password: FIXME-base64-encoded
+  schemas:
+  - public
+sourcePathDefaults:
+  primaryKey: objid
+  sortKey: objid
+types:
+  stikkrennekulvert:
+    sourcePath: /stikkrennekulvert
+    type: OBJECT
+    objectType: StikkrenneKulvert
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  stikkrennekulvert3dgeometri:
+    sourcePath: /stikkrennekulvert3dgeometri
+    type: OBJECT
+    objectType: StikkrenneKulvert3DGeometri
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grunnriss:
+        sourcePath: "[objid=stikkrennekulvert3dgeometriobjid]StikkrenneKulvert3DGeometri_grunnriss/[stikkrennekulvertflateobjid=objid]stikkrennekulvertflate"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: StikkrenneKulvertFlate-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: StikkrenneKulvertFlate-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/stikkrennekulvertflate/items/{{value}}"
+  stikkrennekulvertflate:
+    sourcePath: /stikkrennekulvertflate
+    type: OBJECT
+    objectType: StikkrenneKulvertFlate
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+  stikkrennekulvertpunkt:
+    sourcePath: /stikkrennekulvertpunkt
+    type: OBJECT
+    objectType: StikkrenneKulvertPunkt
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true

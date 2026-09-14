@@ -90,7 +90,7 @@ package "Objekttyper" {
   class Posisjonskvalitet <<dataType>> {
     + datafangstmetode [1] : Datafangstmetode
     + nøyaktighet [0..1] : Integer
-    + synbarhet [0..1] : Synbarhet
+    + synbarhet [0..1] : SynbarhetE
     + datafangstmetodeHøyde [0..1] : Datafangstmetode
     + nøyaktighetHøyde [0..1] : Integer
   }

@@ -468,7 +468,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>Synbarhet</td>
+      <td>SynbarhetE</td>
     </tr>
     <tr>
       <th scope="row">Tillatte verdier:</th>
@@ -555,7 +555,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium">https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium</a><br />- T – På terrenget - På terrenget/på bakkenivå<br />- X – Ukjent - Ukjent plassering i forhold til jordoverflaten<br />- D – Delvis under vann - Delvis i eller under vann<br />- I – På Isbre - På isbre<br />- U – Under terrenget<br />- V – I vann - Alltid i vann<br />- B – I Bygning - I eller på bygning eller bygningsmessig anlegg<br />- L – I luft - I lufta</td>
+      <td>- Kodeliste: <a href="https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium">https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium</a></td>
     </tr>
   </tbody>
 </table>
@@ -1182,7 +1182,7 @@ Koder
   </tbody>
 </table>
 
-#### «Enumeration» Synbarhet
+#### «Enumeration» SynbarhetE
 
 **Definisjon:** synbarhet beskriver hvor godt objektene framgår i datagrunnlaget for posisjonering (f.eks. flybildene).
 
@@ -1239,7 +1239,7 @@ Koder
   </tbody>
 </table>
 
-#### «Enumeration» Medium
+#### «CodeList» Medium
 
 **Definisjon:** objektets beliggenhet i forhold til jordoverflaten
 
@@ -1261,60 +1261,6 @@ Profilparametre i tagged values
     <tr>
       <th scope="row">codeList</th>
       <td><a href="https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium">https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium</a></td>
-    </tr>
-  </tbody>
-</table>
-
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>T</td>
-      <td>På terrenget - På terrenget/på bakkenivå</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>X</td>
-      <td>Ukjent - Ukjent plassering i forhold til jordoverflaten</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>D</td>
-      <td>Delvis under vann - Delvis i eller under vann</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>I</td>
-      <td>På Isbre - På isbre</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>U</td>
-      <td>Under terrenget</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>V</td>
-      <td>I vann - Alltid i vann</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>B</td>
-      <td>I Bygning - I eller på bygning eller bygningsmessig anlegg</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>L</td>
-      <td>I luft - I lufta</td>
-      <td></td>
     </tr>
   </tbody>
 </table>
