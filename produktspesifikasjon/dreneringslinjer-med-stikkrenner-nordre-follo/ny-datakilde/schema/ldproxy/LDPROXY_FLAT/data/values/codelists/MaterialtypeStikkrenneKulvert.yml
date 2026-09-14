@@ -1,10 +1,10 @@
 ---
 label: MaterialtypeStikkrenneKulvert
 entries:
-  betong: betong
-  eternitt: eternitt
-  naturstein: naturstein
-  plast: plast
-  stål: stål
-  tre: tre
+  Betong: Betong
+  Eternitt: Eternitt
+  Naturstein: Naturstein
+  Plast: Plast
+  Stål: Stål
+  Tre: Tre
 sourceType: TEMPLATES

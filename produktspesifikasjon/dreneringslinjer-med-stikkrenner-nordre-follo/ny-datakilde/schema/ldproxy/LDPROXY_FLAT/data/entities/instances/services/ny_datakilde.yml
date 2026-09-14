@@ -9,15 +9,3 @@ collections:
     id: stikkrennekulvert
     label: stikkrennekulvert
     enabled: true
-  stikkrennekulvert3dgeometri:
-    id: stikkrennekulvert3dgeometri
-    label: stikkrennekulvert3dgeometri
-    enabled: true
-  stikkrennekulvertflate:
-    id: stikkrennekulvertflate
-    label: stikkrennekulvertflate
-    enabled: true
-  stikkrennekulvertpunkt:
-    id: stikkrennekulvertpunkt
-    label: stikkrennekulvertpunkt
-    enabled: true

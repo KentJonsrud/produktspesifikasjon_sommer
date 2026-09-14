@@ -4,7 +4,7 @@
 ' default PlantUML 4096px size limit from cropping the diagram.
 scale max 4000*4000
 
-title Dreneringslinjer med stikkrenner Nordre Follo - Ny datakilde - Oversikt
+title Dreneringslinjer med stikkrenner Nordre Follo - Ny datakilde - StikkrenneKulvert-1.0
 
 skinparam backgroundColor #F5F5F5
 skinparam shadowing false
@@ -28,23 +28,18 @@ skinparam stereotypeCBackgroundColor #EAD9CE
 skinparam stereotypeCBorderColor #9C8578
 skinparam stereotypeCFontColor #2D201A
 
-package "Fellesegenskaper" {
-  abstract class "StikkrenneKulvert-NVDB" as StikkrenneKulvert_NVDB <<featureType>> {
-  }
-  abstract class "Fellesegenskaper-StikkrenneKulvert" as Fellesegenskaper_StikkrenneKulvert <<featureType>> {
-  }
-  abstract class "Fellesegenskaper-Objektidentifikasjon" as Fellesegenskaper_Objektidentifikasjon <<featureType>> {
-  }
-}
-
 package "StikkrenneKulvert-1.0" {
+
   class StikkrenneKulvert <<featureType>> {
+    + senterlinje [1] : GM_Curve
   }
 }
 
+package "Eksterne referanser" <<Frame>> {
+  class "StikkrenneKulvert-NVDB" as StikkrenneKulvert_NVDB <<Fellesegenskaper>> {
+  }
+}
 
 StikkrenneKulvert_NVDB <|-- StikkrenneKulvert
-Fellesegenskaper_StikkrenneKulvert <|-- StikkrenneKulvert_NVDB
-Fellesegenskaper_Objektidentifikasjon <|-- Fellesegenskaper_StikkrenneKulvert
 
 @enduml
