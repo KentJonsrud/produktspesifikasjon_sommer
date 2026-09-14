@@ -1,11 +1,11 @@
 ---
 label: EierStikkrenneKulvert
 entries:
-  baneNor: baneNor
-  fylkeskommune: fylkeskommune
-  kommune: kommune
-  nyeVeier: nyeVeier
-  privat: privat
-  statensVegvesen: statensVegvesen
-  uavklart: uavklart
+  Fylkeskommune: Fylkeskommune
+  Kommune: Kommune
+  Privat: Privat
+  Stat, Bane NOR: "Stat, Bane NOR"
+  Stat, Nye Veier: "Stat, Nye Veier"
+  Stat, Statens vegvesen: "Stat, Statens vegvesen"
+  Uavklart: Uavklart
 sourceType: TEMPLATES

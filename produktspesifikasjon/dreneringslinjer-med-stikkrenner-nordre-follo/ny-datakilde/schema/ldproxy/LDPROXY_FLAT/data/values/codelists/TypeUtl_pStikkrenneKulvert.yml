@@ -1,8 +1,8 @@
 ---
 label: TypeUtløpStikkrenneKulvert
 entries:
-  bekkElv: bekkElv
-  kum: kum
-  skråningTerreng: skråningTerreng
-  åpenGrøft: åpenGrøft
+  I bekk/elv: I bekk/elv
+  I skråning/terreng: I skråning/terreng
+  Kum: Kum
+  Åpen grøft: Åpen grøft
 sourceType: TEMPLATES

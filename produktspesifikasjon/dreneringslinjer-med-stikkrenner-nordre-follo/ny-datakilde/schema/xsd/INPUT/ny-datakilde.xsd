@@ -4,51 +4,48 @@
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <simpleType name="EierStikkrenneKulvertType">
     <annotation>
-      <documentation>Angir hvem som er eier av vegobjektet.</documentation>
+      <documentation>Angir hvem som er eier av objektet.</documentation>
+    </annotation>
+    <union memberTypes="nydatakilde:EierStikkrenneKulvertEnumerationType nydatakilde:EierStikkrenneKulvertOtherType"/>
+  </simpleType>
+  <simpleType name="EierStikkrenneKulvertEnumerationType">
+    <annotation>
+      <documentation>Angir hvem som er eier av objektet.</documentation>
     </annotation>
     <restriction base="string">
-      <enumeration value="fylkeskommune">
+      <enumeration value="Fylkeskommune"/>
+      <enumeration value="Kommune"/>
+      <enumeration value="Privat"/>
+      <enumeration value="Stat, Nye Veier">
         <annotation>
-          <documentation>Fylkeskommune</documentation>
+          <documentation>Nye Veier</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="kommune">
+      <enumeration value="Stat, Statens vegvesen">
         <annotation>
-          <documentation>Kommune</documentation>
+          <documentation>Statens vegvesen</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="nyeVeier">
+      <enumeration value="Uavklart">
         <annotation>
-          <documentation>Stat, Nye Veier - Nye Veier</documentation>
+          <documentation>Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="privat">
+      <enumeration value="Stat, Bane NOR">
         <annotation>
-          <documentation>Privat</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="statensVegvesen">
-        <annotation>
-          <documentation>Stat, Statens vegvesen - Statens vegvesen</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>Uavklart - Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="baneNor">
-        <annotation>
-          <documentation>Stat, Bane NOR - Bane NOR</documentation>
+          <documentation>Bane NOR</documentation>
         </annotation>
       </enumeration>
     </restriction>
   </simpleType>
+  <simpleType name="EierStikkrenneKulvertOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element abstract="true" name="Fellesegenskaper-Objektidentifikasjon" substitutionGroup="gml:AbstractFeature" type="nydatakilde:Fellesegenskaper-ObjektidentifikasjonType">
     <annotation>
-      <documentation>abstrakt objekttype som bærer sentrale egenskaper som er anbefalt for bruk i produktspesifikasjoner.
-
-Merknad: Disse egenskapene skal derfor ikke modelleres inn i fagområdemodeller.</documentation>
+      <documentation>abstrakt objekttype som bærer sentrale egenskaper fra standardisert SOSI_Fellesegenskaper som brukes videre i denne spesifikasjonen.</documentation>
     </annotation>
   </element>
   <complexType abstract="true" name="Fellesegenskaper-ObjektidentifikasjonType">
@@ -89,10 +86,7 @@ Merknad: Disse egenskapene skal derfor ikke modelleres inn i fagområdemodeller.
   </complexType>
   <element abstract="true" name="Fellesegenskaper-StikkrenneKulvert" substitutionGroup="nydatakilde:Fellesegenskaper-Objektidentifikasjon" type="nydatakilde:Fellesegenskaper-StikkrenneKulvertType">
     <annotation>
-      <documentation>abstrakt objekttype som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper
-
-Merknad:
-Spesielt i produktspesifikasjonsarbeid vil en velge egenskaper og av grensningslinjer fra denne klassen.</documentation>
+      <documentation>abstrakt objekttype som bærer sentrale egenskaper fra standardiserte SOSI_Objekt som brukes videre i denne spesifikasjonen.</documentation>
     </annotation>
   </element>
   <complexType abstract="true" name="Fellesegenskaper-StikkrenneKulvertType">
@@ -120,7 +114,7 @@ Merknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI<
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" name="kvalitet" type="nydatakilde:PosisjonskvalitetPropertyType">
+          <element name="kvalitet" type="nydatakilde:PosisjonskvalitetPropertyType">
             <annotation>
               <documentation>beskrivelse av kvaliteten på stedfestingen
 
@@ -130,7 +124,7 @@ Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.</docume
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="medium" type="gml:CodeType">
+          <element minOccurs="0" name="medium" type="gml:CodeType">
             <annotation>
               <documentation>objektets beliggenhet i forhold til jordoverflaten
 
@@ -142,7 +136,7 @@ På bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="informasjon" type="string">
+          <element minOccurs="0" name="informasjon" type="string">
             <annotation>
               <documentation>generell opplysning
 
@@ -176,34 +170,56 @@ mulighet til å legge inn utfyllende informasjon om objektet</documentation>
     <annotation>
       <documentation>Angir om elv/bekk renner gjennom stikkrenne/kulvert.</documentation>
     </annotation>
+    <union memberTypes="nydatakilde:GjennomløpForElvBekkStikkrenneKulvertEnumerationType nydatakilde:GjennomløpForElvBekkStikkrenneKulvertOtherType"/>
+  </simpleType>
+  <simpleType name="GjennomløpForElvBekkStikkrenneKulvertEnumerationType">
+    <annotation>
+      <documentation>Angir om elv/bekk renner gjennom stikkrenne/kulvert.</documentation>
+    </annotation>
     <restriction base="string">
-      <enumeration value="ja">
+      <enumeration value="Ja">
         <annotation>
-          <documentation>Ja - ja</documentation>
+          <documentation>ja</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="nei">
+      <enumeration value="Nei">
         <annotation>
-          <documentation>Nei - nei</documentation>
+          <documentation>nei</documentation>
         </annotation>
       </enumeration>
     </restriction>
   </simpleType>
+  <simpleType name="GjennomløpForElvBekkStikkrenneKulvertOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <simpleType name="HarInnløpsristStikkrenneKulvertType">
     <annotation>
-      <documentation>Angir om det er innløpsrist i tilknytning til vegobjektet.</documentation>
+      <documentation>Angir om det er innløpsrist i tilknytning til objektet.</documentation>
+    </annotation>
+    <union memberTypes="nydatakilde:HarInnløpsristStikkrenneKulvertEnumerationType nydatakilde:HarInnløpsristStikkrenneKulvertOtherType"/>
+  </simpleType>
+  <simpleType name="HarInnløpsristStikkrenneKulvertEnumerationType">
+    <annotation>
+      <documentation>Angir om det er innløpsrist i tilknytning til objektet.</documentation>
     </annotation>
     <restriction base="string">
-      <enumeration value="ja">
+      <enumeration value="Ja">
         <annotation>
-          <documentation>Ja - ja</documentation>
+          <documentation>ja</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="nei">
+      <enumeration value="Nei">
         <annotation>
-          <documentation>Nei - nei</documentation>
+          <documentation>nei</documentation>
         </annotation>
       </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="HarInnløpsristStikkrenneKulvertOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
   <element name="Identifikasjon" substitutionGroup="gml:AbstractObject" type="nydatakilde:IdentifikasjonType"/>
@@ -247,6 +263,16 @@ Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar for 
     </sequence>
   </complexType>
   <simpleType name="LedningHøydereferanseType">
+    <annotation>
+      <documentation>den høyden som høydedelen av stedfestingen til komponenten ( Ledning/beliggenhet og Kopling/posisjon) referer til.
+
+Merknad: På VA-ledning er det kun to som er aktuelle:
+- ToppUtvendig: ledning overkant, brukes på vannledning
+- BunnInnvendig: brukes på avløpsledning</documentation>
+    </annotation>
+    <union memberTypes="nydatakilde:LedningHøydereferanseEnumerationType nydatakilde:LedningHøydereferanseOtherType"/>
+  </simpleType>
+  <simpleType name="LedningHøydereferanseEnumerationType">
     <annotation>
       <documentation>den høyden som høydedelen av stedfestingen til komponenten ( Ledning/beliggenhet og Kopling/posisjon) referer til.
 
@@ -303,41 +329,33 @@ Merknad: Mange ledninger er målt på lukket grøft</documentation>
       </enumeration>
     </restriction>
   </simpleType>
+  <simpleType name="LedningHøydereferanseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <simpleType name="MaterialtypeStikkrenneKulvertType">
     <annotation>
       <documentation>Angir materialtype.</documentation>
     </annotation>
+    <union memberTypes="nydatakilde:MaterialtypeStikkrenneKulvertEnumerationType nydatakilde:MaterialtypeStikkrenneKulvertOtherType"/>
+  </simpleType>
+  <simpleType name="MaterialtypeStikkrenneKulvertEnumerationType">
+    <annotation>
+      <documentation>Angir materialtype.</documentation>
+    </annotation>
     <restriction base="string">
-      <enumeration value="betong">
-        <annotation>
-          <documentation>Betong</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="eternitt">
-        <annotation>
-          <documentation>Eternitt</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="naturstein">
-        <annotation>
-          <documentation>Naturstein</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="plast">
-        <annotation>
-          <documentation>Plast</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="stål">
-        <annotation>
-          <documentation>Stål - Stål</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="tre">
-        <annotation>
-          <documentation>Tre</documentation>
-        </annotation>
-      </enumeration>
+      <enumeration value="Betong"/>
+      <enumeration value="Eternitt"/>
+      <enumeration value="Naturstein"/>
+      <enumeration value="Plast"/>
+      <enumeration value="Stål"/>
+      <enumeration value="Tre"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="MaterialtypeStikkrenneKulvertOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
   <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject" type="nydatakilde:PosisjonskvalitetType"/>
@@ -368,10 +386,11 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
           </appinfo>
         </annotation>
       </element>
-      <element minOccurs="0" name="synbarhet" type="nydatakilde:SynbarhetEType">
+      <element minOccurs="0" name="synbarhet" type="gml:CodeType">
         <annotation>
           <documentation>beskrivelse av hvor godt objektene framgår i datagrunnlaget for posisjonering (f.eks. flybildene).</documentation>
           <appinfo>
+            <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/synbarhet</sc:targetCodeListURI>
             <sc:taggedValue tag="SOSI_navn">SYNBARHET</sc:taggedValue>
           </appinfo>
         </annotation>
@@ -411,7 +430,9 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
   </complexType>
   <element name="StikkrenneKulvert" substitutionGroup="nydatakilde:StikkrenneKulvert-NVDB" type="nydatakilde:StikkrenneKulvertType">
     <annotation>
-      <documentation>&lt;i&gt;Konstruksjoner og rør med maks. lysåpning på 2,5 meter, der vann kan strømme igjennom, oftest under veg eller jernbane&lt;/i&gt;.</documentation>
+      <documentation>Stikkrenne: konstruksjoner og rør med maksimal lysåpning 1,0 meter under veg eller jernbane, der vann kan strømme gjennom.
+
+Kulvert: konstruksjoner og rør med lysåpning over 1,0 meter og maksimal 2,5 meter under veg eller jernbane, der vann kan strømme gjennom.</documentation>
     </annotation>
   </element>
   <complexType name="StikkrenneKulvertType">
@@ -436,11 +457,7 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
   </complexType>
   <element abstract="true" name="StikkrenneKulvert-NVDB" substitutionGroup="nydatakilde:Fellesegenskaper-StikkrenneKulvert" type="nydatakilde:StikkrenneKulvert-NVDBType">
     <annotation>
-      <documentation>Rør for vanngjennomløp på tvers av vegen (ev. på tvers av tilgrensende avkjørsel) med maks lysåpning 2,5 meter. Stikkrenne/kulvert har åpent innløp og/eller utløp. Stikkrenne/kulvert kan ha inn- og utløpskonstruksjoner som kummer og støtteskjold. Merknad: Inntil videre registrere stikkrenner med bruksområde biologisk mangfold eller landbruk som vanlig stikkrenne. Dette blir endret på i senere versjon av Datakatalogen.</documentation>
-      <appinfo>
-        <sc:taggedValue tag="NVDB_ID">79</sc:taggedValue>
-        <sc:taggedValue tag="SOSI_navn">NVDB_STIKKRENNEKULVERT</sc:taggedValue>
-      </appinfo>
+      <documentation>abstrakt objekttype som bærer sentrale egenskaper fra objekt StikkrenneKulvert i NVDB datakatalogen som brukes videre i denne spesifikasjonen.</documentation>
     </annotation>
   </element>
   <complexType abstract="true" name="StikkrenneKulvert-NVDBType">
@@ -451,6 +468,7 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
             <annotation>
               <documentation>Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn i et lukket dreneringssystem.</documentation>
               <appinfo>
+                <sc:targetCodeListURI>https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTilknyttetLukkaDrenStikkrenneKulvert</sc:targetCodeListURI>
                 <sc:taggedValue tag="NVDB_ID">1941</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_TILKNYTTETLUKKADREN</sc:taggedValue>
               </appinfo>
@@ -460,6 +478,7 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
             <annotation>
               <documentation>Angir om elv/bekk renner gjennom stikkrenne/kulvert.</documentation>
               <appinfo>
+                <sc:targetCodeListURI>https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLGjennomløpForElvBekkStikkrenneKulvert</sc:targetCodeListURI>
                 <sc:taggedValue tag="NVDB_ID">10223</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_GJENNOMLØPFORELVBEKK</sc:taggedValue>
               </appinfo>
@@ -469,6 +488,7 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
             <annotation>
               <documentation>Angir materialtype.</documentation>
               <appinfo>
+                <sc:targetCodeListURI>https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLMaterialtypeStikkrenneKulvert</sc:targetCodeListURI>
                 <sc:taggedValue tag="NVDB_ID">6983</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_MATERIALTYPE</sc:taggedValue>
               </appinfo>
@@ -478,6 +498,7 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
             <annotation>
               <documentation>Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.</documentation>
               <appinfo>
+                <sc:targetCodeListURI>https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTverrsnittsformStikkrenneKulvert</sc:targetCodeListURI>
                 <sc:taggedValue tag="NVDB_ID">6984</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_TVERRSNITTSFORM</sc:taggedValue>
               </appinfo>
@@ -487,6 +508,7 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
             <annotation>
               <documentation>Angir hvilken type innløp det er i ei stikkrenne.</documentation>
               <appinfo>
+                <sc:targetCodeListURI>https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeInnløpStikkrenneKulvert</sc:targetCodeListURI>
                 <sc:taggedValue tag="NVDB_ID">1939</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_TYPEINNLØP</sc:taggedValue>
               </appinfo>
@@ -496,6 +518,7 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
             <annotation>
               <documentation>Angir hvilken type utløp det er i ei stikkrenne.</documentation>
               <appinfo>
+                <sc:targetCodeListURI>https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeUtløpStikkrenneKulvert</sc:targetCodeListURI>
                 <sc:taggedValue tag="NVDB_ID">1940</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_TYPEUTLØP</sc:taggedValue>
               </appinfo>
@@ -503,25 +526,27 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
           </element>
           <element minOccurs="0" name="lengde" type="double">
             <annotation>
-              <documentation>Angir lengde av vegobjektet.</documentation>
+              <documentation>Angir lengde av objektet.</documentation>
               <appinfo>
                 <sc:taggedValue tag="NVDB_ID">1323</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_LENGDE</sc:taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="bredde_Innvendig" type="double">
+          <element minOccurs="0" name="indreBredde" type="double">
             <annotation>
-              <documentation>Angir innvendig bredde av gjennomløpskonstruksjon. Ikke aktuell for sirkulære tverrsnitt.</documentation>
+              <documentation>Angir innvendig bredde av gjennomløpskonstruksjon. Ikke aktuell for sirkulære tverrsnitt.
+Måleenhet: mm</documentation>
               <appinfo>
                 <sc:taggedValue tag="NVDB_ID">4548</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_BREDDE_INNVENDIG</sc:taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="høyde_Innvendig" type="double">
+          <element minOccurs="0" name="indreHøyde" type="double">
             <annotation>
-              <documentation>Angir innvendig høyde av gjennomløpskonstruksjon. Tar ikke hensyn til ev. igjenfylling i bunn av konstruksjon.</documentation>
+              <documentation>Angir innvendig høyde av gjennomløpskonstruksjon. Tar ikke hensyn til ev. igjenfylling i bunn av konstruksjon.
+Måleenhet: mm</documentation>
               <appinfo>
                 <sc:taggedValue tag="NVDB_ID">4549</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_HØYDE_INNVENDIG</sc:taggedValue>
@@ -539,8 +564,9 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
           </element>
           <element minOccurs="0" name="harInnløpsrist" type="nydatakilde:HarInnløpsristStikkrenneKulvertType">
             <annotation>
-              <documentation>Angir om det er innløpsrist i tilknytning til vegobjektet.</documentation>
+              <documentation>Angir om det er innløpsrist i tilknytning til objektet.</documentation>
               <appinfo>
+                <sc:targetCodeListURI>https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLHarInnløpsristStikkrenneKulvert</sc:targetCodeListURI>
                 <sc:taggedValue tag="NVDB_ID">1923</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_HARINNLØPSRIST</sc:taggedValue>
               </appinfo>
@@ -548,16 +574,17 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
           </element>
           <element minOccurs="0" name="varmekabler" type="nydatakilde:VarmekablerStikkrenneKulvertType">
             <annotation>
-              <documentation>Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.</documentation>
+              <documentation>Angir om det er varmekabler eller ikke i tilknytning til objektet.</documentation>
               <appinfo>
+                <sc:targetCodeListURI>https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVarmekablerStikkrenneKulvert</sc:targetCodeListURI>
                 <sc:taggedValue tag="NVDB_ID">1832</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_VARMEKABLER</sc:taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="etableringsår" type="double">
+          <element minOccurs="0" name="etableringsår">
             <annotation>
-              <documentation>Angir hvilket år vegobjektet ble etablert på stedet.</documentation>
+              <documentation>Angir hvilket år objektet ble etablert på stedet.</documentation>
               <appinfo>
                 <sc:taggedValue tag="NVDB_ID">4556</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_ETABLERINGSÅR</sc:taggedValue>
@@ -566,7 +593,7 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
           </element>
           <element minOccurs="0" name="tilleggsinformasjon" type="string">
             <annotation>
-              <documentation>Supplerende informasjon om vegobjektet som ikke framkommer direkte av andre egenskapstyper, kan f.eks. være spesielle forhold knyttet til oppbygging, utdyping av spesielle problem, m.m.</documentation>
+              <documentation>Supplerende informasjon om objektet som ikke framkommer direkte av andre egenskapstyper.</documentation>
               <appinfo>
                 <sc:taggedValue tag="NVDB_ID">10771</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</sc:taggedValue>
@@ -584,8 +611,9 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
           </element>
           <element minOccurs="0" name="eier" type="nydatakilde:EierStikkrenneKulvertType">
             <annotation>
-              <documentation>Angir hvem som er eier av vegobjektet.</documentation>
+              <documentation>Angir hvem som er eier av objektet.</documentation>
               <appinfo>
+                <sc:targetCodeListURI>https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLEierStikkrenneKulvert</sc:targetCodeListURI>
                 <sc:taggedValue tag="NVDB_ID">7996</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_EIER</sc:taggedValue>
               </appinfo>
@@ -593,8 +621,9 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
           </element>
           <element minOccurs="0" name="vedlikeholdsansvarlig" type="nydatakilde:VedlikeholdsansvarligStikkrenneKulvertType">
             <annotation>
-              <documentation>Angir hvem som er ansvarlig for vedlikehold av vegobjektet.</documentation>
+              <documentation>Angir hvem som er ansvarlig for vedlikehold av objektet.</documentation>
               <appinfo>
+                <sc:targetCodeListURI>https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVedlikeholdsansvarligStikkrenneKulvert</sc:targetCodeListURI>
                 <sc:taggedValue tag="NVDB_ID">8060</sc:taggedValue>
                 <sc:taggedValue tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</sc:taggedValue>
               </appinfo>
@@ -611,228 +640,162 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="StikkrenneKulvert3DGeometri" substitutionGroup="nydatakilde:StikkrenneKulvert-NVDB" type="nydatakilde:StikkrenneKulvert3DGeometriType">
-    <annotation>
-      <documentation>ffff</documentation>
-    </annotation>
-  </element>
-  <complexType name="StikkrenneKulvert3DGeometriType">
-    <complexContent>
-      <extension base="nydatakilde:StikkrenneKulvert-NVDBType">
-        <sequence>
-          <element name="form" type="gml:SolidPropertyType">
-            <annotation>
-              <documentation>ffff</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="grunnriss" type="nydatakilde:StikkrenneKulvertFlatePropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="StikkrenneKulvert3DGeometriPropertyType">
-    <sequence minOccurs="0">
-      <element ref="nydatakilde:StikkrenneKulvert3DGeometri"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element name="StikkrenneKulvertFlate" substitutionGroup="nydatakilde:StikkrenneKulvert-NVDB" type="nydatakilde:StikkrenneKulvertFlateType">
-    <annotation>
-      <documentation>kkkk</documentation>
-    </annotation>
-  </element>
-  <complexType name="StikkrenneKulvertFlateType">
-    <complexContent>
-      <extension base="nydatakilde:StikkrenneKulvert-NVDBType">
-        <sequence>
-          <element name="område" type="gml:SurfacePropertyType">
-            <annotation>
-              <documentation>&lt;memo&gt;</documentation>
-            </annotation>
-          </element>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="StikkrenneKulvertFlatePropertyType">
-    <sequence minOccurs="0">
-      <element ref="nydatakilde:StikkrenneKulvertFlate"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element name="StikkrenneKulvertPunkt" substitutionGroup="nydatakilde:StikkrenneKulvert-NVDB" type="nydatakilde:StikkrenneKulvertPunktType">
-    <annotation>
-      <documentation>pppp</documentation>
-    </annotation>
-  </element>
-  <complexType name="StikkrenneKulvertPunktType">
-    <complexContent>
-      <extension base="nydatakilde:StikkrenneKulvert-NVDBType">
-        <sequence>
-          <element name="posisjon" type="gml:PointPropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="StikkrenneKulvertPunktPropertyType">
-    <sequence minOccurs="0">
-      <element ref="nydatakilde:StikkrenneKulvertPunkt"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <simpleType name="SynbarhetEType">
-    <annotation>
-      <documentation>synbarhet beskriver hvor godt objektene framgår i datagrunnlaget for posisjonering (f.eks. flybildene).</documentation>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="2">
-        <annotation>
-          <documentation>Middels synlig - Objektet er middels synlig/gjenkjennbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst brukes denne koden for objekter som har lav kontrast eller er delvis skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en større verdi for nøyaktighet enn kravet (opptil 3 ganger kravet)</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="3">
-        <annotation>
-          <documentation>Ikke synlig - Objektet er ikke synlig/gjenkjennbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst brukes denne koden for objekter som er helt skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en stor verdi for nøyaktighet (mer enn 3 ganger kravet)</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="0">
-        <annotation>
-          <documentation>Fullt ut synlig - Objektet er fullt ut synlig/gjenfinnbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk registrering skal objekter som er fullt ut synlige registreres i tråd med angitte krav til nøyaktig registrering.</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="1">
-        <annotation>
-          <documentation>Dårlig gjenfinnbar i terreng - Objektets posisjon er vanskelig å definere presist i terrenget på grunn av objektets natur eller manglende kontrast mot omgivelsene. Koden kan f.eks. brukes på høydekurver (eller andre isolinjer) eller objekter som er skjult i bakken (f.eks. innmåling av ledninger på lukket grøft)</documentation>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
   <simpleType name="TilknyttetLukkaDrenStikkrenneKulvertType">
     <annotation>
       <documentation>Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn i et lukket dreneringssystem.</documentation>
     </annotation>
+    <union memberTypes="nydatakilde:TilknyttetLukkaDrenStikkrenneKulvertEnumerationType nydatakilde:TilknyttetLukkaDrenStikkrenneKulvertOtherType"/>
+  </simpleType>
+  <simpleType name="TilknyttetLukkaDrenStikkrenneKulvertEnumerationType">
+    <annotation>
+      <documentation>Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn i et lukket dreneringssystem.</documentation>
+    </annotation>
     <restriction base="string">
-      <enumeration value="ja">
+      <enumeration value="Ja">
         <annotation>
-          <documentation>Ja - ja</documentation>
+          <documentation>ja</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="nei">
+      <enumeration value="Nei">
         <annotation>
-          <documentation>Nei - nei</documentation>
+          <documentation>nei</documentation>
         </annotation>
       </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TilknyttetLukkaDrenStikkrenneKulvertOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
   <simpleType name="TverrsnittsformStikkrenneKulvertType">
     <annotation>
       <documentation>Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.</documentation>
     </annotation>
+    <union memberTypes="nydatakilde:TverrsnittsformStikkrenneKulvertEnumerationType nydatakilde:TverrsnittsformStikkrenneKulvertOtherType"/>
+  </simpleType>
+  <simpleType name="TverrsnittsformStikkrenneKulvertEnumerationType">
+    <annotation>
+      <documentation>Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.</documentation>
+    </annotation>
     <restriction base="string">
-      <enumeration value="ellipseform">
-        <annotation>
-          <documentation>Ellipseform</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="flatbunnetMedHvelv">
-        <annotation>
-          <documentation>Flatbunnet med hvelv</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="rektangulær">
-        <annotation>
-          <documentation>Rektangulær - Rektangulær</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="sirkulær">
-        <annotation>
-          <documentation>Sirkulær - Sirkulær</documentation>
-        </annotation>
-      </enumeration>
+      <enumeration value="Ellipseform"/>
+      <enumeration value="Flatbunnet med hvelv"/>
+      <enumeration value="Rektangulær"/>
+      <enumeration value="Sirkulær"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TverrsnittsformStikkrenneKulvertOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
   <simpleType name="TypeInnløpStikkrenneKulvertType">
     <annotation>
       <documentation>Angir hvilken type innløp det er i ei stikkrenne.</documentation>
     </annotation>
+    <union memberTypes="nydatakilde:TypeInnløpStikkrenneKulvertEnumerationType nydatakilde:TypeInnløpStikkrenneKulvertOtherType"/>
+  </simpleType>
+  <simpleType name="TypeInnløpStikkrenneKulvertEnumerationType">
+    <annotation>
+      <documentation>Angir hvilken type innløp det er i ei stikkrenne.</documentation>
+    </annotation>
     <restriction base="string">
-      <enumeration value="kumOverStikkrenne">
+      <enumeration value="Kum over stikkrenne"/>
+      <enumeration value="Åpent i grøft">
         <annotation>
-          <documentation>Kum over stikkrenne</documentation>
+          <documentation>Vann renner inn direkte fra åpen grøft.</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="åpenGrøft">
+      <enumeration value="Åpent i grøft med støtteskjold">
         <annotation>
-          <documentation>Åpent i grøft - Vann renner inn direkte fra åpen grøft.</documentation>
+          <documentation>Åpen i grøft med støtteskjold</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="åpenGrøftMedStøtteskjold">
-        <annotation>
-          <documentation>Åpent i grøft med støtteskjold - Åpen i grøft med støtteskjold</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="åpenMedFrontmur">
-        <annotation>
-          <documentation>Åpent med frontmur - Åpent med frontmur</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="åpenMedVingemur">
-        <annotation>
-          <documentation>Åpent med vingemur - Åpent med vingemur</documentation>
-        </annotation>
-      </enumeration>
+      <enumeration value="Åpent med frontmur"/>
+      <enumeration value="Åpent med vingemur"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeInnløpStikkrenneKulvertOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
   <simpleType name="TypeUtløpStikkrenneKulvertType">
     <annotation>
       <documentation>Angir hvilken type utløp det er i ei stikkrenne.</documentation>
     </annotation>
+    <union memberTypes="nydatakilde:TypeUtløpStikkrenneKulvertEnumerationType nydatakilde:TypeUtløpStikkrenneKulvertOtherType"/>
+  </simpleType>
+  <simpleType name="TypeUtløpStikkrenneKulvertEnumerationType">
+    <annotation>
+      <documentation>Angir hvilken type utløp det er i ei stikkrenne.</documentation>
+    </annotation>
     <restriction base="string">
-      <enumeration value="bekkElv">
+      <enumeration value="I bekk/elv">
         <annotation>
-          <documentation>I bekk/elv - Vann ledes ut i bekk/elv.</documentation>
+          <documentation>Vann ledes ut i bekk/elv.</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="kum">
+      <enumeration value="I skråning/terreng">
         <annotation>
-          <documentation>Kum - Vann ledes til kum.</documentation>
+          <documentation>Vann ledes ut i skråning eller ut i terreng.</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="skråningTerreng">
+      <enumeration value="Kum">
         <annotation>
-          <documentation>I skråning/terreng - Vann ledes ut i skråning eller ut i terreng.</documentation>
+          <documentation>Vann ledes til kum.</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="åpenGrøft">
+      <enumeration value="Åpen grøft">
         <annotation>
-          <documentation>Åpen grøft - Vann ledes til åpen grøft</documentation>
+          <documentation>Vann ledes til åpen grøft</documentation>
         </annotation>
       </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeUtløpStikkrenneKulvertOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
   <simpleType name="VarmekablerStikkrenneKulvertType">
     <annotation>
-      <documentation>Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.</documentation>
+      <documentation>Angir om det er varmekabler eller ikke i tilknytning til objektet.</documentation>
+    </annotation>
+    <union memberTypes="nydatakilde:VarmekablerStikkrenneKulvertEnumerationType nydatakilde:VarmekablerStikkrenneKulvertOtherType"/>
+  </simpleType>
+  <simpleType name="VarmekablerStikkrenneKulvertEnumerationType">
+    <annotation>
+      <documentation>Angir om det er varmekabler eller ikke i tilknytning til objektet.</documentation>
     </annotation>
     <restriction base="string">
-      <enumeration value="ja">
+      <enumeration value="Ja">
         <annotation>
-          <documentation>Ja - ja</documentation>
+          <documentation>ja</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="nei">
+      <enumeration value="Nei">
         <annotation>
-          <documentation>Nei - nei</documentation>
+          <documentation>nei</documentation>
         </annotation>
       </enumeration>
     </restriction>
   </simpleType>
+  <simpleType name="VarmekablerStikkrenneKulvertOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <simpleType name="VedlikeholdsansvarligStikkrenneKulvertType">
     <annotation>
-      <documentation>Angir hvem som er ansvarlig for vedlikehold av vegobjektet.</documentation>
+      <documentation>Angir hvem som er ansvarlig for vedlikehold av objektet.</documentation>
+    </annotation>
+    <union memberTypes="nydatakilde:VedlikeholdsansvarligStikkrenneKulvertEnumerationType nydatakilde:VedlikeholdsansvarligStikkrenneKulvertOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligStikkrenneKulvertEnumerationType">
+    <annotation>
+      <documentation>Angir hvem som er ansvarlig for vedlikehold av objektet.</documentation>
     </annotation>
     <restriction base="string">
       <enumeration value="Fylkeskommune"/>
@@ -847,6 +810,11 @@ Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann ve
         </annotation>
       </enumeration>
       <enumeration value="Bane NOR"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligStikkrenneKulvertOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
 </schema>
