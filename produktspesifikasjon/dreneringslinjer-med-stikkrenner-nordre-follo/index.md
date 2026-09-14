@@ -98,6 +98,7 @@ Dekning kun i deler av tidligere Ski kommune.*
 | Tjeneste | Endepunkt | Type | Format | Leveranseenheter |
 | --- | --- | --- | --- | --- |
 | Geonorge filnedlastning | [Lenke](https://nedlasting.geonorge.no/geonorge/kommunaleDokData/af36a16e-7a08-4bfd-8c39-68e54e3cc584.zip) | GEONORGE:FILEDOWNLOAD |  |  |
+| GeoPackage: ny-datakilde | [Lenke](https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/dreneringslinjer-med-stikkrenner-nordre-follo/ny-datakilde/ny-datakilde.gpkg) | Nedlasting | GPKG |  |
 
 ## Metadata
 
