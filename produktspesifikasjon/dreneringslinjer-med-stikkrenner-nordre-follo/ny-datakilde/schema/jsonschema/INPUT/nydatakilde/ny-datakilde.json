@@ -3,7 +3,15 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://skjema.geonorge.no/SOSI/produktspesifikasjon/dreneringslinjer-med-stikkrenner-nordre-follo/ny-datakilde/nydatakilde/ny-datakilde.json",
   "definitions": {
-    "HavnetrafikkFellesegenskaper": {
+    "Datafangstmetode": {
+      "type": "string",
+      "format": "uri"
+    },
+    "EierStikkrenneKulvert": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Fellesegenskaper-Objektidentifikasjon": {
       "type": "object",
       "properties": {
         "@type": {
@@ -15,16 +23,63 @@
         "identifikasjon": {
           "$ref": "#/definitions/Identifikasjon"
         },
-        "oppdateringsdato": {
+        "eksternPeker": {
           "type": "string",
-          "format": "date"
+          "format": "uri"
+        },
+        "nvdbPeker": {
+          "type": "string",
+          "format": "uri"
         }
       },
       "required": [
         "@type",
-        "identifikasjon",
-        "oppdateringsdato"
+        "identifikasjon"
       ]
+    },
+    "Fellesegenskaper-StikkrenneKulvert": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Fellesegenskaper-Objektidentifikasjon"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "datafangstdato": {
+              "type": "string",
+              "format": "date"
+            },
+            "verifiseringsdato": {
+              "type": "string",
+              "format": "date"
+            },
+            "kvalitet": {
+              "$ref": "#/definitions/Posisjonskvalitet"
+            },
+            "medium": {
+              "$ref": "#/definitions/Medium"
+            },
+            "informasjon": {
+              "type": "string"
+            },
+            "høydereferanse": {
+              "$ref": "#/definitions/LedningHøydereferanse"
+            }
+          },
+          "required": [
+            "datafangstdato",
+            "kvalitet"
+          ]
+        }
+      ]
+    },
+    "GjennomløpForElvBekkStikkrenneKulvert": {
+      "type": "string",
+      "format": "uri"
+    },
+    "HarInnløpsristStikkrenneKulvert": {
+      "type": "string",
+      "format": "uri"
     },
     "Identifikasjon": {
       "type": "object",
@@ -44,55 +99,144 @@
         "navnerom"
       ]
     },
-    "Politidistrikt": {
+    "LedningHøydereferanse": {
       "type": "string",
       "format": "uri"
     },
-    "Sjørestriksjon": {
+    "MaterialtypeStikkrenneKulvert": {
       "type": "string",
       "format": "uri"
     },
-    "Trafikkpolititønne": {
+    "Medium": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Posisjonskvalitet": {
+      "type": "object",
+      "properties": {
+        "datafangstmetode": {
+          "$ref": "#/definitions/Datafangstmetode"
+        },
+        "nøyaktighet": {
+          "type": "integer"
+        },
+        "synbarhet": {
+          "$ref": "#/definitions/Synbarhet"
+        },
+        "datafangstmetodeHøyde": {
+          "$ref": "#/definitions/Datafangstmetode"
+        },
+        "nøyaktighetHøyde": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "datafangstmetode"
+      ]
+    },
+    "StikkrenneKulvert": {
       "allOf": [
         {
-          "$ref": "#/definitions/HavnetrafikkFellesegenskaper"
+          "$ref": "#/definitions/StikkrenneKulvert-NVDB"
         },
         {
           "type": "object",
           "properties": {
             "geometry": {
-              "$ref": "https://geojson.org/schema/Point.json"
-            },
-            "distrikt": {
-              "$ref": "#/definitions/Politidistrikt"
+              "$ref": "https://geojson.org/schema/LineString.json"
             }
-          },
-          "required": [
-            "distrikt"
-          ]
+          }
         }
       ]
     },
-    "TrafikkseparasjonFilDel": {
+    "StikkrenneKulvert-NVDB": {
       "allOf": [
         {
-          "$ref": "#/definitions/HavnetrafikkFellesegenskaper"
+          "$ref": "#/definitions/Fellesegenskaper-StikkrenneKulvert"
         },
         {
           "type": "object",
           "properties": {
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Polygon.json"
+            "tilknyttetLukkaDren": {
+              "$ref": "#/definitions/TilknyttetLukkaDrenStikkrenneKulvert"
             },
-            "sjørestriksjon": {
-              "$ref": "#/definitions/Sjørestriksjon"
+            "gjennomløpForElvBekk": {
+              "$ref": "#/definitions/GjennomløpForElvBekkStikkrenneKulvert"
+            },
+            "materialtype": {
+              "$ref": "#/definitions/MaterialtypeStikkrenneKulvert"
+            },
+            "tverrsnittsform": {
+              "$ref": "#/definitions/TverrsnittsformStikkrenneKulvert"
+            },
+            "typeInnløp": {
+              "$ref": "#/definitions/TypeInnløpStikkrenneKulvert"
+            },
+            "typeUtløp": {
+              "$ref": "#/definitions/TypeUtløpStikkrenneKulvert"
+            },
+            "lengde": {
+              "type": "number"
+            },
+            "indreBredde": {
+              "type": "number"
+            },
+            "indreHøyde": {
+              "type": "number"
+            },
+            "overfyllingInnløp": {
+              "type": "number"
+            },
+            "harInnløpsrist": {
+              "$ref": "#/definitions/HarInnløpsristStikkrenneKulvert"
+            },
+            "varmekabler": {
+              "$ref": "#/definitions/VarmekablerStikkrenneKulvert"
+            },
+            "etableringsår": {},
+            "tilleggsinformasjon": {
+              "type": "string"
+            },
+            "FKB_ID": {
+              "type": "string"
+            },
+            "eier": {
+              "$ref": "#/definitions/EierStikkrenneKulvert"
+            },
+            "vedlikeholdsansvarlig": {
+              "$ref": "#/definitions/VedlikeholdsansvarligStikkrenneKulvert"
             }
-          },
-          "required": [
-            "sjørestriksjon"
-          ]
+          }
         }
       ]
+    },
+    "Synbarhet": {
+      "type": "string",
+      "format": "uri"
+    },
+    "TilknyttetLukkaDrenStikkrenneKulvert": {
+      "type": "string",
+      "format": "uri"
+    },
+    "TverrsnittsformStikkrenneKulvert": {
+      "type": "string",
+      "format": "uri"
+    },
+    "TypeInnløpStikkrenneKulvert": {
+      "type": "string",
+      "format": "uri"
+    },
+    "TypeUtløpStikkrenneKulvert": {
+      "type": "string",
+      "format": "uri"
+    },
+    "VarmekablerStikkrenneKulvert": {
+      "type": "string",
+      "format": "uri"
+    },
+    "VedlikeholdsansvarligStikkrenneKulvert": {
+      "type": "string",
+      "format": "uri"
     }
   }
 }
