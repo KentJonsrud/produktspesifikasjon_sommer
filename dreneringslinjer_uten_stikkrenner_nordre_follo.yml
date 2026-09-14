@@ -1,0 +1,10 @@
+metadataId: 9b1f60f1-5f93-4964-ac98-c3cfd443cd54
+output_directory: produktspesifikasjon
+product_slug: dreneringslinjer_uten_stikkrenner_nordre_follo
+updated: '2026-09-14'
+outputs: geopackage,xsd,jsonschema,odcs,ldproxy
+scopes:
+- name: Ny datakilde
+  url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/StikkrenneKulvert-0.1.xml
+  generator: xmi
+  description: ''
