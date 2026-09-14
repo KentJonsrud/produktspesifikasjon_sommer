@@ -1,0 +1,377 @@
+{
+  "$comment": "JSON Schema document created by ShapeChange - https://shapechange.net/",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://skjema.geonorge.no/SOSI/produktspesifikasjon/dreneringslinjer-uten-stikkrenner-nordre-follo/ny-datakilde/nydatakilde/ny-datakilde.json",
+  "definitions": {
+    "Datafangstmetode": {
+      "type": "string",
+      "format": "uri"
+    },
+    "EierStikkrenneKulvert": {
+      "type": "string",
+      "enum": [
+        "fylkeskommune",
+        "kommune",
+        "nyeVeier",
+        "privat",
+        "statensVegvesen",
+        "uavklart",
+        "baneNor"
+      ]
+    },
+    "Fellesegenskaper-Objektidentifikasjon": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "identifikasjon": {
+          "$ref": "#/definitions/Identifikasjon"
+        },
+        "eksternPeker": {
+          "type": "string",
+          "format": "uri"
+        },
+        "nvdbPeker": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "@type",
+        "identifikasjon"
+      ]
+    },
+    "Fellesegenskaper-StikkrenneKulvert": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Fellesegenskaper-Objektidentifikasjon"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "datafangstdato": {
+              "type": "string",
+              "format": "date"
+            },
+            "verifiseringsdato": {
+              "type": "string",
+              "format": "date"
+            },
+            "kvalitet": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/definitions/Posisjonskvalitet"
+              },
+              "uniqueItems": true
+            },
+            "medium": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Medium"
+              },
+              "uniqueItems": true
+            },
+            "informasjon": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
+            "høydereferanse": {
+              "$ref": "#/definitions/LedningHøydereferanse"
+            }
+          },
+          "required": [
+            "datafangstdato",
+            "kvalitet"
+          ]
+        }
+      ]
+    },
+    "GjennomløpForElvBekkStikkrenneKulvert": {
+      "type": "string",
+      "enum": [
+        "ja",
+        "nei"
+      ]
+    },
+    "HarInnløpsristStikkrenneKulvert": {
+      "type": "string",
+      "enum": [
+        "ja",
+        "nei"
+      ]
+    },
+    "Identifikasjon": {
+      "type": "object",
+      "properties": {
+        "lokalId": {
+          "type": "string"
+        },
+        "navnerom": {
+          "type": "string"
+        },
+        "versjonId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "lokalId",
+        "navnerom"
+      ]
+    },
+    "LedningHøydereferanse": {
+      "type": "string",
+      "enum": [
+        "toppUtvendig",
+        "toppInnvendig",
+        "senter",
+        "bunnInnvendig",
+        "underkantUtvendig",
+        "påBakken",
+        "fot",
+        "ukjent"
+      ]
+    },
+    "MaterialtypeStikkrenneKulvert": {
+      "type": "string",
+      "enum": [
+        "betong",
+        "eternitt",
+        "naturstein",
+        "plast",
+        "stål",
+        "tre"
+      ]
+    },
+    "Medium": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Posisjonskvalitet": {
+      "type": "object",
+      "properties": {
+        "datafangstmetode": {
+          "$ref": "#/definitions/Datafangstmetode"
+        },
+        "nøyaktighet": {
+          "type": "integer"
+        },
+        "synbarhet": {
+          "$ref": "#/definitions/SynbarhetE"
+        },
+        "datafangstmetodeHøyde": {
+          "$ref": "#/definitions/Datafangstmetode"
+        },
+        "nøyaktighetHøyde": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "datafangstmetode"
+      ]
+    },
+    "StikkrenneKulvert": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/StikkrenneKulvert-NVDB"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "StikkrenneKulvert-NVDB": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Fellesegenskaper-StikkrenneKulvert"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tilknyttetLukkaDren": {
+              "$ref": "#/definitions/TilknyttetLukkaDrenStikkrenneKulvert"
+            },
+            "gjennomløpForElvBekk": {
+              "$ref": "#/definitions/GjennomløpForElvBekkStikkrenneKulvert"
+            },
+            "materialtype": {
+              "$ref": "#/definitions/MaterialtypeStikkrenneKulvert"
+            },
+            "tverrsnittsform": {
+              "$ref": "#/definitions/TverrsnittsformStikkrenneKulvert"
+            },
+            "typeInnløp": {
+              "$ref": "#/definitions/TypeInnløpStikkrenneKulvert"
+            },
+            "typeUtløp": {
+              "$ref": "#/definitions/TypeUtløpStikkrenneKulvert"
+            },
+            "lengde": {
+              "type": "number"
+            },
+            "bredde_Innvendig": {
+              "type": "number"
+            },
+            "høyde_Innvendig": {
+              "type": "number"
+            },
+            "overfyllingInnløp": {
+              "type": "number"
+            },
+            "harInnløpsrist": {
+              "$ref": "#/definitions/HarInnløpsristStikkrenneKulvert"
+            },
+            "varmekabler": {
+              "$ref": "#/definitions/VarmekablerStikkrenneKulvert"
+            },
+            "etableringsår": {
+              "type": "number"
+            },
+            "tilleggsinformasjon": {
+              "type": "string"
+            },
+            "FKB_ID": {
+              "type": "string"
+            },
+            "eier": {
+              "$ref": "#/definitions/EierStikkrenneKulvert"
+            },
+            "vedlikeholdsansvarlig": {
+              "$ref": "#/definitions/VedlikeholdsansvarligStikkrenneKulvert"
+            }
+          }
+        }
+      ]
+    },
+    "StikkrenneKulvert3DGeometri": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/StikkrenneKulvert-NVDB"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "form": {},
+            "grunnriss": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "form"
+          ]
+        }
+      ]
+    },
+    "StikkrenneKulvertFlate": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/StikkrenneKulvert-NVDB"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            }
+          }
+        }
+      ]
+    },
+    "StikkrenneKulvertPunkt": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/StikkrenneKulvert-NVDB"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Point.json"
+            }
+          }
+        }
+      ]
+    },
+    "SynbarhetE": {
+      "type": "string",
+      "enum": [
+        "2",
+        "3",
+        "0",
+        "1"
+      ]
+    },
+    "TilknyttetLukkaDrenStikkrenneKulvert": {
+      "type": "string",
+      "enum": [
+        "ja",
+        "nei"
+      ]
+    },
+    "TverrsnittsformStikkrenneKulvert": {
+      "type": "string",
+      "enum": [
+        "ellipseform",
+        "flatbunnetMedHvelv",
+        "rektangulær",
+        "sirkulær"
+      ]
+    },
+    "TypeInnløpStikkrenneKulvert": {
+      "type": "string",
+      "enum": [
+        "kumOverStikkrenne",
+        "åpenGrøft",
+        "åpenGrøftMedStøtteskjold",
+        "åpenMedFrontmur",
+        "åpenMedVingemur"
+      ]
+    },
+    "TypeUtløpStikkrenneKulvert": {
+      "type": "string",
+      "enum": [
+        "bekkElv",
+        "kum",
+        "skråningTerreng",
+        "åpenGrøft"
+      ]
+    },
+    "VarmekablerStikkrenneKulvert": {
+      "type": "string",
+      "enum": [
+        "ja",
+        "nei"
+      ]
+    },
+    "VedlikeholdsansvarligStikkrenneKulvert": {
+      "type": "string",
+      "enum": [
+        "Fylkeskommune",
+        "Kommune",
+        "Nye Veier",
+        "OPS",
+        "Privat",
+        "Statens vegvesen",
+        "Uavklart",
+        "Bane NOR"
+      ]
+    }
+  }
+}

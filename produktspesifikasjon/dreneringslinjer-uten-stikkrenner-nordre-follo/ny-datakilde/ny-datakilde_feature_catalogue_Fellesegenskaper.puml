@@ -1,0 +1,86 @@
+@startuml
+' For wide diagrams, render with: plantuml -DPLANTUML_LIMIT_SIZE=16384 ...
+' The 'scale max' directive below caps the rendered output to prevent the
+' default PlantUML 4096px size limit from cropping the diagram.
+scale max 4000*4000
+
+title Dreneringslinjer uten stikkrenner Nordre Follo - Ny datakilde - Fellesegenskaper
+
+skinparam backgroundColor #F5F5F5
+skinparam shadowing false
+skinparam RoundCorner 6
+skinparam ArrowColor #6C8198
+skinparam wrapWidth 200
+skinparam class {
+  BackgroundColor #FBF2E8
+  BorderColor #9C8578
+  FontColor #2D201A
+  HeaderBackgroundColor #EFE1D6
+  HeaderFontColor #2D201A
+  AttributeIconSize 0
+}
+skinparam note {
+  BackgroundColor #FFFFFF
+  BorderColor #6C8198
+  FontColor #2D201A
+}
+skinparam stereotypeCBackgroundColor #EAD9CE
+skinparam stereotypeCBorderColor #9C8578
+skinparam stereotypeCFontColor #2D201A
+
+package "Fellesegenskaper" {
+
+  abstract class "Fellesegenskaper-Objektidentifikasjon" as Fellesegenskaper_Objektidentifikasjon <<featureType>> {
+    + identifikasjon [1] : Identifikasjon
+    + eksternPeker [0..1] : URI
+    + nvdbPeker [0..1] : URI
+  }
+
+  abstract class "Fellesegenskaper-StikkrenneKulvert" as Fellesegenskaper_StikkrenneKulvert <<featureType>> {
+    + datafangstdato [1] : Date
+    + verifiseringsdato [0..1] : Date
+    + kvalitet [1..*] : Posisjonskvalitet
+    + medium [0..*] : Medium
+    + informasjon [0..*] : CharacterString
+    + høydereferanse [0..1] : LedningHøydereferanse
+  }
+
+  abstract class "StikkrenneKulvert-NVDB" as StikkrenneKulvert_NVDB <<featureType>> {
+    + tilknyttetLukkaDren [0..1] : TilknyttetLukkaDrenStikkrenneKulvert
+    + gjennomløpForElvBekk [0..1] : GjennomløpForElvBekkStikkrenneKulvert
+    + materialtype [0..1] : MaterialtypeStikkrenneKulvert
+    + tverrsnittsform [0..1] : TverrsnittsformStikkrenneKulvert
+    + typeInnløp [0..1] : TypeInnløpStikkrenneKulvert
+    + typeUtløp [0..1] : TypeUtløpStikkrenneKulvert
+    + lengde [0..1] : Real
+    + bredde_Innvendig [0..1] : Real
+    + høyde_Innvendig [0..1] : Real
+    + overfyllingInnløp [0..1] : Real
+    + harInnløpsrist [0..1] : HarInnløpsristStikkrenneKulvert
+    + varmekabler [0..1] : VarmekablerStikkrenneKulvert
+    + etableringsår [0..1] : Real
+    + tilleggsinformasjon [0..1] : CharacterString
+    + FKB_ID [0..1] : CharacterString
+    + eier [0..1] : EierStikkrenneKulvert
+    + vedlikeholdsansvarlig [0..1] : VedlikeholdsansvarligStikkrenneKulvert
+  }
+
+  class Identifikasjon <<dataType>> {
+    + lokalId [1] : CharacterString
+    + navnerom [1] : CharacterString
+    + versjonId [0..1] : CharacterString
+  }
+
+  class Posisjonskvalitet <<dataType>> {
+    + datafangstmetode [1] : Datafangstmetode
+    + nøyaktighet [0..1] : Integer
+    + synbarhet [0..1] : SynbarhetE
+    + datafangstmetodeHøyde [0..1] : Datafangstmetode
+    + nøyaktighetHøyde [0..1] : Integer
+  }
+}
+
+Fellesegenskaper_Objektidentifikasjon <|-- Fellesegenskaper_StikkrenneKulvert
+Fellesegenskaper_StikkrenneKulvert <|-- StikkrenneKulvert_NVDB
+
+@enduml

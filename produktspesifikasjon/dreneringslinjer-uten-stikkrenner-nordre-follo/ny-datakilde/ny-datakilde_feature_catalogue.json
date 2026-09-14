@@ -1,0 +1,851 @@
+[
+  {
+    "name": "StikkrenneKulvertPunkt",
+    "description": "pppp",
+    "attributes": [
+      {
+        "name": "posisjon",
+        "type": "GM_Point",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "StikkrenneKulvert-NVDB"
+      ],
+      "associations": []
+    },
+    "package": "StikkrenneKulvert-0.1"
+  },
+  {
+    "name": "StikkrenneKulvertFlate",
+    "description": "kkkk",
+    "attributes": [
+      {
+        "name": "område",
+        "type": "GM_Surface",
+        "description": "<memo>",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "StikkrenneKulvert-NVDB"
+      ],
+      "associations": []
+    },
+    "package": "StikkrenneKulvert-0.1"
+  },
+  {
+    "name": "StikkrenneKulvert",
+    "description": "<i>Konstruksjoner og rør med maks. lysåpning på 2,5 meter, der vann kan strømme igjennom, oftest under veg eller jernbane</i>.",
+    "attributes": [
+      {
+        "name": "senterlinje",
+        "type": "GM_Curve",
+        "description": "Gir linje/kurve som geometrisk representerer objektet.",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "StikkrenneKulvert-NVDB"
+      ],
+      "associations": []
+    },
+    "package": "StikkrenneKulvert-0.1"
+  },
+  {
+    "name": "StikkrenneKulvert3DGeometri",
+    "description": "ffff",
+    "attributes": [
+      {
+        "name": "form",
+        "type": "GM_Solid",
+        "description": "ffff",
+        "cardinality": "1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "StikkrenneKulvert-NVDB"
+      ],
+      "associations": [
+        {
+          "target": "StikkrenneKulvertFlate",
+          "role": "grunnriss",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "StikkrenneKulvert-0.1"
+  },
+  {
+    "name": "Fellesegenskaper-Objektidentifikasjon",
+    "description": "abstrakt objekttype som bærer sentrale egenskaper som er anbefalt for bruk i produktspesifikasjoner.\n\nMerknad: Disse egenskapene skal derfor ikke modelleres inn i fagområdemodeller.",
+    "attributes": [
+      {
+        "name": "identifikasjon",
+        "type": "Identifikasjon",
+        "description": "unik identifikasjon av et objekt",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "IDENT"
+        },
+        "attributes": [
+          {
+            "name": "lokalId",
+            "type": "CharacterString",
+            "description": "lokal identifikator av et objekt\n\nMerknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren er unik innenfor navnerommet. For FKB-data benyttes UUID som lokalId.",
+            "cardinality": "1",
+            "taggedValues": {
+              "SOSI_navn": "LOKALID"
+            }
+          },
+          {
+            "name": "navnerom",
+            "type": "CharacterString",
+            "description": "navnerom som unikt identifiserer datakilden til et objekt, anbefales å være en http-URI\n\nEksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0\n\nMerknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar for de unike identifikatorene og må være registrert i data.geonorge.no eller data.norge.no",
+            "cardinality": "1",
+            "taggedValues": {
+              "SOSI_navn": "NAVNEROM"
+            }
+          },
+          {
+            "name": "versjonId",
+            "type": "CharacterString",
+            "description": "identifikasjon av en spesiell versjon av et geografisk objekt (instans)",
+            "cardinality": "0..1",
+            "taggedValues": {
+              "SOSI_navn": "VERSJONID"
+            }
+          }
+        ]
+      },
+      {
+        "name": "eksternPeker",
+        "type": "URI",
+        "description": "referanse til objektet i et eksternt system, som ikke er Nasjonal vegdatabank (NVDB).",
+        "cardinality": "0..1"
+      },
+      {
+        "name": "nvdbPeker",
+        "type": "URI",
+        "description": "referanse til objektet i Nasjonal vegdatabank (NVDB).",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NVDBID"
+        }
+      }
+    ],
+    "abstract": true,
+    "relationships": {
+      "inheritance": [],
+      "associations": []
+    },
+    "package": "Fellesegenskaper"
+  },
+  {
+    "name": "Fellesegenskaper-StikkrenneKulvert",
+    "description": "abstrakt objekttype som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper\n\nMerknad:\nSpesielt i produktspesifikasjonsarbeid vil en velge egenskaper og av grensningslinjer fra denne klassen.",
+    "attributes": [
+      {
+        "name": "datafangstdato",
+        "type": "Date",
+        "description": "dato når objektet siste gang ble registrert/observert/målt i terrenget\n\nMerknad: I mange tilfeller er denne forskjellig fra oppdateringsdato, da registrerte endringer kan bufres i en kortere eller lengre periode før disse legges inn i databasen.\nVed førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.",
+        "cardinality": "1",
+        "taggedValues": {
+          "SOSI_navn": "DATAFANGSTDATO"
+        }
+      },
+      {
+        "name": "verifiseringsdato",
+        "type": "Date",
+        "description": "dato når dataene er fastslått å være i samsvar med virkeligheten\n\nMerknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "VERIFISERINGSDATO"
+        }
+      },
+      {
+        "name": "kvalitet",
+        "type": "Posisjonskvalitet",
+        "description": "beskrivelse av kvaliteten på stedfestingen\n\nMerknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.",
+        "cardinality": "1..*",
+        "taggedValues": {
+          "SOSI_navn": "KVALITET"
+        },
+        "attributes": [
+          {
+            "name": "datafangstmetode",
+            "type": "Datafangstmetode",
+            "description": "metode for datafangst.\nEgenskapen beskriver datafangstmetode for grunnrisskoordinater (x,y), eller for både grunnriss og høyde (x,y,z) dersom det ikke er oppgitt noen verdi for datafangstmetodeHøyde.",
+            "cardinality": "1",
+            "valueDomain": {
+              "kind": "codelist",
+              "listedValues": [
+                {
+                  "value": "byg",
+                  "label": "Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger"
+                },
+                {
+                  "value": "ukj",
+                  "label": "Ukjent - Ukjent eller uspesifisert datafangstmetode"
+                },
+                {
+                  "value": "pla",
+                  "label": "Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert med innmåling."
+                },
+                {
+                  "value": "sat",
+                  "label": "Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden Landmåling benyttes)"
+                },
+                {
+                  "value": "gen",
+                  "label": "Generert - Posisjonen er manuelt konstruert, eller generert ved maskinlæring eller annen type programvare, fra punktsky fra laserskanning, bildematching, sonar, andre typer sensordata eller kombinasjon av flere typer sensordata."
+                },
+                {
+                  "value": "fot",
+                  "label": "Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk stereomodell"
+                },
+                {
+                  "value": "dig",
+                  "label": "Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre plane kartdata"
+                },
+                {
+                  "value": "lan",
+                  "label": "Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode. Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling utføres normalt med overskytende målinger og utjevning av resultatet."
+                }
+              ],
+              "definition": "metode for datafangst.\n\nDatafangstmetoden beskriver hvordan selve vektordataene er posisjonert fra et datagrunnlag (observasjoner med landmålingsutstyr, fotogrammetrisk stereomodell, digital terrengmodell etc.) og ikke prosessen med å innhente det bakenforliggende datagrunnlaget.",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/datafangstmetode"
+            },
+            "taggedValues": {
+              "SOSI_navn": "DATAFANGSTMETODE"
+            }
+          },
+          {
+            "name": "nøyaktighet",
+            "type": "Integer",
+            "description": "standardavviket til posisjoneringa av objektet oppgitt i cm\n\nI de aller fleste sammenhenger benyttes en anslått eller forventet verdi for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.\n\nFor objekter med punktgeometri benyttes verdi for punktstandardavvik. For objekter med kurvegeometri benyttes standardavviket for tverravviket fra kurva. For objekter med overflate- eller volumgeometri er forståelsen at standardavviket beregnes ut fra (3D) avvikene mellom sann posisjon og nærmeste punkt på overflata.\n\nMerknad:\nVerdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket og det innebærer at vi forutsetter at det systematiske avviket i liten grad påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette defineres, beregnes og kontrolleres.",
+            "cardinality": "0..1",
+            "taggedValues": {
+              "SOSI_navn": "NØYAKTIGHET"
+            }
+          },
+          {
+            "name": "synbarhet",
+            "type": "SynbarhetE",
+            "description": "beskrivelse av hvor godt objektene framgår i datagrunnlaget for posisjonering (f.eks. flybildene).",
+            "cardinality": "0..1",
+            "valueDomain": {
+              "kind": "enumeration",
+              "listedValues": [
+                {
+                  "value": "2",
+                  "label": "Middels synlig - Objektet er middels synlig/gjenkjennbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst brukes denne koden for objekter som har lav kontrast eller er delvis skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en større verdi for nøyaktighet enn kravet (opptil 3 ganger kravet)"
+                },
+                {
+                  "value": "3",
+                  "label": "Ikke synlig - Objektet er ikke synlig/gjenkjennbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst brukes denne koden for objekter som er helt skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en stor verdi for nøyaktighet (mer enn 3 ganger kravet)"
+                },
+                {
+                  "value": "0",
+                  "label": "Fullt ut synlig - Objektet er fullt ut synlig/gjenfinnbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk registrering skal objekter som er fullt ut synlige registreres i tråd med angitte krav til nøyaktig registrering."
+                },
+                {
+                  "value": "1",
+                  "label": "Dårlig gjenfinnbar i terreng - Objektets posisjon er vanskelig å definere presist i terrenget på grunn av objektets natur eller manglende kontrast mot omgivelsene. Koden kan f.eks. brukes på høydekurver (eller andre isolinjer) eller objekter som er skjult i bakken (f.eks. innmåling av ledninger på lukket grøft)"
+                }
+              ],
+              "definition": "synbarhet beskriver hvor godt objektene framgår i datagrunnlaget for posisjonering (f.eks. flybildene).",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/synbarhet"
+            },
+            "taggedValues": {
+              "SOSI_navn": "SYNBARHET"
+            }
+          },
+          {
+            "name": "datafangstmetodeHøyde",
+            "type": "Datafangstmetode",
+            "description": "metoden brukt for høyderegistrering av posisjon.\n\nDet er bare nødvending å angi en verdi for egenskapen dersom datafangstmetode for høyde avviker fra datafangstmetode for grunnriss.",
+            "cardinality": "0..1",
+            "valueDomain": {
+              "kind": "codelist",
+              "listedValues": [
+                {
+                  "value": "byg",
+                  "label": "Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger"
+                },
+                {
+                  "value": "ukj",
+                  "label": "Ukjent - Ukjent eller uspesifisert datafangstmetode"
+                },
+                {
+                  "value": "pla",
+                  "label": "Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert med innmåling."
+                },
+                {
+                  "value": "sat",
+                  "label": "Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden Landmåling benyttes)"
+                },
+                {
+                  "value": "gen",
+                  "label": "Generert - Posisjonen er manuelt konstruert, eller generert ved maskinlæring eller annen type programvare, fra punktsky fra laserskanning, bildematching, sonar, andre typer sensordata eller kombinasjon av flere typer sensordata."
+                },
+                {
+                  "value": "fot",
+                  "label": "Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk stereomodell"
+                },
+                {
+                  "value": "dig",
+                  "label": "Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre plane kartdata"
+                },
+                {
+                  "value": "lan",
+                  "label": "Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode. Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling utføres normalt med overskytende målinger og utjevning av resultatet."
+                }
+              ],
+              "definition": "metode for datafangst.\n\nDatafangstmetoden beskriver hvordan selve vektordataene er posisjonert fra et datagrunnlag (observasjoner med landmålingsutstyr, fotogrammetrisk stereomodell, digital terrengmodell etc.) og ikke prosessen med å innhente det bakenforliggende datagrunnlaget.",
+              "asDictionary": "true",
+              "codeList": "https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/datafangstmetode"
+            },
+            "taggedValues": {
+              "SOSI_navn": "DATAFANGSTMETODEHØYDE"
+            }
+          },
+          {
+            "name": "nøyaktighetHøyde",
+            "type": "Integer",
+            "description": "standardavviket til posisjoneringa av objektet oppgitt i cm\n\nI de aller fleste sammenhenger benyttes en anslått eller forventet verdi for standardavviket, men dersom man faktisk har standardavviket til posisjoneringa av objektet oppgitt i cm\n\nI de aller fleste sammenhenger benyttes en anslått eller forventet verdi for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.\n\nMerknad:\nVerdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket og det innebærer at vi forutsetter at det systematiske avviket i liten grad påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette defineres, beregnes og kontrolleres.",
+            "cardinality": "0..1",
+            "taggedValues": {
+              "SOSI_navn": "H-NØYAKTIGHET"
+            }
+          }
+        ]
+      },
+      {
+        "name": "medium",
+        "type": "Medium",
+        "description": "objektets beliggenhet i forhold til jordoverflaten\n\nEksempel:\nPå bro, i tunnel, inne i et bygningsmessig anlegg, etc.",
+        "cardinality": "0..*",
+        "valueDomain": {
+          "kind": "codelist",
+          "definition": "objektets beliggenhet i forhold til jordoverflaten\n\nEksempel:\nVeg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.",
+          "asDictionary": "true",
+          "codeList": "https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium"
+        },
+        "taggedValues": {
+          "SOSI_navn": "MEDIUM"
+        }
+      },
+      {
+        "name": "informasjon",
+        "type": "CharacterString",
+        "description": "generell opplysning\n\nMerknad:\nmulighet til å legge inn utfyllende informasjon om objektet",
+        "cardinality": "0..*",
+        "taggedValues": {
+          "SOSI_navn": "INFORMASJON"
+        }
+      },
+      {
+        "name": "høydereferanse",
+        "type": "LedningHøydereferanse",
+        "description": "koordinatregistering utført på topp eller bunn av et objekt",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "enumeration",
+          "listedValues": [
+            {
+              "value": "toppUtvendig",
+              "label": "høydereferansen er til toppen av komponenten"
+            },
+            {
+              "value": "toppInnvendig",
+              "label": "høydereferansen er topp innvendig komponent"
+            },
+            {
+              "value": "senter",
+              "label": "høydereferansen er senter innvendig\n\nEksempel: Dersom en ønsker å representere volumet på rør, kan dette gjøres med å angi LedningHøydereferanse = senter og supplere dette med passende radius."
+            },
+            {
+              "value": "bunnInnvendig",
+              "label": "høydereferansen er bunn innvendig\n\nEksempel: Dette er nyttig når en skal modellere fall på avløpsrør"
+            },
+            {
+              "value": "underkantUtvendig",
+              "label": "høydereferansen er bunn utvendig"
+            },
+            {
+              "value": "påBakken",
+              "label": "høydereferanse er på bakken\n\nMerknad: Mange ledninger er målt på lukket grøft"
+            },
+            {
+              "value": "fot",
+              "label": "naturlig å bruke for eksempel på master/mastefundamenter"
+            },
+            {
+              "value": "ukjent",
+              "label": "brukes der det ikke er kjent hva som er benyttet som høydereferanse"
+            }
+          ],
+          "definition": "den høyden som høydedelen av stedfestingen til komponenten ( Ledning/beliggenhet og Kopling/posisjon) referer til.\n\nMerknad: På VA-ledning er det kun to som er aktuelle:\n- ToppUtvendig: ledning overkant, brukes på vannledning\n- BunnInnvendig: brukes på avløpsledning"
+        },
+        "taggedValues": {
+          "SOSI_navn": "HREF"
+        }
+      }
+    ],
+    "abstract": true,
+    "relationships": {
+      "inheritance": [
+        "Fellesegenskaper-Objektidentifikasjon"
+      ],
+      "associations": []
+    },
+    "package": "Fellesegenskaper"
+  },
+  {
+    "name": "StikkrenneKulvert-NVDB",
+    "description": "Rør for vanngjennomløp på tvers av vegen (ev. på tvers av tilgrensende avkjørsel) med maks lysåpning 2,5 meter. Stikkrenne/kulvert har åpent innløp og/eller utløp. Stikkrenne/kulvert kan ha inn- og utløpskonstruksjoner som kummer og støtteskjold. Merknad: Inntil videre registrere stikkrenner med bruksområde biologisk mangfold eller landbruk som vanlig stikkrenne. Dette blir endret på i senere versjon av Datakatalogen.",
+    "attributes": [
+      {
+        "name": "tilknyttetLukkaDren",
+        "type": "TilknyttetLukkaDrenStikkrenneKulvert",
+        "description": "Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn i et lukket dreneringssystem.",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "enumeration",
+          "listedValues": [
+            {
+              "value": "ja",
+              "label": "Ja - ja"
+            },
+            {
+              "value": "nei",
+              "label": "Nei - nei"
+            }
+          ],
+          "definition": "Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn i et lukket dreneringssystem.",
+          "asDictionary": "false",
+          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTilknyttetLukkaDrenStikkrenneKulvert"
+        },
+        "taggedValues": {
+          "SOSI_navn": "NVDB_TILKNYTTETLUKKADREN",
+          "NVDB_ID": "1941"
+        }
+      },
+      {
+        "name": "gjennomløpForElvBekk",
+        "type": "GjennomløpForElvBekkStikkrenneKulvert",
+        "description": "Angir om elv/bekk renner gjennom stikkrenne/kulvert.",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "enumeration",
+          "listedValues": [
+            {
+              "value": "ja",
+              "label": "Ja - ja"
+            },
+            {
+              "value": "nei",
+              "label": "Nei - nei"
+            }
+          ],
+          "definition": "Angir om elv/bekk renner gjennom stikkrenne/kulvert.",
+          "asDictionary": "false",
+          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLGjennomløpForElvBekkStikkrenneKulvert"
+        },
+        "taggedValues": {
+          "SOSI_navn": "NVDB_GJENNOMLØPFORELVBEKK",
+          "NVDB_ID": "10223"
+        }
+      },
+      {
+        "name": "materialtype",
+        "type": "MaterialtypeStikkrenneKulvert",
+        "description": "Angir materialtype.",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "enumeration",
+          "listedValues": [
+            {
+              "value": "betong",
+              "label": "Betong"
+            },
+            {
+              "value": "eternitt",
+              "label": "Eternitt"
+            },
+            {
+              "value": "naturstein",
+              "label": "Naturstein"
+            },
+            {
+              "value": "plast",
+              "label": "Plast"
+            },
+            {
+              "value": "stål",
+              "label": "Stål - Stål"
+            },
+            {
+              "value": "tre",
+              "label": "Tre"
+            }
+          ],
+          "definition": "Angir materialtype.",
+          "asDictionary": "false",
+          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLMaterialtypeStikkrenneKulvert"
+        },
+        "taggedValues": {
+          "SOSI_navn": "NVDB_MATERIALTYPE",
+          "NVDB_ID": "6983"
+        }
+      },
+      {
+        "name": "tverrsnittsform",
+        "type": "TverrsnittsformStikkrenneKulvert",
+        "description": "Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "enumeration",
+          "listedValues": [
+            {
+              "value": "ellipseform",
+              "label": "Ellipseform"
+            },
+            {
+              "value": "flatbunnetMedHvelv",
+              "label": "Flatbunnet med hvelv"
+            },
+            {
+              "value": "rektangulær",
+              "label": "Rektangulær - Rektangulær"
+            },
+            {
+              "value": "sirkulær",
+              "label": "Sirkulær - Sirkulær"
+            }
+          ],
+          "definition": "Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.",
+          "asDictionary": "false",
+          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTverrsnittsformStikkrenneKulvert"
+        },
+        "taggedValues": {
+          "SOSI_navn": "NVDB_TVERRSNITTSFORM",
+          "NVDB_ID": "6984"
+        }
+      },
+      {
+        "name": "typeInnløp",
+        "type": "TypeInnløpStikkrenneKulvert",
+        "description": "Angir hvilken type innløp det er i ei stikkrenne.",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "enumeration",
+          "listedValues": [
+            {
+              "value": "kumOverStikkrenne",
+              "label": "Kum over stikkrenne"
+            },
+            {
+              "value": "åpenGrøft",
+              "label": "Åpent i grøft - Vann renner inn direkte fra åpen grøft."
+            },
+            {
+              "value": "åpenGrøftMedStøtteskjold",
+              "label": "Åpent i grøft med støtteskjold - Åpen i grøft med støtteskjold"
+            },
+            {
+              "value": "åpenMedFrontmur",
+              "label": "Åpent med frontmur - Åpent med frontmur"
+            },
+            {
+              "value": "åpenMedVingemur",
+              "label": "Åpent med vingemur - Åpent med vingemur"
+            }
+          ],
+          "definition": "Angir hvilken type innløp det er i ei stikkrenne.",
+          "asDictionary": "false",
+          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeInnløpStikkrenneKulvert"
+        },
+        "taggedValues": {
+          "SOSI_navn": "NVDB_TYPEINNLØP",
+          "NVDB_ID": "1939"
+        }
+      },
+      {
+        "name": "typeUtløp",
+        "type": "TypeUtløpStikkrenneKulvert",
+        "description": "Angir hvilken type utløp det er i ei stikkrenne.",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "enumeration",
+          "listedValues": [
+            {
+              "value": "bekkElv",
+              "label": "I bekk/elv - Vann ledes ut i bekk/elv."
+            },
+            {
+              "value": "kum",
+              "label": "Kum - Vann ledes til kum."
+            },
+            {
+              "value": "skråningTerreng",
+              "label": "I skråning/terreng - Vann ledes ut i skråning eller ut i terreng."
+            },
+            {
+              "value": "åpenGrøft",
+              "label": "Åpen grøft - Vann ledes til åpen grøft"
+            }
+          ],
+          "definition": "Angir hvilken type utløp det er i ei stikkrenne.",
+          "asDictionary": "false",
+          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeUtløpStikkrenneKulvert"
+        },
+        "taggedValues": {
+          "SOSI_navn": "NVDB_TYPEUTLØP",
+          "NVDB_ID": "1940"
+        }
+      },
+      {
+        "name": "lengde",
+        "type": "Real",
+        "description": "Angir lengde av vegobjektet.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NVDB_LENGDE",
+          "NVDB_ID": "1323"
+        }
+      },
+      {
+        "name": "bredde_Innvendig",
+        "type": "Real",
+        "description": "Angir innvendig bredde av gjennomløpskonstruksjon. Ikke aktuell for sirkulære tverrsnitt.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NVDB_BREDDE_INNVENDIG",
+          "NVDB_ID": "4548"
+        }
+      },
+      {
+        "name": "høyde_Innvendig",
+        "type": "Real",
+        "description": "Angir innvendig høyde av gjennomløpskonstruksjon. Tar ikke hensyn til ev. igjenfylling i bunn av konstruksjon.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NVDB_HØYDE_INNVENDIG",
+          "NVDB_ID": "4549"
+        }
+      },
+      {
+        "name": "overfyllingInnløp",
+        "type": "Real",
+        "description": "Angir tykkelsen på overfylling ved innløp. Det vil si tykkelse fra topp av stikkrenne til topp dekke.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NVDB_OVERFYLLINGINNLØP",
+          "NVDB_ID": "10224"
+        }
+      },
+      {
+        "name": "harInnløpsrist",
+        "type": "HarInnløpsristStikkrenneKulvert",
+        "description": "Angir om det er innløpsrist i tilknytning til vegobjektet.",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "enumeration",
+          "listedValues": [
+            {
+              "value": "ja",
+              "label": "Ja - ja"
+            },
+            {
+              "value": "nei",
+              "label": "Nei - nei"
+            }
+          ],
+          "definition": "Angir om det er innløpsrist i tilknytning til vegobjektet.",
+          "asDictionary": "false",
+          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLHarInnløpsristStikkrenneKulvert"
+        },
+        "taggedValues": {
+          "SOSI_navn": "NVDB_HARINNLØPSRIST",
+          "NVDB_ID": "1923"
+        }
+      },
+      {
+        "name": "varmekabler",
+        "type": "VarmekablerStikkrenneKulvert",
+        "description": "Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "enumeration",
+          "listedValues": [
+            {
+              "value": "ja",
+              "label": "Ja - ja"
+            },
+            {
+              "value": "nei",
+              "label": "Nei - nei"
+            }
+          ],
+          "definition": "Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.",
+          "asDictionary": "false",
+          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVarmekablerStikkrenneKulvert"
+        },
+        "taggedValues": {
+          "SOSI_navn": "NVDB_VARMEKABLER",
+          "NVDB_ID": "1832"
+        }
+      },
+      {
+        "name": "etableringsår",
+        "type": "Real",
+        "description": "Angir hvilket år vegobjektet ble etablert på stedet.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NVDB_ETABLERINGSÅR",
+          "NVDB_ID": "4556"
+        }
+      },
+      {
+        "name": "tilleggsinformasjon",
+        "type": "CharacterString",
+        "description": "Supplerende informasjon om vegobjektet som ikke framkommer direkte av andre egenskapstyper, kan f.eks. være spesielle forhold knyttet til oppbygging, utdyping av spesielle problem, m.m.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NVDB_TILLEGGSINFORMASJON",
+          "NVDB_ID": "10771"
+        }
+      },
+      {
+        "name": "FKB_ID",
+        "type": "CharacterString",
+        "description": "Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning av geometri.",
+        "cardinality": "0..1",
+        "taggedValues": {
+          "SOSI_navn": "NVDB_FKB_ID",
+          "NVDB_ID": "10855"
+        }
+      },
+      {
+        "name": "eier",
+        "type": "EierStikkrenneKulvert",
+        "description": "Angir hvem som er eier av vegobjektet.",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "enumeration",
+          "listedValues": [
+            {
+              "value": "fylkeskommune",
+              "label": "Fylkeskommune"
+            },
+            {
+              "value": "kommune",
+              "label": "Kommune"
+            },
+            {
+              "value": "nyeVeier",
+              "label": "Stat, Nye Veier - Nye Veier"
+            },
+            {
+              "value": "privat",
+              "label": "Privat"
+            },
+            {
+              "value": "statensVegvesen",
+              "label": "Stat, Statens vegvesen - Statens vegvesen"
+            },
+            {
+              "value": "uavklart",
+              "label": "Uavklart - Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier)."
+            },
+            {
+              "value": "baneNor",
+              "label": "Stat, Bane NOR - Bane NOR"
+            }
+          ],
+          "definition": "Angir hvem som er eier av vegobjektet.",
+          "asDictionary": "false",
+          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLEierStikkrenneKulvert"
+        },
+        "taggedValues": {
+          "SOSI_navn": "NVDB_EIER",
+          "NVDB_ID": "7996"
+        }
+      },
+      {
+        "name": "vedlikeholdsansvarlig",
+        "type": "VedlikeholdsansvarligStikkrenneKulvert",
+        "description": "Angir hvem som er ansvarlig for vedlikehold av vegobjektet.",
+        "cardinality": "0..1",
+        "valueDomain": {
+          "kind": "enumeration",
+          "listedValues": [
+            {
+              "value": "Fylkeskommune",
+              "label": "Fylkeskommune"
+            },
+            {
+              "value": "Kommune",
+              "label": "Kommune"
+            },
+            {
+              "value": "Nye Veier",
+              "label": "Nye Veier"
+            },
+            {
+              "value": "OPS",
+              "label": "OPS"
+            },
+            {
+              "value": "Privat",
+              "label": "Privat"
+            },
+            {
+              "value": "Statens vegvesen",
+              "label": "Statens vegvesen"
+            },
+            {
+              "value": "Uavklart",
+              "label": "Verdi benyttes inntil det er avklart hvem som er vedlikeholdsansvarlig."
+            },
+            {
+              "value": "Bane NOR",
+              "label": "Bane NOR"
+            }
+          ],
+          "definition": "Angir hvem som er ansvarlig for vedlikehold av vegobjektet.",
+          "asDictionary": "false",
+          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVedlikeholdsansvarligStikkrenneKulvert"
+        },
+        "taggedValues": {
+          "SOSI_navn": "NVDB_VEDLIKEHOLDSANSVARLIG",
+          "NVDB_ID": "8060"
+        }
+      }
+    ],
+    "abstract": true,
+    "relationships": {
+      "inheritance": [
+        "Fellesegenskaper-StikkrenneKulvert"
+      ],
+      "associations": []
+    },
+    "package": "Fellesegenskaper",
+    "taggedValues": {
+      "SOSI_navn": "NVDB_STIKKRENNEKULVERT",
+      "NVDB_ID": "79"
+    }
+  }
+]

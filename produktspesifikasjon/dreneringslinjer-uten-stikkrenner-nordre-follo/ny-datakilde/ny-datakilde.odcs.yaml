@@ -1,0 +1,2022 @@
+# Open Data Contract Standard (ODCS) v3.1.0 — generert fra datamodellen.
+apiVersion: v3.1.0
+kind: DataContract
+id: urn:odcs:dreneringslinjer-uten-stikkrenner-nordre-follo-ny-datakilde:1.0.0
+version: 1.0.0
+status: active
+name: Dreneringslinjer uten stikkrenner Nordre Follo - Ny datakilde
+schema:
+- name: StikkrenneKulvertPunkt
+  physicalName: stikkrennekulvertpunkt
+  logicalType: object
+  physicalType: table
+  description: pppp
+  customProperties:
+  - property: sosiObjektType
+    value: StikkrenneKulvertPunkt
+  - property: inheritsFrom
+    value: StikkrenneKulvert-NVDB
+  properties:
+  - name: identifikasjon
+    logicalType: object
+    properties:
+    - name: lokalId
+      logicalType: string
+      description: 'lokal identifikator av et objekt
+
+
+        Merknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren
+        er unik innenfor navnerommet. For FKB-data benyttes UUID som lokalId.'
+      required: true
+    - name: navnerom
+      logicalType: string
+      description: 'navnerom som unikt identifiserer datakilden til et objekt, anbefales
+        å være en http-URI
+
+
+        Eksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0
+
+
+        Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar
+        for de unike identifikatorene og må være registrert i data.geonorge.no eller
+        data.norge.no'
+      required: true
+    - name: versjonId
+      logicalType: string
+      description: identifikasjon av en spesiell versjon av et geografisk objekt (instans)
+    description: unik identifikasjon av et objekt
+    required: true
+  - name: eksternPeker
+    logicalType: string
+    description: referanse til objektet i et eksternt system, som ikke er Nasjonal
+      vegdatabank (NVDB).
+  - name: nvdbPeker
+    logicalType: string
+    description: referanse til objektet i Nasjonal vegdatabank (NVDB).
+  - name: datafangstdato
+    logicalType: date
+    description: 'dato når objektet siste gang ble registrert/observert/målt i terrenget
+
+
+      Merknad: I mange tilfeller er denne forskjellig fra oppdateringsdato, da registrerte
+      endringer kan bufres i en kortere eller lengre periode før disse legges inn
+      i databasen.
+
+      Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.'
+    required: true
+  - name: verifiseringsdato
+    logicalType: date
+    description: 'dato når dataene er fastslått å være i samsvar med virkeligheten
+
+
+      Merknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI'
+  - name: kvalitet
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: datafangstmetode
+        logicalType: string
+        logicalTypeOptions:
+          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
+        customProperties:
+        - property: allowedValues
+          value:
+          - value: byg
+            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
+              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
+          - value: ukj
+            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
+          - value: pla
+            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
+              med innmåling.
+          - value: sat
+            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
+              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
+              Landmåling benyttes)
+          - value: gen
+            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
+              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
+              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
+              typer sensordata.
+          - value: fot
+            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
+              stereomodell
+          - value: dig
+            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
+              plane kartdata
+          - value: lan
+            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
+              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
+              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
+              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
+              utføres normalt med overskytende målinger og utjevning av resultatet.
+        description: 'metode for datafangst.
+
+          Egenskapen beskriver datafangstmetode for grunnrisskoordinater (x,y), eller
+          for både grunnriss og høyde (x,y,z) dersom det ikke er oppgitt noen verdi
+          for datafangstmetodeHøyde.'
+        required: true
+      - name: nøyaktighet
+        logicalType: integer
+        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
+
+
+          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
+          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
+
+
+          For objekter med punktgeometri benyttes verdi for punktstandardavvik. For
+          objekter med kurvegeometri benyttes standardavviket for tverravviket fra
+          kurva. For objekter med overflate- eller volumgeometri er forståelsen at
+          standardavviket beregnes ut fra (3D) avvikene mellom sann posisjon og nærmeste
+          punkt på overflata.
+
+
+          Merknad:
+
+          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
+          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
+          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
+          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
+          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
+          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
+          defineres, beregnes og kontrolleres.'
+      - name: synbarhet
+        logicalType: string
+        logicalTypeOptions:
+          pattern: ^(2|3|0|1)$
+        customProperties:
+        - property: allowedValues
+          value:
+          - value: '2'
+            label: Middels synlig - Objektet er middels synlig/gjenkjennbart i flybilde
+              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
+              brukes denne koden for objekter som har lav kontrast eller er delvis
+              skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.).
+              For slike objekter settes en større verdi for nøyaktighet enn kravet
+              (opptil 3 ganger kravet)
+          - value: '3'
+            label: Ikke synlig - Objektet er ikke synlig/gjenkjennbart i flybilde
+              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
+              brukes denne koden for objekter som er helt skjult av overliggende objekter
+              (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en
+              stor verdi for nøyaktighet (mer enn 3 ganger kravet)
+          - value: '0'
+            label: Fullt ut synlig - Objektet er fullt ut synlig/gjenfinnbart i flybilde
+              eller annen datakilde for posisjonering. Ved fotogrammetrisk registrering
+              skal objekter som er fullt ut synlige registreres i tråd med angitte
+              krav til nøyaktig registrering.
+          - value: '1'
+            label: Dårlig gjenfinnbar i terreng - Objektets posisjon er vanskelig
+              å definere presist i terrenget på grunn av objektets natur eller manglende
+              kontrast mot omgivelsene. Koden kan f.eks. brukes på høydekurver (eller
+              andre isolinjer) eller objekter som er skjult i bakken (f.eks. innmåling
+              av ledninger på lukket grøft)
+        description: beskrivelse av hvor godt objektene framgår i datagrunnlaget for
+          posisjonering (f.eks. flybildene).
+      - name: datafangstmetodeHøyde
+        logicalType: string
+        logicalTypeOptions:
+          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
+        customProperties:
+        - property: allowedValues
+          value:
+          - value: byg
+            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
+              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
+          - value: ukj
+            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
+          - value: pla
+            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
+              med innmåling.
+          - value: sat
+            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
+              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
+              Landmåling benyttes)
+          - value: gen
+            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
+              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
+              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
+              typer sensordata.
+          - value: fot
+            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
+              stereomodell
+          - value: dig
+            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
+              plane kartdata
+          - value: lan
+            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
+              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
+              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
+              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
+              utføres normalt med overskytende målinger og utjevning av resultatet.
+        description: 'metoden brukt for høyderegistrering av posisjon.
+
+
+          Det er bare nødvending å angi en verdi for egenskapen dersom datafangstmetode
+          for høyde avviker fra datafangstmetode for grunnriss.'
+      - name: nøyaktighetHøyde
+        logicalType: integer
+        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
+
+
+          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
+          for standardavviket, men dersom man faktisk har standardavviket til posisjoneringa
+          av objektet oppgitt i cm
+
+
+          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
+          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
+
+
+          Merknad:
+
+          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
+          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
+          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
+          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
+          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
+          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
+          defineres, beregnes og kontrolleres.'
+    description: 'beskrivelse av kvaliteten på stedfestingen
+
+
+      Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.'
+    required: true
+  - name: medium
+    logicalType: array
+    items:
+      logicalType: string
+      authoritativeDefinitions:
+      - url: https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium
+        type: businessDefinition
+      customProperties:
+      - property: sosiCodeList
+        value: Medium
+      - property: asDictionary
+        value: 'true'
+    description: 'objektets beliggenhet i forhold til jordoverflaten
+
+
+      Eksempel:
+
+      På bro, i tunnel, inne i et bygningsmessig anlegg, etc.'
+  - name: informasjon
+    logicalType: array
+    items:
+      logicalType: string
+    description: 'generell opplysning
+
+
+      Merknad:
+
+      mulighet til å legge inn utfyllende informasjon om objektet'
+  - name: høydereferanse
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(toppUtvendig|toppInnvendig|senter|bunnInnvendig|underkantUtvendig|påBakken|fot|ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: toppUtvendig
+        label: høydereferansen er til toppen av komponenten
+      - value: toppInnvendig
+        label: høydereferansen er topp innvendig komponent
+      - value: senter
+        label: 'høydereferansen er senter innvendig
+
+
+          Eksempel: Dersom en ønsker å representere volumet på rør, kan dette gjøres
+          med å angi LedningHøydereferanse = senter og supplere dette med passende
+          radius.'
+      - value: bunnInnvendig
+        label: 'høydereferansen er bunn innvendig
+
+
+          Eksempel: Dette er nyttig når en skal modellere fall på avløpsrør'
+      - value: underkantUtvendig
+        label: høydereferansen er bunn utvendig
+      - value: påBakken
+        label: 'høydereferanse er på bakken
+
+
+          Merknad: Mange ledninger er målt på lukket grøft'
+      - value: fot
+        label: naturlig å bruke for eksempel på master/mastefundamenter
+      - value: ukjent
+        label: brukes der det ikke er kjent hva som er benyttet som høydereferanse
+    description: koordinatregistering utført på topp eller bunn av et objekt
+  - name: tilknyttetLukkaDren
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn
+      i et lukket dreneringssystem.
+  - name: gjennomløpForElvBekk
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om elv/bekk renner gjennom stikkrenne/kulvert.
+  - name: materialtype
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(betong|eternitt|naturstein|plast|stål|tre)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: betong
+        label: Betong
+      - value: eternitt
+        label: Eternitt
+      - value: naturstein
+        label: Naturstein
+      - value: plast
+        label: Plast
+      - value: stål
+        label: Stål - Stål
+      - value: tre
+        label: Tre
+    description: Angir materialtype.
+  - name: tverrsnittsform
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ellipseform|flatbunnetMedHvelv|rektangulær|sirkulær)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ellipseform
+        label: Ellipseform
+      - value: flatbunnetMedHvelv
+        label: Flatbunnet med hvelv
+      - value: rektangulær
+        label: Rektangulær - Rektangulær
+      - value: sirkulær
+        label: Sirkulær - Sirkulær
+    description: Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.
+  - name: typeInnløp
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(kumOverStikkrenne|åpenGrøft|åpenGrøftMedStøtteskjold|åpenMedFrontmur|åpenMedVingemur)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: kumOverStikkrenne
+        label: Kum over stikkrenne
+      - value: åpenGrøft
+        label: Åpent i grøft - Vann renner inn direkte fra åpen grøft.
+      - value: åpenGrøftMedStøtteskjold
+        label: Åpent i grøft med støtteskjold - Åpen i grøft med støtteskjold
+      - value: åpenMedFrontmur
+        label: Åpent med frontmur - Åpent med frontmur
+      - value: åpenMedVingemur
+        label: Åpent med vingemur - Åpent med vingemur
+    description: Angir hvilken type innløp det er i ei stikkrenne.
+  - name: typeUtløp
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(bekkElv|kum|skråningTerreng|åpenGrøft)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: bekkElv
+        label: I bekk/elv - Vann ledes ut i bekk/elv.
+      - value: kum
+        label: Kum - Vann ledes til kum.
+      - value: skråningTerreng
+        label: I skråning/terreng - Vann ledes ut i skråning eller ut i terreng.
+      - value: åpenGrøft
+        label: Åpen grøft - Vann ledes til åpen grøft
+    description: Angir hvilken type utløp det er i ei stikkrenne.
+  - name: lengde
+    logicalType: number
+    description: Angir lengde av vegobjektet.
+  - name: bredde_Innvendig
+    logicalType: number
+    description: Angir innvendig bredde av gjennomløpskonstruksjon. Ikke aktuell for
+      sirkulære tverrsnitt.
+  - name: høyde_Innvendig
+    logicalType: number
+    description: Angir innvendig høyde av gjennomløpskonstruksjon. Tar ikke hensyn
+      til ev. igjenfylling i bunn av konstruksjon.
+  - name: overfyllingInnløp
+    logicalType: number
+    description: Angir tykkelsen på overfylling ved innløp. Det vil si tykkelse fra
+      topp av stikkrenne til topp dekke.
+  - name: harInnløpsrist
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om det er innløpsrist i tilknytning til vegobjektet.
+  - name: varmekabler
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.
+  - name: etableringsår
+    logicalType: number
+    description: Angir hvilket år vegobjektet ble etablert på stedet.
+  - name: tilleggsinformasjon
+    logicalType: string
+    description: Supplerende informasjon om vegobjektet som ikke framkommer direkte
+      av andre egenskapstyper, kan f.eks. være spesielle forhold knyttet til oppbygging,
+      utdyping av spesielle problem, m.m.
+  - name: FKB_ID
+    logicalType: string
+    description: Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning
+      av geometri.
+  - name: eier
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(fylkeskommune|kommune|nyeVeier|privat|statensVegvesen|uavklart|baneNor)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: fylkeskommune
+        label: Fylkeskommune
+      - value: kommune
+        label: Kommune
+      - value: nyeVeier
+        label: Stat, Nye Veier - Nye Veier
+      - value: privat
+        label: Privat
+      - value: statensVegvesen
+        label: Stat, Statens vegvesen - Statens vegvesen
+      - value: uavklart
+        label: Uavklart - Verdi benyttes inntil det er avklart hvem som er eier (ingen
+          verdi tolkes som at vegeier er eier).
+      - value: baneNor
+        label: Stat, Bane NOR - Bane NOR
+    description: Angir hvem som er eier av vegobjektet.
+  - name: vedlikeholdsansvarlig
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Fylkeskommune|Kommune|Nye\ Veier|OPS|Privat|Statens\ vegvesen|Uavklart|Bane\
+        NOR)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Fylkeskommune
+        label: Fylkeskommune
+      - value: Kommune
+        label: Kommune
+      - value: Nye Veier
+        label: Nye Veier
+      - value: OPS
+        label: OPS
+      - value: Privat
+        label: Privat
+      - value: Statens vegvesen
+        label: Statens vegvesen
+      - value: Uavklart
+        label: Verdi benyttes inntil det er avklart hvem som er vedlikeholdsansvarlig.
+      - value: Bane NOR
+        label: Bane NOR
+    description: Angir hvem som er ansvarlig for vedlikehold av vegobjektet.
+  - name: posisjon
+    logicalType: object
+    physicalType: geometry(Point)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Point
+- name: StikkrenneKulvertFlate
+  physicalName: stikkrennekulvertflate
+  logicalType: object
+  physicalType: table
+  description: kkkk
+  customProperties:
+  - property: sosiObjektType
+    value: StikkrenneKulvertFlate
+  - property: inheritsFrom
+    value: StikkrenneKulvert-NVDB
+  properties:
+  - name: identifikasjon
+    logicalType: object
+    properties:
+    - name: lokalId
+      logicalType: string
+      description: 'lokal identifikator av et objekt
+
+
+        Merknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren
+        er unik innenfor navnerommet. For FKB-data benyttes UUID som lokalId.'
+      required: true
+    - name: navnerom
+      logicalType: string
+      description: 'navnerom som unikt identifiserer datakilden til et objekt, anbefales
+        å være en http-URI
+
+
+        Eksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0
+
+
+        Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar
+        for de unike identifikatorene og må være registrert i data.geonorge.no eller
+        data.norge.no'
+      required: true
+    - name: versjonId
+      logicalType: string
+      description: identifikasjon av en spesiell versjon av et geografisk objekt (instans)
+    description: unik identifikasjon av et objekt
+    required: true
+  - name: eksternPeker
+    logicalType: string
+    description: referanse til objektet i et eksternt system, som ikke er Nasjonal
+      vegdatabank (NVDB).
+  - name: nvdbPeker
+    logicalType: string
+    description: referanse til objektet i Nasjonal vegdatabank (NVDB).
+  - name: datafangstdato
+    logicalType: date
+    description: 'dato når objektet siste gang ble registrert/observert/målt i terrenget
+
+
+      Merknad: I mange tilfeller er denne forskjellig fra oppdateringsdato, da registrerte
+      endringer kan bufres i en kortere eller lengre periode før disse legges inn
+      i databasen.
+
+      Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.'
+    required: true
+  - name: verifiseringsdato
+    logicalType: date
+    description: 'dato når dataene er fastslått å være i samsvar med virkeligheten
+
+
+      Merknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI'
+  - name: kvalitet
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: datafangstmetode
+        logicalType: string
+        logicalTypeOptions:
+          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
+        customProperties:
+        - property: allowedValues
+          value:
+          - value: byg
+            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
+              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
+          - value: ukj
+            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
+          - value: pla
+            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
+              med innmåling.
+          - value: sat
+            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
+              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
+              Landmåling benyttes)
+          - value: gen
+            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
+              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
+              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
+              typer sensordata.
+          - value: fot
+            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
+              stereomodell
+          - value: dig
+            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
+              plane kartdata
+          - value: lan
+            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
+              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
+              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
+              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
+              utføres normalt med overskytende målinger og utjevning av resultatet.
+        description: 'metode for datafangst.
+
+          Egenskapen beskriver datafangstmetode for grunnrisskoordinater (x,y), eller
+          for både grunnriss og høyde (x,y,z) dersom det ikke er oppgitt noen verdi
+          for datafangstmetodeHøyde.'
+        required: true
+      - name: nøyaktighet
+        logicalType: integer
+        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
+
+
+          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
+          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
+
+
+          For objekter med punktgeometri benyttes verdi for punktstandardavvik. For
+          objekter med kurvegeometri benyttes standardavviket for tverravviket fra
+          kurva. For objekter med overflate- eller volumgeometri er forståelsen at
+          standardavviket beregnes ut fra (3D) avvikene mellom sann posisjon og nærmeste
+          punkt på overflata.
+
+
+          Merknad:
+
+          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
+          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
+          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
+          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
+          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
+          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
+          defineres, beregnes og kontrolleres.'
+      - name: synbarhet
+        logicalType: string
+        logicalTypeOptions:
+          pattern: ^(2|3|0|1)$
+        customProperties:
+        - property: allowedValues
+          value:
+          - value: '2'
+            label: Middels synlig - Objektet er middels synlig/gjenkjennbart i flybilde
+              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
+              brukes denne koden for objekter som har lav kontrast eller er delvis
+              skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.).
+              For slike objekter settes en større verdi for nøyaktighet enn kravet
+              (opptil 3 ganger kravet)
+          - value: '3'
+            label: Ikke synlig - Objektet er ikke synlig/gjenkjennbart i flybilde
+              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
+              brukes denne koden for objekter som er helt skjult av overliggende objekter
+              (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en
+              stor verdi for nøyaktighet (mer enn 3 ganger kravet)
+          - value: '0'
+            label: Fullt ut synlig - Objektet er fullt ut synlig/gjenfinnbart i flybilde
+              eller annen datakilde for posisjonering. Ved fotogrammetrisk registrering
+              skal objekter som er fullt ut synlige registreres i tråd med angitte
+              krav til nøyaktig registrering.
+          - value: '1'
+            label: Dårlig gjenfinnbar i terreng - Objektets posisjon er vanskelig
+              å definere presist i terrenget på grunn av objektets natur eller manglende
+              kontrast mot omgivelsene. Koden kan f.eks. brukes på høydekurver (eller
+              andre isolinjer) eller objekter som er skjult i bakken (f.eks. innmåling
+              av ledninger på lukket grøft)
+        description: beskrivelse av hvor godt objektene framgår i datagrunnlaget for
+          posisjonering (f.eks. flybildene).
+      - name: datafangstmetodeHøyde
+        logicalType: string
+        logicalTypeOptions:
+          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
+        customProperties:
+        - property: allowedValues
+          value:
+          - value: byg
+            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
+              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
+          - value: ukj
+            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
+          - value: pla
+            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
+              med innmåling.
+          - value: sat
+            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
+              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
+              Landmåling benyttes)
+          - value: gen
+            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
+              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
+              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
+              typer sensordata.
+          - value: fot
+            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
+              stereomodell
+          - value: dig
+            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
+              plane kartdata
+          - value: lan
+            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
+              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
+              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
+              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
+              utføres normalt med overskytende målinger og utjevning av resultatet.
+        description: 'metoden brukt for høyderegistrering av posisjon.
+
+
+          Det er bare nødvending å angi en verdi for egenskapen dersom datafangstmetode
+          for høyde avviker fra datafangstmetode for grunnriss.'
+      - name: nøyaktighetHøyde
+        logicalType: integer
+        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
+
+
+          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
+          for standardavviket, men dersom man faktisk har standardavviket til posisjoneringa
+          av objektet oppgitt i cm
+
+
+          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
+          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
+
+
+          Merknad:
+
+          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
+          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
+          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
+          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
+          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
+          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
+          defineres, beregnes og kontrolleres.'
+    description: 'beskrivelse av kvaliteten på stedfestingen
+
+
+      Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.'
+    required: true
+  - name: medium
+    logicalType: array
+    items:
+      logicalType: string
+      authoritativeDefinitions:
+      - url: https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium
+        type: businessDefinition
+      customProperties:
+      - property: sosiCodeList
+        value: Medium
+      - property: asDictionary
+        value: 'true'
+    description: 'objektets beliggenhet i forhold til jordoverflaten
+
+
+      Eksempel:
+
+      På bro, i tunnel, inne i et bygningsmessig anlegg, etc.'
+  - name: informasjon
+    logicalType: array
+    items:
+      logicalType: string
+    description: 'generell opplysning
+
+
+      Merknad:
+
+      mulighet til å legge inn utfyllende informasjon om objektet'
+  - name: høydereferanse
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(toppUtvendig|toppInnvendig|senter|bunnInnvendig|underkantUtvendig|påBakken|fot|ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: toppUtvendig
+        label: høydereferansen er til toppen av komponenten
+      - value: toppInnvendig
+        label: høydereferansen er topp innvendig komponent
+      - value: senter
+        label: 'høydereferansen er senter innvendig
+
+
+          Eksempel: Dersom en ønsker å representere volumet på rør, kan dette gjøres
+          med å angi LedningHøydereferanse = senter og supplere dette med passende
+          radius.'
+      - value: bunnInnvendig
+        label: 'høydereferansen er bunn innvendig
+
+
+          Eksempel: Dette er nyttig når en skal modellere fall på avløpsrør'
+      - value: underkantUtvendig
+        label: høydereferansen er bunn utvendig
+      - value: påBakken
+        label: 'høydereferanse er på bakken
+
+
+          Merknad: Mange ledninger er målt på lukket grøft'
+      - value: fot
+        label: naturlig å bruke for eksempel på master/mastefundamenter
+      - value: ukjent
+        label: brukes der det ikke er kjent hva som er benyttet som høydereferanse
+    description: koordinatregistering utført på topp eller bunn av et objekt
+  - name: tilknyttetLukkaDren
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn
+      i et lukket dreneringssystem.
+  - name: gjennomløpForElvBekk
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om elv/bekk renner gjennom stikkrenne/kulvert.
+  - name: materialtype
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(betong|eternitt|naturstein|plast|stål|tre)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: betong
+        label: Betong
+      - value: eternitt
+        label: Eternitt
+      - value: naturstein
+        label: Naturstein
+      - value: plast
+        label: Plast
+      - value: stål
+        label: Stål - Stål
+      - value: tre
+        label: Tre
+    description: Angir materialtype.
+  - name: tverrsnittsform
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ellipseform|flatbunnetMedHvelv|rektangulær|sirkulær)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ellipseform
+        label: Ellipseform
+      - value: flatbunnetMedHvelv
+        label: Flatbunnet med hvelv
+      - value: rektangulær
+        label: Rektangulær - Rektangulær
+      - value: sirkulær
+        label: Sirkulær - Sirkulær
+    description: Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.
+  - name: typeInnløp
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(kumOverStikkrenne|åpenGrøft|åpenGrøftMedStøtteskjold|åpenMedFrontmur|åpenMedVingemur)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: kumOverStikkrenne
+        label: Kum over stikkrenne
+      - value: åpenGrøft
+        label: Åpent i grøft - Vann renner inn direkte fra åpen grøft.
+      - value: åpenGrøftMedStøtteskjold
+        label: Åpent i grøft med støtteskjold - Åpen i grøft med støtteskjold
+      - value: åpenMedFrontmur
+        label: Åpent med frontmur - Åpent med frontmur
+      - value: åpenMedVingemur
+        label: Åpent med vingemur - Åpent med vingemur
+    description: Angir hvilken type innløp det er i ei stikkrenne.
+  - name: typeUtløp
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(bekkElv|kum|skråningTerreng|åpenGrøft)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: bekkElv
+        label: I bekk/elv - Vann ledes ut i bekk/elv.
+      - value: kum
+        label: Kum - Vann ledes til kum.
+      - value: skråningTerreng
+        label: I skråning/terreng - Vann ledes ut i skråning eller ut i terreng.
+      - value: åpenGrøft
+        label: Åpen grøft - Vann ledes til åpen grøft
+    description: Angir hvilken type utløp det er i ei stikkrenne.
+  - name: lengde
+    logicalType: number
+    description: Angir lengde av vegobjektet.
+  - name: bredde_Innvendig
+    logicalType: number
+    description: Angir innvendig bredde av gjennomløpskonstruksjon. Ikke aktuell for
+      sirkulære tverrsnitt.
+  - name: høyde_Innvendig
+    logicalType: number
+    description: Angir innvendig høyde av gjennomløpskonstruksjon. Tar ikke hensyn
+      til ev. igjenfylling i bunn av konstruksjon.
+  - name: overfyllingInnløp
+    logicalType: number
+    description: Angir tykkelsen på overfylling ved innløp. Det vil si tykkelse fra
+      topp av stikkrenne til topp dekke.
+  - name: harInnløpsrist
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om det er innløpsrist i tilknytning til vegobjektet.
+  - name: varmekabler
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.
+  - name: etableringsår
+    logicalType: number
+    description: Angir hvilket år vegobjektet ble etablert på stedet.
+  - name: tilleggsinformasjon
+    logicalType: string
+    description: Supplerende informasjon om vegobjektet som ikke framkommer direkte
+      av andre egenskapstyper, kan f.eks. være spesielle forhold knyttet til oppbygging,
+      utdyping av spesielle problem, m.m.
+  - name: FKB_ID
+    logicalType: string
+    description: Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning
+      av geometri.
+  - name: eier
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(fylkeskommune|kommune|nyeVeier|privat|statensVegvesen|uavklart|baneNor)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: fylkeskommune
+        label: Fylkeskommune
+      - value: kommune
+        label: Kommune
+      - value: nyeVeier
+        label: Stat, Nye Veier - Nye Veier
+      - value: privat
+        label: Privat
+      - value: statensVegvesen
+        label: Stat, Statens vegvesen - Statens vegvesen
+      - value: uavklart
+        label: Uavklart - Verdi benyttes inntil det er avklart hvem som er eier (ingen
+          verdi tolkes som at vegeier er eier).
+      - value: baneNor
+        label: Stat, Bane NOR - Bane NOR
+    description: Angir hvem som er eier av vegobjektet.
+  - name: vedlikeholdsansvarlig
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Fylkeskommune|Kommune|Nye\ Veier|OPS|Privat|Statens\ vegvesen|Uavklart|Bane\
+        NOR)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Fylkeskommune
+        label: Fylkeskommune
+      - value: Kommune
+        label: Kommune
+      - value: Nye Veier
+        label: Nye Veier
+      - value: OPS
+        label: OPS
+      - value: Privat
+        label: Privat
+      - value: Statens vegvesen
+        label: Statens vegvesen
+      - value: Uavklart
+        label: Verdi benyttes inntil det er avklart hvem som er vedlikeholdsansvarlig.
+      - value: Bane NOR
+        label: Bane NOR
+    description: Angir hvem som er ansvarlig for vedlikehold av vegobjektet.
+  - name: område
+    logicalType: object
+    physicalType: geometry(Surface)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Surface
+- name: StikkrenneKulvert
+  physicalName: stikkrennekulvert
+  logicalType: object
+  physicalType: table
+  description: <i>Konstruksjoner og rør med maks. lysåpning på 2,5 meter, der vann
+    kan strømme igjennom, oftest under veg eller jernbane</i>.
+  customProperties:
+  - property: sosiObjektType
+    value: StikkrenneKulvert
+  - property: inheritsFrom
+    value: StikkrenneKulvert-NVDB
+  properties:
+  - name: identifikasjon
+    logicalType: object
+    properties:
+    - name: lokalId
+      logicalType: string
+      description: 'lokal identifikator av et objekt
+
+
+        Merknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren
+        er unik innenfor navnerommet. For FKB-data benyttes UUID som lokalId.'
+      required: true
+    - name: navnerom
+      logicalType: string
+      description: 'navnerom som unikt identifiserer datakilden til et objekt, anbefales
+        å være en http-URI
+
+
+        Eksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0
+
+
+        Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar
+        for de unike identifikatorene og må være registrert i data.geonorge.no eller
+        data.norge.no'
+      required: true
+    - name: versjonId
+      logicalType: string
+      description: identifikasjon av en spesiell versjon av et geografisk objekt (instans)
+    description: unik identifikasjon av et objekt
+    required: true
+  - name: eksternPeker
+    logicalType: string
+    description: referanse til objektet i et eksternt system, som ikke er Nasjonal
+      vegdatabank (NVDB).
+  - name: nvdbPeker
+    logicalType: string
+    description: referanse til objektet i Nasjonal vegdatabank (NVDB).
+  - name: datafangstdato
+    logicalType: date
+    description: 'dato når objektet siste gang ble registrert/observert/målt i terrenget
+
+
+      Merknad: I mange tilfeller er denne forskjellig fra oppdateringsdato, da registrerte
+      endringer kan bufres i en kortere eller lengre periode før disse legges inn
+      i databasen.
+
+      Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.'
+    required: true
+  - name: verifiseringsdato
+    logicalType: date
+    description: 'dato når dataene er fastslått å være i samsvar med virkeligheten
+
+
+      Merknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI'
+  - name: kvalitet
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: datafangstmetode
+        logicalType: string
+        logicalTypeOptions:
+          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
+        customProperties:
+        - property: allowedValues
+          value:
+          - value: byg
+            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
+              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
+          - value: ukj
+            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
+          - value: pla
+            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
+              med innmåling.
+          - value: sat
+            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
+              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
+              Landmåling benyttes)
+          - value: gen
+            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
+              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
+              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
+              typer sensordata.
+          - value: fot
+            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
+              stereomodell
+          - value: dig
+            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
+              plane kartdata
+          - value: lan
+            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
+              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
+              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
+              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
+              utføres normalt med overskytende målinger og utjevning av resultatet.
+        description: 'metode for datafangst.
+
+          Egenskapen beskriver datafangstmetode for grunnrisskoordinater (x,y), eller
+          for både grunnriss og høyde (x,y,z) dersom det ikke er oppgitt noen verdi
+          for datafangstmetodeHøyde.'
+        required: true
+      - name: nøyaktighet
+        logicalType: integer
+        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
+
+
+          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
+          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
+
+
+          For objekter med punktgeometri benyttes verdi for punktstandardavvik. For
+          objekter med kurvegeometri benyttes standardavviket for tverravviket fra
+          kurva. For objekter med overflate- eller volumgeometri er forståelsen at
+          standardavviket beregnes ut fra (3D) avvikene mellom sann posisjon og nærmeste
+          punkt på overflata.
+
+
+          Merknad:
+
+          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
+          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
+          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
+          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
+          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
+          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
+          defineres, beregnes og kontrolleres.'
+      - name: synbarhet
+        logicalType: string
+        logicalTypeOptions:
+          pattern: ^(2|3|0|1)$
+        customProperties:
+        - property: allowedValues
+          value:
+          - value: '2'
+            label: Middels synlig - Objektet er middels synlig/gjenkjennbart i flybilde
+              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
+              brukes denne koden for objekter som har lav kontrast eller er delvis
+              skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.).
+              For slike objekter settes en større verdi for nøyaktighet enn kravet
+              (opptil 3 ganger kravet)
+          - value: '3'
+            label: Ikke synlig - Objektet er ikke synlig/gjenkjennbart i flybilde
+              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
+              brukes denne koden for objekter som er helt skjult av overliggende objekter
+              (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en
+              stor verdi for nøyaktighet (mer enn 3 ganger kravet)
+          - value: '0'
+            label: Fullt ut synlig - Objektet er fullt ut synlig/gjenfinnbart i flybilde
+              eller annen datakilde for posisjonering. Ved fotogrammetrisk registrering
+              skal objekter som er fullt ut synlige registreres i tråd med angitte
+              krav til nøyaktig registrering.
+          - value: '1'
+            label: Dårlig gjenfinnbar i terreng - Objektets posisjon er vanskelig
+              å definere presist i terrenget på grunn av objektets natur eller manglende
+              kontrast mot omgivelsene. Koden kan f.eks. brukes på høydekurver (eller
+              andre isolinjer) eller objekter som er skjult i bakken (f.eks. innmåling
+              av ledninger på lukket grøft)
+        description: beskrivelse av hvor godt objektene framgår i datagrunnlaget for
+          posisjonering (f.eks. flybildene).
+      - name: datafangstmetodeHøyde
+        logicalType: string
+        logicalTypeOptions:
+          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
+        customProperties:
+        - property: allowedValues
+          value:
+          - value: byg
+            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
+              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
+          - value: ukj
+            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
+          - value: pla
+            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
+              med innmåling.
+          - value: sat
+            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
+              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
+              Landmåling benyttes)
+          - value: gen
+            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
+              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
+              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
+              typer sensordata.
+          - value: fot
+            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
+              stereomodell
+          - value: dig
+            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
+              plane kartdata
+          - value: lan
+            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
+              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
+              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
+              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
+              utføres normalt med overskytende målinger og utjevning av resultatet.
+        description: 'metoden brukt for høyderegistrering av posisjon.
+
+
+          Det er bare nødvending å angi en verdi for egenskapen dersom datafangstmetode
+          for høyde avviker fra datafangstmetode for grunnriss.'
+      - name: nøyaktighetHøyde
+        logicalType: integer
+        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
+
+
+          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
+          for standardavviket, men dersom man faktisk har standardavviket til posisjoneringa
+          av objektet oppgitt i cm
+
+
+          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
+          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
+
+
+          Merknad:
+
+          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
+          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
+          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
+          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
+          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
+          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
+          defineres, beregnes og kontrolleres.'
+    description: 'beskrivelse av kvaliteten på stedfestingen
+
+
+      Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.'
+    required: true
+  - name: medium
+    logicalType: array
+    items:
+      logicalType: string
+      authoritativeDefinitions:
+      - url: https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium
+        type: businessDefinition
+      customProperties:
+      - property: sosiCodeList
+        value: Medium
+      - property: asDictionary
+        value: 'true'
+    description: 'objektets beliggenhet i forhold til jordoverflaten
+
+
+      Eksempel:
+
+      På bro, i tunnel, inne i et bygningsmessig anlegg, etc.'
+  - name: informasjon
+    logicalType: array
+    items:
+      logicalType: string
+    description: 'generell opplysning
+
+
+      Merknad:
+
+      mulighet til å legge inn utfyllende informasjon om objektet'
+  - name: høydereferanse
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(toppUtvendig|toppInnvendig|senter|bunnInnvendig|underkantUtvendig|påBakken|fot|ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: toppUtvendig
+        label: høydereferansen er til toppen av komponenten
+      - value: toppInnvendig
+        label: høydereferansen er topp innvendig komponent
+      - value: senter
+        label: 'høydereferansen er senter innvendig
+
+
+          Eksempel: Dersom en ønsker å representere volumet på rør, kan dette gjøres
+          med å angi LedningHøydereferanse = senter og supplere dette med passende
+          radius.'
+      - value: bunnInnvendig
+        label: 'høydereferansen er bunn innvendig
+
+
+          Eksempel: Dette er nyttig når en skal modellere fall på avløpsrør'
+      - value: underkantUtvendig
+        label: høydereferansen er bunn utvendig
+      - value: påBakken
+        label: 'høydereferanse er på bakken
+
+
+          Merknad: Mange ledninger er målt på lukket grøft'
+      - value: fot
+        label: naturlig å bruke for eksempel på master/mastefundamenter
+      - value: ukjent
+        label: brukes der det ikke er kjent hva som er benyttet som høydereferanse
+    description: koordinatregistering utført på topp eller bunn av et objekt
+  - name: tilknyttetLukkaDren
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn
+      i et lukket dreneringssystem.
+  - name: gjennomløpForElvBekk
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om elv/bekk renner gjennom stikkrenne/kulvert.
+  - name: materialtype
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(betong|eternitt|naturstein|plast|stål|tre)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: betong
+        label: Betong
+      - value: eternitt
+        label: Eternitt
+      - value: naturstein
+        label: Naturstein
+      - value: plast
+        label: Plast
+      - value: stål
+        label: Stål - Stål
+      - value: tre
+        label: Tre
+    description: Angir materialtype.
+  - name: tverrsnittsform
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ellipseform|flatbunnetMedHvelv|rektangulær|sirkulær)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ellipseform
+        label: Ellipseform
+      - value: flatbunnetMedHvelv
+        label: Flatbunnet med hvelv
+      - value: rektangulær
+        label: Rektangulær - Rektangulær
+      - value: sirkulær
+        label: Sirkulær - Sirkulær
+    description: Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.
+  - name: typeInnløp
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(kumOverStikkrenne|åpenGrøft|åpenGrøftMedStøtteskjold|åpenMedFrontmur|åpenMedVingemur)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: kumOverStikkrenne
+        label: Kum over stikkrenne
+      - value: åpenGrøft
+        label: Åpent i grøft - Vann renner inn direkte fra åpen grøft.
+      - value: åpenGrøftMedStøtteskjold
+        label: Åpent i grøft med støtteskjold - Åpen i grøft med støtteskjold
+      - value: åpenMedFrontmur
+        label: Åpent med frontmur - Åpent med frontmur
+      - value: åpenMedVingemur
+        label: Åpent med vingemur - Åpent med vingemur
+    description: Angir hvilken type innløp det er i ei stikkrenne.
+  - name: typeUtløp
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(bekkElv|kum|skråningTerreng|åpenGrøft)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: bekkElv
+        label: I bekk/elv - Vann ledes ut i bekk/elv.
+      - value: kum
+        label: Kum - Vann ledes til kum.
+      - value: skråningTerreng
+        label: I skråning/terreng - Vann ledes ut i skråning eller ut i terreng.
+      - value: åpenGrøft
+        label: Åpen grøft - Vann ledes til åpen grøft
+    description: Angir hvilken type utløp det er i ei stikkrenne.
+  - name: lengde
+    logicalType: number
+    description: Angir lengde av vegobjektet.
+  - name: bredde_Innvendig
+    logicalType: number
+    description: Angir innvendig bredde av gjennomløpskonstruksjon. Ikke aktuell for
+      sirkulære tverrsnitt.
+  - name: høyde_Innvendig
+    logicalType: number
+    description: Angir innvendig høyde av gjennomløpskonstruksjon. Tar ikke hensyn
+      til ev. igjenfylling i bunn av konstruksjon.
+  - name: overfyllingInnløp
+    logicalType: number
+    description: Angir tykkelsen på overfylling ved innløp. Det vil si tykkelse fra
+      topp av stikkrenne til topp dekke.
+  - name: harInnløpsrist
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om det er innløpsrist i tilknytning til vegobjektet.
+  - name: varmekabler
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.
+  - name: etableringsår
+    logicalType: number
+    description: Angir hvilket år vegobjektet ble etablert på stedet.
+  - name: tilleggsinformasjon
+    logicalType: string
+    description: Supplerende informasjon om vegobjektet som ikke framkommer direkte
+      av andre egenskapstyper, kan f.eks. være spesielle forhold knyttet til oppbygging,
+      utdyping av spesielle problem, m.m.
+  - name: FKB_ID
+    logicalType: string
+    description: Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning
+      av geometri.
+  - name: eier
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(fylkeskommune|kommune|nyeVeier|privat|statensVegvesen|uavklart|baneNor)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: fylkeskommune
+        label: Fylkeskommune
+      - value: kommune
+        label: Kommune
+      - value: nyeVeier
+        label: Stat, Nye Veier - Nye Veier
+      - value: privat
+        label: Privat
+      - value: statensVegvesen
+        label: Stat, Statens vegvesen - Statens vegvesen
+      - value: uavklart
+        label: Uavklart - Verdi benyttes inntil det er avklart hvem som er eier (ingen
+          verdi tolkes som at vegeier er eier).
+      - value: baneNor
+        label: Stat, Bane NOR - Bane NOR
+    description: Angir hvem som er eier av vegobjektet.
+  - name: vedlikeholdsansvarlig
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Fylkeskommune|Kommune|Nye\ Veier|OPS|Privat|Statens\ vegvesen|Uavklart|Bane\
+        NOR)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Fylkeskommune
+        label: Fylkeskommune
+      - value: Kommune
+        label: Kommune
+      - value: Nye Veier
+        label: Nye Veier
+      - value: OPS
+        label: OPS
+      - value: Privat
+        label: Privat
+      - value: Statens vegvesen
+        label: Statens vegvesen
+      - value: Uavklart
+        label: Verdi benyttes inntil det er avklart hvem som er vedlikeholdsansvarlig.
+      - value: Bane NOR
+        label: Bane NOR
+    description: Angir hvem som er ansvarlig for vedlikehold av vegobjektet.
+  - name: senterlinje
+    logicalType: object
+    physicalType: geometry(LineString)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: LineString
+- name: StikkrenneKulvert3DGeometri
+  physicalName: stikkrennekulvert3dgeometri
+  logicalType: object
+  physicalType: table
+  description: ffff
+  customProperties:
+  - property: sosiObjektType
+    value: StikkrenneKulvert3DGeometri
+  - property: inheritsFrom
+    value: StikkrenneKulvert-NVDB
+  - property: associations
+    value:
+    - role: grunnriss
+      target: StikkrenneKulvertFlate
+      cardinality: 0..*
+  properties:
+  - name: identifikasjon
+    logicalType: object
+    properties:
+    - name: lokalId
+      logicalType: string
+      description: 'lokal identifikator av et objekt
+
+
+        Merknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren
+        er unik innenfor navnerommet. For FKB-data benyttes UUID som lokalId.'
+      required: true
+    - name: navnerom
+      logicalType: string
+      description: 'navnerom som unikt identifiserer datakilden til et objekt, anbefales
+        å være en http-URI
+
+
+        Eksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0
+
+
+        Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar
+        for de unike identifikatorene og må være registrert i data.geonorge.no eller
+        data.norge.no'
+      required: true
+    - name: versjonId
+      logicalType: string
+      description: identifikasjon av en spesiell versjon av et geografisk objekt (instans)
+    description: unik identifikasjon av et objekt
+    required: true
+  - name: eksternPeker
+    logicalType: string
+    description: referanse til objektet i et eksternt system, som ikke er Nasjonal
+      vegdatabank (NVDB).
+  - name: nvdbPeker
+    logicalType: string
+    description: referanse til objektet i Nasjonal vegdatabank (NVDB).
+  - name: datafangstdato
+    logicalType: date
+    description: 'dato når objektet siste gang ble registrert/observert/målt i terrenget
+
+
+      Merknad: I mange tilfeller er denne forskjellig fra oppdateringsdato, da registrerte
+      endringer kan bufres i en kortere eller lengre periode før disse legges inn
+      i databasen.
+
+      Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.'
+    required: true
+  - name: verifiseringsdato
+    logicalType: date
+    description: 'dato når dataene er fastslått å være i samsvar med virkeligheten
+
+
+      Merknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI'
+  - name: kvalitet
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: datafangstmetode
+        logicalType: string
+        logicalTypeOptions:
+          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
+        customProperties:
+        - property: allowedValues
+          value:
+          - value: byg
+            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
+              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
+          - value: ukj
+            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
+          - value: pla
+            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
+              med innmåling.
+          - value: sat
+            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
+              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
+              Landmåling benyttes)
+          - value: gen
+            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
+              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
+              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
+              typer sensordata.
+          - value: fot
+            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
+              stereomodell
+          - value: dig
+            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
+              plane kartdata
+          - value: lan
+            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
+              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
+              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
+              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
+              utføres normalt med overskytende målinger og utjevning av resultatet.
+        description: 'metode for datafangst.
+
+          Egenskapen beskriver datafangstmetode for grunnrisskoordinater (x,y), eller
+          for både grunnriss og høyde (x,y,z) dersom det ikke er oppgitt noen verdi
+          for datafangstmetodeHøyde.'
+        required: true
+      - name: nøyaktighet
+        logicalType: integer
+        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
+
+
+          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
+          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
+
+
+          For objekter med punktgeometri benyttes verdi for punktstandardavvik. For
+          objekter med kurvegeometri benyttes standardavviket for tverravviket fra
+          kurva. For objekter med overflate- eller volumgeometri er forståelsen at
+          standardavviket beregnes ut fra (3D) avvikene mellom sann posisjon og nærmeste
+          punkt på overflata.
+
+
+          Merknad:
+
+          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
+          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
+          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
+          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
+          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
+          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
+          defineres, beregnes og kontrolleres.'
+      - name: synbarhet
+        logicalType: string
+        logicalTypeOptions:
+          pattern: ^(2|3|0|1)$
+        customProperties:
+        - property: allowedValues
+          value:
+          - value: '2'
+            label: Middels synlig - Objektet er middels synlig/gjenkjennbart i flybilde
+              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
+              brukes denne koden for objekter som har lav kontrast eller er delvis
+              skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.).
+              For slike objekter settes en større verdi for nøyaktighet enn kravet
+              (opptil 3 ganger kravet)
+          - value: '3'
+            label: Ikke synlig - Objektet er ikke synlig/gjenkjennbart i flybilde
+              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
+              brukes denne koden for objekter som er helt skjult av overliggende objekter
+              (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en
+              stor verdi for nøyaktighet (mer enn 3 ganger kravet)
+          - value: '0'
+            label: Fullt ut synlig - Objektet er fullt ut synlig/gjenfinnbart i flybilde
+              eller annen datakilde for posisjonering. Ved fotogrammetrisk registrering
+              skal objekter som er fullt ut synlige registreres i tråd med angitte
+              krav til nøyaktig registrering.
+          - value: '1'
+            label: Dårlig gjenfinnbar i terreng - Objektets posisjon er vanskelig
+              å definere presist i terrenget på grunn av objektets natur eller manglende
+              kontrast mot omgivelsene. Koden kan f.eks. brukes på høydekurver (eller
+              andre isolinjer) eller objekter som er skjult i bakken (f.eks. innmåling
+              av ledninger på lukket grøft)
+        description: beskrivelse av hvor godt objektene framgår i datagrunnlaget for
+          posisjonering (f.eks. flybildene).
+      - name: datafangstmetodeHøyde
+        logicalType: string
+        logicalTypeOptions:
+          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
+        customProperties:
+        - property: allowedValues
+          value:
+          - value: byg
+            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
+              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
+          - value: ukj
+            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
+          - value: pla
+            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
+              med innmåling.
+          - value: sat
+            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
+              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
+              Landmåling benyttes)
+          - value: gen
+            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
+              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
+              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
+              typer sensordata.
+          - value: fot
+            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
+              stereomodell
+          - value: dig
+            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
+              plane kartdata
+          - value: lan
+            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
+              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
+              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
+              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
+              utføres normalt med overskytende målinger og utjevning av resultatet.
+        description: 'metoden brukt for høyderegistrering av posisjon.
+
+
+          Det er bare nødvending å angi en verdi for egenskapen dersom datafangstmetode
+          for høyde avviker fra datafangstmetode for grunnriss.'
+      - name: nøyaktighetHøyde
+        logicalType: integer
+        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
+
+
+          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
+          for standardavviket, men dersom man faktisk har standardavviket til posisjoneringa
+          av objektet oppgitt i cm
+
+
+          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
+          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
+
+
+          Merknad:
+
+          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
+          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
+          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
+          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
+          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
+          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
+          defineres, beregnes og kontrolleres.'
+    description: 'beskrivelse av kvaliteten på stedfestingen
+
+
+      Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.'
+    required: true
+  - name: medium
+    logicalType: array
+    items:
+      logicalType: string
+      authoritativeDefinitions:
+      - url: https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium
+        type: businessDefinition
+      customProperties:
+      - property: sosiCodeList
+        value: Medium
+      - property: asDictionary
+        value: 'true'
+    description: 'objektets beliggenhet i forhold til jordoverflaten
+
+
+      Eksempel:
+
+      På bro, i tunnel, inne i et bygningsmessig anlegg, etc.'
+  - name: informasjon
+    logicalType: array
+    items:
+      logicalType: string
+    description: 'generell opplysning
+
+
+      Merknad:
+
+      mulighet til å legge inn utfyllende informasjon om objektet'
+  - name: høydereferanse
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(toppUtvendig|toppInnvendig|senter|bunnInnvendig|underkantUtvendig|påBakken|fot|ukjent)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: toppUtvendig
+        label: høydereferansen er til toppen av komponenten
+      - value: toppInnvendig
+        label: høydereferansen er topp innvendig komponent
+      - value: senter
+        label: 'høydereferansen er senter innvendig
+
+
+          Eksempel: Dersom en ønsker å representere volumet på rør, kan dette gjøres
+          med å angi LedningHøydereferanse = senter og supplere dette med passende
+          radius.'
+      - value: bunnInnvendig
+        label: 'høydereferansen er bunn innvendig
+
+
+          Eksempel: Dette er nyttig når en skal modellere fall på avløpsrør'
+      - value: underkantUtvendig
+        label: høydereferansen er bunn utvendig
+      - value: påBakken
+        label: 'høydereferanse er på bakken
+
+
+          Merknad: Mange ledninger er målt på lukket grøft'
+      - value: fot
+        label: naturlig å bruke for eksempel på master/mastefundamenter
+      - value: ukjent
+        label: brukes der det ikke er kjent hva som er benyttet som høydereferanse
+    description: koordinatregistering utført på topp eller bunn av et objekt
+  - name: tilknyttetLukkaDren
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn
+      i et lukket dreneringssystem.
+  - name: gjennomløpForElvBekk
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om elv/bekk renner gjennom stikkrenne/kulvert.
+  - name: materialtype
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(betong|eternitt|naturstein|plast|stål|tre)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: betong
+        label: Betong
+      - value: eternitt
+        label: Eternitt
+      - value: naturstein
+        label: Naturstein
+      - value: plast
+        label: Plast
+      - value: stål
+        label: Stål - Stål
+      - value: tre
+        label: Tre
+    description: Angir materialtype.
+  - name: tverrsnittsform
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ellipseform|flatbunnetMedHvelv|rektangulær|sirkulær)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ellipseform
+        label: Ellipseform
+      - value: flatbunnetMedHvelv
+        label: Flatbunnet med hvelv
+      - value: rektangulær
+        label: Rektangulær - Rektangulær
+      - value: sirkulær
+        label: Sirkulær - Sirkulær
+    description: Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.
+  - name: typeInnløp
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(kumOverStikkrenne|åpenGrøft|åpenGrøftMedStøtteskjold|åpenMedFrontmur|åpenMedVingemur)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: kumOverStikkrenne
+        label: Kum over stikkrenne
+      - value: åpenGrøft
+        label: Åpent i grøft - Vann renner inn direkte fra åpen grøft.
+      - value: åpenGrøftMedStøtteskjold
+        label: Åpent i grøft med støtteskjold - Åpen i grøft med støtteskjold
+      - value: åpenMedFrontmur
+        label: Åpent med frontmur - Åpent med frontmur
+      - value: åpenMedVingemur
+        label: Åpent med vingemur - Åpent med vingemur
+    description: Angir hvilken type innløp det er i ei stikkrenne.
+  - name: typeUtløp
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(bekkElv|kum|skråningTerreng|åpenGrøft)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: bekkElv
+        label: I bekk/elv - Vann ledes ut i bekk/elv.
+      - value: kum
+        label: Kum - Vann ledes til kum.
+      - value: skråningTerreng
+        label: I skråning/terreng - Vann ledes ut i skråning eller ut i terreng.
+      - value: åpenGrøft
+        label: Åpen grøft - Vann ledes til åpen grøft
+    description: Angir hvilken type utløp det er i ei stikkrenne.
+  - name: lengde
+    logicalType: number
+    description: Angir lengde av vegobjektet.
+  - name: bredde_Innvendig
+    logicalType: number
+    description: Angir innvendig bredde av gjennomløpskonstruksjon. Ikke aktuell for
+      sirkulære tverrsnitt.
+  - name: høyde_Innvendig
+    logicalType: number
+    description: Angir innvendig høyde av gjennomløpskonstruksjon. Tar ikke hensyn
+      til ev. igjenfylling i bunn av konstruksjon.
+  - name: overfyllingInnløp
+    logicalType: number
+    description: Angir tykkelsen på overfylling ved innløp. Det vil si tykkelse fra
+      topp av stikkrenne til topp dekke.
+  - name: harInnløpsrist
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om det er innløpsrist i tilknytning til vegobjektet.
+  - name: varmekabler
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(ja|nei)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: ja
+        label: Ja - ja
+      - value: nei
+        label: Nei - nei
+    description: Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.
+  - name: etableringsår
+    logicalType: number
+    description: Angir hvilket år vegobjektet ble etablert på stedet.
+  - name: tilleggsinformasjon
+    logicalType: string
+    description: Supplerende informasjon om vegobjektet som ikke framkommer direkte
+      av andre egenskapstyper, kan f.eks. være spesielle forhold knyttet til oppbygging,
+      utdyping av spesielle problem, m.m.
+  - name: FKB_ID
+    logicalType: string
+    description: Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning
+      av geometri.
+  - name: eier
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(fylkeskommune|kommune|nyeVeier|privat|statensVegvesen|uavklart|baneNor)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: fylkeskommune
+        label: Fylkeskommune
+      - value: kommune
+        label: Kommune
+      - value: nyeVeier
+        label: Stat, Nye Veier - Nye Veier
+      - value: privat
+        label: Privat
+      - value: statensVegvesen
+        label: Stat, Statens vegvesen - Statens vegvesen
+      - value: uavklart
+        label: Uavklart - Verdi benyttes inntil det er avklart hvem som er eier (ingen
+          verdi tolkes som at vegeier er eier).
+      - value: baneNor
+        label: Stat, Bane NOR - Bane NOR
+    description: Angir hvem som er eier av vegobjektet.
+  - name: vedlikeholdsansvarlig
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(Fylkeskommune|Kommune|Nye\ Veier|OPS|Privat|Statens\ vegvesen|Uavklart|Bane\
+        NOR)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: Fylkeskommune
+        label: Fylkeskommune
+      - value: Kommune
+        label: Kommune
+      - value: Nye Veier
+        label: Nye Veier
+      - value: OPS
+        label: OPS
+      - value: Privat
+        label: Privat
+      - value: Statens vegvesen
+        label: Statens vegvesen
+      - value: Uavklart
+        label: Verdi benyttes inntil det er avklart hvem som er vedlikeholdsansvarlig.
+      - value: Bane NOR
+        label: Bane NOR
+    description: Angir hvem som er ansvarlig for vedlikehold av vegobjektet.
+  - name: form
+    logicalType: object
+    physicalType: geometry(Geometry)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
