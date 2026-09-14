@@ -99,6 +99,8 @@ Dekning kun i deler av tidligere Ski kommune.*
 | --- | --- | --- | --- | --- |
 | Geonorge filnedlastning | [Lenke](https://nedlasting.geonorge.no/geonorge/kommunaleDokData/af36a16e-7a08-4bfd-8c39-68e54e3cc584.zip) | GEONORGE:FILEDOWNLOAD |  |  |
 | GeoPackage: ny-datakilde | [Lenke](https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/dreneringslinjer-med-stikkrenner-nordre-follo/ny-datakilde/ny-datakilde.gpkg) | Nedlasting | GPKG |  |
+| GML/XSD-skjema: ny-datakilde | [Lenke](https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/dreneringslinjer-med-stikkrenner-nordre-follo/ny-datakilde/schema/xsd/INPUT/ny-datakilde.xsd) | Nedlasting | XSD |  |
+| JSON Schema: ny-datakilde | [Lenke](https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/dreneringslinjer-med-stikkrenner-nordre-follo/ny-datakilde/schema/jsonschema/INPUT/nydatakilde/ny-datakilde.json) | Nedlasting | JSON Schema |  |
 
 ## Metadata
 
