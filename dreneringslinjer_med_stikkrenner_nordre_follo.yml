@@ -5,6 +5,6 @@ updated: '2026-09-14'
 outputs: geopackage,xsd,jsonschema,odcs,ldproxy
 scopes:
 - name: Ny datakilde
-  url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/StikkrenneKulvert-0.1.xml
+  url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/StikkrenneKulvert-1.0.xml
   generator: xmi
   description: ''
