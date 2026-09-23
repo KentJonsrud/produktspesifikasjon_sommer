@@ -4,7 +4,7 @@
 ' default PlantUML 4096px size limit from cropping the diagram.
 scale max 4000*4000
 
-title Dreneringslinjer uten stikkrenner Nordre Follo - Ny datakilde - Objekttyper
+title Dreneringslinjer uten stikkrenner Nordre Follo - Ny datakilde - NyTransportation
 
 skinparam backgroundColor #F5F5F5
 skinparam shadowing false
@@ -28,7 +28,7 @@ skinparam stereotypeCBackgroundColor #EAD9CE
 skinparam stereotypeCBorderColor #9C8578
 skinparam stereotypeCFontColor #2D201A
 
-package "Objekttyper" {
+package "NyTransportation" {
 
   class TunnelMouth <<featureType>> {
     + crossSectionalProfile [0..1] : TunnelMouth_crossSectionalProfileMeta
@@ -250,36 +250,6 @@ package "Objekttyper" {
     + safeHorizontalClearance [0..1] : MeasureMeta
     + transRteProtStructType [0..1] : TransRouteProtectStruct_transRteProtStructTypeMeta
     + verticalRelativeLocation [0..1] : TransRouteProtectStruct_verticalRelativeLocationMeta
-  }
-
-  class MiscFeatureType <<featureType>> {
-    + highestElevation [0..1] : ElevationMeasureMeta
-    + miscFeatureTypeDescription [0..1] : CharacterStringMeta
-    + heightAboveSurfaceLevel [0..1] : HeightMeasureMeta
-  }
-
-  abstract class FeatureEntity <<featureType>> {
-    + geometry [1] : GM_Object
-  }
-
-  class IdentifiedQualityIssue <<featureType>> {
-    + qualityIssueImpact [0..1] : CharacterStringMeta
-    + qualityIssueDescription [0..1] : CharacterStringMeta
-  }
-
-  class VoidCollectionArea <<featureType>> {
-    + voidCollectionReason [0..*] : VoidCollectionArea_voidCollectionReasonMeta
-    + voidCollectionType [0..*] : VoidCollectionArea_voidCollectionTypeMeta
-  }
-
-  class GeneralLocation <<featureType>> {
-    + namedLocationType [0..1] : GeneralLocation_namedLocationTypeMeta
-    + thematicClassification [0..1] : GeneralLocation_thematicClassificationMeta
-    + informationReference [0..*] : CharacterStringMeta
-  }
-
-  class OrganisationalUnit <<featureType>> {
-    + contactInfo [1] : CI_ContactMeta
   }
 
   class TunnelMouth_crossSectionalProfileMeta <<dataType>> {
@@ -665,87 +635,34 @@ package "Objekttyper" {
   class TransRouteProtectStruct_verticalRelativeLocationMeta <<dataType>> {
     + valueOrReason [1] : TransRouteProtectStruct_verticalRelativeLocationReason
   }
+}
 
-  class VoidCollectionArea_voidCollectionReasonMeta <<dataType>> {
-    + valueOrReason [1] : VoidCollectionArea_voidCollectionReasonReason
+package "Eksterne referanser" <<Frame>> {
+  class AeronauticalObstacleInfo <<external>> {
   }
-
-  class VoidCollectionArea_voidCollectionTypeMeta <<dataType>> {
-    + valueOrReason [1] : VoidCollectionArea_voidCollectionTypeReason
+  class FeatureEntity <<NyFoundation>> {
   }
-
-  class GeneralLocation_namedLocationTypeMeta <<dataType>> {
-    + valueOrReason [1] : GeneralLocation_namedLocationTypeReason
-  }
-
-  class GeneralLocation_thematicClassificationMeta <<dataType>> {
-    + valueOrReason [1] : GeneralLocation_thematicClassificationReason
-  }
-
-  class CI_ContactMeta <<dataType>> {
-    + valueOrReason [1] : CI_ContactReason
-  }
-
-  class LandmarkInfo {
-  }
-
-  class AeronauticalObstacleInfo {
-  }
-
-  class AddressInfo {
-  }
-
-  class HumanActivityCapacityInfo {
-  }
-
-  class FeatureMetadata {
-  }
-
-  class GeoNameInfo {
-  }
-
-  class SourceInfo {
-  }
-
-  class RestrictionInfo {
-  }
-
-  class Organisation {
+  class LandmarkInfo <<external>> {
   }
 }
 
-  FeatureEntity <|-- TurnaroundSite
-  FeatureEntity <|-- CausewayStructure
-  CausewayStructure --> LandmarkInfo : navigationLandmarkInfoDescribedBy [0..1]
-  FeatureEntity <|-- BridgeSpan
-  FeatureEntity <|-- BridgePier
-  BridgePier --> LandmarkInfo : navigationLandmarkInfoDescribedBy [0..1]
-  FeatureEntity <|-- BridgeSuperstructure
-  BridgeSuperstructure --> LandmarkInfo : navigationLandmarkInfoDescribedBy [0..1]
-  BridgeSuperstructure --> AeronauticalObstacleInfo : aeroObstacleDescribedBy [0..1]
-  FeatureEntity <|-- BridgeTower
-  BridgeTower --> LandmarkInfo : navigationLandmarkInfoDescribedBy [0..1]
-  BridgeTower --> AeronauticalObstacleInfo : aeroObstacleDescribedBy [0..1]
-  FeatureEntity <|-- Bridge
-  Bridge --> LandmarkInfo : navigationLandmarkInfoDescribedBy [0..1]
-  Bridge --> AeronauticalObstacleInfo : aeroObstacleDescribedBy [0..1]
-  FeatureEntity <|-- Tunnel
-  FeatureEntity <|-- TransRouteProtectStruct
-  TransRouteProtectStruct --> LandmarkInfo : navigationLandmarkInfoDescribedBy [0..1]
-  FeatureEntity <|-- MiscFeatureType
-  MiscFeatureType --> AeronauticalObstacleInfo : aeroObstacleDescribedBy [0..1]
-  MiscFeatureType --> AddressInfo : hasLocationAddress [0..*]
-  MiscFeatureType --> HumanActivityCapacityInfo : hasCapacity [0..*]
-  Entity <|-- FeatureEntity
-  FeatureEntity --> FeatureMetadata : featureMetadata [1]
-  FeatureEntity --> GeoNameInfo : [0..*]
-  FeatureEntity --> SourceInfo : sourceInfoDescribedBy [0..*]
-  FeatureEntity --> RestrictionInfo : restrictionInfo [1]
-  FeatureEntity <|-- IdentifiedQualityIssue
-  FeatureEntity <|-- VoidCollectionArea
-  FeatureEntity <|-- GeneralLocation
-  GeneralLocation --> AddressInfo : hasLocationAddress [0..*]
-  ActorEntity <|-- OrganisationalUnit
-  OrganisationalUnit --> Organisation : mainOrganisation [0..*]
+FeatureEntity <|-- TurnaroundSite
+FeatureEntity <|-- CausewayStructure
+CausewayStructure --> LandmarkInfo : navigationLandmarkInfoDescribedBy [0..1]
+FeatureEntity <|-- BridgeSpan
+FeatureEntity <|-- BridgePier
+BridgePier --> LandmarkInfo : navigationLandmarkInfoDescribedBy [0..1]
+FeatureEntity <|-- BridgeSuperstructure
+BridgeSuperstructure --> LandmarkInfo : navigationLandmarkInfoDescribedBy [0..1]
+BridgeSuperstructure --> AeronauticalObstacleInfo : aeroObstacleDescribedBy [0..1]
+FeatureEntity <|-- BridgeTower
+BridgeTower --> LandmarkInfo : navigationLandmarkInfoDescribedBy [0..1]
+BridgeTower --> AeronauticalObstacleInfo : aeroObstacleDescribedBy [0..1]
+FeatureEntity <|-- Bridge
+Bridge --> LandmarkInfo : navigationLandmarkInfoDescribedBy [0..1]
+Bridge --> AeronauticalObstacleInfo : aeroObstacleDescribedBy [0..1]
+FeatureEntity <|-- Tunnel
+FeatureEntity <|-- TransRouteProtectStruct
+TransRouteProtectStruct --> LandmarkInfo : navigationLandmarkInfoDescribedBy [0..1]
 
 @enduml

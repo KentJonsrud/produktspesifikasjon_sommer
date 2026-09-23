@@ -18,77 +18,150 @@ sourcePathDefaults:
   primaryKey: objid
   sortKey: objid
 types:
-  stikkrennekulvert:
-    sourcePath: /stikkrennekulvert
+  bridge:
+    sourcePath: /bridge
     type: OBJECT
-    objectType: StikkrenneKulvert
+    objectType: Bridge
     properties:
       oid:
         sourcePath: objid
         type: INTEGER
         role: ID
-      senterlinje:
-        sourcePath: senterlinje
-        type: GEOMETRY
-        role: PRIMARY_GEOMETRY
-        geometryType: LINE_STRING
-        constraints:
-          required: true
-  stikkrennekulvert3dgeometri:
-    sourcePath: /stikkrennekulvert3dgeometri
+      waterbodyOverheadObstruct:
+        sourcePath: waterbodyoverheadobstruct
+        type: STRING
+  bridgepier:
+    sourcePath: /bridgepier
     type: OBJECT
-    objectType: StikkrenneKulvert3DGeometri
+    objectType: BridgePier
     properties:
       oid:
         sourcePath: objid
         type: INTEGER
         role: ID
-      grunnriss:
-        sourcePath: "[objid=stikkrennekulvert3dgeometriobjid]StikkrenneKulvert3DGeometri_grunnriss/[stikkrennekulvertflateobjid=objid]stikkrennekulvertflate"
-        type: OBJECT_ARRAY
-        objectType: Link
-        constraints:
-          minOccurrence: 0
-        properties:
-          title:
-            sourcePath: objid
-            type: STRING
-            label: StikkrenneKulvertFlate-title
-          href:
-            sourcePath: objid
-            type: STRING
-            label: StikkrenneKulvertFlate-ID
-            transformations:
-            - stringFormat: "{{serviceUrl}}/collections/stikkrennekulvertflate/items/{{value}}"
-  stikkrennekulvertflate:
-    sourcePath: /stikkrennekulvertflate
+  bridgespan:
+    sourcePath: /bridgespan
     type: OBJECT
-    objectType: StikkrenneKulvertFlate
+    objectType: BridgeSpan
     properties:
       oid:
         sourcePath: objid
         type: INTEGER
         role: ID
-      område:
-        sourcePath: område
-        type: GEOMETRY
-        role: PRIMARY_GEOMETRY
-        geometryType: POLYGON
-        constraints:
-          required: true
-  stikkrennekulvertpunkt:
-    sourcePath: /stikkrennekulvertpunkt
+  bridgesuperstructure:
+    sourcePath: /bridgesuperstructure
     type: OBJECT
-    objectType: StikkrenneKulvertPunkt
+    objectType: BridgeSuperstructure
     properties:
       oid:
         sourcePath: objid
         type: INTEGER
         role: ID
-      posisjon:
-        sourcePath: posisjon
-        type: GEOMETRY
-        role: PRIMARY_GEOMETRY
-        geometryType: POINT
-        constraints:
-          required: true
+  bridgetower:
+    sourcePath: /bridgetower
+    type: OBJECT
+    objectType: BridgeTower
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+  causewaystructure:
+    sourcePath: /causewaystructure
+    type: OBJECT
+    objectType: CausewayStructure
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+  generallocation:
+    sourcePath: /generallocation
+    type: OBJECT
+    objectType: GeneralLocation
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+  identifiedqualityissue:
+    sourcePath: /identifiedqualityissue
+    type: OBJECT
+    objectType: IdentifiedQualityIssue
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+  miscfeaturetype:
+    sourcePath: /miscfeaturetype
+    type: OBJECT
+    objectType: MiscFeatureType
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+  organisationalunit:
+    sourcePath: /organisationalunit
+    type: OBJECT
+    objectType: OrganisationalUnit
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+  transportationplatform:
+    sourcePath: /transportationplatform
+    type: OBJECT
+    objectType: TransportationPlatform
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+  transrouteprotectstruct:
+    sourcePath: /transrouteprotectstruct
+    type: OBJECT
+    objectType: TransRouteProtectStruct
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+  tunnel:
+    sourcePath: /tunnel
+    type: OBJECT
+    objectType: Tunnel
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+  tunnelmouth:
+    sourcePath: /tunnelmouth
+    type: OBJECT
+    objectType: TunnelMouth
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+  turnaroundsite:
+    sourcePath: /turnaroundsite
+    type: OBJECT
+    objectType: TurnaroundSite
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+  voidcollectionarea:
+    sourcePath: /voidcollectionarea
+    type: OBJECT
+    objectType: VoidCollectionArea
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID

@@ -3,23 +3,1223 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://skjema.geonorge.no/SOSI/produktspesifikasjon/dreneringslinjer-uten-stikkrenner-nordre-follo/ny-datakilde/nydatakilde/ny-datakilde.json",
   "definitions": {
-    "Datafangstmetode": {
-      "type": "string",
-      "format": "uri"
-    },
-    "EierStikkrenneKulvert": {
-      "type": "string",
-      "enum": [
-        "fylkeskommune",
-        "kommune",
-        "nyeVeier",
-        "privat",
-        "statensVegvesen",
-        "uavklart",
-        "baneNor"
+    "AngleMeasureMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
       ]
     },
-    "Fellesegenskaper-Objektidentifikasjon": {
+    "BooleanMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FeatureEntity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "directivity": {
+              "$ref": "#/definitions/Bridge_directivityMeta"
+            },
+            "structMatType": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Bridge_structMatTypeMeta"
+              },
+              "uniqueItems": true
+            },
+            "angleOfIntendedPassage": {
+              "$ref": "#/definitions/AngleMeasureMeta"
+            },
+            "bridgeInfoReliability": {
+              "$ref": "#/definitions/Bridge_bridgeInfoReliabilityMeta"
+            },
+            "controllingAuthorityIdent": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CharacterStringMeta"
+              },
+              "uniqueItems": true
+            },
+            "bridgeOpeningType": {
+              "$ref": "#/definitions/Bridge_bridgeOpeningTypeMeta"
+            },
+            "bridgeReferenceNumber": {
+              "$ref": "#/definitions/CharacterStringMeta"
+            },
+            "bridgeStructureType": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Bridge_bridgeStructureTypeMeta"
+              },
+              "uniqueItems": true
+            },
+            "bypassCondition": {
+              "$ref": "#/definitions/Bridge_bypassConditionMeta"
+            },
+            "colourPattern": {
+              "$ref": "#/definitions/Bridge_colourPatternMeta"
+            },
+            "conspicuousAirCategory": {
+              "$ref": "#/definitions/Bridge_conspicuousAirCategoryMeta"
+            },
+            "conspicuousGroundCategory": {
+              "$ref": "#/definitions/Bridge_conspicuousGroundCategoryMeta"
+            },
+            "conspicuousSeaCategory": {
+              "$ref": "#/definitions/Bridge_conspicuousSeaCategoryMeta"
+            },
+            "controllingAuthority": {
+              "$ref": "#/definitions/Bridge_controllingAuthorityMeta"
+            },
+            "deckCount": {
+              "$ref": "#/definitions/IntegerMeta"
+            },
+            "elevationMsl": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "facilityOperationalStatus": {
+              "$ref": "#/definitions/Bridge_facilityOperationalStatusMeta"
+            },
+            "heightAboveSurfaceLevel": {
+              "$ref": "#/definitions/HeightMeasureMeta"
+            },
+            "highestElevation": {
+              "$ref": "#/definitions/ElevationMeasureMeta"
+            },
+            "horizontalClearance": {
+              "$ref": "#/definitions/MeasureIntervalMeta"
+            },
+            "loadClassType1": {
+              "$ref": "#/definitions/IntegerMeta"
+            },
+            "loadClassType2": {
+              "$ref": "#/definitions/IntegerMeta"
+            },
+            "loadClassType3": {
+              "$ref": "#/definitions/IntegerMeta"
+            },
+            "loadClassType4": {
+              "$ref": "#/definitions/IntegerMeta"
+            },
+            "maritimeNavigationMarked": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "maximumVerticalClearance": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "militaryBridgeInformation": {
+              "$ref": "#/definitions/CharacterStringMeta"
+            },
+            "mobileBridgeSpan": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "navigationMarkColour": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Bridge_navigationMarkColourMeta"
+              },
+              "uniqueItems": true
+            },
+            "overheadClearance": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "permanent": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "physicalCondition": {
+              "$ref": "#/definitions/Bridge_physicalConditionMeta"
+            },
+            "radarSignificance": {
+              "$ref": "#/definitions/Bridge_radarSignificanceMeta"
+            },
+            "restrictHorizClearance": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "restrictOverheadClearance": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "roofed": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "spanCount": {
+              "$ref": "#/definitions/IntegerMeta"
+            },
+            "underbridgeClearance": {
+              "$ref": "#/definitions/MeasureIntervalMeta"
+            },
+            "verticalClearanceSafe": {
+              "$ref": "#/definitions/HydroClearRefMeta"
+            },
+            "waterbodyOverheadObstruct": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "BridgePier": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FeatureEntity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "structMatType": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BridgePier_structMatTypeMeta"
+              },
+              "uniqueItems": true
+            },
+            "colourPattern": {
+              "$ref": "#/definitions/BridgePier_colourPatternMeta"
+            },
+            "conspicuousAirCategory": {
+              "$ref": "#/definitions/BridgePier_conspicuousAirCategoryMeta"
+            },
+            "conspicuousGroundCategory": {
+              "$ref": "#/definitions/BridgePier_conspicuousGroundCategoryMeta"
+            },
+            "conspicuousSeaCategory": {
+              "$ref": "#/definitions/BridgePier_conspicuousSeaCategoryMeta"
+            },
+            "crossSectionalShape": {
+              "$ref": "#/definitions/BridgePier_crossSectionalShapeMeta"
+            },
+            "heightAboveSurfaceLevel": {
+              "$ref": "#/definitions/HeightMeasureMeta"
+            },
+            "highestElevation": {
+              "$ref": "#/definitions/ElevationMeasureMeta"
+            },
+            "maritimeNavigationMarked": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "navigationMarkColour": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BridgePier_navigationMarkColourMeta"
+              },
+              "uniqueItems": true
+            },
+            "physicalCondition": {
+              "$ref": "#/definitions/BridgePier_physicalConditionMeta"
+            }
+          }
+        }
+      ]
+    },
+    "BridgePier_colourPatternMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgePier_conspicuousAirCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgePier_conspicuousGroundCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgePier_conspicuousSeaCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgePier_crossSectionalShapeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgePier_navigationMarkColourMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgePier_physicalConditionMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgePier_structMatTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSpan": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FeatureEntity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "angleOfIntendedPassage": {
+              "$ref": "#/definitions/AngleMeasureMeta"
+            },
+            "horizontalClearanceOpen": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "structMatType": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BridgeSpan_structMatTypeMeta"
+              },
+              "uniqueItems": true
+            },
+            "verticalClearanceClosed": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "verticalClearanceOpen": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "bridgeOpeningType": {
+              "$ref": "#/definitions/BridgeSpan_bridgeOpeningTypeMeta"
+            },
+            "bridgeReferenceNumber": {
+              "$ref": "#/definitions/CharacterStringMeta"
+            },
+            "bridgeStructureType": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BridgeSpan_bridgeStructureTypeMeta"
+              },
+              "uniqueItems": true
+            },
+            "bypassCondition": {
+              "$ref": "#/definitions/BridgeSpan_bypassConditionMeta"
+            },
+            "conspicuousAirCategory": {
+              "$ref": "#/definitions/BridgeSpan_conspicuousAirCategoryMeta"
+            },
+            "conspicuousGroundCategory": {
+              "$ref": "#/definitions/BridgeSpan_conspicuousGroundCategoryMeta"
+            },
+            "conspicuousSeaCategory": {
+              "$ref": "#/definitions/BridgeSpan_conspicuousSeaCategoryMeta"
+            },
+            "facilityOperationalStatus": {
+              "$ref": "#/definitions/BridgeSpan_facilityOperationalStatusMeta"
+            },
+            "heightAboveSurfaceLevel": {
+              "$ref": "#/definitions/HeightMeasureMeta"
+            },
+            "highestElevation": {
+              "$ref": "#/definitions/ElevationMeasureMeta"
+            },
+            "horizontalClearance": {
+              "$ref": "#/definitions/MeasureIntervalMeta"
+            },
+            "loadClassType1": {
+              "$ref": "#/definitions/IntegerMeta"
+            },
+            "loadClassType2": {
+              "$ref": "#/definitions/IntegerMeta"
+            },
+            "loadClassType3": {
+              "$ref": "#/definitions/IntegerMeta"
+            },
+            "loadClassType4": {
+              "$ref": "#/definitions/IntegerMeta"
+            },
+            "maximumVerticalClearance": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "mobileBridgeSpan": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "overheadClearance": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "permanent": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "physicalCondition": {
+              "$ref": "#/definitions/BridgeSpan_physicalConditionMeta"
+            },
+            "restrictHorizClearance": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "restrictOverheadClearance": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "underbridgeClearance": {
+              "$ref": "#/definitions/MeasureIntervalMeta"
+            },
+            "verticalClearanceSafe": {
+              "$ref": "#/definitions/HydroClearRefMeta"
+            },
+            "waterbodyOverheadObstruct": {
+              "$ref": "#/definitions/BooleanMeta"
+            }
+          }
+        }
+      ]
+    },
+    "BridgeSpan_bridgeOpeningTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSpan_bridgeStructureTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSpan_bypassConditionMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSpan_conspicuousAirCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSpan_conspicuousGroundCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSpan_conspicuousSeaCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSpan_facilityOperationalStatusMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSpan_physicalConditionMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSpan_structMatTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSuperstructure": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FeatureEntity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "structMatType": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BridgeSuperstructure_structMatTypeMeta"
+              },
+              "uniqueItems": true
+            },
+            "bridgeReferenceNumber": {
+              "$ref": "#/definitions/CharacterStringMeta"
+            },
+            "bridgeStructureType": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BridgeSuperstructure_bridgeStructureTypeMeta"
+              },
+              "uniqueItems": true
+            },
+            "conspicuousAirCategory": {
+              "$ref": "#/definitions/BridgeSuperstructure_conspicuousAirCategoryMeta"
+            },
+            "conspicuousGroundCategory": {
+              "$ref": "#/definitions/BridgeSuperstructure_conspicuousGroundCategoryMeta"
+            },
+            "conspicuousSeaCategory": {
+              "$ref": "#/definitions/BridgeSuperstructure_conspicuousSeaCategoryMeta"
+            },
+            "directivity": {
+              "$ref": "#/definitions/BridgeSuperstructure_directivityMeta"
+            },
+            "heightAboveSurfaceLevel": {
+              "$ref": "#/definitions/HeightMeasureMeta"
+            },
+            "heightOfObject": {
+              "$ref": "#/definitions/MeasureIntervalMeta"
+            },
+            "highestElevation": {
+              "$ref": "#/definitions/ElevationMeasureMeta"
+            },
+            "maritimeNavigationMarked": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "mobileBridgeSpan": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "overheadClearance": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "permanent": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "physicalCondition": {
+              "$ref": "#/definitions/BridgeSuperstructure_physicalConditionMeta"
+            },
+            "radarSignificance": {
+              "$ref": "#/definitions/BridgeSuperstructure_radarSignificanceMeta"
+            },
+            "restrictOverheadClearance": {
+              "$ref": "#/definitions/BooleanMeta"
+            }
+          }
+        }
+      ]
+    },
+    "BridgeSuperstructure_bridgeStructureTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSuperstructure_conspicuousAirCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSuperstructure_conspicuousGroundCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSuperstructure_conspicuousSeaCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSuperstructure_directivityMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSuperstructure_physicalConditionMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSuperstructure_radarSignificanceMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeSuperstructure_structMatTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeTower": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FeatureEntity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "structMatType": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BridgeTower_structMatTypeMeta"
+              },
+              "uniqueItems": true
+            },
+            "bridgeReferenceNumber": {
+              "$ref": "#/definitions/CharacterStringMeta"
+            },
+            "conspicuousAirCategory": {
+              "$ref": "#/definitions/BridgeTower_conspicuousAirCategoryMeta"
+            },
+            "conspicuousGroundCategory": {
+              "$ref": "#/definitions/BridgeTower_conspicuousGroundCategoryMeta"
+            },
+            "conspicuousSeaCategory": {
+              "$ref": "#/definitions/BridgeTower_conspicuousSeaCategoryMeta"
+            },
+            "directivity": {
+              "$ref": "#/definitions/BridgeTower_directivityMeta"
+            },
+            "heightAboveSurfaceLevel": {
+              "$ref": "#/definitions/HeightMeasureMeta"
+            },
+            "highestElevation": {
+              "$ref": "#/definitions/ElevationMeasureMeta"
+            },
+            "maritimeNavigationMarked": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "physicalCondition": {
+              "$ref": "#/definitions/BridgeTower_physicalConditionMeta"
+            },
+            "pylonConfiguration": {
+              "$ref": "#/definitions/BridgeTower_pylonConfigurationMeta"
+            },
+            "radarSignificance": {
+              "$ref": "#/definitions/BridgeTower_radarSignificanceMeta"
+            },
+            "towerShape": {
+              "$ref": "#/definitions/BridgeTower_towerShapeMeta"
+            }
+          }
+        }
+      ]
+    },
+    "BridgeTower_conspicuousAirCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeTower_conspicuousGroundCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeTower_conspicuousSeaCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeTower_directivityMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeTower_physicalConditionMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeTower_pylonConfigurationMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeTower_radarSignificanceMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeTower_structMatTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "BridgeTower_towerShapeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_bridgeInfoReliabilityMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_bridgeOpeningTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_bridgeStructureTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_bypassConditionMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_colourPatternMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_conspicuousAirCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_conspicuousGroundCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_conspicuousSeaCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_controllingAuthorityMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_directivityMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_facilityOperationalStatusMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_navigationMarkColourMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_physicalConditionMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_radarSignificanceMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Bridge_structMatTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "CI_ContactMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "CausewayStructure": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FeatureEntity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "conspicuousAirCategory": {
+              "$ref": "#/definitions/CausewayStructure_conspicuousAirCategoryMeta"
+            },
+            "conspicuousGroundCategory": {
+              "$ref": "#/definitions/CausewayStructure_conspicuousGroundCategoryMeta"
+            },
+            "conspicuousSeaCategory": {
+              "$ref": "#/definitions/CausewayStructure_conspicuousSeaCategoryMeta"
+            },
+            "controllingAuthority": {
+              "$ref": "#/definitions/CausewayStructure_controllingAuthorityMeta"
+            },
+            "controllingAuthorityIdent": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CharacterStringMeta"
+              },
+              "uniqueItems": true
+            },
+            "directivity": {
+              "$ref": "#/definitions/CausewayStructure_directivityMeta"
+            },
+            "facilityOperationalStatus": {
+              "$ref": "#/definitions/CausewayStructure_facilityOperationalStatusMeta"
+            },
+            "floodlit": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "heightAboveSurfaceLevel": {
+              "$ref": "#/definitions/HeightMeasureMeta"
+            },
+            "highestElevation": {
+              "$ref": "#/definitions/ElevationMeasureMeta"
+            },
+            "maximumObstacleHeight": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "permanent": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "physicalCondition": {
+              "$ref": "#/definitions/CausewayStructure_physicalConditionMeta"
+            },
+            "predominantFeatureHeight": {
+              "$ref": "#/definitions/MeasureIntervalMeta"
+            },
+            "structMatType": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CausewayStructure_structMatTypeMeta"
+              },
+              "uniqueItems": true
+            },
+            "surfaceSlope": {
+              "$ref": "#/definitions/MeasureIntervalMeta"
+            },
+            "waterLevelEffect": {
+              "$ref": "#/definitions/CausewayStructure_waterLevelEffectMeta"
+            }
+          }
+        }
+      ]
+    },
+    "CausewayStructure_conspicuousAirCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "CausewayStructure_conspicuousGroundCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "CausewayStructure_conspicuousSeaCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "CausewayStructure_controllingAuthorityMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "CausewayStructure_directivityMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "CausewayStructure_facilityOperationalStatusMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "CausewayStructure_physicalConditionMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "CausewayStructure_structMatTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "CausewayStructure_waterLevelEffectMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "CharacterStringMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "ElevationMeasureMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "FeatureEntity": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@type"
+      ]
+    },
+    "GeneralLocation": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FeatureEntity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "namedLocationType": {
+              "$ref": "#/definitions/GeneralLocation_namedLocationTypeMeta"
+            },
+            "thematicClassification": {
+              "$ref": "#/definitions/GeneralLocation_thematicClassificationMeta"
+            },
+            "informationReference": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CharacterStringMeta"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "GeneralLocation_namedLocationTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "GeneralLocation_thematicClassificationMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "HeightMeasureMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "HydroClearRefMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "IdentifiedQualityIssue": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FeatureEntity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "qualityIssueImpact": {
+              "$ref": "#/definitions/CharacterStringMeta"
+            },
+            "qualityIssueDescription": {
+              "$ref": "#/definitions/CharacterStringMeta"
+            }
+          }
+        }
+      ]
+    },
+    "IntegerMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "MeasureIntervalMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "MeasureMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "MiscFeatureType": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FeatureEntity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "highestElevation": {
+              "$ref": "#/definitions/ElevationMeasureMeta"
+            },
+            "miscFeatureTypeDescription": {
+              "$ref": "#/definitions/CharacterStringMeta"
+            },
+            "heightAboveSurfaceLevel": {
+              "$ref": "#/definitions/HeightMeasureMeta"
+            }
+          }
+        }
+      ]
+    },
+    "OrganisationalUnit": {
       "type": "object",
       "properties": {
         "@type": {
@@ -28,349 +1228,607 @@
         "id": {
           "type": "string"
         },
-        "identifikasjon": {
-          "$ref": "#/definitions/Identifikasjon"
-        },
-        "eksternPeker": {
-          "type": "string",
-          "format": "uri"
-        },
-        "nvdbPeker": {
-          "type": "string",
-          "format": "uri"
+        "contactInfo": {
+          "$ref": "#/definitions/CI_ContactMeta"
         }
       },
       "required": [
         "@type",
-        "identifikasjon"
+        "contactInfo"
       ]
     },
-    "Fellesegenskaper-StikkrenneKulvert": {
+    "TransRouteProtectStruct": {
       "allOf": [
         {
-          "$ref": "#/definitions/Fellesegenskaper-Objektidentifikasjon"
+          "$ref": "#/definitions/FeatureEntity"
         },
         {
           "type": "object",
           "properties": {
-            "datafangstdato": {
-              "type": "string",
-              "format": "date"
-            },
-            "verifiseringsdato": {
-              "type": "string",
-              "format": "date"
-            },
-            "kvalitet": {
+            "structMatType": {
               "type": "array",
-              "minItems": 1,
               "items": {
-                "$ref": "#/definitions/Posisjonskvalitet"
+                "$ref": "#/definitions/TransRouteProtectStruct_structMatTypeMeta"
               },
               "uniqueItems": true
             },
-            "medium": {
+            "conspicuousAirCategory": {
+              "$ref": "#/definitions/TransRouteProtectStruct_conspicuousAirCategoryMeta"
+            },
+            "conspicuousGroundCategory": {
+              "$ref": "#/definitions/TransRouteProtectStruct_conspicuousGroundCategoryMeta"
+            },
+            "controllingAuthorityIdent": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Medium"
+                "$ref": "#/definitions/CharacterStringMeta"
               },
               "uniqueItems": true
             },
-            "informasjon": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "uniqueItems": true
+            "conspicuousSeaCategory": {
+              "$ref": "#/definitions/TransRouteProtectStruct_conspicuousSeaCategoryMeta"
             },
-            "høydereferanse": {
-              "$ref": "#/definitions/LedningHøydereferanse"
+            "controllingAuthority": {
+              "$ref": "#/definitions/TransRouteProtectStruct_controllingAuthorityMeta"
+            },
+            "facilityOperationalStatus": {
+              "$ref": "#/definitions/TransRouteProtectStruct_facilityOperationalStatusMeta"
+            },
+            "floodlit": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "heightAboveSurfaceLevel": {
+              "$ref": "#/definitions/HeightMeasureMeta"
+            },
+            "highestElevation": {
+              "$ref": "#/definitions/ElevationMeasureMeta"
+            },
+            "horizontalClearance": {
+              "$ref": "#/definitions/MeasureIntervalMeta"
+            },
+            "overheadClearance": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "permanent": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "physicalCondition": {
+              "$ref": "#/definitions/TransRouteProtectStruct_physicalConditionMeta"
+            },
+            "restrictHorizClearance": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "safeHorizontalClearance": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "transRteProtStructType": {
+              "$ref": "#/definitions/TransRouteProtectStruct_transRteProtStructTypeMeta"
+            },
+            "verticalRelativeLocation": {
+              "$ref": "#/definitions/TransRouteProtectStruct_verticalRelativeLocationMeta"
             }
-          },
-          "required": [
-            "datafangstdato",
-            "kvalitet"
-          ]
+          }
         }
       ]
     },
-    "GjennomløpForElvBekkStikkrenneKulvert": {
-      "type": "string",
-      "enum": [
-        "ja",
-        "nei"
-      ]
-    },
-    "HarInnløpsristStikkrenneKulvert": {
-      "type": "string",
-      "enum": [
-        "ja",
-        "nei"
-      ]
-    },
-    "Identifikasjon": {
+    "TransRouteProtectStruct_conspicuousAirCategoryMeta": {
       "type": "object",
       "properties": {
-        "lokalId": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TransRouteProtectStruct_conspicuousGroundCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TransRouteProtectStruct_conspicuousSeaCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TransRouteProtectStruct_controllingAuthorityMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TransRouteProtectStruct_facilityOperationalStatusMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TransRouteProtectStruct_physicalConditionMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TransRouteProtectStruct_structMatTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TransRouteProtectStruct_transRteProtStructTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TransRouteProtectStruct_verticalRelativeLocationMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TransportationPlatform": {
+      "type": "object",
+      "properties": {
+        "@type": {
           "type": "string"
         },
-        "navnerom": {
+        "id": {
           "type": "string"
         },
-        "versjonId": {
-          "type": "string"
+        "meansTransportation": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/definitions/TransportationPlatform_meansTransportationMeta"
+          },
+          "uniqueItems": true
+        },
+        "transportationUse": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {
+            "$ref": "#/definitions/TransportationPlatform_transportationUseMeta"
+          },
+          "uniqueItems": true
         }
       },
       "required": [
-        "lokalId",
-        "navnerom"
+        "@type"
       ]
     },
-    "LedningHøydereferanse": {
-      "type": "string",
-      "enum": [
-        "toppUtvendig",
-        "toppInnvendig",
-        "senter",
-        "bunnInnvendig",
-        "underkantUtvendig",
-        "påBakken",
-        "fot",
-        "ukjent"
-      ]
-    },
-    "MaterialtypeStikkrenneKulvert": {
-      "type": "string",
-      "enum": [
-        "betong",
-        "eternitt",
-        "naturstein",
-        "plast",
-        "stål",
-        "tre"
-      ]
-    },
-    "Medium": {
-      "type": "string",
-      "format": "uri"
-    },
-    "Posisjonskvalitet": {
+    "TransportationPlatform_meansTransportationMeta": {
       "type": "object",
       "properties": {
-        "datafangstmetode": {
-          "$ref": "#/definitions/Datafangstmetode"
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TransportationPlatform_transportationUseMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Tunnel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FeatureEntity"
         },
-        "nøyaktighet": {
-          "type": "integer"
+        {
+          "type": "object",
+          "properties": {
+            "angleOfIntendedPassage": {
+              "$ref": "#/definitions/AngleMeasureMeta"
+            },
+            "bypassCondition": {
+              "$ref": "#/definitions/Tunnel_bypassConditionMeta"
+            },
+            "controllingAuthority": {
+              "$ref": "#/definitions/Tunnel_controllingAuthorityMeta"
+            },
+            "controllingAuthorityIdent": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CharacterStringMeta"
+              },
+              "uniqueItems": true
+            },
+            "crossSectionalProfile": {
+              "$ref": "#/definitions/Tunnel_crossSectionalProfileMeta"
+            },
+            "deckCount": {
+              "$ref": "#/definitions/IntegerMeta"
+            },
+            "deepDepthBelowSurfLevel": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "facilityOperationalStatus": {
+              "$ref": "#/definitions/Tunnel_facilityOperationalStatusMeta"
+            },
+            "hazardShelterIntendedUse": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tunnel_hazardShelterIntendedUseMeta"
+              },
+              "uniqueItems": true
+            },
+            "heightAboveSurfaceLevel": {
+              "$ref": "#/definitions/HeightMeasureMeta"
+            },
+            "horizontalClearance": {
+              "$ref": "#/definitions/MeasureIntervalMeta"
+            },
+            "leastDepthBelowSurfLevel": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "manMade": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "maximumVerticalClearance": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "monitored": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "overheadClearance": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "pedestrianTraversable": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "permanent": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "physicalCondition": {
+              "$ref": "#/definitions/Tunnel_physicalConditionMeta"
+            },
+            "restrictHorizClearance": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "routeTotalUsableWidth": {
+              "$ref": "#/definitions/MeasureIntervalMeta"
+            },
+            "safeHorizontalClearance": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "structMatType": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tunnel_structMatTypeMeta"
+              },
+              "uniqueItems": true
+            },
+            "verticalRelativeLocation": {
+              "$ref": "#/definitions/Tunnel_verticalRelativeLocationMeta"
+            }
+          }
+        }
+      ]
+    },
+    "TunnelMouth": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
         },
-        "synbarhet": {
-          "$ref": "#/definitions/SynbarhetE"
+        "id": {
+          "type": "string"
         },
-        "datafangstmetodeHøyde": {
-          "$ref": "#/definitions/Datafangstmetode"
-        },
-        "nøyaktighetHøyde": {
-          "type": "integer"
+        "crossSectionalProfile": {
+          "$ref": "#/definitions/TunnelMouth_crossSectionalProfileMeta"
         }
       },
       "required": [
-        "datafangstmetode"
+        "@type"
       ]
     },
-    "StikkrenneKulvert": {
+    "TunnelMouth_crossSectionalProfileMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Tunnel_bypassConditionMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Tunnel_controllingAuthorityMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Tunnel_crossSectionalProfileMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Tunnel_facilityOperationalStatusMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Tunnel_hazardShelterIntendedUseMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Tunnel_physicalConditionMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Tunnel_structMatTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "Tunnel_verticalRelativeLocationMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TurnaroundSite": {
       "allOf": [
         {
-          "$ref": "#/definitions/StikkrenneKulvert-NVDB"
+          "$ref": "#/definitions/FeatureEntity"
         },
         {
           "type": "object",
           "properties": {
-            "geometry": {
-              "$ref": "https://geojson.org/schema/LineString.json"
-            }
-          }
-        }
-      ]
-    },
-    "StikkrenneKulvert-NVDB": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Fellesegenskaper-StikkrenneKulvert"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tilknyttetLukkaDren": {
-              "$ref": "#/definitions/TilknyttetLukkaDrenStikkrenneKulvert"
+            "controllingAuthority": {
+              "$ref": "#/definitions/TurnaroundSite_controllingAuthorityMeta"
             },
-            "gjennomløpForElvBekk": {
-              "$ref": "#/definitions/GjennomløpForElvBekkStikkrenneKulvert"
-            },
-            "materialtype": {
-              "$ref": "#/definitions/MaterialtypeStikkrenneKulvert"
-            },
-            "tverrsnittsform": {
-              "$ref": "#/definitions/TverrsnittsformStikkrenneKulvert"
-            },
-            "typeInnløp": {
-              "$ref": "#/definitions/TypeInnløpStikkrenneKulvert"
-            },
-            "typeUtløp": {
-              "$ref": "#/definitions/TypeUtløpStikkrenneKulvert"
-            },
-            "lengde": {
-              "type": "number"
-            },
-            "bredde_Innvendig": {
-              "type": "number"
-            },
-            "høyde_Innvendig": {
-              "type": "number"
-            },
-            "overfyllingInnløp": {
-              "type": "number"
-            },
-            "harInnløpsrist": {
-              "$ref": "#/definitions/HarInnløpsristStikkrenneKulvert"
-            },
-            "varmekabler": {
-              "$ref": "#/definitions/VarmekablerStikkrenneKulvert"
-            },
-            "etableringsår": {
-              "type": "number"
-            },
-            "tilleggsinformasjon": {
-              "type": "string"
-            },
-            "FKB_ID": {
-              "type": "string"
-            },
-            "eier": {
-              "$ref": "#/definitions/EierStikkrenneKulvert"
-            },
-            "vedlikeholdsansvarlig": {
-              "$ref": "#/definitions/VedlikeholdsansvarligStikkrenneKulvert"
-            }
-          }
-        }
-      ]
-    },
-    "StikkrenneKulvert3DGeometri": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/StikkrenneKulvert-NVDB"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "form": {},
-            "grunnriss": {
+            "controllingAuthorityIdent": {
               "type": "array",
               "items": {
-                "type": "string",
-                "format": "uri"
+                "$ref": "#/definitions/CharacterStringMeta"
+              },
+              "uniqueItems": true
+            },
+            "generalPavementCondition": {
+              "$ref": "#/definitions/TurnaroundSite_generalPavementConditionMeta"
+            },
+            "loadBearingSurfaceType": {
+              "$ref": "#/definitions/TurnaroundSite_loadBearingSurfaceTypeMeta"
+            },
+            "maximumVehicleHeight": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "maximumVehicleLength": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "maximumVehicleWidth": {
+              "$ref": "#/definitions/MeasureMeta"
+            },
+            "meansTransportation": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TurnaroundSite_meansTransportationMeta"
+              },
+              "uniqueItems": true
+            },
+            "medianPresent": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "permanent": {
+              "$ref": "#/definitions/BooleanMeta"
+            },
+            "physicalCondition": {
+              "$ref": "#/definitions/TurnaroundSite_physicalConditionMeta"
+            },
+            "trafficRestrictionType": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TurnaroundSite_trafficRestrictionTypeMeta"
+              },
+              "uniqueItems": true
+            },
+            "verticalRelativeLocation": {
+              "$ref": "#/definitions/TurnaroundSite_verticalRelativeLocationMeta"
+            },
+            "waySurfaceCategory": {
+              "$ref": "#/definitions/TurnaroundSite_waySurfaceCategoryMeta"
+            },
+            "weatherRestrictionType": {
+              "$ref": "#/definitions/TurnaroundSite_weatherRestrictionTypeMeta"
+            },
+            "weightBearingCapacity": {
+              "$ref": "#/definitions/MeasureIntervalMeta"
+            }
+          }
+        }
+      ]
+    },
+    "TurnaroundSite_controllingAuthorityMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TurnaroundSite_generalPavementConditionMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TurnaroundSite_loadBearingSurfaceTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TurnaroundSite_meansTransportationMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TurnaroundSite_physicalConditionMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TurnaroundSite_trafficRestrictionTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TurnaroundSite_verticalRelativeLocationMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TurnaroundSite_waySurfaceCategoryMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "TurnaroundSite_weatherRestrictionTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
+      ]
+    },
+    "VoidCollectionArea": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FeatureEntity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "voidCollectionReason": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VoidCollectionArea_voidCollectionReasonMeta"
+              },
+              "uniqueItems": true
+            },
+            "voidCollectionType": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VoidCollectionArea_voidCollectionTypeMeta"
               },
               "uniqueItems": true
             }
-          },
-          "required": [
-            "form"
-          ]
-        }
-      ]
-    },
-    "StikkrenneKulvertFlate": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/StikkrenneKulvert-NVDB"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Polygon.json"
-            }
           }
         }
       ]
     },
-    "StikkrenneKulvertPunkt": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/StikkrenneKulvert-NVDB"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Point.json"
-            }
-          }
-        }
+    "VoidCollectionArea_voidCollectionReasonMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
       ]
     },
-    "SynbarhetE": {
-      "type": "string",
-      "enum": [
-        "2",
-        "3",
-        "0",
-        "1"
-      ]
-    },
-    "TilknyttetLukkaDrenStikkrenneKulvert": {
-      "type": "string",
-      "enum": [
-        "ja",
-        "nei"
-      ]
-    },
-    "TverrsnittsformStikkrenneKulvert": {
-      "type": "string",
-      "enum": [
-        "ellipseform",
-        "flatbunnetMedHvelv",
-        "rektangulær",
-        "sirkulær"
-      ]
-    },
-    "TypeInnløpStikkrenneKulvert": {
-      "type": "string",
-      "enum": [
-        "kumOverStikkrenne",
-        "åpenGrøft",
-        "åpenGrøftMedStøtteskjold",
-        "åpenMedFrontmur",
-        "åpenMedVingemur"
-      ]
-    },
-    "TypeUtløpStikkrenneKulvert": {
-      "type": "string",
-      "enum": [
-        "bekkElv",
-        "kum",
-        "skråningTerreng",
-        "åpenGrøft"
-      ]
-    },
-    "VarmekablerStikkrenneKulvert": {
-      "type": "string",
-      "enum": [
-        "ja",
-        "nei"
-      ]
-    },
-    "VedlikeholdsansvarligStikkrenneKulvert": {
-      "type": "string",
-      "enum": [
-        "Fylkeskommune",
-        "Kommune",
-        "Nye Veier",
-        "OPS",
-        "Privat",
-        "Statens vegvesen",
-        "Uavklart",
-        "Bane NOR"
+    "VoidCollectionArea_voidCollectionTypeMeta": {
+      "type": "object",
+      "properties": {
+        "valueOrReason": {}
+      },
+      "required": [
+        "valueOrReason"
       ]
     }
   }
