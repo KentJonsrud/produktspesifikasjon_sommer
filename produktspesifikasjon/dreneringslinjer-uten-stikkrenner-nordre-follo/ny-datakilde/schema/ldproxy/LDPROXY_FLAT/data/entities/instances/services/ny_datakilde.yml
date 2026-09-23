@@ -5,19 +5,67 @@ description: FIXME
 enabled: true
 serviceType: OGC_API
 collections:
-  stikkrennekulvert:
-    id: stikkrennekulvert
-    label: stikkrennekulvert
+  bridge:
+    id: bridge
+    label: bridge
     enabled: true
-  stikkrennekulvert3dgeometri:
-    id: stikkrennekulvert3dgeometri
-    label: stikkrennekulvert3dgeometri
+  bridgepier:
+    id: bridgepier
+    label: bridgepier
     enabled: true
-  stikkrennekulvertflate:
-    id: stikkrennekulvertflate
-    label: stikkrennekulvertflate
+  bridgespan:
+    id: bridgespan
+    label: bridgespan
     enabled: true
-  stikkrennekulvertpunkt:
-    id: stikkrennekulvertpunkt
-    label: stikkrennekulvertpunkt
+  bridgesuperstructure:
+    id: bridgesuperstructure
+    label: bridgesuperstructure
+    enabled: true
+  bridgetower:
+    id: bridgetower
+    label: bridgetower
+    enabled: true
+  causewaystructure:
+    id: causewaystructure
+    label: causewaystructure
+    enabled: true
+  generallocation:
+    id: generallocation
+    label: generallocation
+    enabled: true
+  identifiedqualityissue:
+    id: identifiedqualityissue
+    label: identifiedqualityissue
+    enabled: true
+  miscfeaturetype:
+    id: miscfeaturetype
+    label: miscfeaturetype
+    enabled: true
+  organisationalunit:
+    id: organisationalunit
+    label: organisationalunit
+    enabled: true
+  transportationplatform:
+    id: transportationplatform
+    label: transportationplatform
+    enabled: true
+  transrouteprotectstruct:
+    id: transrouteprotectstruct
+    label: transrouteprotectstruct
+    enabled: true
+  tunnel:
+    id: tunnel
+    label: tunnel
+    enabled: true
+  tunnelmouth:
+    id: tunnelmouth
+    label: tunnelmouth
+    enabled: true
+  turnaroundsite:
+    id: turnaroundsite
+    label: turnaroundsite
+    enabled: true
+  voidcollectionarea:
+    id: voidcollectionarea
+    label: voidcollectionarea
     enabled: true

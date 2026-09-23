@@ -1,851 +1,2934 @@
 [
   {
-    "name": "StikkrenneKulvertPunkt",
-    "description": "pppp",
+    "name": "TunnelMouth",
+    "description": "-- Definition --\nThe opening of a tunnel into a larger space (for example: onto the terrain surface).\n-- Description --\nA tunnel is usually open to the terrain surface at both ends, but may sometimes lead to an enclosed space, for example: leading to an underground bunker, into an underground mine (termed an 'adit') or into an underground railway station.",
     "attributes": [
       {
-        "name": "posisjon",
-        "type": "GM_Point",
-        "cardinality": "1"
-      }
-    ],
-    "abstract": false,
-    "relationships": {
-      "inheritance": [
-        "StikkrenneKulvert-NVDB"
-      ],
-      "associations": []
-    },
-    "package": "StikkrenneKulvert-0.1"
-  },
-  {
-    "name": "StikkrenneKulvertFlate",
-    "description": "kkkk",
-    "attributes": [
-      {
-        "name": "område",
-        "type": "GM_Surface",
-        "description": "<memo>",
-        "cardinality": "1"
-      }
-    ],
-    "abstract": false,
-    "relationships": {
-      "inheritance": [
-        "StikkrenneKulvert-NVDB"
-      ],
-      "associations": []
-    },
-    "package": "StikkrenneKulvert-0.1"
-  },
-  {
-    "name": "StikkrenneKulvert",
-    "description": "<i>Konstruksjoner og rør med maks. lysåpning på 2,5 meter, der vann kan strømme igjennom, oftest under veg eller jernbane</i>.",
-    "attributes": [
-      {
-        "name": "senterlinje",
-        "type": "GM_Curve",
-        "description": "Gir linje/kurve som geometrisk representerer objektet.",
-        "cardinality": "1"
-      }
-    ],
-    "abstract": false,
-    "relationships": {
-      "inheritance": [
-        "StikkrenneKulvert-NVDB"
-      ],
-      "associations": []
-    },
-    "package": "StikkrenneKulvert-0.1"
-  },
-  {
-    "name": "StikkrenneKulvert3DGeometri",
-    "description": "ffff",
-    "attributes": [
-      {
-        "name": "form",
-        "type": "GM_Solid",
-        "description": "ffff",
-        "cardinality": "1"
-      }
-    ],
-    "abstract": false,
-    "relationships": {
-      "inheritance": [
-        "StikkrenneKulvert-NVDB"
-      ],
-      "associations": [
-        {
-          "target": "StikkrenneKulvertFlate",
-          "role": "grunnriss",
-          "cardinality": "0..*"
-        }
-      ]
-    },
-    "package": "StikkrenneKulvert-0.1"
-  },
-  {
-    "name": "Fellesegenskaper-Objektidentifikasjon",
-    "description": "abstrakt objekttype som bærer sentrale egenskaper som er anbefalt for bruk i produktspesifikasjoner.\n\nMerknad: Disse egenskapene skal derfor ikke modelleres inn i fagområdemodeller.",
-    "attributes": [
-      {
-        "name": "identifikasjon",
-        "type": "Identifikasjon",
-        "description": "unik identifikasjon av et objekt",
-        "cardinality": "1",
-        "taggedValues": {
-          "SOSI_navn": "IDENT"
-        },
+        "name": "crossSectionalProfile",
+        "type": "TunnelMouth_crossSectionalProfileMeta",
+        "description": "-- Definition --\nThe cross-sectional profile of an opening (for example: a tunnel or the space under a bridge span).\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
         "attributes": [
           {
-            "name": "lokalId",
-            "type": "CharacterString",
-            "description": "lokal identifikator av et objekt\n\nMerknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren er unik innenfor navnerommet. For FKB-data benyttes UUID som lokalId.",
-            "cardinality": "1",
-            "taggedValues": {
-              "SOSI_navn": "LOKALID"
-            }
-          },
-          {
-            "name": "navnerom",
-            "type": "CharacterString",
-            "description": "navnerom som unikt identifiserer datakilden til et objekt, anbefales å være en http-URI\n\nEksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0\n\nMerknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar for de unike identifikatorene og må være registrert i data.geonorge.no eller data.norge.no",
-            "cardinality": "1",
-            "taggedValues": {
-              "SOSI_navn": "NAVNEROM"
-            }
-          },
-          {
-            "name": "versjonId",
-            "type": "CharacterString",
-            "description": "identifikasjon av en spesiell versjon av et geografisk objekt (instans)",
-            "cardinality": "0..1",
-            "taggedValues": {
-              "SOSI_navn": "VERSJONID"
-            }
+            "name": "valueOrReason",
+            "type": "TunnelMouth_crossSectionalProfileReason",
+            "cardinality": "1"
           }
         ]
-      },
-      {
-        "name": "eksternPeker",
-        "type": "URI",
-        "description": "referanse til objektet i et eksternt system, som ikke er Nasjonal vegdatabank (NVDB).",
-        "cardinality": "0..1"
-      },
-      {
-        "name": "nvdbPeker",
-        "type": "URI",
-        "description": "referanse til objektet i Nasjonal vegdatabank (NVDB).",
-        "cardinality": "0..1",
-        "taggedValues": {
-          "SOSI_navn": "NVDBID"
-        }
       }
     ],
-    "abstract": true,
+    "abstract": false,
     "relationships": {
       "inheritance": [],
       "associations": []
     },
-    "package": "Fellesegenskaper"
+    "package": "NyTransportation"
   },
   {
-    "name": "Fellesegenskaper-StikkrenneKulvert",
-    "description": "abstrakt objekttype som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper\n\nMerknad:\nSpesielt i produktspesifikasjonsarbeid vil en velge egenskaper og av grensningslinjer fra denne klassen.",
+    "name": "TurnaroundSite",
+    "description": "-- Definition --\nA shaped area at the terminus of a road that provides sufficient turning space allowing incoming traffic to turn around and exit without performing a stop-and-change-direction manoeuvre.\n-- Description --\nConstruction is typically in the form of a defined shape (for example: circle, loop, or crescent). A median-like structure may exist in the center of the turnaround site, thus ensuring a well-defined pattern of vehicle movement. In residential areas the turnaround site often has multiple adjoining properties, each of which may have a separate driveway and/or defined parking area along the perimeter of the shaped area.",
     "attributes": [
       {
-        "name": "datafangstdato",
-        "type": "Date",
-        "description": "dato når objektet siste gang ble registrert/observert/målt i terrenget\n\nMerknad: I mange tilfeller er denne forskjellig fra oppdateringsdato, da registrerte endringer kan bufres i en kortere eller lengre periode før disse legges inn i databasen.\nVed førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.",
-        "cardinality": "1",
-        "taggedValues": {
-          "SOSI_navn": "DATAFANGSTDATO"
-        }
-      },
-      {
-        "name": "verifiseringsdato",
-        "type": "Date",
-        "description": "dato når dataene er fastslått å være i samsvar med virkeligheten\n\nMerknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI",
+        "name": "controllingAuthority",
+        "type": "TurnaroundSite_controllingAuthorityMeta",
+        "description": "-- Definition --\nThe controlling authority responsible for a facility or site.\n-- Description --\nControlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "taggedValues": {
-          "SOSI_navn": "VERIFISERINGSDATO"
-        }
-      },
-      {
-        "name": "kvalitet",
-        "type": "Posisjonskvalitet",
-        "description": "beskrivelse av kvaliteten på stedfestingen\n\nMerknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.",
-        "cardinality": "1..*",
-        "taggedValues": {
-          "SOSI_navn": "KVALITET"
-        },
         "attributes": [
           {
-            "name": "datafangstmetode",
-            "type": "Datafangstmetode",
-            "description": "metode for datafangst.\nEgenskapen beskriver datafangstmetode for grunnrisskoordinater (x,y), eller for både grunnriss og høyde (x,y,z) dersom det ikke er oppgitt noen verdi for datafangstmetodeHøyde.",
-            "cardinality": "1",
-            "valueDomain": {
-              "kind": "codelist",
-              "listedValues": [
-                {
-                  "value": "byg",
-                  "label": "Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger"
-                },
-                {
-                  "value": "ukj",
-                  "label": "Ukjent - Ukjent eller uspesifisert datafangstmetode"
-                },
-                {
-                  "value": "pla",
-                  "label": "Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert med innmåling."
-                },
-                {
-                  "value": "sat",
-                  "label": "Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden Landmåling benyttes)"
-                },
-                {
-                  "value": "gen",
-                  "label": "Generert - Posisjonen er manuelt konstruert, eller generert ved maskinlæring eller annen type programvare, fra punktsky fra laserskanning, bildematching, sonar, andre typer sensordata eller kombinasjon av flere typer sensordata."
-                },
-                {
-                  "value": "fot",
-                  "label": "Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk stereomodell"
-                },
-                {
-                  "value": "dig",
-                  "label": "Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre plane kartdata"
-                },
-                {
-                  "value": "lan",
-                  "label": "Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode. Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling utføres normalt med overskytende målinger og utjevning av resultatet."
-                }
-              ],
-              "definition": "metode for datafangst.\n\nDatafangstmetoden beskriver hvordan selve vektordataene er posisjonert fra et datagrunnlag (observasjoner med landmålingsutstyr, fotogrammetrisk stereomodell, digital terrengmodell etc.) og ikke prosessen med å innhente det bakenforliggende datagrunnlaget.",
-              "asDictionary": "true",
-              "codeList": "https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/datafangstmetode"
-            },
-            "taggedValues": {
-              "SOSI_navn": "DATAFANGSTMETODE"
-            }
-          },
-          {
-            "name": "nøyaktighet",
-            "type": "Integer",
-            "description": "standardavviket til posisjoneringa av objektet oppgitt i cm\n\nI de aller fleste sammenhenger benyttes en anslått eller forventet verdi for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.\n\nFor objekter med punktgeometri benyttes verdi for punktstandardavvik. For objekter med kurvegeometri benyttes standardavviket for tverravviket fra kurva. For objekter med overflate- eller volumgeometri er forståelsen at standardavviket beregnes ut fra (3D) avvikene mellom sann posisjon og nærmeste punkt på overflata.\n\nMerknad:\nVerdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket og det innebærer at vi forutsetter at det systematiske avviket i liten grad påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette defineres, beregnes og kontrolleres.",
-            "cardinality": "0..1",
-            "taggedValues": {
-              "SOSI_navn": "NØYAKTIGHET"
-            }
-          },
-          {
-            "name": "synbarhet",
-            "type": "SynbarhetE",
-            "description": "beskrivelse av hvor godt objektene framgår i datagrunnlaget for posisjonering (f.eks. flybildene).",
-            "cardinality": "0..1",
-            "valueDomain": {
-              "kind": "enumeration",
-              "listedValues": [
-                {
-                  "value": "2",
-                  "label": "Middels synlig - Objektet er middels synlig/gjenkjennbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst brukes denne koden for objekter som har lav kontrast eller er delvis skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en større verdi for nøyaktighet enn kravet (opptil 3 ganger kravet)"
-                },
-                {
-                  "value": "3",
-                  "label": "Ikke synlig - Objektet er ikke synlig/gjenkjennbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst brukes denne koden for objekter som er helt skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en stor verdi for nøyaktighet (mer enn 3 ganger kravet)"
-                },
-                {
-                  "value": "0",
-                  "label": "Fullt ut synlig - Objektet er fullt ut synlig/gjenfinnbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk registrering skal objekter som er fullt ut synlige registreres i tråd med angitte krav til nøyaktig registrering."
-                },
-                {
-                  "value": "1",
-                  "label": "Dårlig gjenfinnbar i terreng - Objektets posisjon er vanskelig å definere presist i terrenget på grunn av objektets natur eller manglende kontrast mot omgivelsene. Koden kan f.eks. brukes på høydekurver (eller andre isolinjer) eller objekter som er skjult i bakken (f.eks. innmåling av ledninger på lukket grøft)"
-                }
-              ],
-              "definition": "synbarhet beskriver hvor godt objektene framgår i datagrunnlaget for posisjonering (f.eks. flybildene).",
-              "asDictionary": "true",
-              "codeList": "https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/synbarhet"
-            },
-            "taggedValues": {
-              "SOSI_navn": "SYNBARHET"
-            }
-          },
-          {
-            "name": "datafangstmetodeHøyde",
-            "type": "Datafangstmetode",
-            "description": "metoden brukt for høyderegistrering av posisjon.\n\nDet er bare nødvending å angi en verdi for egenskapen dersom datafangstmetode for høyde avviker fra datafangstmetode for grunnriss.",
-            "cardinality": "0..1",
-            "valueDomain": {
-              "kind": "codelist",
-              "listedValues": [
-                {
-                  "value": "byg",
-                  "label": "Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger"
-                },
-                {
-                  "value": "ukj",
-                  "label": "Ukjent - Ukjent eller uspesifisert datafangstmetode"
-                },
-                {
-                  "value": "pla",
-                  "label": "Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert med innmåling."
-                },
-                {
-                  "value": "sat",
-                  "label": "Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden Landmåling benyttes)"
-                },
-                {
-                  "value": "gen",
-                  "label": "Generert - Posisjonen er manuelt konstruert, eller generert ved maskinlæring eller annen type programvare, fra punktsky fra laserskanning, bildematching, sonar, andre typer sensordata eller kombinasjon av flere typer sensordata."
-                },
-                {
-                  "value": "fot",
-                  "label": "Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk stereomodell"
-                },
-                {
-                  "value": "dig",
-                  "label": "Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre plane kartdata"
-                },
-                {
-                  "value": "lan",
-                  "label": "Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode. Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling utføres normalt med overskytende målinger og utjevning av resultatet."
-                }
-              ],
-              "definition": "metode for datafangst.\n\nDatafangstmetoden beskriver hvordan selve vektordataene er posisjonert fra et datagrunnlag (observasjoner med landmålingsutstyr, fotogrammetrisk stereomodell, digital terrengmodell etc.) og ikke prosessen med å innhente det bakenforliggende datagrunnlaget.",
-              "asDictionary": "true",
-              "codeList": "https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/datafangstmetode"
-            },
-            "taggedValues": {
-              "SOSI_navn": "DATAFANGSTMETODEHØYDE"
-            }
-          },
-          {
-            "name": "nøyaktighetHøyde",
-            "type": "Integer",
-            "description": "standardavviket til posisjoneringa av objektet oppgitt i cm\n\nI de aller fleste sammenhenger benyttes en anslått eller forventet verdi for standardavviket, men dersom man faktisk har standardavviket til posisjoneringa av objektet oppgitt i cm\n\nI de aller fleste sammenhenger benyttes en anslått eller forventet verdi for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.\n\nMerknad:\nVerdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket og det innebærer at vi forutsetter at det systematiske avviket i liten grad påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette defineres, beregnes og kontrolleres.",
-            "cardinality": "0..1",
-            "taggedValues": {
-              "SOSI_navn": "H-NØYAKTIGHET"
-            }
+            "name": "valueOrReason",
+            "type": "TurnaroundSite_controllingAuthorityReason",
+            "cardinality": "1"
           }
         ]
       },
       {
-        "name": "medium",
-        "type": "Medium",
-        "description": "objektets beliggenhet i forhold til jordoverflaten\n\nEksempel:\nPå bro, i tunnel, inne i et bygningsmessig anlegg, etc.",
+        "name": "controllingAuthorityIdent",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nThe recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.\n-- Description --\n-- UnitOfMeasure --",
         "cardinality": "0..*",
-        "valueDomain": {
-          "kind": "codelist",
-          "definition": "objektets beliggenhet i forhold til jordoverflaten\n\nEksempel:\nVeg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.",
-          "asDictionary": "true",
-          "codeList": "https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium"
-        },
-        "taggedValues": {
-          "SOSI_navn": "MEDIUM"
-        }
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "informasjon",
-        "type": "CharacterString",
-        "description": "generell opplysning\n\nMerknad:\nmulighet til å legge inn utfyllende informasjon om objektet",
-        "cardinality": "0..*",
-        "taggedValues": {
-          "SOSI_navn": "INFORMASJON"
-        }
-      },
-      {
-        "name": "høydereferanse",
-        "type": "LedningHøydereferanse",
-        "description": "koordinatregistering utført på topp eller bunn av et objekt",
+        "name": "generalPavementCondition",
+        "type": "TurnaroundSite_generalPavementConditionMeta",
+        "description": "-- Definition --\nA general description of the surface quality of a paved surface.\n-- Description --\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "valueDomain": {
-          "kind": "enumeration",
-          "listedValues": [
-            {
-              "value": "toppUtvendig",
-              "label": "høydereferansen er til toppen av komponenten"
-            },
-            {
-              "value": "toppInnvendig",
-              "label": "høydereferansen er topp innvendig komponent"
-            },
-            {
-              "value": "senter",
-              "label": "høydereferansen er senter innvendig\n\nEksempel: Dersom en ønsker å representere volumet på rør, kan dette gjøres med å angi LedningHøydereferanse = senter og supplere dette med passende radius."
-            },
-            {
-              "value": "bunnInnvendig",
-              "label": "høydereferansen er bunn innvendig\n\nEksempel: Dette er nyttig når en skal modellere fall på avløpsrør"
-            },
-            {
-              "value": "underkantUtvendig",
-              "label": "høydereferansen er bunn utvendig"
-            },
-            {
-              "value": "påBakken",
-              "label": "høydereferanse er på bakken\n\nMerknad: Mange ledninger er målt på lukket grøft"
-            },
-            {
-              "value": "fot",
-              "label": "naturlig å bruke for eksempel på master/mastefundamenter"
-            },
-            {
-              "value": "ukjent",
-              "label": "brukes der det ikke er kjent hva som er benyttet som høydereferanse"
-            }
-          ],
-          "definition": "den høyden som høydedelen av stedfestingen til komponenten ( Ledning/beliggenhet og Kopling/posisjon) referer til.\n\nMerknad: På VA-ledning er det kun to som er aktuelle:\n- ToppUtvendig: ledning overkant, brukes på vannledning\n- BunnInnvendig: brukes på avløpsledning"
-        },
-        "taggedValues": {
-          "SOSI_navn": "HREF"
-        }
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TurnaroundSite_generalPavementConditionReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "loadBearingSurfaceType",
+        "type": "TurnaroundSite_loadBearingSurfaceTypeMeta",
+        "description": "-- Definition --\nThe physical surface composition of a terrain surface that is intended to bear loads.\n-- Description --\nFor example, the surface of a road, a runway, a hard standing, or a vehicle storage lot.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TurnaroundSite_loadBearingSurfaceTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "maximumVehicleHeight",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe maximum height of a vehicle that can pass through the obstructing feature on a travelled way.\n-- Description --\nThe height limitation assumes that the vehicle is less than 12 metres long and has a maximum rectangular width of 2.6 metres.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "maximumVehicleLength",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe maximum length of a vehicle that can pass through the obstructing feature on a travelled way.\n-- Description --\nThe length limitation assumes that the vehicle has a maximum rectangular height of 4.3 metres and a maximum rectangular width of 2.6 metres.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "maximumVehicleWidth",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe maximum width of a vehicle that can pass through the obstructing feature on a travelled way.\n-- Description --\nThe width limitation assumes that the vehicle is less than 12 metres long and has a maximum rectangular height of 4.3 metres.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "meansTransportation",
+        "type": "TurnaroundSite_meansTransportationMeta",
+        "description": "-- Definition --\nThe intended method or means of moving from one place to another related to the feature or the feature's intended use.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TurnaroundSite_meansTransportationReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "medianPresent",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that the lanes or tracks of a divided land transportation route (for example: a road or a railway) are separated by a vertical median barrier.\n-- Description --\nOften used to separate opposing flows of traffic in order to improve safety. For example, may be a substantial concrete barrier of approximately 1 metre height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "permanent",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "physicalCondition",
+        "type": "TurnaroundSite_physicalConditionMeta",
+        "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TurnaroundSite_physicalConditionReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "trafficRestrictionType",
+        "type": "TurnaroundSite_trafficRestrictionTypeMeta",
+        "description": "-- Definition --\nThe reason for traffic restriction based on the nature of the route.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TurnaroundSite_trafficRestrictionTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "verticalRelativeLocation",
+        "type": "TurnaroundSite_verticalRelativeLocationMeta",
+        "description": "-- Definition --\nThe relationship between the feature and the underlying ground (terrain) or waterbody bottom.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TurnaroundSite_verticalRelativeLocationReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "waySurfaceCategory",
+        "type": "TurnaroundSite_waySurfaceCategoryMeta",
+        "description": "-- Definition --\nA categorisation based on the general pavement characteristic of the surface intending to sustain ground transport.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TurnaroundSite_waySurfaceCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "weatherRestrictionType",
+        "type": "TurnaroundSite_weatherRestrictionTypeMeta",
+        "description": "-- Definition --\nThe type of weather conditions under which a feature is usable.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TurnaroundSite_weatherRestrictionTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "weightBearingCapacity",
+        "type": "MeasureIntervalMeta",
+        "description": "-- Definition --\nThe maximum weight that can be supported by a surface.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureIntervalReason",
+            "cardinality": "1"
+          }
+        ]
       }
     ],
-    "abstract": true,
+    "abstract": false,
     "relationships": {
       "inheritance": [
-        "Fellesegenskaper-Objektidentifikasjon"
+        "FeatureEntity"
       ],
       "associations": []
     },
-    "package": "Fellesegenskaper"
+    "package": "NyTransportation"
   },
   {
-    "name": "StikkrenneKulvert-NVDB",
-    "description": "Rør for vanngjennomløp på tvers av vegen (ev. på tvers av tilgrensende avkjørsel) med maks lysåpning 2,5 meter. Stikkrenne/kulvert har åpent innløp og/eller utløp. Stikkrenne/kulvert kan ha inn- og utløpskonstruksjoner som kummer og støtteskjold. Merknad: Inntil videre registrere stikkrenner med bruksområde biologisk mangfold eller landbruk som vanlig stikkrenne. Dette blir endret på i senere versjon av Datakatalogen.",
+    "name": "CausewayStructure",
+    "description": "-- Definition --\nA solid raised way across a terrain obstacle (for example: a wetland or a body of shallow water) that is intended to support a transportation route (for example: a road or a railway).\n-- Description --\nThe causeway structure is often constructed from local fill supplemented by other materials (for example: rocks, boulders or gravel) and consists of a solid linear structure in the configuration of an embankment. Causeway structures are built just high enough to insure that the transportation route will remain passable during periods of flooding, tides and seasonal rainfall. Culverts may occur along the length of the causeway structure and individual sections of the causeway structure may be interrupted by bridges.",
     "attributes": [
       {
-        "name": "tilknyttetLukkaDren",
-        "type": "TilknyttetLukkaDrenStikkrenneKulvert",
-        "description": "Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn i et lukket dreneringssystem.",
+        "name": "conspicuousAirCategory",
+        "type": "CausewayStructure_conspicuousAirCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "valueDomain": {
-          "kind": "enumeration",
-          "listedValues": [
-            {
-              "value": "ja",
-              "label": "Ja - ja"
-            },
-            {
-              "value": "nei",
-              "label": "Nei - nei"
-            }
-          ],
-          "definition": "Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn i et lukket dreneringssystem.",
-          "asDictionary": "false",
-          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTilknyttetLukkaDrenStikkrenneKulvert"
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CausewayStructure_conspicuousAirCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousGroundCategory",
+        "type": "CausewayStructure_conspicuousGroundCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CausewayStructure_conspicuousGroundCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousSeaCategory",
+        "type": "CausewayStructure_conspicuousSeaCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CausewayStructure_conspicuousSeaCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "controllingAuthority",
+        "type": "CausewayStructure_controllingAuthorityMeta",
+        "description": "-- Definition --\nThe controlling authority responsible for a facility or site.\n-- Description --\nControlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CausewayStructure_controllingAuthorityReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "controllingAuthorityIdent",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nThe recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "directivity",
+        "type": "CausewayStructure_directivityMeta",
+        "description": "-- Definition --\nThe side(s) of a feature that produce the greatest visual significance and/or reflectivity potential.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CausewayStructure_directivityReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "facilityOperationalStatus",
+        "type": "CausewayStructure_facilityOperationalStatusMeta",
+        "description": "-- Definition --\nThe status of operation of a man-made structure, as a whole.\n-- Description --\nIncludes actual operations, operational capability, and planned or proposed man-made structures.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CausewayStructure_facilityOperationalStatusReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "floodlit",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a structure is floodlit.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "heightAboveSurfaceLevel",
+        "type": "HeightMeasureMeta",
+        "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "HeightMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "highestElevation",
+        "type": "ElevationMeasureMeta",
+        "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "ElevationMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "maximumObstacleHeight",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe maximum distance from the bottom to the top of a terrain (or waterbody floor) obstacle.\n-- Description --\nMay be a height or a depth.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "permanent",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "physicalCondition",
+        "type": "CausewayStructure_physicalConditionMeta",
+        "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CausewayStructure_physicalConditionReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "predominantFeatureHeight",
+        "type": "MeasureIntervalMeta",
+        "description": "-- Definition --\nThe predominant height (the height of at least 50 percent) of the feature measured from the lowest point of the base at ground or water level (downhill side/downstream side).\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureIntervalReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "structMatType",
+        "type": "CausewayStructure_structMatTypeMeta",
+        "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for 'primary' may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CausewayStructure_structMatTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "surfaceSlope",
+        "type": "MeasureIntervalMeta",
+        "description": "-- Definition --\nThe slope (rate of upward inclination of the surface from the horizontal) of the surface of a feature (for example: the terrain or a waterbody floor).\n-- Description --\nThe (percent) slope is determined as the change in height divided by the horizontal distance over which the change takes place, multiplied by one hundred: ((h2-h1)/d)*100. Generally the slope is determined along the primary alignment of a feature (its established direction of flow or use; for example: a road, a railway, a ridge line, and/or a bridge). In those cases where the primary alignment is essentially horizontal (for example, a beach, a watercourse bank, or a cut) the surface slope is typically determined at right angles to the primary alignment.\n-- UnitOfMeasure --\npercent",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureIntervalReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "waterLevelEffect",
+        "type": "CausewayStructure_waterLevelEffectMeta",
+        "description": "-- Definition --\nThe relationship between the feature and surrounding (including covering and/or underlying) water.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CausewayStructure_waterLevelEffectReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FeatureEntity"
+      ],
+      "associations": [
+        {
+          "target": "LandmarkInfo",
+          "role": "navigationLandmarkInfoDescribedBy",
+          "cardinality": "0..1"
+        }
+      ]
+    },
+    "package": "NyTransportation"
+  },
+  {
+    "name": "BridgeSpan",
+    "description": "-- Definition --\nA component of the deck of a bridge spanning successive bridge piers.\n-- Description --",
+    "attributes": [
+      {
+        "name": "angleOfIntendedPassage",
+        "type": "AngleMeasureMeta",
+        "description": "-- Definition --\nThe angular distance in the horizontal plane measured from true north (0 degrees) clockwise to the path on the feature (0-180 degrees) where passage was intended.\n-- Description --\nThe path of intended passage may go across or over the feature (ex. a bridge) or through it (ex. a tunnel).\n-- UnitOfMeasure --\narcDegree",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "AngleMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "horizontalClearanceOpen",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe horizontal clearance measured between two points for an opening span.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "structMatType",
+        "type": "BridgeSpan_structMatTypeMeta",
+        "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for 'primary' may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSpan_structMatTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "verticalClearanceClosed",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe vertical clearance of a feature in closed condition (for example: a closed lifting bridge) measured from the horizontal plane towards the feature overhead.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "verticalClearanceOpen",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe vertical clearance of a feature in opened condition (for example an open lifting bridge) measured from the horizontal plane towards the feature overhead.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "bridgeOpeningType",
+        "type": "BridgeSpan_bridgeOpeningTypeMeta",
+        "description": "-- Definition --\nThe type of structure or mechanism by which a bridge or bridge span is moved to allow passage of a vessel.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSpan_bridgeOpeningTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "bridgeReferenceNumber",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nThe unique identifier of a bridge in accordance with the provisions of terrain analysis databases (for example: PTADB or TTADB).\n-- Description --\nThe identifier is assigned consecutively (for example: within a map sheet or within a local area of interest) and begins with the northwest grid square of the UTM reference system and proceeds from left to right to the east edge of the sheet or area, continuing consecutively in the same way starting back at the west edge of the next line of UTM grid squares below those previously completed. The resulting identifiers are used to index an associated Bridge Information Table.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "bridgeStructureType",
+        "type": "BridgeSpan_bridgeStructureTypeMeta",
+        "description": "-- Definition --\nThe type(s) of structural design of a bridge, bridge span, or bridge superstructure.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSpan_bridgeStructureTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "bypassCondition",
+        "type": "BridgeSpan_bypassConditionMeta",
+        "description": "-- Definition --\nThe ease or ability to circumvent a destroyed section of bridge, tunnel or pass within a distance of two kilometres from the feature.\n-- Description --\nBypass condition will not consider other bridges in bypass determination.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSpan_bypassConditionReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousAirCategory",
+        "type": "BridgeSpan_conspicuousAirCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSpan_conspicuousAirCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousGroundCategory",
+        "type": "BridgeSpan_conspicuousGroundCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSpan_conspicuousGroundCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousSeaCategory",
+        "type": "BridgeSpan_conspicuousSeaCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSpan_conspicuousSeaCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "facilityOperationalStatus",
+        "type": "BridgeSpan_facilityOperationalStatusMeta",
+        "description": "-- Definition --\nThe status of operation of a man-made structure, as a whole.\n-- Description --\nIncludes actual operations, operational capability, and planned or proposed man-made structures.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSpan_facilityOperationalStatusReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "heightAboveSurfaceLevel",
+        "type": "HeightMeasureMeta",
+        "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "HeightMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "highestElevation",
+        "type": "ElevationMeasureMeta",
+        "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "ElevationMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "horizontalClearance",
+        "type": "MeasureIntervalMeta",
+        "description": "-- Definition --\nThe distance available to pass a load that extends laterally beyond the wheels of a vehicle.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureIntervalReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "loadClassType1",
+        "type": "IntegerMeta",
+        "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for one-way, wheeled vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "IntegerReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "loadClassType2",
+        "type": "IntegerMeta",
+        "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for two-way, wheeled vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "IntegerReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "loadClassType3",
+        "type": "IntegerMeta",
+        "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for one-way, tracked vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "IntegerReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "loadClassType4",
+        "type": "IntegerMeta",
+        "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for two-way, tracked vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "IntegerReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "maximumVerticalClearance",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe greatest distance between the travelled way and any obstruction vertically above it.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "mobileBridgeSpan",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a bridge span moves in some manner to allow passage underneath.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "overheadClearance",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe least distance between the travelled way and any obstruction vertically above it.\n-- Description --\nReference STANAG 2253.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "permanent",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "physicalCondition",
+        "type": "BridgeSpan_physicalConditionMeta",
+        "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSpan_physicalConditionReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "restrictHorizClearance",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that horizontal clearance for vehicles on a land transportation route is restricted.\n-- Description --\nHorizontal clearance affects the maximum width of loads that extend laterally beyond the wheels of a vehicle.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "restrictOverheadClearance",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that there is an overhead obstruction located less than 4.3 metres above a land transportation route.\n-- Description --\nVertical clearance affects the maximum height of vehicle loads. (Reference STANAG 2253)\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "underbridgeClearance",
+        "type": "MeasureIntervalMeta",
+        "description": "-- Definition --\nClearance below bridge, measured from the lowest surface level to the base of the lower of either a cross beam or the lowest bridge deck.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureIntervalReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "verticalClearanceSafe",
+        "type": "HydroClearRefMeta",
+        "description": "-- Definition --\nThe safe vertical clearance of an object measured from the horizontal plane toward the object overhead.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "HydroClearRefReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "waterbodyOverheadObstruct",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that an object is an overhead obstruction over a navigable waterbody.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FeatureEntity"
+      ],
+      "associations": []
+    },
+    "package": "NyTransportation"
+  },
+  {
+    "name": "BridgePier",
+    "description": "-- Definition --\nA pillar or abutment that supports a bridge span.\n-- Description --",
+    "attributes": [
+      {
+        "name": "structMatType",
+        "type": "BridgePier_structMatTypeMeta",
+        "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for 'primary' may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgePier_structMatTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "colourPattern",
+        "type": "BridgePier_colourPatternMeta",
+        "description": "-- Definition --\nThe colour pattern(s) of an aid to navigation (for example: a buoy, a beacon, and/or a navigation light) or other feature of importance to maritime navigation.\n-- Description --\nThe Attribute: 'Navigation Mark Colour' may be used to specify the colours in the order in which they appear in the pattern.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgePier_colourPatternReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousAirCategory",
+        "type": "BridgePier_conspicuousAirCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgePier_conspicuousAirCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousGroundCategory",
+        "type": "BridgePier_conspicuousGroundCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgePier_conspicuousGroundCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousSeaCategory",
+        "type": "BridgePier_conspicuousSeaCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgePier_conspicuousSeaCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "crossSectionalShape",
+        "type": "BridgePier_crossSectionalShapeMeta",
+        "description": "-- Definition --\nThe cross-sectional shape of a feature in the horizontal plane.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgePier_crossSectionalShapeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "heightAboveSurfaceLevel",
+        "type": "HeightMeasureMeta",
+        "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "HeightMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "highestElevation",
+        "type": "ElevationMeasureMeta",
+        "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "ElevationMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "maritimeNavigationMarked",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is significant to maritime safety of navigation and is marked (for example: by a light or beacon) by a maritime-specific navigational aid.\n-- Description --\nMariners may also use other prominent features (for example: rotating aeronautical beacons or lighted structures) for informal navigational purposes.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "navigationMarkColour",
+        "type": "BridgePier_navigationMarkColourMeta",
+        "description": "-- Definition --\nThe colour(s) of a International Association of Lighthouse Authorities (IALA) navigation mark.\n-- Description --\nWhen the navigation mark is patterned, the Attribute: 'Colour Pattern' may be used to identify the pattern and a corresponding list of colours specified.\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgePier_navigationMarkColourReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "physicalCondition",
+        "type": "BridgePier_physicalConditionMeta",
+        "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgePier_physicalConditionReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FeatureEntity"
+      ],
+      "associations": [
+        {
+          "target": "LandmarkInfo",
+          "role": "navigationLandmarkInfoDescribedBy",
+          "cardinality": "0..1"
+        }
+      ]
+    },
+    "package": "NyTransportation"
+  },
+  {
+    "name": "BridgeSuperstructure",
+    "description": "-- Definition --\nA superstructure of a bridge, above the lowest deck, not including pylons or towers.\n-- Description --",
+    "attributes": [
+      {
+        "name": "structMatType",
+        "type": "BridgeSuperstructure_structMatTypeMeta",
+        "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for 'primary' may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSuperstructure_structMatTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "bridgeReferenceNumber",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nThe unique identifier of a bridge in accordance with the provisions of terrain analysis databases (for example: PTADB or TTADB).\n-- Description --\nThe identifier is assigned consecutively (for example: within a map sheet or within a local area of interest) and begins with the northwest grid square of the UTM reference system and proceeds from left to right to the east edge of the sheet or area, continuing consecutively in the same way starting back at the west edge of the next line of UTM grid squares below those previously completed. The resulting identifiers are used to index an associated Bridge Information Table.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "bridgeStructureType",
+        "type": "BridgeSuperstructure_bridgeStructureTypeMeta",
+        "description": "-- Definition --\nThe type(s) of structural design of a bridge, bridge span, or bridge superstructure.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSuperstructure_bridgeStructureTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousAirCategory",
+        "type": "BridgeSuperstructure_conspicuousAirCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSuperstructure_conspicuousAirCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousGroundCategory",
+        "type": "BridgeSuperstructure_conspicuousGroundCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSuperstructure_conspicuousGroundCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousSeaCategory",
+        "type": "BridgeSuperstructure_conspicuousSeaCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSuperstructure_conspicuousSeaCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "directivity",
+        "type": "BridgeSuperstructure_directivityMeta",
+        "description": "-- Definition --\nThe side(s) of a feature that produce the greatest visual significance and/or reflectivity potential.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSuperstructure_directivityReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "heightAboveSurfaceLevel",
+        "type": "HeightMeasureMeta",
+        "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "HeightMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "heightOfObject",
+        "type": "MeasureIntervalMeta",
+        "description": "-- Definition --\nThe vertical distance measured from the base to the top of the feature that gives the greatest value.\n-- Description --\nFor example, the Height of Object of a two story building with a basement is three stories while the Height of Object of a man doesn't change as a result of standing in a trench whereas his Height Above Surface Level (based on the prevailing terrain surface level) may be considered to be correspondingly reduced by the depth of the trench.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureIntervalReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "highestElevation",
+        "type": "ElevationMeasureMeta",
+        "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "ElevationMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "maritimeNavigationMarked",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is significant to maritime safety of navigation and is marked (for example: by a light or beacon) by a maritime-specific navigational aid.\n-- Description --\nMariners may also use other prominent features (for example: rotating aeronautical beacons or lighted structures) for informal navigational purposes.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "mobileBridgeSpan",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a bridge span moves in some manner to allow passage underneath.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "overheadClearance",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe least distance between the travelled way and any obstruction vertically above it.\n-- Description --\nReference STANAG 2253.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "permanent",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "physicalCondition",
+        "type": "BridgeSuperstructure_physicalConditionMeta",
+        "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSuperstructure_physicalConditionReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "radarSignificance",
+        "type": "BridgeSuperstructure_radarSignificanceMeta",
+        "description": "-- Definition --\nThe predominant exposed surface material, categorized by its significance to radar-based sensors.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeSuperstructure_radarSignificanceReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "restrictOverheadClearance",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that there is an overhead obstruction located less than 4.3 metres above a land transportation route.\n-- Description --\nVertical clearance affects the maximum height of vehicle loads. (Reference STANAG 2253)\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FeatureEntity"
+      ],
+      "associations": [
+        {
+          "target": "LandmarkInfo",
+          "role": "navigationLandmarkInfoDescribedBy",
+          "cardinality": "0..1"
         },
-        "taggedValues": {
-          "SOSI_navn": "NVDB_TILKNYTTETLUKKADREN",
-          "NVDB_ID": "1941"
+        {
+          "target": "AeronauticalObstacleInfo",
+          "role": "aeroObstacleDescribedBy",
+          "cardinality": "0..1"
         }
+      ]
+    },
+    "package": "NyTransportation"
+  },
+  {
+    "name": "TransportationPlatform",
+    "description": "-- Definition --\nA permanent raised physical structure which serves as a surface for disembarking or taking on passengers or freight from a form of transport.\n-- Description --",
+    "attributes": [
+      {
+        "name": "meansTransportation",
+        "type": "TransportationPlatform_meansTransportationMeta",
+        "description": "-- Definition --\nThe intended method or means of moving from one place to another related to the feature or the feature's intended use.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..3",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TransportationPlatform_meansTransportationReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "gjennomløpForElvBekk",
-        "type": "GjennomløpForElvBekkStikkrenneKulvert",
-        "description": "Angir om elv/bekk renner gjennom stikkrenne/kulvert.",
+        "name": "transportationUse",
+        "type": "TransportationPlatform_transportationUseMeta",
+        "description": "-- Definition --\nThe primary use(s) of a transportation system.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..2",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TransportationPlatform_transportationUseReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [],
+      "associations": []
+    },
+    "package": "NyTransportation"
+  },
+  {
+    "name": "BridgeTower",
+    "description": "-- Definition --\nA tower and/or pylon from which the deck of a bridge is suspended.\n-- Description --",
+    "attributes": [
+      {
+        "name": "structMatType",
+        "type": "BridgeTower_structMatTypeMeta",
+        "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for 'primary' may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeTower_structMatTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "bridgeReferenceNumber",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nThe unique identifier of a bridge in accordance with the provisions of terrain analysis databases (for example: PTADB or TTADB).\n-- Description --\nThe identifier is assigned consecutively (for example: within a map sheet or within a local area of interest) and begins with the northwest grid square of the UTM reference system and proceeds from left to right to the east edge of the sheet or area, continuing consecutively in the same way starting back at the west edge of the next line of UTM grid squares below those previously completed. The resulting identifiers are used to index an associated Bridge Information Table.\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "valueDomain": {
-          "kind": "enumeration",
-          "listedValues": [
-            {
-              "value": "ja",
-              "label": "Ja - ja"
-            },
-            {
-              "value": "nei",
-              "label": "Nei - nei"
-            }
-          ],
-          "definition": "Angir om elv/bekk renner gjennom stikkrenne/kulvert.",
-          "asDictionary": "false",
-          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLGjennomløpForElvBekkStikkrenneKulvert"
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousAirCategory",
+        "type": "BridgeTower_conspicuousAirCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeTower_conspicuousAirCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousGroundCategory",
+        "type": "BridgeTower_conspicuousGroundCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeTower_conspicuousGroundCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousSeaCategory",
+        "type": "BridgeTower_conspicuousSeaCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeTower_conspicuousSeaCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "directivity",
+        "type": "BridgeTower_directivityMeta",
+        "description": "-- Definition --\nThe side(s) of a feature that produce the greatest visual significance and/or reflectivity potential.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeTower_directivityReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "heightAboveSurfaceLevel",
+        "type": "HeightMeasureMeta",
+        "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "HeightMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "highestElevation",
+        "type": "ElevationMeasureMeta",
+        "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "ElevationMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "maritimeNavigationMarked",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is significant to maritime safety of navigation and is marked (for example: by a light or beacon) by a maritime-specific navigational aid.\n-- Description --\nMariners may also use other prominent features (for example: rotating aeronautical beacons or lighted structures) for informal navigational purposes.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "physicalCondition",
+        "type": "BridgeTower_physicalConditionMeta",
+        "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeTower_physicalConditionReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "pylonConfiguration",
+        "type": "BridgeTower_pylonConfigurationMeta",
+        "description": "-- Definition --\nThe configuration of a pylon or pole.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeTower_pylonConfigurationReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "radarSignificance",
+        "type": "BridgeTower_radarSignificanceMeta",
+        "description": "-- Definition --\nThe predominant exposed surface material, categorized by its significance to radar-based sensors.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeTower_radarSignificanceReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "towerShape",
+        "type": "BridgeTower_towerShapeMeta",
+        "description": "-- Definition --\nThe general shape and/or structure of a tower.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BridgeTower_towerShapeReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FeatureEntity"
+      ],
+      "associations": [
+        {
+          "target": "LandmarkInfo",
+          "role": "navigationLandmarkInfoDescribedBy",
+          "cardinality": "0..1"
         },
-        "taggedValues": {
-          "SOSI_navn": "NVDB_GJENNOMLØPFORELVBEKK",
-          "NVDB_ID": "10223"
+        {
+          "target": "AeronauticalObstacleInfo",
+          "role": "aeroObstacleDescribedBy",
+          "cardinality": "0..1"
         }
-      },
+      ]
+    },
+    "package": "NyTransportation"
+  },
+  {
+    "name": "Bridge",
+    "description": "-- Definition --\nA structure that connects two locations and provides for the passage of a transportation route (for example: a road or a railway) over a terrain obstacle (for example: a waterbody, a gully, and/or a road).\n-- Description --\nA bridge consists of a set of two abutments and/or zero or more bridge piers joined by bridge spans. A bridge may serve, for example, as an overpass or a viaduct. In the context of a bridge, the scope of the term 'transportation route' includes the transportation of liquids or gases by means of either pipelines or aqueducts.",
+    "attributes": [
       {
-        "name": "materialtype",
-        "type": "MaterialtypeStikkrenneKulvert",
-        "description": "Angir materialtype.",
+        "name": "directivity",
+        "type": "Bridge_directivityMeta",
+        "description": "-- Definition --\nThe side(s) of a feature that produce the greatest visual significance and/or reflectivity potential.\n-- Description --\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "valueDomain": {
-          "kind": "enumeration",
-          "listedValues": [
-            {
-              "value": "betong",
-              "label": "Betong"
-            },
-            {
-              "value": "eternitt",
-              "label": "Eternitt"
-            },
-            {
-              "value": "naturstein",
-              "label": "Naturstein"
-            },
-            {
-              "value": "plast",
-              "label": "Plast"
-            },
-            {
-              "value": "stål",
-              "label": "Stål - Stål"
-            },
-            {
-              "value": "tre",
-              "label": "Tre"
-            }
-          ],
-          "definition": "Angir materialtype.",
-          "asDictionary": "false",
-          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLMaterialtypeStikkrenneKulvert"
-        },
-        "taggedValues": {
-          "SOSI_navn": "NVDB_MATERIALTYPE",
-          "NVDB_ID": "6983"
-        }
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_directivityReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "tverrsnittsform",
-        "type": "TverrsnittsformStikkrenneKulvert",
-        "description": "Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.",
+        "name": "structMatType",
+        "type": "Bridge_structMatTypeMeta",
+        "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for 'primary' may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_structMatTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "angleOfIntendedPassage",
+        "type": "AngleMeasureMeta",
+        "description": "-- Definition --\nThe angular distance in the horizontal plane measured from true north (0 degrees) clockwise to the path on the feature (0-180 degrees) where passage was intended.\n-- Description --\nThe path of intended passage may go across or over the feature (ex. a bridge) or through it (ex. a tunnel).\n-- UnitOfMeasure --\narcDegree",
         "cardinality": "0..1",
-        "valueDomain": {
-          "kind": "enumeration",
-          "listedValues": [
-            {
-              "value": "ellipseform",
-              "label": "Ellipseform"
-            },
-            {
-              "value": "flatbunnetMedHvelv",
-              "label": "Flatbunnet med hvelv"
-            },
-            {
-              "value": "rektangulær",
-              "label": "Rektangulær - Rektangulær"
-            },
-            {
-              "value": "sirkulær",
-              "label": "Sirkulær - Sirkulær"
-            }
-          ],
-          "definition": "Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.",
-          "asDictionary": "false",
-          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTverrsnittsformStikkrenneKulvert"
-        },
-        "taggedValues": {
-          "SOSI_navn": "NVDB_TVERRSNITTSFORM",
-          "NVDB_ID": "6984"
-        }
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "AngleMeasureReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "typeInnløp",
-        "type": "TypeInnløpStikkrenneKulvert",
-        "description": "Angir hvilken type innløp det er i ei stikkrenne.",
+        "name": "bridgeInfoReliability",
+        "type": "Bridge_bridgeInfoReliabilityMeta",
+        "description": "-- Definition --\nThe reliability of information regarding bridge military load classification and related characteristics.\n-- Description --\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "valueDomain": {
-          "kind": "enumeration",
-          "listedValues": [
-            {
-              "value": "kumOverStikkrenne",
-              "label": "Kum over stikkrenne"
-            },
-            {
-              "value": "åpenGrøft",
-              "label": "Åpent i grøft - Vann renner inn direkte fra åpen grøft."
-            },
-            {
-              "value": "åpenGrøftMedStøtteskjold",
-              "label": "Åpent i grøft med støtteskjold - Åpen i grøft med støtteskjold"
-            },
-            {
-              "value": "åpenMedFrontmur",
-              "label": "Åpent med frontmur - Åpent med frontmur"
-            },
-            {
-              "value": "åpenMedVingemur",
-              "label": "Åpent med vingemur - Åpent med vingemur"
-            }
-          ],
-          "definition": "Angir hvilken type innløp det er i ei stikkrenne.",
-          "asDictionary": "false",
-          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeInnløpStikkrenneKulvert"
-        },
-        "taggedValues": {
-          "SOSI_navn": "NVDB_TYPEINNLØP",
-          "NVDB_ID": "1939"
-        }
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_bridgeInfoReliabilityReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "typeUtløp",
-        "type": "TypeUtløpStikkrenneKulvert",
-        "description": "Angir hvilken type utløp det er i ei stikkrenne.",
+        "name": "controllingAuthorityIdent",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nThe recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "bridgeOpeningType",
+        "type": "Bridge_bridgeOpeningTypeMeta",
+        "description": "-- Definition --\nThe type of structure or mechanism by which a bridge or bridge span is moved to allow passage of a vessel.\n-- Description --\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "valueDomain": {
-          "kind": "enumeration",
-          "listedValues": [
-            {
-              "value": "bekkElv",
-              "label": "I bekk/elv - Vann ledes ut i bekk/elv."
-            },
-            {
-              "value": "kum",
-              "label": "Kum - Vann ledes til kum."
-            },
-            {
-              "value": "skråningTerreng",
-              "label": "I skråning/terreng - Vann ledes ut i skråning eller ut i terreng."
-            },
-            {
-              "value": "åpenGrøft",
-              "label": "Åpen grøft - Vann ledes til åpen grøft"
-            }
-          ],
-          "definition": "Angir hvilken type utløp det er i ei stikkrenne.",
-          "asDictionary": "false",
-          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeUtløpStikkrenneKulvert"
-        },
-        "taggedValues": {
-          "SOSI_navn": "NVDB_TYPEUTLØP",
-          "NVDB_ID": "1940"
-        }
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_bridgeOpeningTypeReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "lengde",
-        "type": "Real",
-        "description": "Angir lengde av vegobjektet.",
+        "name": "bridgeReferenceNumber",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nThe unique identifier of a bridge in accordance with the provisions of terrain analysis databases (for example: PTADB or TTADB).\n-- Description --\nThe identifier is assigned consecutively (for example: within a map sheet or within a local area of interest) and begins with the northwest grid square of the UTM reference system and proceeds from left to right to the east edge of the sheet or area, continuing consecutively in the same way starting back at the west edge of the next line of UTM grid squares below those previously completed. The resulting identifiers are used to index an associated Bridge Information Table.\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "taggedValues": {
-          "SOSI_navn": "NVDB_LENGDE",
-          "NVDB_ID": "1323"
-        }
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "bredde_Innvendig",
-        "type": "Real",
-        "description": "Angir innvendig bredde av gjennomløpskonstruksjon. Ikke aktuell for sirkulære tverrsnitt.",
+        "name": "bridgeStructureType",
+        "type": "Bridge_bridgeStructureTypeMeta",
+        "description": "-- Definition --\nThe type(s) of structural design of a bridge, bridge span, or bridge superstructure.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_bridgeStructureTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "bypassCondition",
+        "type": "Bridge_bypassConditionMeta",
+        "description": "-- Definition --\nThe ease or ability to circumvent a destroyed section of bridge, tunnel or pass within a distance of two kilometres from the feature.\n-- Description --\nBypass condition will not consider other bridges in bypass determination.\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "taggedValues": {
-          "SOSI_navn": "NVDB_BREDDE_INNVENDIG",
-          "NVDB_ID": "4548"
-        }
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_bypassConditionReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "høyde_Innvendig",
-        "type": "Real",
-        "description": "Angir innvendig høyde av gjennomløpskonstruksjon. Tar ikke hensyn til ev. igjenfylling i bunn av konstruksjon.",
+        "name": "colourPattern",
+        "type": "Bridge_colourPatternMeta",
+        "description": "-- Definition --\nThe colour pattern(s) of an aid to navigation (for example: a buoy, a beacon, and/or a navigation light) or other feature of importance to maritime navigation.\n-- Description --\nThe Attribute: 'Navigation Mark Colour' may be used to specify the colours in the order in which they appear in the pattern.\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "taggedValues": {
-          "SOSI_navn": "NVDB_HØYDE_INNVENDIG",
-          "NVDB_ID": "4549"
-        }
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_colourPatternReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "overfyllingInnløp",
-        "type": "Real",
-        "description": "Angir tykkelsen på overfylling ved innløp. Det vil si tykkelse fra topp av stikkrenne til topp dekke.",
+        "name": "conspicuousAirCategory",
+        "type": "Bridge_conspicuousAirCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "taggedValues": {
-          "SOSI_navn": "NVDB_OVERFYLLINGINNLØP",
-          "NVDB_ID": "10224"
-        }
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_conspicuousAirCategoryReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "harInnløpsrist",
-        "type": "HarInnløpsristStikkrenneKulvert",
-        "description": "Angir om det er innløpsrist i tilknytning til vegobjektet.",
+        "name": "conspicuousGroundCategory",
+        "type": "Bridge_conspicuousGroundCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "valueDomain": {
-          "kind": "enumeration",
-          "listedValues": [
-            {
-              "value": "ja",
-              "label": "Ja - ja"
-            },
-            {
-              "value": "nei",
-              "label": "Nei - nei"
-            }
-          ],
-          "definition": "Angir om det er innløpsrist i tilknytning til vegobjektet.",
-          "asDictionary": "false",
-          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLHarInnløpsristStikkrenneKulvert"
-        },
-        "taggedValues": {
-          "SOSI_navn": "NVDB_HARINNLØPSRIST",
-          "NVDB_ID": "1923"
-        }
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_conspicuousGroundCategoryReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "varmekabler",
-        "type": "VarmekablerStikkrenneKulvert",
-        "description": "Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.",
+        "name": "conspicuousSeaCategory",
+        "type": "Bridge_conspicuousSeaCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "valueDomain": {
-          "kind": "enumeration",
-          "listedValues": [
-            {
-              "value": "ja",
-              "label": "Ja - ja"
-            },
-            {
-              "value": "nei",
-              "label": "Nei - nei"
-            }
-          ],
-          "definition": "Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.",
-          "asDictionary": "false",
-          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVarmekablerStikkrenneKulvert"
-        },
-        "taggedValues": {
-          "SOSI_navn": "NVDB_VARMEKABLER",
-          "NVDB_ID": "1832"
-        }
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_conspicuousSeaCategoryReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "etableringsår",
-        "type": "Real",
-        "description": "Angir hvilket år vegobjektet ble etablert på stedet.",
+        "name": "controllingAuthority",
+        "type": "Bridge_controllingAuthorityMeta",
+        "description": "-- Definition --\nThe controlling authority responsible for a facility or site.\n-- Description --\nControlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "taggedValues": {
-          "SOSI_navn": "NVDB_ETABLERINGSÅR",
-          "NVDB_ID": "4556"
-        }
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_controllingAuthorityReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "tilleggsinformasjon",
+        "name": "deckCount",
+        "type": "IntegerMeta",
+        "description": "-- Definition --\nThe number of vertically stacked decks, one over another, in a transportation structure (for example: a bridge or a tunnel).\n-- Description --\n-- UnitOfMeasure --\nunitless",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "IntegerReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "elevationMsl",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe vertical distance of a point or a level, on or affixed to the surface of the Earth, measured from Mean Sea Level (MSL).\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "facilityOperationalStatus",
+        "type": "Bridge_facilityOperationalStatusMeta",
+        "description": "-- Definition --\nThe status of operation of a man-made structure, as a whole.\n-- Description --\nIncludes actual operations, operational capability, and planned or proposed man-made structures.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_facilityOperationalStatusReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "heightAboveSurfaceLevel",
+        "type": "HeightMeasureMeta",
+        "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "HeightMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "highestElevation",
+        "type": "ElevationMeasureMeta",
+        "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "ElevationMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "horizontalClearance",
+        "type": "MeasureIntervalMeta",
+        "description": "-- Definition --\nThe distance available to pass a load that extends laterally beyond the wheels of a vehicle.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureIntervalReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "loadClassType1",
+        "type": "IntegerMeta",
+        "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for one-way, wheeled vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "IntegerReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "loadClassType2",
+        "type": "IntegerMeta",
+        "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for two-way, wheeled vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "IntegerReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "loadClassType3",
+        "type": "IntegerMeta",
+        "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for one-way, tracked vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "IntegerReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "loadClassType4",
+        "type": "IntegerMeta",
+        "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for two-way, tracked vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "IntegerReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "maritimeNavigationMarked",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is significant to maritime safety of navigation and is marked (for example: by a light or beacon) by a maritime-specific navigational aid.\n-- Description --\nMariners may also use other prominent features (for example: rotating aeronautical beacons or lighted structures) for informal navigational purposes.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "maximumVerticalClearance",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe greatest distance between the travelled way and any obstruction vertically above it.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "militaryBridgeInformation",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nInformation describing a bridge, typically one that is subject to preplanned military interdiction.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "mobileBridgeSpan",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a bridge span moves in some manner to allow passage underneath.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "navigationMarkColour",
+        "type": "Bridge_navigationMarkColourMeta",
+        "description": "-- Definition --\nThe colour(s) of a International Association of Lighthouse Authorities (IALA) navigation mark.\n-- Description --\nWhen the navigation mark is patterned, the Attribute: 'Colour Pattern' may be used to identify the pattern and a corresponding list of colours specified.\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_navigationMarkColourReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "overheadClearance",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe least distance between the travelled way and any obstruction vertically above it.\n-- Description --\nReference STANAG 2253.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "permanent",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "physicalCondition",
+        "type": "Bridge_physicalConditionMeta",
+        "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_physicalConditionReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "radarSignificance",
+        "type": "Bridge_radarSignificanceMeta",
+        "description": "-- Definition --\nThe predominant exposed surface material, categorized by its significance to radar-based sensors.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Bridge_radarSignificanceReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "restrictHorizClearance",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that horizontal clearance for vehicles on a land transportation route is restricted.\n-- Description --\nHorizontal clearance affects the maximum width of loads that extend laterally beyond the wheels of a vehicle.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "restrictOverheadClearance",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that there is an overhead obstruction located less than 4.3 metres above a land transportation route.\n-- Description --\nVertical clearance affects the maximum height of vehicle loads. (Reference STANAG 2253)\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "roofed",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is covered by a roof.\n-- Description --\nThe roof may be supported by spaced pillars with intervening openings or the sides may be completely closed (for example: by walls or windows) and thus afford substantial protection from the weather.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "spanCount",
+        "type": "IntegerMeta",
+        "description": "-- Definition --\nThe number of spans in a bridge.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "IntegerReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "underbridgeClearance",
+        "type": "MeasureIntervalMeta",
+        "description": "-- Definition --\nClearance below bridge, measured from the lowest surface level to the base of the lower of either a cross beam or the lowest bridge deck.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureIntervalReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "verticalClearanceSafe",
+        "type": "HydroClearRefMeta",
+        "description": "-- Definition --\nThe safe vertical clearance of an object measured from the horizontal plane toward the object overhead.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "HydroClearRefReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "waterbodyOverheadObstruct",
         "type": "CharacterString",
-        "description": "Supplerende informasjon om vegobjektet som ikke framkommer direkte av andre egenskapstyper, kan f.eks. være spesielle forhold knyttet til oppbygging, utdyping av spesielle problem, m.m.",
-        "cardinality": "0..1",
-        "taggedValues": {
-          "SOSI_navn": "NVDB_TILLEGGSINFORMASJON",
-          "NVDB_ID": "10771"
-        }
-      },
-      {
-        "name": "FKB_ID",
-        "type": "CharacterString",
-        "description": "Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning av geometri.",
-        "cardinality": "0..1",
-        "taggedValues": {
-          "SOSI_navn": "NVDB_FKB_ID",
-          "NVDB_ID": "10855"
-        }
-      },
-      {
-        "name": "eier",
-        "type": "EierStikkrenneKulvert",
-        "description": "Angir hvem som er eier av vegobjektet.",
-        "cardinality": "0..1",
-        "valueDomain": {
-          "kind": "enumeration",
-          "listedValues": [
-            {
-              "value": "fylkeskommune",
-              "label": "Fylkeskommune"
-            },
-            {
-              "value": "kommune",
-              "label": "Kommune"
-            },
-            {
-              "value": "nyeVeier",
-              "label": "Stat, Nye Veier - Nye Veier"
-            },
-            {
-              "value": "privat",
-              "label": "Privat"
-            },
-            {
-              "value": "statensVegvesen",
-              "label": "Stat, Statens vegvesen - Statens vegvesen"
-            },
-            {
-              "value": "uavklart",
-              "label": "Uavklart - Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier)."
-            },
-            {
-              "value": "baneNor",
-              "label": "Stat, Bane NOR - Bane NOR"
-            }
-          ],
-          "definition": "Angir hvem som er eier av vegobjektet.",
-          "asDictionary": "false",
-          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLEierStikkrenneKulvert"
+        "description": "-- Definition --\nAn indication that an object is an overhead obstruction over a navigable waterbody.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1"
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FeatureEntity"
+      ],
+      "associations": [
+        {
+          "target": "LandmarkInfo",
+          "role": "navigationLandmarkInfoDescribedBy",
+          "cardinality": "0..1"
         },
-        "taggedValues": {
-          "SOSI_navn": "NVDB_EIER",
-          "NVDB_ID": "7996"
+        {
+          "target": "AeronauticalObstacleInfo",
+          "role": "aeroObstacleDescribedBy",
+          "cardinality": "0..1"
         }
+      ]
+    },
+    "package": "NyTransportation"
+  },
+  {
+    "name": "Tunnel",
+    "description": "-- Definition --\nAn underground passage that is open at both ends and usually contains a land transportation route (for example: a road and/or a railway).\n-- Description --\nCommonly used to pass through a hill or mountain, or under a river or road. May also provide underground passage in a mine.",
+    "attributes": [
+      {
+        "name": "angleOfIntendedPassage",
+        "type": "AngleMeasureMeta",
+        "description": "-- Definition --\nThe angular distance in the horizontal plane measured from true north (0 degrees) clockwise to the path on the feature (0-180 degrees) where passage was intended.\n-- Description --\nThe path of intended passage may go across or over the feature (ex. a bridge) or through it (ex. a tunnel).\n-- UnitOfMeasure --\narcDegree",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "AngleMeasureReason",
+            "cardinality": "1"
+          }
+        ]
       },
       {
-        "name": "vedlikeholdsansvarlig",
-        "type": "VedlikeholdsansvarligStikkrenneKulvert",
-        "description": "Angir hvem som er ansvarlig for vedlikehold av vegobjektet.",
+        "name": "bypassCondition",
+        "type": "Tunnel_bypassConditionMeta",
+        "description": "-- Definition --\nThe ease or ability to circumvent a destroyed section of bridge, tunnel or pass within a distance of two kilometres from the feature.\n-- Description --\nBypass condition will not consider other bridges in bypass determination.\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "valueDomain": {
-          "kind": "enumeration",
-          "listedValues": [
-            {
-              "value": "Fylkeskommune",
-              "label": "Fylkeskommune"
-            },
-            {
-              "value": "Kommune",
-              "label": "Kommune"
-            },
-            {
-              "value": "Nye Veier",
-              "label": "Nye Veier"
-            },
-            {
-              "value": "OPS",
-              "label": "OPS"
-            },
-            {
-              "value": "Privat",
-              "label": "Privat"
-            },
-            {
-              "value": "Statens vegvesen",
-              "label": "Statens vegvesen"
-            },
-            {
-              "value": "Uavklart",
-              "label": "Verdi benyttes inntil det er avklart hvem som er vedlikeholdsansvarlig."
-            },
-            {
-              "value": "Bane NOR",
-              "label": "Bane NOR"
-            }
-          ],
-          "definition": "Angir hvem som er ansvarlig for vedlikehold av vegobjektet.",
-          "asDictionary": "false",
-          "codeList": "https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVedlikeholdsansvarligStikkrenneKulvert"
-        },
-        "taggedValues": {
-          "SOSI_navn": "NVDB_VEDLIKEHOLDSANSVARLIG",
-          "NVDB_ID": "8060"
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Tunnel_bypassConditionReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "controllingAuthority",
+        "type": "Tunnel_controllingAuthorityMeta",
+        "description": "-- Definition --\nThe controlling authority responsible for a facility or site.\n-- Description --\nControlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Tunnel_controllingAuthorityReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "controllingAuthorityIdent",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nThe recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "crossSectionalProfile",
+        "type": "Tunnel_crossSectionalProfileMeta",
+        "description": "-- Definition --\nThe cross-sectional profile of an opening (for example: a tunnel or the space under a bridge span).\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Tunnel_crossSectionalProfileReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "deckCount",
+        "type": "IntegerMeta",
+        "description": "-- Definition --\nThe number of vertically stacked decks, one over another, in a transportation structure (for example: a bridge or a tunnel).\n-- Description --\n-- UnitOfMeasure --\nunitless",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "IntegerReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "deepDepthBelowSurfLevel",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe distance measured from ground or water level (uphill/upstream side of the feature) to the deepest point of the feature.\n-- Description --\nMay be used to measure the depth of an inland waterbody (for example: a lake), the depth of a terrain surface depression or excavation (for example: a crevice or trench), the distance to the deepest point of a drilled feature (for example: a water well or borehole) or the distance to the deepest point of a feature located entirely underground (for example: a cave chamber). In the case of a feature located below a waterbody (for example: a non-water well) the reference surface is the waterbody bottom, rather than the waterbody surface.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "facilityOperationalStatus",
+        "type": "Tunnel_facilityOperationalStatusMeta",
+        "description": "-- Definition --\nThe status of operation of a man-made structure, as a whole.\n-- Description --\nIncludes actual operations, operational capability, and planned or proposed man-made structures.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Tunnel_facilityOperationalStatusReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "hazardShelterIntendedUse",
+        "type": "Tunnel_hazardShelterIntendedUseMeta",
+        "description": "-- Definition --\nThe intended use(s) of a designated hazard protection shelter based on the kind of emergency.\n-- Description --\nHazard shelters may be located inside buildings or other structures. Shelters may be equipped with disaster supplies and equipment such as food and cots.\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Tunnel_hazardShelterIntendedUseReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "heightAboveSurfaceLevel",
+        "type": "HeightMeasureMeta",
+        "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "HeightMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "horizontalClearance",
+        "type": "MeasureIntervalMeta",
+        "description": "-- Definition --\nThe distance available to pass a load that extends laterally beyond the wheels of a vehicle.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureIntervalReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "leastDepthBelowSurfLevel",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe distance measured from ground or water level (uphill/upstream side of the feature) to the highest point of a feature located completely underground.\n-- Description --\nFor example, in the case of an underground dwelling the least depth below surface level would be measured to its ceiling. The least depth below surface level may be located at ground or water level and therefore have a value of zero (for example: an opencast extraction mine, a terrain depression or a lake). For depths defined with respect to a time-varying water level, consideration should be given to the use of Attribute: 'Hydrographic Depth'.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "manMade",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is man-made.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "maximumVerticalClearance",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe greatest distance between the travelled way and any obstruction vertically above it.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "monitored",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is actively monitored.\n-- Description --\nFor example, attended or watched over by personnel.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "overheadClearance",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe least distance between the travelled way and any obstruction vertically above it.\n-- Description --\nReference STANAG 2253.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "pedestrianTraversable",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is traversable on foot.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "permanent",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "physicalCondition",
+        "type": "Tunnel_physicalConditionMeta",
+        "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Tunnel_physicalConditionReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "restrictHorizClearance",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that horizontal clearance for vehicles on a land transportation route is restricted.\n-- Description --\nHorizontal clearance affects the maximum width of loads that extend laterally beyond the wheels of a vehicle.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "routeTotalUsableWidth",
+        "type": "MeasureIntervalMeta",
+        "description": "-- Definition --\nThe total usable width of the travelled way of a route.\n-- Description --\nIncludes pavements and shoulders.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureIntervalReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "safeHorizontalClearance",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nMinimum safe horizontal distance between adjacent structures on either side of a navigable channel.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "structMatType",
+        "type": "Tunnel_structMatTypeMeta",
+        "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for 'primary' may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Tunnel_structMatTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "verticalRelativeLocation",
+        "type": "Tunnel_verticalRelativeLocationMeta",
+        "description": "-- Definition --\nThe relationship between the feature and the underlying ground (terrain) or waterbody bottom.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "Tunnel_verticalRelativeLocationReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FeatureEntity"
+      ],
+      "associations": []
+    },
+    "package": "NyTransportation"
+  },
+  {
+    "name": "TransRouteProtectStruct",
+    "description": "-- Definition --\nA structure built over and/or along a transportation route designed to prevent damage to, or blockage of, the route from rock slides, snow slides and/or weather phenomena.\n-- Description --\nFor example, a snow shed, a rock shed or a gallery. These structures are usually located in rugged mountainous regions.",
+    "attributes": [
+      {
+        "name": "structMatType",
+        "type": "TransRouteProtectStruct_structMatTypeMeta",
+        "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for 'primary' may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TransRouteProtectStruct_structMatTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousAirCategory",
+        "type": "TransRouteProtectStruct_conspicuousAirCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TransRouteProtectStruct_conspicuousAirCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousGroundCategory",
+        "type": "TransRouteProtectStruct_conspicuousGroundCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TransRouteProtectStruct_conspicuousGroundCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "controllingAuthorityIdent",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nThe recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "conspicuousSeaCategory",
+        "type": "TransRouteProtectStruct_conspicuousSeaCategoryMeta",
+        "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TransRouteProtectStruct_conspicuousSeaCategoryReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "controllingAuthority",
+        "type": "TransRouteProtectStruct_controllingAuthorityMeta",
+        "description": "-- Definition --\nThe controlling authority responsible for a facility or site.\n-- Description --\nControlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TransRouteProtectStruct_controllingAuthorityReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "facilityOperationalStatus",
+        "type": "TransRouteProtectStruct_facilityOperationalStatusMeta",
+        "description": "-- Definition --\nThe status of operation of a man-made structure, as a whole.\n-- Description --\nIncludes actual operations, operational capability, and planned or proposed man-made structures.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TransRouteProtectStruct_facilityOperationalStatusReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "floodlit",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a structure is floodlit.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "heightAboveSurfaceLevel",
+        "type": "HeightMeasureMeta",
+        "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "HeightMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "highestElevation",
+        "type": "ElevationMeasureMeta",
+        "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "ElevationMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "horizontalClearance",
+        "type": "MeasureIntervalMeta",
+        "description": "-- Definition --\nThe distance available to pass a load that extends laterally beyond the wheels of a vehicle.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureIntervalReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "overheadClearance",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nThe least distance between the travelled way and any obstruction vertically above it.\n-- Description --\nReference STANAG 2253.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "permanent",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "physicalCondition",
+        "type": "TransRouteProtectStruct_physicalConditionMeta",
+        "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TransRouteProtectStruct_physicalConditionReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "restrictHorizClearance",
+        "type": "BooleanMeta",
+        "description": "-- Definition --\nAn indication that horizontal clearance for vehicles on a land transportation route is restricted.\n-- Description --\nHorizontal clearance affects the maximum width of loads that extend laterally beyond the wheels of a vehicle.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "BooleanReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "safeHorizontalClearance",
+        "type": "MeasureMeta",
+        "description": "-- Definition --\nMinimum safe horizontal distance between adjacent structures on either side of a navigable channel.\n-- Description --\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "MeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "transRteProtStructType",
+        "type": "TransRouteProtectStruct_transRteProtStructTypeMeta",
+        "description": "-- Definition --\nThe type of a transportation route protection structure based on its configuration and/or intended purpose.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TransRouteProtectStruct_transRteProtStructTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "verticalRelativeLocation",
+        "type": "TransRouteProtectStruct_verticalRelativeLocationMeta",
+        "description": "-- Definition --\nThe relationship between the feature and the underlying ground (terrain) or waterbody bottom.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "TransRouteProtectStruct_verticalRelativeLocationReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FeatureEntity"
+      ],
+      "associations": [
+        {
+          "target": "LandmarkInfo",
+          "role": "navigationLandmarkInfoDescribedBy",
+          "cardinality": "0..1"
         }
+      ]
+    },
+    "package": "NyTransportation"
+  },
+  {
+    "name": "MiscFeatureType",
+    "description": "-- Definition --\nAny feature type that falls within the scope of a feature type domain (for example: a feature coverage or a product specification) but is not explicitly specified in that domain.\n-- Description --\nMay be used to allow for the flexible capture of feature instances that are unanticipated at the time of specifying the feature type domain. This ensures that feature instances deemed important for a particular mission and/or user can be captured, even though the most appropriate feature type is not used.",
+    "attributes": [
+      {
+        "name": "highestElevation",
+        "type": "ElevationMeasureMeta",
+        "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "ElevationMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "miscFeatureTypeDescription",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nAn explanation of the feature being captured such that a user of the data can understand what is being represented by the geometry.\n-- Description --\nWhen the use of MiscFeatureType is required to capture an unanticipated feature instance, this description will enable the end-user to understand what has been captured and represented by the feature geometry.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "heightAboveSurfaceLevel",
+        "type": "HeightMeasureMeta",
+        "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "HeightMeasureReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FeatureEntity"
+      ],
+      "associations": [
+        {
+          "target": "AeronauticalObstacleInfo",
+          "role": "aeroObstacleDescribedBy",
+          "cardinality": "0..1"
+        },
+        {
+          "target": "AddressInfo",
+          "role": "hasLocationAddress",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "HumanActivityCapacityInfo",
+          "role": "hasCapacity",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "NyFoundation"
+  },
+  {
+    "name": "FeatureEntity",
+    "description": "-- Definition --\nAn abstract modeling entity that is a superclass for feature types, which are representations of temporally persistent real-world phenomena, including their geometric position and extent.\n-- Description --\nThe concept of a 'feature' is that of the ISO 19100-series standards and as such is not constrained to any specific representation; for example, surface representation such as grids and images are allowed in addition to vector representations.",
+    "attributes": [
+      {
+        "name": "geometry",
+        "type": "GM_Object",
+        "description": "-- Definition --\nSpecification(s) of the location where an object (such as: a facility, instrument, or actor) exists, or where an event occurs.\n-- Description --\nA location may be spatially localized as a zero-dimensional point or spatially extensive in one or more dimensions (for example: a curve, a surface, or a volume). An entity that consists of components with different locations (for example: the Great Lakes) may be characterized itself as having multiple distinct locations. An entity may have multiple specifications of its location(s) based on the quality and accuracy of each approximating representation.\n-- UnitOfMeasure --",
+        "cardinality": "1"
       }
     ],
     "abstract": true,
     "relationships": {
       "inheritance": [
-        "Fellesegenskaper-StikkrenneKulvert"
+        "Entity"
+      ],
+      "associations": [
+        {
+          "target": "FeatureMetadata",
+          "role": "featureMetadata",
+          "cardinality": "1"
+        },
+        {
+          "target": "GeoNameInfo",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "SourceInfo",
+          "role": "sourceInfoDescribedBy",
+          "cardinality": "0..*"
+        },
+        {
+          "target": "RestrictionInfo",
+          "role": "restrictionInfo",
+          "cardinality": "1"
+        }
+      ]
+    },
+    "package": "NyFoundation"
+  },
+  {
+    "name": "IdentifiedQualityIssue",
+    "description": "-- Definition --\nA modeling entity where issues with data quality are identified.\n-- Description --\nFor example, the identification of specific known problems in the data that could not be fixed within the context of the dataset delivery. This feature indicates to the user the potential need for caution when utilizing any data that touches, crosses, or exists within the identified location.",
+    "attributes": [
+      {
+        "name": "qualityIssueImpact",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nAn explanation of the assessed impact of the identified quality issue on data utilization.\n-- Description --\n\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "qualityIssueDescription",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nAn explanation of the type, nature, or origin of the identified quality issue.\n-- Description --\nThe intent of this attribute is to fully inform data users of the scope and breadth of the quality issue so that informed decisions can be made to how the data is employed.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FeatureEntity"
       ],
       "associations": []
     },
-    "package": "Fellesegenskaper",
-    "taggedValues": {
-      "SOSI_navn": "NVDB_STIKKRENNEKULVERT",
-      "NVDB_ID": "79"
-    }
+    "package": "NyFoundation"
+  },
+  {
+    "name": "VoidCollectionArea",
+    "description": "-- Definition --\nA data collection region lacking suitable source coverage and/or where data is not required.\n-- Description --",
+    "attributes": [
+      {
+        "name": "voidCollectionReason",
+        "type": "VoidCollectionArea_voidCollectionReasonMeta",
+        "description": "-- Definition --\nThe reason(s) that geospatial data was not collected.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "VoidCollectionArea_voidCollectionReasonReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "voidCollectionType",
+        "type": "VoidCollectionArea_voidCollectionTypeMeta",
+        "description": "-- Definition --\nThe type(s) of geospatial data that were not collected.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "VoidCollectionArea_voidCollectionTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FeatureEntity"
+      ],
+      "associations": []
+    },
+    "package": "NyFoundation"
+  },
+  {
+    "name": "GeneralLocation",
+    "description": "-- Definition --\nA location that normally does not appear as a specific, characterized object but that has either a name that is required to be displayed or other specific information associated with that location.\n-- Description --\nFor example, the name of the Alps or the Sahara.",
+    "attributes": [
+      {
+        "name": "namedLocationType",
+        "type": "GeneralLocation_namedLocationTypeMeta",
+        "description": "-- Definition --\nThe type of a location that normally does not appear as a specific, characterized object but that has a name that is required to be displayed in association with that location.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "GeneralLocation_namedLocationTypeReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "thematicClassification",
+        "type": "GeneralLocation_thematicClassificationMeta",
+        "description": "-- Definition --\nThe classification of a feature among geographic themes.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "GeneralLocation_thematicClassificationReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "informationReference",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nA reference to an external source or additional information.\n-- Description --\nFor example a hyperlink.\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "FeatureEntity"
+      ],
+      "associations": [
+        {
+          "target": "AddressInfo",
+          "role": "hasLocationAddress",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "NyFoundation"
+  },
+  {
+    "name": "OrganisationalUnit",
+    "description": "-- Definition --\nAn actor established to manage the performance of activities to achieve one or more purposes of an organisation.\n-- Description --\nFor example, a task unit or local office group.",
+    "attributes": [
+      {
+        "name": "contactInfo",
+        "type": "CI_ContactMeta",
+        "description": "-- Definition --\nThe telephone, postal, electronic and/or other contact information for a facility, organisation or person.\n-- Description --\n-- UnitOfMeasure --",
+        "cardinality": "1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CI_ContactReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": false,
+    "relationships": {
+      "inheritance": [
+        "ActorEntity"
+      ],
+      "associations": [
+        {
+          "target": "Organisation",
+          "role": "mainOrganisation",
+          "cardinality": "0..*"
+        }
+      ]
+    },
+    "package": "NyFoundation"
   }
 ]

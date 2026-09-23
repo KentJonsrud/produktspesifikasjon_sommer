@@ -1,38 +1,6 @@
-#### StikkrenneKulvertPunkt
+#### TunnelMouth
 
-pppp
-
-Egenskaper
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>posisjon</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>GM_Point</td>
-    </tr>
-  </tbody>
-</table>
-
-Relasjoner
-
-**Arv**
-StikkrenneKulvert-NVDB
-
-#### StikkrenneKulvertFlate
-
-kkkk
+-- Definition --<br />The opening of a tunnel into a larger space (for example: onto the terrain surface).<br />-- Description --<br />A tunnel is usually open to the terrain surface at both ends, but may sometimes lead to an enclosed space, for example: leading to an underground bunker, into an underground mine (termed an 'adit') or into an underground railway station.
 
 Egenskaper
 
@@ -44,43 +12,32 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>område</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>GM_Surface</td>
-    </tr>
-  </tbody>
-</table>
-
-Relasjoner
-
-**Arv**
-StikkrenneKulvert-NVDB
-
-#### StikkrenneKulvert
-
-Konstruksjoner og rør med maks. lysåpning på 2,5 meter, der vann kan strømme igjennom, oftest under veg eller jernbane.
-
-Egenskaper
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>senterlinje</strong></td>
+      <td><strong>crossSectionalProfile</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>Gir linje/kurve som geometrisk representerer objektet.</td>
+      <td>-- Definition --<br />The cross-sectional profile of an opening (for example: a tunnel or the space under a bridge span).<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TunnelMouth_crossSectionalProfileMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>crossSectionalProfile.valueOrReason</strong></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -88,19 +45,14 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>GM_Curve</td>
+      <td>TunnelMouth_crossSectionalProfileReason</td>
     </tr>
   </tbody>
 </table>
 
-Relasjoner
+#### TurnaroundSite
 
-**Arv**
-StikkrenneKulvert-NVDB
-
-#### StikkrenneKulvert3DGeometri
-
-ffff
+-- Definition --<br />A shaped area at the terminus of a road that provides sufficient turning space allowing incoming traffic to turn around and exit without performing a stop-and-change-direction manoeuvre.<br />-- Description --<br />Construction is typically in the form of a defined shape (for example: circle, loop, or crescent). A median-like structure may exist in the center of the turnaround site, thus ensuring a well-defined pattern of vehicle movement. In residential areas the turnaround site often has multiple adjoining properties, each of which may have a separate driveway and/or defined parking area along the perimeter of the shaped area.
 
 Egenskaper
 
@@ -112,11 +64,32 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>form</strong></td>
+      <td><strong>controllingAuthority</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>ffff</td>
+      <td>-- Definition --<br />The controlling authority responsible for a facility or site.<br />-- Description --<br />Controlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_controllingAuthorityMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthority.valueOrReason</strong></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -124,7 +97,697 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>GM_Solid</td>
+      <td>TurnaroundSite_controllingAuthorityReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthorityIdent</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthorityIdent.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>generalPavementCondition</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />A general description of the surface quality of a paved surface.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_generalPavementConditionMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>generalPavementCondition.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_generalPavementConditionReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadBearingSurfaceType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The physical surface composition of a terrain surface that is intended to bear loads.<br />-- Description --<br />For example, the surface of a road, a runway, a hard standing, or a vehicle storage lot.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_loadBearingSurfaceTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadBearingSurfaceType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_loadBearingSurfaceTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumVehicleHeight</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The maximum height of a vehicle that can pass through the obstructing feature on a travelled way.<br />-- Description --<br />The height limitation assumes that the vehicle is less than 12 metres long and has a maximum rectangular width of 2.6 metres.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumVehicleHeight.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumVehicleLength</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The maximum length of a vehicle that can pass through the obstructing feature on a travelled way.<br />-- Description --<br />The length limitation assumes that the vehicle has a maximum rectangular height of 4.3 metres and a maximum rectangular width of 2.6 metres.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumVehicleLength.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumVehicleWidth</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The maximum width of a vehicle that can pass through the obstructing feature on a travelled way.<br />-- Description --<br />The width limitation assumes that the vehicle is less than 12 metres long and has a maximum rectangular height of 4.3 metres.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumVehicleWidth.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>meansTransportation</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The intended method or means of moving from one place to another related to the feature or the feature's intended use.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_meansTransportationMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>meansTransportation.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_meansTransportationReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>medianPresent</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that the lanes or tracks of a divided land transportation route (for example: a road or a railway) are separated by a vertical median barrier.<br />-- Description --<br />Often used to separate opposing flows of traffic in order to improve safety. For example, may be a substantial concrete barrier of approximately 1 metre height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>medianPresent.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is permanent.<br />-- Description --<br />Temporary features last, or are meant to last, for a limited time only.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.<br />-- Description --<br />The physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_physicalConditionMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_physicalConditionReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>trafficRestrictionType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The reason for traffic restriction based on the nature of the route.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_trafficRestrictionTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>trafficRestrictionType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_trafficRestrictionTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>verticalRelativeLocation</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The relationship between the feature and the underlying ground (terrain) or waterbody bottom.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_verticalRelativeLocationMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>verticalRelativeLocation.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_verticalRelativeLocationReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>waySurfaceCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />A categorisation based on the general pavement characteristic of the surface intending to sustain ground transport.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_waySurfaceCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>waySurfaceCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_waySurfaceCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>weatherRestrictionType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The type of weather conditions under which a feature is usable.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_weatherRestrictionTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>weatherRestrictionType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TurnaroundSite_weatherRestrictionTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>weightBearingCapacity</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The maximum weight that can be supported by a surface.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>weightBearingCapacity.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalReason</td>
     </tr>
   </tbody>
 </table>
@@ -132,170 +795,807 @@ Egenskaper
 Relasjoner
 
 **Arv**
-StikkrenneKulvert-NVDB
+FeatureEntity
+
+#### CausewayStructure
+
+-- Definition --<br />A solid raised way across a terrain obstacle (for example: a wetland or a body of shallow water) that is intended to support a transportation route (for example: a road or a railway).<br />-- Description --<br />The causeway structure is often constructed from local fill supplemented by other materials (for example: rocks, boulders or gravel) and consists of a solid linear structure in the configuration of an embankment. Causeway structures are built just high enough to insure that the transportation route will remain passable during periods of flooding, tides and seasonal rainfall. Culverts may occur along the length of the causeway structure and individual sections of the causeway structure may be interrupted by bridges.
+
+Egenskaper
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousAirCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the air.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_conspicuousAirCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousAirCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_conspicuousAirCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousGroundCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from on the ground.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_conspicuousGroundCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousGroundCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_conspicuousGroundCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousSeaCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the sea.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_conspicuousSeaCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousSeaCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_conspicuousSeaCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthority</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The controlling authority responsible for a facility or site.<br />-- Description --<br />Controlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_controllingAuthorityMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthority.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_controllingAuthorityReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthorityIdent</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthorityIdent.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>directivity</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The side(s) of a feature that produce the greatest visual significance and/or reflectivity potential.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_directivityMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>directivity.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_directivityReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>facilityOperationalStatus</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The status of operation of a man-made structure, as a whole.<br />-- Description --<br />Includes actual operations, operational capability, and planned or proposed man-made structures.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_facilityOperationalStatusMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>facilityOperationalStatus.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_facilityOperationalStatusReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>floodlit</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a structure is floodlit.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>floodlit.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.<br />-- Description --<br />For non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The elevation from a specified vertical datum to the highest point on a feature.<br />-- Description --<br />In the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumObstacleHeight</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The maximum distance from the bottom to the top of a terrain (or waterbody floor) obstacle.<br />-- Description --<br />May be a height or a depth.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumObstacleHeight.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is permanent.<br />-- Description --<br />Temporary features last, or are meant to last, for a limited time only.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.<br />-- Description --<br />The physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_physicalConditionMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_physicalConditionReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>predominantFeatureHeight</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The predominant height (the height of at least 50 percent) of the feature measured from the lowest point of the base at ground or water level (downhill side/downstream side).<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>predominantFeatureHeight.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>structMatType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The primary type(s) of material composing a feature, exclusive of the surface.<br />-- Description --<br />The basis for 'primary' may be, for example, compositional dominance or structural organization.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_structMatTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>structMatType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_structMatTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>surfaceSlope</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The slope (rate of upward inclination of the surface from the horizontal) of the surface of a feature (for example: the terrain or a waterbody floor).<br />-- Description --<br />The (percent) slope is determined as the change in height divided by the horizontal distance over which the change takes place, multiplied by one hundred: ((h2-h1)/d)*100. Generally the slope is determined along the primary alignment of a feature (its established direction of flow or use; for example: a road, a railway, a ridge line, and/or a bridge). In those cases where the primary alignment is essentially horizontal (for example, a beach, a watercourse bank, or a cut) the surface slope is typically determined at right angles to the primary alignment.<br />-- UnitOfMeasure --<br />percent</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>surfaceSlope.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>waterLevelEffect</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The relationship between the feature and surrounding (including covering and/or underlying) water.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_waterLevelEffectMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>waterLevelEffect.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CausewayStructure_waterLevelEffectReason</td>
+    </tr>
+  </tbody>
+</table>
+
+Relasjoner
+
+**Arv**
+FeatureEntity
 
 **Assosiasjoner**
-StikkrenneKulvertFlate – rolle: grunnriss – kardinalitet: 0..*
+LandmarkInfo – rolle: navigationLandmarkInfoDescribedBy – kardinalitet: 0..1
 
-#### Fellesegenskaper-Objektidentifikasjon (abstrakt)
+#### BridgeSpan
 
-abstrakt objekttype som bærer sentrale egenskaper som er anbefalt for bruk i produktspesifikasjoner.<br /><br />Merknad: Disse egenskapene skal derfor ikke modelleres inn i fagområdemodeller.
-
-Egenskaper
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>identifikasjon</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>unik identifikasjon av et objekt</td>
-    </tr>
-    <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>Identifikasjon</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>identifikasjon.lokalId</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>lokal identifikator av et objekt<br /><br />Merknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren er unik innenfor navnerommet. For FKB-data benyttes UUID som lokalId.</td>
-    </tr>
-    <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>CharacterString</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>identifikasjon.navnerom</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>navnerom som unikt identifiserer datakilden til et objekt, anbefales å være en http-URI<br /><br />Eksempel: <a href="http://data.geonorge.no/SentraltStedsnavnsregister/1.0">http://data.geonorge.no/SentraltStedsnavnsregister/1.0</a><br /><br />Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar for de unike identifikatorene og må være registrert i data.geonorge.no eller data.norge.no</td>
-    </tr>
-    <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>CharacterString</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>identifikasjon.versjonId</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>identifikasjon av en spesiell versjon av et geografisk objekt (instans)</td>
-    </tr>
-    <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>CharacterString</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>eksternPeker</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>referanse til objektet i et eksternt system, som ikke er Nasjonal vegdatabank (NVDB).</td>
-    </tr>
-    <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>URI</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>nvdbPeker</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>referanse til objektet i Nasjonal vegdatabank (NVDB).</td>
-    </tr>
-    <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>URI</td>
-    </tr>
-  </tbody>
-</table>
-
-#### Fellesegenskaper-StikkrenneKulvert (abstrakt)
-
-abstrakt objekttype som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper<br /><br />Merknad:<br />Spesielt i produktspesifikasjonsarbeid vil en velge egenskaper og av grensningslinjer fra denne klassen.
+-- Definition --<br />A component of the deck of a bridge spanning successive bridge piers.<br />-- Description --
 
 Egenskaper
 
@@ -307,11 +1607,32 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>datafangstdato</strong></td>
+      <td><strong>angleOfIntendedPassage</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>dato når objektet siste gang ble registrert/observert/målt i terrenget<br /><br />Merknad: I mange tilfeller er denne forskjellig fra oppdateringsdato, da registrerte endringer kan bufres i en kortere eller lengre periode før disse legges inn i databasen.<br />Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.</td>
+      <td>-- Definition --<br />The angular distance in the horizontal plane measured from true north (0 degrees) clockwise to the path on the feature (0-180 degrees) where passage was intended.<br />-- Description --<br />The path of intended passage may go across or over the feature (ex. a bridge) or through it (ex. a tunnel).<br />-- UnitOfMeasure --<br />arcDegree</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>AngleMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>angleOfIntendedPassage.valueOrReason</strong></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -319,7 +1640,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>Date</td>
+      <td>AngleMeasureReason</td>
     </tr>
   </tbody>
 </table>
@@ -332,11 +1653,11 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>verifiseringsdato</strong></td>
+      <td><strong>horizontalClearanceOpen</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>dato når dataene er fastslått å være i samsvar med virkeligheten<br /><br />Merknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI</td>
+      <td>-- Definition --<br />The horizontal clearance measured between two points for an opening span.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -344,7 +1665,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>Date</td>
+      <td>MeasureMeta</td>
     </tr>
   </tbody>
 </table>
@@ -357,36 +1678,7 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>kvalitet</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>beskrivelse av kvaliteten på stedfestingen<br /><br />Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.</td>
-    </tr>
-    <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>1..*</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>Posisjonskvalitet</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>kvalitet.datafangstmetode</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>metode for datafangst.<br />Egenskapen beskriver datafangstmetode for grunnrisskoordinater (x,y), eller for både grunnriss og høyde (x,y,z) dersom det ikke er oppgitt noen verdi for datafangstmetodeHøyde.</td>
+      <td><strong>horizontalClearanceOpen.valueOrReason</strong></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -394,11 +1686,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>Datafangstmetode</td>
-    </tr>
-    <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/datafangstmetode">https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/datafangstmetode</a><br />- byg – Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger<br />- ukj – Ukjent - Ukjent eller uspesifisert datafangstmetode<br />- pla – Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert med innmåling.<br />- sat – Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden Landmåling benyttes)<br />- gen – Generert - Posisjonen er manuelt konstruert, eller generert ved maskinlæring eller annen type programvare, fra punktsky fra laserskanning, bildematching, sonar, andre typer sensordata eller kombinasjon av flere typer sensordata.<br />- fot – Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk stereomodell<br />- dig – Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre plane kartdata<br />- lan – Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode. Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling utføres normalt med overskytende målinger og utjevning av resultatet.</td>
+      <td>MeasureReason</td>
     </tr>
   </tbody>
 </table>
@@ -411,119 +1699,11 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>kvalitet.nøyaktighet</strong></td>
+      <td><strong>structMatType</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>standardavviket til posisjoneringa av objektet oppgitt i cm<br /><br />I de aller fleste sammenhenger benyttes en anslått eller forventet verdi for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.<br /><br />For objekter med punktgeometri benyttes verdi for punktstandardavvik. For objekter med kurvegeometri benyttes standardavviket for tverravviket fra kurva. For objekter med overflate- eller volumgeometri er forståelsen at standardavviket beregnes ut fra (3D) avvikene mellom sann posisjon og nærmeste punkt på overflata.<br /><br />Merknad:<br />Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket og det innebærer at vi forutsetter at det systematiske avviket i liten grad påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette defineres, beregnes og kontrolleres.</td>
-    </tr>
-    <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>Integer</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>kvalitet.synbarhet</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>beskrivelse av hvor godt objektene framgår i datagrunnlaget for posisjonering (f.eks. flybildene).</td>
-    </tr>
-    <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>SynbarhetE</td>
-    </tr>
-    <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/synbarhet">https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/synbarhet</a><br />- 2 – Middels synlig - Objektet er middels synlig/gjenkjennbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst brukes denne koden for objekter som har lav kontrast eller er delvis skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en større verdi for nøyaktighet enn kravet (opptil 3 ganger kravet)<br />- 3 – Ikke synlig - Objektet er ikke synlig/gjenkjennbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst brukes denne koden for objekter som er helt skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en stor verdi for nøyaktighet (mer enn 3 ganger kravet)<br />- 0 – Fullt ut synlig - Objektet er fullt ut synlig/gjenfinnbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk registrering skal objekter som er fullt ut synlige registreres i tråd med angitte krav til nøyaktig registrering.<br />- 1 – Dårlig gjenfinnbar i terreng - Objektets posisjon er vanskelig å definere presist i terrenget på grunn av objektets natur eller manglende kontrast mot omgivelsene. Koden kan f.eks. brukes på høydekurver (eller andre isolinjer) eller objekter som er skjult i bakken (f.eks. innmåling av ledninger på lukket grøft)</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>kvalitet.datafangstmetodeHøyde</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>metoden brukt for høyderegistrering av posisjon.<br /><br />Det er bare nødvending å angi en verdi for egenskapen dersom datafangstmetode for høyde avviker fra datafangstmetode for grunnriss.</td>
-    </tr>
-    <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>Datafangstmetode</td>
-    </tr>
-    <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/datafangstmetode">https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/datafangstmetode</a><br />- byg – Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger<br />- ukj – Ukjent - Ukjent eller uspesifisert datafangstmetode<br />- pla – Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert med innmåling.<br />- sat – Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden Landmåling benyttes)<br />- gen – Generert - Posisjonen er manuelt konstruert, eller generert ved maskinlæring eller annen type programvare, fra punktsky fra laserskanning, bildematching, sonar, andre typer sensordata eller kombinasjon av flere typer sensordata.<br />- fot – Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk stereomodell<br />- dig – Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre plane kartdata<br />- lan – Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode. Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling utføres normalt med overskytende målinger og utjevning av resultatet.</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>kvalitet.nøyaktighetHøyde</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>standardavviket til posisjoneringa av objektet oppgitt i cm<br /><br />I de aller fleste sammenhenger benyttes en anslått eller forventet verdi for standardavviket, men dersom man faktisk har standardavviket til posisjoneringa av objektet oppgitt i cm<br /><br />I de aller fleste sammenhenger benyttes en anslått eller forventet verdi for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.<br /><br />Merknad:<br />Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket og det innebærer at vi forutsetter at det systematiske avviket i liten grad påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette defineres, beregnes og kontrolleres.</td>
-    </tr>
-    <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>Integer</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>medium</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>objektets beliggenhet i forhold til jordoverflaten<br /><br />Eksempel:<br />På bro, i tunnel, inne i et bygningsmessig anlegg, etc.</td>
+      <td>-- Definition --<br />The primary type(s) of material composing a feature, exclusive of the surface.<br />-- Description --<br />The basis for 'primary' may be, for example, compositional dominance or structural organization.<br />-- UnitOfMeasure --</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -531,11 +1711,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>Medium</td>
-    </tr>
-    <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium">https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium</a></td>
+      <td>BridgeSpan_structMatTypeMeta</td>
     </tr>
   </tbody>
 </table>
@@ -548,19 +1724,15 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>informasjon</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>generell opplysning<br /><br />Merknad:<br />mulighet til å legge inn utfyllende informasjon om objektet</td>
+      <td><strong>structMatType.valueOrReason</strong></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
-      <td>0..*</td>
+      <td>1</td>
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>CharacterString</td>
+      <td>BridgeSpan_structMatTypeReason</td>
     </tr>
   </tbody>
 </table>
@@ -573,11 +1745,11 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>høydereferanse</strong></td>
+      <td><strong>verticalClearanceClosed</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>koordinatregistering utført på topp eller bunn av et objekt</td>
+      <td>-- Definition --<br />The vertical clearance of a feature in closed condition (for example: a closed lifting bridge) measured from the horizontal plane towards the feature overhead.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -585,17 +1757,1224 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>LedningHøydereferanse</td>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>verticalClearanceClosed.valueOrReason</strong></td>
     </tr>
     <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- toppUtvendig – høydereferansen er til toppen av komponenten<br />- toppInnvendig – høydereferansen er topp innvendig komponent<br />- senter – høydereferansen er senter innvendig
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
 
-Eksempel: Dersom en ønsker å representere volumet på rør, kan dette gjøres med å angi LedningHøydereferanse = senter og supplere dette med passende radius.<br />- bunnInnvendig – høydereferansen er bunn innvendig
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>verticalClearanceOpen</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The vertical clearance of a feature in opened condition (for example an open lifting bridge) measured from the horizontal plane towards the feature overhead.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
 
-Eksempel: Dette er nyttig når en skal modellere fall på avløpsrør<br />- underkantUtvendig – høydereferansen er bunn utvendig<br />- påBakken – høydereferanse er på bakken
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>verticalClearanceOpen.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
 
-Merknad: Mange ledninger er målt på lukket grøft<br />- fot – naturlig å bruke for eksempel på master/mastefundamenter<br />- ukjent – brukes der det ikke er kjent hva som er benyttet som høydereferanse</td>
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeOpeningType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The type of structure or mechanism by which a bridge or bridge span is moved to allow passage of a vessel.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_bridgeOpeningTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeOpeningType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_bridgeOpeningTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeReferenceNumber</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The unique identifier of a bridge in accordance with the provisions of terrain analysis databases (for example: PTADB or TTADB).<br />-- Description --<br />The identifier is assigned consecutively (for example: within a map sheet or within a local area of interest) and begins with the northwest grid square of the UTM reference system and proceeds from left to right to the east edge of the sheet or area, continuing consecutively in the same way starting back at the west edge of the next line of UTM grid squares below those previously completed. The resulting identifiers are used to index an associated Bridge Information Table.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeReferenceNumber.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeStructureType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The type(s) of structural design of a bridge, bridge span, or bridge superstructure.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_bridgeStructureTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeStructureType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_bridgeStructureTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bypassCondition</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The ease or ability to circumvent a destroyed section of bridge, tunnel or pass within a distance of two kilometres from the feature.<br />-- Description --<br />Bypass condition will not consider other bridges in bypass determination.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_bypassConditionMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bypassCondition.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_bypassConditionReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousAirCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the air.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_conspicuousAirCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousAirCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_conspicuousAirCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousGroundCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from on the ground.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_conspicuousGroundCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousGroundCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_conspicuousGroundCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousSeaCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the sea.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_conspicuousSeaCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousSeaCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_conspicuousSeaCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>facilityOperationalStatus</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The status of operation of a man-made structure, as a whole.<br />-- Description --<br />Includes actual operations, operational capability, and planned or proposed man-made structures.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_facilityOperationalStatusMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>facilityOperationalStatus.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_facilityOperationalStatusReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.<br />-- Description --<br />For non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The elevation from a specified vertical datum to the highest point on a feature.<br />-- Description --<br />In the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>horizontalClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The distance available to pass a load that extends laterally beyond the wheels of a vehicle.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>horizontalClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType1</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The dynamic live load weight-bearing capacity of a bridge or bridge span for one-way, wheeled vehicle traffic in MLC units.<br />-- Description --<br />Military load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.<br />-- UnitOfMeasure --<br />militaryLoadClass</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType1.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType2</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The dynamic live load weight-bearing capacity of a bridge or bridge span for two-way, wheeled vehicle traffic in MLC units.<br />-- Description --<br />Military load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.<br />-- UnitOfMeasure --<br />militaryLoadClass</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType2.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType3</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The dynamic live load weight-bearing capacity of a bridge or bridge span for one-way, tracked vehicle traffic in MLC units.<br />-- Description --<br />Military load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.<br />-- UnitOfMeasure --<br />militaryLoadClass</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType3.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType4</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The dynamic live load weight-bearing capacity of a bridge or bridge span for two-way, tracked vehicle traffic in MLC units.<br />-- Description --<br />Military load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.<br />-- UnitOfMeasure --<br />militaryLoadClass</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType4.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumVerticalClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The greatest distance between the travelled way and any obstruction vertically above it.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumVerticalClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>mobileBridgeSpan</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a bridge span moves in some manner to allow passage underneath.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>mobileBridgeSpan.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>overheadClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The least distance between the travelled way and any obstruction vertically above it.<br />-- Description --<br />Reference STANAG 2253.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>overheadClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is permanent.<br />-- Description --<br />Temporary features last, or are meant to last, for a limited time only.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.<br />-- Description --<br />The physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_physicalConditionMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSpan_physicalConditionReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictHorizClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that horizontal clearance for vehicles on a land transportation route is restricted.<br />-- Description --<br />Horizontal clearance affects the maximum width of loads that extend laterally beyond the wheels of a vehicle.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictHorizClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictOverheadClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that there is an overhead obstruction located less than 4.3 metres above a land transportation route.<br />-- Description --<br />Vertical clearance affects the maximum height of vehicle loads. (Reference STANAG 2253)<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictOverheadClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>underbridgeClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />Clearance below bridge, measured from the lowest surface level to the base of the lower of either a cross beam or the lowest bridge deck.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>underbridgeClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>verticalClearanceSafe</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The safe vertical clearance of an object measured from the horizontal plane toward the object overhead.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HydroClearRefMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>verticalClearanceSafe.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HydroClearRefReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>waterbodyOverheadObstruct</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that an object is an overhead obstruction over a navigable waterbody.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>waterbodyOverheadObstruct.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
     </tr>
   </tbody>
 </table>
@@ -603,11 +2982,11 @@ Merknad: Mange ledninger er målt på lukket grøft<br />- fot – naturlig å b
 Relasjoner
 
 **Arv**
-Fellesegenskaper-Objektidentifikasjon
+FeatureEntity
 
-#### StikkrenneKulvert-NVDB (abstrakt)
+#### BridgePier
 
-Rør for vanngjennomløp på tvers av vegen (ev. på tvers av tilgrensende avkjørsel) med maks lysåpning 2,5 meter. Stikkrenne/kulvert har åpent innløp og/eller utløp. Stikkrenne/kulvert kan ha inn- og utløpskonstruksjoner som kummer og støtteskjold. Merknad: Inntil videre registrere stikkrenner med bruksområde biologisk mangfold eller landbruk som vanlig stikkrenne. Dette blir endret på i senere versjon av Datakatalogen.
+-- Definition --<br />A pillar or abutment that supports a bridge span.<br />-- Description --
 
 Egenskaper
 
@@ -619,23 +2998,19 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>tilknyttetLukkaDren</strong></td>
+      <td><strong>structMatType</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn i et lukket dreneringssystem.</td>
+      <td>-- Definition --<br />The primary type(s) of material composing a feature, exclusive of the surface.<br />-- Description --<br />The basis for 'primary' may be, for example, compositional dominance or structural organization.<br />-- UnitOfMeasure --</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
+      <td>0..*</td>
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>TilknyttetLukkaDrenStikkrenneKulvert</td>
-    </tr>
-    <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTilknyttetLukkaDrenStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTilknyttetLukkaDrenStikkrenneKulvert</a><br />- ja – Ja - ja<br />- nei – Nei - nei</td>
+      <td>BridgePier_structMatTypeMeta</td>
     </tr>
   </tbody>
 </table>
@@ -648,23 +3023,15 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>gjennomløpForElvBekk</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>Angir om elv/bekk renner gjennom stikkrenne/kulvert.</td>
+      <td><strong>structMatType.valueOrReason</strong></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>GjennomløpForElvBekkStikkrenneKulvert</td>
-    </tr>
-    <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLGjennomløpForElvBekkStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLGjennomløpForElvBekkStikkrenneKulvert</a><br />- ja – Ja - ja<br />- nei – Nei - nei</td>
+      <td>BridgePier_structMatTypeReason</td>
     </tr>
   </tbody>
 </table>
@@ -677,11 +3044,11 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>materialtype</strong></td>
+      <td><strong>colourPattern</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>Angir materialtype.</td>
+      <td>-- Definition --<br />The colour pattern(s) of an aid to navigation (for example: a buoy, a beacon, and/or a navigation light) or other feature of importance to maritime navigation.<br />-- Description --<br />The Attribute: 'Navigation Mark Colour' may be used to specify the colours in the order in which they appear in the pattern.<br />-- UnitOfMeasure --</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -689,11 +3056,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>MaterialtypeStikkrenneKulvert</td>
-    </tr>
-    <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLMaterialtypeStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLMaterialtypeStikkrenneKulvert</a><br />- betong – Betong<br />- eternitt – Eternitt<br />- naturstein – Naturstein<br />- plast – Plast<br />- stål – Stål - Stål<br />- tre – Tre</td>
+      <td>BridgePier_colourPatternMeta</td>
     </tr>
   </tbody>
 </table>
@@ -706,23 +3069,15 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>tverrsnittsform</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.</td>
+      <td><strong>colourPattern.valueOrReason</strong></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>TverrsnittsformStikkrenneKulvert</td>
-    </tr>
-    <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTverrsnittsformStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTverrsnittsformStikkrenneKulvert</a><br />- ellipseform – Ellipseform<br />- flatbunnetMedHvelv – Flatbunnet med hvelv<br />- rektangulær – Rektangulær - Rektangulær<br />- sirkulær – Sirkulær - Sirkulær</td>
+      <td>BridgePier_colourPatternReason</td>
     </tr>
   </tbody>
 </table>
@@ -735,11 +3090,11 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>typeInnløp</strong></td>
+      <td><strong>conspicuousAirCategory</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>Angir hvilken type innløp det er i ei stikkrenne.</td>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the air.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -747,11 +3102,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>TypeInnløpStikkrenneKulvert</td>
-    </tr>
-    <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeInnløpStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeInnløpStikkrenneKulvert</a><br />- kumOverStikkrenne – Kum over stikkrenne<br />- åpenGrøft – Åpent i grøft - Vann renner inn direkte fra åpen grøft.<br />- åpenGrøftMedStøtteskjold – Åpent i grøft med støtteskjold - Åpen i grøft med støtteskjold<br />- åpenMedFrontmur – Åpent med frontmur - Åpent med frontmur<br />- åpenMedVingemur – Åpent med vingemur - Åpent med vingemur</td>
+      <td>BridgePier_conspicuousAirCategoryMeta</td>
     </tr>
   </tbody>
 </table>
@@ -764,23 +3115,15 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>typeUtløp</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>Angir hvilken type utløp det er i ei stikkrenne.</td>
+      <td><strong>conspicuousAirCategory.valueOrReason</strong></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>TypeUtløpStikkrenneKulvert</td>
-    </tr>
-    <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeUtløpStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeUtløpStikkrenneKulvert</a><br />- bekkElv – I bekk/elv - Vann ledes ut i bekk/elv.<br />- kum – Kum - Vann ledes til kum.<br />- skråningTerreng – I skråning/terreng - Vann ledes ut i skråning eller ut i terreng.<br />- åpenGrøft – Åpen grøft - Vann ledes til åpen grøft</td>
+      <td>BridgePier_conspicuousAirCategoryReason</td>
     </tr>
   </tbody>
 </table>
@@ -793,11 +3136,11 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>lengde</strong></td>
+      <td><strong>conspicuousGroundCategory</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>Angir lengde av vegobjektet.</td>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from on the ground.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -805,7 +3148,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>Real</td>
+      <td>BridgePier_conspicuousGroundCategoryMeta</td>
     </tr>
   </tbody>
 </table>
@@ -818,19 +3161,15 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>bredde_Innvendig</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>Angir innvendig bredde av gjennomløpskonstruksjon. Ikke aktuell for sirkulære tverrsnitt.</td>
+      <td><strong>conspicuousGroundCategory.valueOrReason</strong></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>Real</td>
+      <td>BridgePier_conspicuousGroundCategoryReason</td>
     </tr>
   </tbody>
 </table>
@@ -843,11 +3182,11 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>høyde_Innvendig</strong></td>
+      <td><strong>conspicuousSeaCategory</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>Angir innvendig høyde av gjennomløpskonstruksjon. Tar ikke hensyn til ev. igjenfylling i bunn av konstruksjon.</td>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the sea.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -855,7 +3194,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>Real</td>
+      <td>BridgePier_conspicuousSeaCategoryMeta</td>
     </tr>
   </tbody>
 </table>
@@ -868,19 +3207,15 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>overfyllingInnløp</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>Angir tykkelsen på overfylling ved innløp. Det vil si tykkelse fra topp av stikkrenne til topp dekke.</td>
+      <td><strong>conspicuousSeaCategory.valueOrReason</strong></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>Real</td>
+      <td>BridgePier_conspicuousSeaCategoryReason</td>
     </tr>
   </tbody>
 </table>
@@ -893,11 +3228,11 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>harInnløpsrist</strong></td>
+      <td><strong>crossSectionalShape</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>Angir om det er innløpsrist i tilknytning til vegobjektet.</td>
+      <td>-- Definition --<br />The cross-sectional shape of a feature in the horizontal plane.<br />-- Description --<br />-- UnitOfMeasure --</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -905,11 +3240,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>HarInnløpsristStikkrenneKulvert</td>
-    </tr>
-    <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLHarInnløpsristStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLHarInnløpsristStikkrenneKulvert</a><br />- ja – Ja - ja<br />- nei – Nei - nei</td>
+      <td>BridgePier_crossSectionalShapeMeta</td>
     </tr>
   </tbody>
 </table>
@@ -922,23 +3253,15 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>varmekabler</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.</td>
+      <td><strong>crossSectionalShape.valueOrReason</strong></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>VarmekablerStikkrenneKulvert</td>
-    </tr>
-    <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVarmekablerStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVarmekablerStikkrenneKulvert</a><br />- ja – Ja - ja<br />- nei – Nei - nei</td>
+      <td>BridgePier_crossSectionalShapeReason</td>
     </tr>
   </tbody>
 </table>
@@ -951,11 +3274,11 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>etableringsår</strong></td>
+      <td><strong>heightAboveSurfaceLevel</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>Angir hvilket år vegobjektet ble etablert på stedet.</td>
+      <td>-- Definition --<br />The vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.<br />-- Description --<br />For non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.<br />-- UnitOfMeasure --<br />metre</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -963,7 +3286,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>Real</td>
+      <td>HeightMeasureMeta</td>
     </tr>
   </tbody>
 </table>
@@ -976,19 +3299,15 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>tilleggsinformasjon</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>Supplerende informasjon om vegobjektet som ikke framkommer direkte av andre egenskapstyper, kan f.eks. være spesielle forhold knyttet til oppbygging, utdyping av spesielle problem, m.m.</td>
+      <td><strong>heightAboveSurfaceLevel.valueOrReason</strong></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>CharacterString</td>
+      <td>HeightMeasureReason</td>
     </tr>
   </tbody>
 </table>
@@ -1001,11 +3320,11 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>FKB_ID</strong></td>
+      <td><strong>highestElevation</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning av geometri.</td>
+      <td>-- Definition --<br />The elevation from a specified vertical datum to the highest point on a feature.<br />-- Description --<br />In the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.<br />-- UnitOfMeasure --<br />metre</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -1013,7 +3332,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>CharacterString</td>
+      <td>ElevationMeasureMeta</td>
     </tr>
   </tbody>
 </table>
@@ -1026,23 +3345,15 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>eier</strong></td>
-    </tr>
-    <tr>
-      <th scope="row">Definisjon:</th>
-      <td>Angir hvem som er eier av vegobjektet.</td>
+      <td><strong>highestElevation.valueOrReason</strong></td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
-      <td>0..1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>EierStikkrenneKulvert</td>
-    </tr>
-    <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLEierStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLEierStikkrenneKulvert</a><br />- fylkeskommune – Fylkeskommune<br />- kommune – Kommune<br />- nyeVeier – Stat, Nye Veier - Nye Veier<br />- privat – Privat<br />- statensVegvesen – Stat, Statens vegvesen - Statens vegvesen<br />- uavklart – Uavklart - Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).<br />- baneNor – Stat, Bane NOR - Bane NOR</td>
+      <td>ElevationMeasureReason</td>
     </tr>
   </tbody>
 </table>
@@ -1055,11 +3366,11 @@ Egenskaper
   <tbody>
     <tr>
       <th scope="row">Navn:</th>
-      <td><strong>vedlikeholdsansvarlig</strong></td>
+      <td><strong>maritimeNavigationMarked</strong></td>
     </tr>
     <tr>
       <th scope="row">Definisjon:</th>
-      <td>Angir hvem som er ansvarlig for vedlikehold av vegobjektet.</td>
+      <td>-- Definition --<br />An indication that a feature is significant to maritime safety of navigation and is marked (for example: by a light or beacon) by a maritime-specific navigational aid.<br />-- Description --<br />Mariners may also use other prominent features (for example: rotating aeronautical beacons or lighted structures) for informal navigational purposes.<br />-- UnitOfMeasure --</td>
     </tr>
     <tr>
       <th scope="row">Multiplisitet:</th>
@@ -1067,11 +3378,120 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>VedlikeholdsansvarligStikkrenneKulvert</td>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maritimeNavigationMarked.valueOrReason</strong></td>
     </tr>
     <tr>
-      <th scope="row">Tillatte verdier:</th>
-      <td>- Kodeliste: <a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVedlikeholdsansvarligStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVedlikeholdsansvarligStikkrenneKulvert</a><br />- Fylkeskommune<br />- Kommune<br />- Nye Veier<br />- OPS<br />- Privat<br />- Statens vegvesen<br />- Uavklart – Verdi benyttes inntil det er avklart hvem som er vedlikeholdsansvarlig.<br />- Bane NOR</td>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>navigationMarkColour</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The colour(s) of a International Association of Lighthouse Authorities (IALA) navigation mark.<br />-- Description --<br />When the navigation mark is patterned, the Attribute: 'Colour Pattern' may be used to identify the pattern and a corresponding list of colours specified.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgePier_navigationMarkColourMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>navigationMarkColour.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgePier_navigationMarkColourReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.<br />-- Description --<br />The physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgePier_physicalConditionMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgePier_physicalConditionReason</td>
     </tr>
   </tbody>
 </table>
@@ -1079,94 +3499,16 @@ Egenskaper
 Relasjoner
 
 **Arv**
-Fellesegenskaper-StikkrenneKulvert
+FeatureEntity
 
-### Kodelister
+**Assosiasjoner**
+LandmarkInfo – rolle: navigationLandmarkInfoDescribedBy – kardinalitet: 0..1
 
-#### «Enumeration» Datafangstmetode
+#### BridgeSuperstructure
 
-**Definisjon:** metode for datafangst.
+-- Definition --<br />A superstructure of a bridge, above the lowest deck, not including pylons or towers.<br />-- Description --
 
-Datafangstmetoden beskriver hvordan selve vektordataene er posisjonert fra et datagrunnlag (observasjoner med landmålingsutstyr, fotogrammetrisk stereomodell, digital terrengmodell etc.) og ikke prosessen med å innhente det bakenforliggende datagrunnlaget.
-
-Profilparametre i tagged values
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">asDictionary</th>
-      <td>true</td>
-    </tr>
-    <tr>
-      <th scope="row">codeList</th>
-      <td><a href="https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/datafangstmetode">https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/datafangstmetode</a></td>
-    </tr>
-  </tbody>
-</table>
-
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>byg</td>
-      <td>Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>ukj</td>
-      <td>Ukjent - Ukjent eller uspesifisert datafangstmetode</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>pla</td>
-      <td>Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert med innmåling.</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>sat</td>
-      <td>Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden Landmåling benyttes)</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>gen</td>
-      <td>Generert - Posisjonen er manuelt konstruert, eller generert ved maskinlæring eller annen type programvare, fra punktsky fra laserskanning, bildematching, sonar, andre typer sensordata eller kombinasjon av flere typer sensordata.</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>fot</td>
-      <td>Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk stereomodell</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>dig</td>
-      <td>Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre plane kartdata</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>lan</td>
-      <td>Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode. Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling utføres normalt med overskytende målinger og utjevning av resultatet.</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-#### «Enumeration» SynbarhetE
-
-**Definisjon:** synbarhet beskriver hvor godt objektene framgår i datagrunnlaget for posisjonering (f.eks. flybildene).
-
-Profilparametre i tagged values
+Egenskaper
 
 <table class="feature-attribute-table">
   <colgroup>
@@ -1175,58 +3517,44 @@ Profilparametre i tagged values
   </colgroup>
   <tbody>
     <tr>
-      <th scope="row">asDictionary</th>
-      <td>true</td>
+      <th scope="row">Navn:</th>
+      <td><strong>structMatType</strong></td>
     </tr>
     <tr>
-      <th scope="row">codeList</th>
-      <td><a href="https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/synbarhet">https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/synbarhet</a></td>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The primary type(s) of material composing a feature, exclusive of the surface.<br />-- Description --<br />The basis for 'primary' may be, for example, compositional dominance or structural organization.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_structMatTypeMeta</td>
     </tr>
   </tbody>
 </table>
 
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
   <tbody>
     <tr>
-      <td></td>
-      <td>Middels synlig - Objektet er middels synlig/gjenkjennbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst brukes denne koden for objekter som har lav kontrast eller er delvis skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en større verdi for nøyaktighet enn kravet (opptil 3 ganger kravet)</td>
-      <td>2</td>
+      <th scope="row">Navn:</th>
+      <td><strong>structMatType.valueOrReason</strong></td>
     </tr>
     <tr>
-      <td></td>
-      <td>Ikke synlig - Objektet er ikke synlig/gjenkjennbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst brukes denne koden for objekter som er helt skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en stor verdi for nøyaktighet (mer enn 3 ganger kravet)</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>Fullt ut synlig - Objektet er fullt ut synlig/gjenfinnbart i flybilde eller annen datakilde for posisjonering. Ved fotogrammetrisk registrering skal objekter som er fullt ut synlige registreres i tråd med angitte krav til nøyaktig registrering.</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>Dårlig gjenfinnbar i terreng - Objektets posisjon er vanskelig å definere presist i terrenget på grunn av objektets natur eller manglende kontrast mot omgivelsene. Koden kan f.eks. brukes på høydekurver (eller andre isolinjer) eller objekter som er skjult i bakken (f.eks. innmåling av ledninger på lukket grøft)</td>
+      <th scope="row">Multiplisitet:</th>
       <td>1</td>
     </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_structMatTypeReason</td>
+    </tr>
   </tbody>
 </table>
-
-#### «CodeList» Medium
-
-**Definisjon:** objektets beliggenhet i forhold til jordoverflaten
-
-Eksempel:
-Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.
-
-Profilparametre i tagged values
 
 <table class="feature-attribute-table">
   <colgroup>
@@ -1235,89 +3563,23 @@ Profilparametre i tagged values
   </colgroup>
   <tbody>
     <tr>
-      <th scope="row">asDictionary</th>
-      <td>true</td>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeReferenceNumber</strong></td>
     </tr>
     <tr>
-      <th scope="row">codeList</th>
-      <td><a href="https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium">https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium</a></td>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The unique identifier of a bridge in accordance with the provisions of terrain analysis databases (for example: PTADB or TTADB).<br />-- Description --<br />The identifier is assigned consecutively (for example: within a map sheet or within a local area of interest) and begins with the northwest grid square of the UTM reference system and proceeds from left to right to the east edge of the sheet or area, continuing consecutively in the same way starting back at the west edge of the next line of UTM grid squares below those previously completed. The resulting identifiers are used to index an associated Bridge Information Table.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
     </tr>
   </tbody>
 </table>
-
-#### «Enumeration» LedningHøydereferanse
-
-**Definisjon:** den høyden som høydedelen av stedfestingen til komponenten ( Ledning/beliggenhet og Kopling/posisjon) referer til.
-
-Merknad: På VA-ledning er det kun to som er aktuelle:
-- ToppUtvendig: ledning overkant, brukes på vannledning
-- BunnInnvendig: brukes på avløpsledning
-
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>toppUtvendig</td>
-      <td>høydereferansen er til toppen av komponenten</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>toppInnvendig</td>
-      <td>høydereferansen er topp innvendig komponent</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>senter</td>
-      <td>høydereferansen er senter innvendig
-
-Eksempel: Dersom en ønsker å representere volumet på rør, kan dette gjøres med å angi LedningHøydereferanse = senter og supplere dette med passende radius.</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>bunnInnvendig</td>
-      <td>høydereferansen er bunn innvendig
-
-Eksempel: Dette er nyttig når en skal modellere fall på avløpsrør</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>underkantUtvendig</td>
-      <td>høydereferansen er bunn utvendig</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>påBakken</td>
-      <td>høydereferanse er på bakken
-
-Merknad: Mange ledninger er målt på lukket grøft</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>fot</td>
-      <td>naturlig å bruke for eksempel på master/mastefundamenter</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>ukjent</td>
-      <td>brukes der det ikke er kjent hva som er benyttet som høydereferanse</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-#### «Enumeration» TilknyttetLukkaDrenStikkrenneKulvert
-
-**Definisjon:** Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn i et lukket dreneringssystem.
-
-Profilparametre i tagged values
 
 <table class="feature-attribute-table">
   <colgroup>
@@ -1326,45 +3588,19 @@ Profilparametre i tagged values
   </colgroup>
   <tbody>
     <tr>
-      <th scope="row">asDictionary</th>
-      <td>false</td>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeReferenceNumber.valueOrReason</strong></td>
     </tr>
     <tr>
-      <th scope="row">codeList</th>
-      <td><a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTilknyttetLukkaDrenStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTilknyttetLukkaDrenStikkrenneKulvert</a></td>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
     </tr>
   </tbody>
 </table>
-
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ja</td>
-      <td>Ja - ja</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>nei</td>
-      <td>Nei - nei</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-#### «Enumeration» GjennomløpForElvBekkStikkrenneKulvert
-
-**Definisjon:** Angir om elv/bekk renner gjennom stikkrenne/kulvert.
-
-Profilparametre i tagged values
 
 <table class="feature-attribute-table">
   <colgroup>
@@ -1373,45 +3609,23 @@ Profilparametre i tagged values
   </colgroup>
   <tbody>
     <tr>
-      <th scope="row">asDictionary</th>
-      <td>false</td>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeStructureType</strong></td>
     </tr>
     <tr>
-      <th scope="row">codeList</th>
-      <td><a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLGjennomløpForElvBekkStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLGjennomløpForElvBekkStikkrenneKulvert</a></td>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The type(s) of structural design of a bridge, bridge span, or bridge superstructure.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_bridgeStructureTypeMeta</td>
     </tr>
   </tbody>
 </table>
-
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ja</td>
-      <td>Ja - ja</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>nei</td>
-      <td>Nei - nei</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-#### «Enumeration» MaterialtypeStikkrenneKulvert
-
-**Definisjon:** Angir materialtype.
-
-Profilparametre i tagged values
 
 <table class="feature-attribute-table">
   <colgroup>
@@ -1420,65 +3634,19 @@ Profilparametre i tagged values
   </colgroup>
   <tbody>
     <tr>
-      <th scope="row">asDictionary</th>
-      <td>false</td>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeStructureType.valueOrReason</strong></td>
     </tr>
     <tr>
-      <th scope="row">codeList</th>
-      <td><a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLMaterialtypeStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLMaterialtypeStikkrenneKulvert</a></td>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_bridgeStructureTypeReason</td>
     </tr>
   </tbody>
 </table>
-
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>betong</td>
-      <td>Betong</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>eternitt</td>
-      <td>Eternitt</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>naturstein</td>
-      <td>Naturstein</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>plast</td>
-      <td>Plast</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>stål</td>
-      <td>Stål - Stål</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>tre</td>
-      <td>Tre</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-#### «Enumeration» TverrsnittsformStikkrenneKulvert
-
-**Definisjon:** Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.
-
-Profilparametre i tagged values
 
 <table class="feature-attribute-table">
   <colgroup>
@@ -1487,55 +3655,23 @@ Profilparametre i tagged values
   </colgroup>
   <tbody>
     <tr>
-      <th scope="row">asDictionary</th>
-      <td>false</td>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousAirCategory</strong></td>
     </tr>
     <tr>
-      <th scope="row">codeList</th>
-      <td><a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTverrsnittsformStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTverrsnittsformStikkrenneKulvert</a></td>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the air.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_conspicuousAirCategoryMeta</td>
     </tr>
   </tbody>
 </table>
-
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ellipseform</td>
-      <td>Ellipseform</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>flatbunnetMedHvelv</td>
-      <td>Flatbunnet med hvelv</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>rektangulær</td>
-      <td>Rektangulær - Rektangulær</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>sirkulær</td>
-      <td>Sirkulær - Sirkulær</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-#### «Enumeration» TypeInnløpStikkrenneKulvert
-
-**Definisjon:** Angir hvilken type innløp det er i ei stikkrenne.
-
-Profilparametre i tagged values
 
 <table class="feature-attribute-table">
   <colgroup>
@@ -1544,60 +3680,19 @@ Profilparametre i tagged values
   </colgroup>
   <tbody>
     <tr>
-      <th scope="row">asDictionary</th>
-      <td>false</td>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousAirCategory.valueOrReason</strong></td>
     </tr>
     <tr>
-      <th scope="row">codeList</th>
-      <td><a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeInnløpStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeInnløpStikkrenneKulvert</a></td>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_conspicuousAirCategoryReason</td>
     </tr>
   </tbody>
 </table>
-
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>kumOverStikkrenne</td>
-      <td>Kum over stikkrenne</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>åpenGrøft</td>
-      <td>Åpent i grøft - Vann renner inn direkte fra åpen grøft.</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>åpenGrøftMedStøtteskjold</td>
-      <td>Åpent i grøft med støtteskjold - Åpen i grøft med støtteskjold</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>åpenMedFrontmur</td>
-      <td>Åpent med frontmur - Åpent med frontmur</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>åpenMedVingemur</td>
-      <td>Åpent med vingemur - Åpent med vingemur</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-#### «Enumeration» TypeUtløpStikkrenneKulvert
-
-**Definisjon:** Angir hvilken type utløp det er i ei stikkrenne.
-
-Profilparametre i tagged values
 
 <table class="feature-attribute-table">
   <colgroup>
@@ -1606,55 +3701,23 @@ Profilparametre i tagged values
   </colgroup>
   <tbody>
     <tr>
-      <th scope="row">asDictionary</th>
-      <td>false</td>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousGroundCategory</strong></td>
     </tr>
     <tr>
-      <th scope="row">codeList</th>
-      <td><a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeUtløpStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLTypeUtløpStikkrenneKulvert</a></td>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from on the ground.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_conspicuousGroundCategoryMeta</td>
     </tr>
   </tbody>
 </table>
-
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>bekkElv</td>
-      <td>I bekk/elv - Vann ledes ut i bekk/elv.</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>kum</td>
-      <td>Kum - Vann ledes til kum.</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>skråningTerreng</td>
-      <td>I skråning/terreng - Vann ledes ut i skråning eller ut i terreng.</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>åpenGrøft</td>
-      <td>Åpen grøft - Vann ledes til åpen grøft</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-#### «Enumeration» HarInnløpsristStikkrenneKulvert
-
-**Definisjon:** Angir om det er innløpsrist i tilknytning til vegobjektet.
-
-Profilparametre i tagged values
 
 <table class="feature-attribute-table">
   <colgroup>
@@ -1663,45 +3726,19 @@ Profilparametre i tagged values
   </colgroup>
   <tbody>
     <tr>
-      <th scope="row">asDictionary</th>
-      <td>false</td>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousGroundCategory.valueOrReason</strong></td>
     </tr>
     <tr>
-      <th scope="row">codeList</th>
-      <td><a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLHarInnløpsristStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLHarInnløpsristStikkrenneKulvert</a></td>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_conspicuousGroundCategoryReason</td>
     </tr>
   </tbody>
 </table>
-
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ja</td>
-      <td>Ja - ja</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>nei</td>
-      <td>Nei - nei</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-#### «Enumeration» VarmekablerStikkrenneKulvert
-
-**Definisjon:** Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.
-
-Profilparametre i tagged values
 
 <table class="feature-attribute-table">
   <colgroup>
@@ -1710,45 +3747,23 @@ Profilparametre i tagged values
   </colgroup>
   <tbody>
     <tr>
-      <th scope="row">asDictionary</th>
-      <td>false</td>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousSeaCategory</strong></td>
     </tr>
     <tr>
-      <th scope="row">codeList</th>
-      <td><a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVarmekablerStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVarmekablerStikkrenneKulvert</a></td>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the sea.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_conspicuousSeaCategoryMeta</td>
     </tr>
   </tbody>
 </table>
-
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ja</td>
-      <td>Ja - ja</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>nei</td>
-      <td>Nei - nei</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-#### «Enumeration» EierStikkrenneKulvert
-
-**Definisjon:** Angir hvem som er eier av vegobjektet.
-
-Profilparametre i tagged values
 
 <table class="feature-attribute-table">
   <colgroup>
@@ -1757,70 +3772,19 @@ Profilparametre i tagged values
   </colgroup>
   <tbody>
     <tr>
-      <th scope="row">asDictionary</th>
-      <td>false</td>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousSeaCategory.valueOrReason</strong></td>
     </tr>
     <tr>
-      <th scope="row">codeList</th>
-      <td><a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLEierStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLEierStikkrenneKulvert</a></td>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_conspicuousSeaCategoryReason</td>
     </tr>
   </tbody>
 </table>
-
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>fylkeskommune</td>
-      <td>Fylkeskommune</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>kommune</td>
-      <td>Kommune</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>nyeVeier</td>
-      <td>Stat, Nye Veier - Nye Veier</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>privat</td>
-      <td>Privat</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>statensVegvesen</td>
-      <td>Stat, Statens vegvesen - Statens vegvesen</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>uavklart</td>
-      <td>Uavklart - Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>baneNor</td>
-      <td>Stat, Bane NOR - Bane NOR</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-#### «Enumeration» VedlikeholdsansvarligStikkrenneKulvert
-
-**Definisjon:** Angir hvem som er ansvarlig for vedlikehold av vegobjektet.
-
-Profilparametre i tagged values
 
 <table class="feature-attribute-table">
   <colgroup>
@@ -1829,66 +3793,5626 @@ Profilparametre i tagged values
   </colgroup>
   <tbody>
     <tr>
-      <th scope="row">asDictionary</th>
-      <td>false</td>
+      <th scope="row">Navn:</th>
+      <td><strong>directivity</strong></td>
     </tr>
     <tr>
-      <th scope="row">codeList</th>
-      <td><a href="https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVedlikeholdsansvarligStikkrenneKulvert">https://raw.githubusercontent.com/vegvesen/NVDB-Datakatalogen/master/GMLVedlikeholdsansvarligStikkrenneKulvert</a></td>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The side(s) of a feature that produce the greatest visual significance and/or reflectivity potential.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_directivityMeta</td>
     </tr>
   </tbody>
 </table>
 
-Koder
-
-<table class="code-list-table">
-  <thead>
-    <tr>
-      <th>Kodenavn:</th>
-      <th>Definisjon:</th>
-      <th>Kodeverdi:</th>
-    </tr>
-  </thead>
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
   <tbody>
     <tr>
-      <td>Fylkeskommune</td>
-      <td></td>
-      <td></td>
+      <th scope="row">Navn:</th>
+      <td><strong>directivity.valueOrReason</strong></td>
     </tr>
     <tr>
-      <td>Kommune</td>
-      <td></td>
-      <td></td>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
     </tr>
     <tr>
-      <td>Nye Veier</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>OPS</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Privat</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Statens vegvesen</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Uavklart</td>
-      <td>Verdi benyttes inntil det er avklart hvem som er vedlikeholdsansvarlig.</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Bane NOR</td>
-      <td></td>
-      <td></td>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_directivityReason</td>
     </tr>
   </tbody>
 </table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.<br />-- Description --<br />For non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightOfObject</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The vertical distance measured from the base to the top of the feature that gives the greatest value.<br />-- Description --<br />For example, the Height of Object of a two story building with a basement is three stories while the Height of Object of a man doesn't change as a result of standing in a trench whereas his Height Above Surface Level (based on the prevailing terrain surface level) may be considered to be correspondingly reduced by the depth of the trench.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightOfObject.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The elevation from a specified vertical datum to the highest point on a feature.<br />-- Description --<br />In the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maritimeNavigationMarked</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is significant to maritime safety of navigation and is marked (for example: by a light or beacon) by a maritime-specific navigational aid.<br />-- Description --<br />Mariners may also use other prominent features (for example: rotating aeronautical beacons or lighted structures) for informal navigational purposes.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maritimeNavigationMarked.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>mobileBridgeSpan</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a bridge span moves in some manner to allow passage underneath.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>mobileBridgeSpan.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>overheadClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The least distance between the travelled way and any obstruction vertically above it.<br />-- Description --<br />Reference STANAG 2253.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>overheadClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is permanent.<br />-- Description --<br />Temporary features last, or are meant to last, for a limited time only.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.<br />-- Description --<br />The physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_physicalConditionMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_physicalConditionReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>radarSignificance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The predominant exposed surface material, categorized by its significance to radar-based sensors.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_radarSignificanceMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>radarSignificance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeSuperstructure_radarSignificanceReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictOverheadClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that there is an overhead obstruction located less than 4.3 metres above a land transportation route.<br />-- Description --<br />Vertical clearance affects the maximum height of vehicle loads. (Reference STANAG 2253)<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictOverheadClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+Relasjoner
+
+**Arv**
+FeatureEntity
+
+**Assosiasjoner**
+LandmarkInfo – rolle: navigationLandmarkInfoDescribedBy – kardinalitet: 0..1
+AeronauticalObstacleInfo – rolle: aeroObstacleDescribedBy – kardinalitet: 0..1
+
+#### TransportationPlatform
+
+-- Definition --<br />A permanent raised physical structure which serves as a surface for disembarking or taking on passengers or freight from a form of transport.<br />-- Description --
+
+Egenskaper
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>meansTransportation</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The intended method or means of moving from one place to another related to the feature or the feature's intended use.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..3</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransportationPlatform_meansTransportationMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>meansTransportation.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransportationPlatform_meansTransportationReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>transportationUse</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The primary use(s) of a transportation system.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..2</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransportationPlatform_transportationUseMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>transportationUse.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransportationPlatform_transportationUseReason</td>
+    </tr>
+  </tbody>
+</table>
+
+#### BridgeTower
+
+-- Definition --<br />A tower and/or pylon from which the deck of a bridge is suspended.<br />-- Description --
+
+Egenskaper
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>structMatType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The primary type(s) of material composing a feature, exclusive of the surface.<br />-- Description --<br />The basis for 'primary' may be, for example, compositional dominance or structural organization.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_structMatTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>structMatType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_structMatTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeReferenceNumber</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The unique identifier of a bridge in accordance with the provisions of terrain analysis databases (for example: PTADB or TTADB).<br />-- Description --<br />The identifier is assigned consecutively (for example: within a map sheet or within a local area of interest) and begins with the northwest grid square of the UTM reference system and proceeds from left to right to the east edge of the sheet or area, continuing consecutively in the same way starting back at the west edge of the next line of UTM grid squares below those previously completed. The resulting identifiers are used to index an associated Bridge Information Table.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeReferenceNumber.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousAirCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the air.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_conspicuousAirCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousAirCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_conspicuousAirCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousGroundCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from on the ground.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_conspicuousGroundCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousGroundCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_conspicuousGroundCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousSeaCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the sea.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_conspicuousSeaCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousSeaCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_conspicuousSeaCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>directivity</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The side(s) of a feature that produce the greatest visual significance and/or reflectivity potential.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_directivityMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>directivity.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_directivityReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.<br />-- Description --<br />For non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The elevation from a specified vertical datum to the highest point on a feature.<br />-- Description --<br />In the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maritimeNavigationMarked</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is significant to maritime safety of navigation and is marked (for example: by a light or beacon) by a maritime-specific navigational aid.<br />-- Description --<br />Mariners may also use other prominent features (for example: rotating aeronautical beacons or lighted structures) for informal navigational purposes.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maritimeNavigationMarked.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.<br />-- Description --<br />The physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_physicalConditionMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_physicalConditionReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>pylonConfiguration</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The configuration of a pylon or pole.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_pylonConfigurationMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>pylonConfiguration.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_pylonConfigurationReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>radarSignificance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The predominant exposed surface material, categorized by its significance to radar-based sensors.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_radarSignificanceMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>radarSignificance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_radarSignificanceReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>towerShape</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The general shape and/or structure of a tower.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_towerShapeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>towerShape.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BridgeTower_towerShapeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+Relasjoner
+
+**Arv**
+FeatureEntity
+
+**Assosiasjoner**
+LandmarkInfo – rolle: navigationLandmarkInfoDescribedBy – kardinalitet: 0..1
+AeronauticalObstacleInfo – rolle: aeroObstacleDescribedBy – kardinalitet: 0..1
+
+#### Bridge
+
+-- Definition --<br />A structure that connects two locations and provides for the passage of a transportation route (for example: a road or a railway) over a terrain obstacle (for example: a waterbody, a gully, and/or a road).<br />-- Description --<br />A bridge consists of a set of two abutments and/or zero or more bridge piers joined by bridge spans. A bridge may serve, for example, as an overpass or a viaduct. In the context of a bridge, the scope of the term 'transportation route' includes the transportation of liquids or gases by means of either pipelines or aqueducts.
+
+Egenskaper
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>directivity</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The side(s) of a feature that produce the greatest visual significance and/or reflectivity potential.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_directivityMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>directivity.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_directivityReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>structMatType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The primary type(s) of material composing a feature, exclusive of the surface.<br />-- Description --<br />The basis for 'primary' may be, for example, compositional dominance or structural organization.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_structMatTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>structMatType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_structMatTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>angleOfIntendedPassage</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The angular distance in the horizontal plane measured from true north (0 degrees) clockwise to the path on the feature (0-180 degrees) where passage was intended.<br />-- Description --<br />The path of intended passage may go across or over the feature (ex. a bridge) or through it (ex. a tunnel).<br />-- UnitOfMeasure --<br />arcDegree</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>AngleMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>angleOfIntendedPassage.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>AngleMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeInfoReliability</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The reliability of information regarding bridge military load classification and related characteristics.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_bridgeInfoReliabilityMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeInfoReliability.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_bridgeInfoReliabilityReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthorityIdent</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthorityIdent.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeOpeningType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The type of structure or mechanism by which a bridge or bridge span is moved to allow passage of a vessel.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_bridgeOpeningTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeOpeningType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_bridgeOpeningTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeReferenceNumber</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The unique identifier of a bridge in accordance with the provisions of terrain analysis databases (for example: PTADB or TTADB).<br />-- Description --<br />The identifier is assigned consecutively (for example: within a map sheet or within a local area of interest) and begins with the northwest grid square of the UTM reference system and proceeds from left to right to the east edge of the sheet or area, continuing consecutively in the same way starting back at the west edge of the next line of UTM grid squares below those previously completed. The resulting identifiers are used to index an associated Bridge Information Table.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeReferenceNumber.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeStructureType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The type(s) of structural design of a bridge, bridge span, or bridge superstructure.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_bridgeStructureTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bridgeStructureType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_bridgeStructureTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bypassCondition</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The ease or ability to circumvent a destroyed section of bridge, tunnel or pass within a distance of two kilometres from the feature.<br />-- Description --<br />Bypass condition will not consider other bridges in bypass determination.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_bypassConditionMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bypassCondition.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_bypassConditionReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>colourPattern</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The colour pattern(s) of an aid to navigation (for example: a buoy, a beacon, and/or a navigation light) or other feature of importance to maritime navigation.<br />-- Description --<br />The Attribute: 'Navigation Mark Colour' may be used to specify the colours in the order in which they appear in the pattern.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_colourPatternMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>colourPattern.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_colourPatternReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousAirCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the air.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_conspicuousAirCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousAirCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_conspicuousAirCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousGroundCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from on the ground.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_conspicuousGroundCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousGroundCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_conspicuousGroundCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousSeaCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the sea.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_conspicuousSeaCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousSeaCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_conspicuousSeaCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthority</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The controlling authority responsible for a facility or site.<br />-- Description --<br />Controlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_controllingAuthorityMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthority.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_controllingAuthorityReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>deckCount</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The number of vertically stacked decks, one over another, in a transportation structure (for example: a bridge or a tunnel).<br />-- Description --<br />-- UnitOfMeasure --<br />unitless</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>deckCount.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>elevationMsl</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The vertical distance of a point or a level, on or affixed to the surface of the Earth, measured from Mean Sea Level (MSL).<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>elevationMsl.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>facilityOperationalStatus</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The status of operation of a man-made structure, as a whole.<br />-- Description --<br />Includes actual operations, operational capability, and planned or proposed man-made structures.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_facilityOperationalStatusMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>facilityOperationalStatus.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_facilityOperationalStatusReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.<br />-- Description --<br />For non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The elevation from a specified vertical datum to the highest point on a feature.<br />-- Description --<br />In the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>horizontalClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The distance available to pass a load that extends laterally beyond the wheels of a vehicle.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>horizontalClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType1</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The dynamic live load weight-bearing capacity of a bridge or bridge span for one-way, wheeled vehicle traffic in MLC units.<br />-- Description --<br />Military load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.<br />-- UnitOfMeasure --<br />militaryLoadClass</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType1.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType2</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The dynamic live load weight-bearing capacity of a bridge or bridge span for two-way, wheeled vehicle traffic in MLC units.<br />-- Description --<br />Military load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.<br />-- UnitOfMeasure --<br />militaryLoadClass</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType2.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType3</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The dynamic live load weight-bearing capacity of a bridge or bridge span for one-way, tracked vehicle traffic in MLC units.<br />-- Description --<br />Military load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.<br />-- UnitOfMeasure --<br />militaryLoadClass</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType3.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType4</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The dynamic live load weight-bearing capacity of a bridge or bridge span for two-way, tracked vehicle traffic in MLC units.<br />-- Description --<br />Military load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.<br />-- UnitOfMeasure --<br />militaryLoadClass</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>loadClassType4.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maritimeNavigationMarked</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is significant to maritime safety of navigation and is marked (for example: by a light or beacon) by a maritime-specific navigational aid.<br />-- Description --<br />Mariners may also use other prominent features (for example: rotating aeronautical beacons or lighted structures) for informal navigational purposes.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maritimeNavigationMarked.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumVerticalClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The greatest distance between the travelled way and any obstruction vertically above it.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumVerticalClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>militaryBridgeInformation</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />Information describing a bridge, typically one that is subject to preplanned military interdiction.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>militaryBridgeInformation.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>mobileBridgeSpan</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a bridge span moves in some manner to allow passage underneath.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>mobileBridgeSpan.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>navigationMarkColour</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The colour(s) of a International Association of Lighthouse Authorities (IALA) navigation mark.<br />-- Description --<br />When the navigation mark is patterned, the Attribute: 'Colour Pattern' may be used to identify the pattern and a corresponding list of colours specified.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_navigationMarkColourMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>navigationMarkColour.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_navigationMarkColourReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>overheadClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The least distance between the travelled way and any obstruction vertically above it.<br />-- Description --<br />Reference STANAG 2253.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>overheadClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is permanent.<br />-- Description --<br />Temporary features last, or are meant to last, for a limited time only.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.<br />-- Description --<br />The physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_physicalConditionMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_physicalConditionReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>radarSignificance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The predominant exposed surface material, categorized by its significance to radar-based sensors.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_radarSignificanceMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>radarSignificance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Bridge_radarSignificanceReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictHorizClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that horizontal clearance for vehicles on a land transportation route is restricted.<br />-- Description --<br />Horizontal clearance affects the maximum width of loads that extend laterally beyond the wheels of a vehicle.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictHorizClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictOverheadClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that there is an overhead obstruction located less than 4.3 metres above a land transportation route.<br />-- Description --<br />Vertical clearance affects the maximum height of vehicle loads. (Reference STANAG 2253)<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictOverheadClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>roofed</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is covered by a roof.<br />-- Description --<br />The roof may be supported by spaced pillars with intervening openings or the sides may be completely closed (for example: by walls or windows) and thus afford substantial protection from the weather.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>roofed.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>spanCount</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The number of spans in a bridge.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>spanCount.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>underbridgeClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />Clearance below bridge, measured from the lowest surface level to the base of the lower of either a cross beam or the lowest bridge deck.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>underbridgeClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>verticalClearanceSafe</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The safe vertical clearance of an object measured from the horizontal plane toward the object overhead.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HydroClearRefMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>verticalClearanceSafe.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HydroClearRefReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>waterbodyOverheadObstruct</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that an object is an overhead obstruction over a navigable waterbody.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterString</td>
+    </tr>
+  </tbody>
+</table>
+
+Relasjoner
+
+**Arv**
+FeatureEntity
+
+**Assosiasjoner**
+LandmarkInfo – rolle: navigationLandmarkInfoDescribedBy – kardinalitet: 0..1
+AeronauticalObstacleInfo – rolle: aeroObstacleDescribedBy – kardinalitet: 0..1
+
+#### Tunnel
+
+-- Definition --<br />An underground passage that is open at both ends and usually contains a land transportation route (for example: a road and/or a railway).<br />-- Description --<br />Commonly used to pass through a hill or mountain, or under a river or road. May also provide underground passage in a mine.
+
+Egenskaper
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>angleOfIntendedPassage</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The angular distance in the horizontal plane measured from true north (0 degrees) clockwise to the path on the feature (0-180 degrees) where passage was intended.<br />-- Description --<br />The path of intended passage may go across or over the feature (ex. a bridge) or through it (ex. a tunnel).<br />-- UnitOfMeasure --<br />arcDegree</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>AngleMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>angleOfIntendedPassage.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>AngleMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bypassCondition</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The ease or ability to circumvent a destroyed section of bridge, tunnel or pass within a distance of two kilometres from the feature.<br />-- Description --<br />Bypass condition will not consider other bridges in bypass determination.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_bypassConditionMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>bypassCondition.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_bypassConditionReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthority</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The controlling authority responsible for a facility or site.<br />-- Description --<br />Controlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_controllingAuthorityMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthority.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_controllingAuthorityReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthorityIdent</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthorityIdent.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>crossSectionalProfile</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The cross-sectional profile of an opening (for example: a tunnel or the space under a bridge span).<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_crossSectionalProfileMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>crossSectionalProfile.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_crossSectionalProfileReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>deckCount</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The number of vertically stacked decks, one over another, in a transportation structure (for example: a bridge or a tunnel).<br />-- Description --<br />-- UnitOfMeasure --<br />unitless</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>deckCount.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>IntegerReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>deepDepthBelowSurfLevel</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The distance measured from ground or water level (uphill/upstream side of the feature) to the deepest point of the feature.<br />-- Description --<br />May be used to measure the depth of an inland waterbody (for example: a lake), the depth of a terrain surface depression or excavation (for example: a crevice or trench), the distance to the deepest point of a drilled feature (for example: a water well or borehole) or the distance to the deepest point of a feature located entirely underground (for example: a cave chamber). In the case of a feature located below a waterbody (for example: a non-water well) the reference surface is the waterbody bottom, rather than the waterbody surface.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>deepDepthBelowSurfLevel.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>facilityOperationalStatus</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The status of operation of a man-made structure, as a whole.<br />-- Description --<br />Includes actual operations, operational capability, and planned or proposed man-made structures.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_facilityOperationalStatusMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>facilityOperationalStatus.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_facilityOperationalStatusReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>hazardShelterIntendedUse</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The intended use(s) of a designated hazard protection shelter based on the kind of emergency.<br />-- Description --<br />Hazard shelters may be located inside buildings or other structures. Shelters may be equipped with disaster supplies and equipment such as food and cots.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_hazardShelterIntendedUseMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>hazardShelterIntendedUse.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_hazardShelterIntendedUseReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.<br />-- Description --<br />For non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>horizontalClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The distance available to pass a load that extends laterally beyond the wheels of a vehicle.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>horizontalClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>leastDepthBelowSurfLevel</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The distance measured from ground or water level (uphill/upstream side of the feature) to the highest point of a feature located completely underground.<br />-- Description --<br />For example, in the case of an underground dwelling the least depth below surface level would be measured to its ceiling. The least depth below surface level may be located at ground or water level and therefore have a value of zero (for example: an opencast extraction mine, a terrain depression or a lake). For depths defined with respect to a time-varying water level, consideration should be given to the use of Attribute: 'Hydrographic Depth'.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>leastDepthBelowSurfLevel.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>manMade</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is man-made.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>manMade.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumVerticalClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The greatest distance between the travelled way and any obstruction vertically above it.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>maximumVerticalClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>monitored</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is actively monitored.<br />-- Description --<br />For example, attended or watched over by personnel.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>monitored.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>overheadClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The least distance between the travelled way and any obstruction vertically above it.<br />-- Description --<br />Reference STANAG 2253.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>overheadClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>pedestrianTraversable</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is traversable on foot.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>pedestrianTraversable.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is permanent.<br />-- Description --<br />Temporary features last, or are meant to last, for a limited time only.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.<br />-- Description --<br />The physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_physicalConditionMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_physicalConditionReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictHorizClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that horizontal clearance for vehicles on a land transportation route is restricted.<br />-- Description --<br />Horizontal clearance affects the maximum width of loads that extend laterally beyond the wheels of a vehicle.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictHorizClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>routeTotalUsableWidth</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The total usable width of the travelled way of a route.<br />-- Description --<br />Includes pavements and shoulders.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>routeTotalUsableWidth.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>safeHorizontalClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />Minimum safe horizontal distance between adjacent structures on either side of a navigable channel.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>safeHorizontalClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>structMatType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The primary type(s) of material composing a feature, exclusive of the surface.<br />-- Description --<br />The basis for 'primary' may be, for example, compositional dominance or structural organization.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_structMatTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>structMatType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_structMatTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>verticalRelativeLocation</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The relationship between the feature and the underlying ground (terrain) or waterbody bottom.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_verticalRelativeLocationMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>verticalRelativeLocation.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>Tunnel_verticalRelativeLocationReason</td>
+    </tr>
+  </tbody>
+</table>
+
+Relasjoner
+
+**Arv**
+FeatureEntity
+
+#### TransRouteProtectStruct
+
+-- Definition --<br />A structure built over and/or along a transportation route designed to prevent damage to, or blockage of, the route from rock slides, snow slides and/or weather phenomena.<br />-- Description --<br />For example, a snow shed, a rock shed or a gallery. These structures are usually located in rugged mountainous regions.
+
+Egenskaper
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>structMatType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The primary type(s) of material composing a feature, exclusive of the surface.<br />-- Description --<br />The basis for 'primary' may be, for example, compositional dominance or structural organization.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_structMatTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>structMatType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_structMatTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousAirCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the air.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_conspicuousAirCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousAirCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_conspicuousAirCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousGroundCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from on the ground.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_conspicuousGroundCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousGroundCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_conspicuousGroundCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthorityIdent</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthorityIdent.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousSeaCategory</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The manner in which an object is conspicuous when viewed from the sea.<br />-- Description --<br />A conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_conspicuousSeaCategoryMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>conspicuousSeaCategory.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_conspicuousSeaCategoryReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthority</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The controlling authority responsible for a facility or site.<br />-- Description --<br />Controlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_controllingAuthorityMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>controllingAuthority.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_controllingAuthorityReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>facilityOperationalStatus</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The status of operation of a man-made structure, as a whole.<br />-- Description --<br />Includes actual operations, operational capability, and planned or proposed man-made structures.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_facilityOperationalStatusMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>facilityOperationalStatus.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_facilityOperationalStatusReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>floodlit</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a structure is floodlit.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>floodlit.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.<br />-- Description --<br />For non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The elevation from a specified vertical datum to the highest point on a feature.<br />-- Description --<br />In the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>horizontalClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The distance available to pass a load that extends laterally beyond the wheels of a vehicle.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>horizontalClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureIntervalReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>overheadClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The least distance between the travelled way and any obstruction vertically above it.<br />-- Description --<br />Reference STANAG 2253.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>overheadClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that a feature is permanent.<br />-- Description --<br />Temporary features last, or are meant to last, for a limited time only.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>permanent.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.<br />-- Description --<br />The physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_physicalConditionMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>physicalCondition.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_physicalConditionReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictHorizClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An indication that horizontal clearance for vehicles on a land transportation route is restricted.<br />-- Description --<br />Horizontal clearance affects the maximum width of loads that extend laterally beyond the wheels of a vehicle.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>restrictHorizClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>BooleanReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>safeHorizontalClearance</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />Minimum safe horizontal distance between adjacent structures on either side of a navigable channel.<br />-- Description --<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>safeHorizontalClearance.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>MeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>transRteProtStructType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The type of a transportation route protection structure based on its configuration and/or intended purpose.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_transRteProtStructTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>transRteProtStructType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_transRteProtStructTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>verticalRelativeLocation</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The relationship between the feature and the underlying ground (terrain) or waterbody bottom.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_verticalRelativeLocationMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>verticalRelativeLocation.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>TransRouteProtectStruct_verticalRelativeLocationReason</td>
+    </tr>
+  </tbody>
+</table>
+
+Relasjoner
+
+**Arv**
+FeatureEntity
+
+**Assosiasjoner**
+LandmarkInfo – rolle: navigationLandmarkInfoDescribedBy – kardinalitet: 0..1
+
+#### MiscFeatureType
+
+-- Definition --<br />Any feature type that falls within the scope of a feature type domain (for example: a feature coverage or a product specification) but is not explicitly specified in that domain.<br />-- Description --<br />May be used to allow for the flexible capture of feature instances that are unanticipated at the time of specifying the feature type domain. This ensures that feature instances deemed important for a particular mission and/or user can be captured, even though the most appropriate feature type is not used.
+
+Egenskaper
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The elevation from a specified vertical datum to the highest point on a feature.<br />-- Description --<br />In the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>highestElevation.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>ElevationMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>miscFeatureTypeDescription</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An explanation of the feature being captured such that a user of the data can understand what is being represented by the geometry.<br />-- Description --<br />When the use of MiscFeatureType is required to capture an unanticipated feature instance, this description will enable the end-user to understand what has been captured and represented by the feature geometry.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>miscFeatureTypeDescription.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.<br />-- Description --<br />For non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.<br />-- UnitOfMeasure --<br />metre</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>heightAboveSurfaceLevel.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>HeightMeasureReason</td>
+    </tr>
+  </tbody>
+</table>
+
+Relasjoner
+
+**Arv**
+FeatureEntity
+
+**Assosiasjoner**
+AeronauticalObstacleInfo – rolle: aeroObstacleDescribedBy – kardinalitet: 0..1
+AddressInfo – rolle: hasLocationAddress – kardinalitet: 0..*
+HumanActivityCapacityInfo – rolle: hasCapacity – kardinalitet: 0..*
+
+#### FeatureEntity (abstrakt)
+
+-- Definition --<br />An abstract modeling entity that is a superclass for feature types, which are representations of temporally persistent real-world phenomena, including their geometric position and extent.<br />-- Description --<br />The concept of a 'feature' is that of the ISO 19100-series standards and as such is not constrained to any specific representation; for example, surface representation such as grids and images are allowed in addition to vector representations.
+
+Egenskaper
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>geometry</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />Specification(s) of the location where an object (such as: a facility, instrument, or actor) exists, or where an event occurs.<br />-- Description --<br />A location may be spatially localized as a zero-dimensional point or spatially extensive in one or more dimensions (for example: a curve, a surface, or a volume). An entity that consists of components with different locations (for example: the Great Lakes) may be characterized itself as having multiple distinct locations. An entity may have multiple specifications of its location(s) based on the quality and accuracy of each approximating representation.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>GM_Object</td>
+    </tr>
+  </tbody>
+</table>
+
+Relasjoner
+
+**Arv**
+Entity
+
+**Assosiasjoner**
+FeatureMetadata – rolle: featureMetadata – kardinalitet: 1
+GeoNameInfo – kardinalitet: 0..*
+SourceInfo – rolle: sourceInfoDescribedBy – kardinalitet: 0..*
+RestrictionInfo – rolle: restrictionInfo – kardinalitet: 1
+
+#### IdentifiedQualityIssue
+
+-- Definition --<br />A modeling entity where issues with data quality are identified.<br />-- Description --<br />For example, the identification of specific known problems in the data that could not be fixed within the context of the dataset delivery. This feature indicates to the user the potential need for caution when utilizing any data that touches, crosses, or exists within the identified location.
+
+Egenskaper
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>qualityIssueImpact</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An explanation of the assessed impact of the identified quality issue on data utilization.<br />-- Description --<br /><br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>qualityIssueImpact.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>qualityIssueDescription</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />An explanation of the type, nature, or origin of the identified quality issue.<br />-- Description --<br />The intent of this attribute is to fully inform data users of the scope and breadth of the quality issue so that informed decisions can be made to how the data is employed.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>qualityIssueDescription.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+Relasjoner
+
+**Arv**
+FeatureEntity
+
+#### VoidCollectionArea
+
+-- Definition --<br />A data collection region lacking suitable source coverage and/or where data is not required.<br />-- Description --
+
+Egenskaper
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>voidCollectionReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The reason(s) that geospatial data was not collected.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>VoidCollectionArea_voidCollectionReasonMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>voidCollectionReason.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>VoidCollectionArea_voidCollectionReasonReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>voidCollectionType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The type(s) of geospatial data that were not collected.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>VoidCollectionArea_voidCollectionTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>voidCollectionType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>VoidCollectionArea_voidCollectionTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+Relasjoner
+
+**Arv**
+FeatureEntity
+
+#### GeneralLocation
+
+-- Definition --<br />A location that normally does not appear as a specific, characterized object but that has either a name that is required to be displayed or other specific information associated with that location.<br />-- Description --<br />For example, the name of the Alps or the Sahara.
+
+Egenskaper
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>namedLocationType</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The type of a location that normally does not appear as a specific, characterized object but that has a name that is required to be displayed in association with that location.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>GeneralLocation_namedLocationTypeMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>namedLocationType.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>GeneralLocation_namedLocationTypeReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>thematicClassification</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The classification of a feature among geographic themes.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>GeneralLocation_thematicClassificationMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>thematicClassification.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>GeneralLocation_thematicClassificationReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>informationReference</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />A reference to an external source or additional information.<br />-- Description --<br />For example a hyperlink.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>informationReference.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+Relasjoner
+
+**Arv**
+FeatureEntity
+
+**Assosiasjoner**
+AddressInfo – rolle: hasLocationAddress – kardinalitet: 0..*
+
+#### OrganisationalUnit
+
+-- Definition --<br />An actor established to manage the performance of activities to achieve one or more purposes of an organisation.<br />-- Description --<br />For example, a task unit or local office group.
+
+Egenskaper
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>contactInfo</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />The telephone, postal, electronic and/or other contact information for a facility, organisation or person.<br />-- Description --<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CI_ContactMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>contactInfo.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CI_ContactReason</td>
+    </tr>
+  </tbody>
+</table>
+
+Relasjoner
+
+**Arv**
+ActorEntity
+
+**Assosiasjoner**
+Organisation – rolle: mainOrganisation – kardinalitet: 0..*

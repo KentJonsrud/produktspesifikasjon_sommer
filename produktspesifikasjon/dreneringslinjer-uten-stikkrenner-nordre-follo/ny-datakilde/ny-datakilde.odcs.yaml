@@ -6,2017 +6,3806 @@ version: 1.0.0
 status: active
 name: Dreneringslinjer uten stikkrenner Nordre Follo - Ny datakilde
 schema:
-- name: StikkrenneKulvertPunkt
-  physicalName: stikkrennekulvertpunkt
+- name: TunnelMouth
+  physicalName: tunnelmouth
   logicalType: object
   physicalType: table
-  description: pppp
+  description: '-- Definition --
+
+    The opening of a tunnel into a larger space (for example: onto the terrain surface).
+
+    -- Description --
+
+    A tunnel is usually open to the terrain surface at both ends, but may sometimes
+    lead to an enclosed space, for example: leading to an underground bunker, into
+    an underground mine (termed an ''adit'') or into an underground railway station.'
   customProperties:
   - property: sosiObjektType
-    value: StikkrenneKulvertPunkt
-  - property: inheritsFrom
-    value: StikkrenneKulvert-NVDB
+    value: TunnelMouth
   properties:
-  - name: identifikasjon
+  - name: crossSectionalProfile
     logicalType: object
     properties:
-    - name: lokalId
+    - name: valueOrReason
       logicalType: string
-      description: 'lokal identifikator av et objekt
-
-
-        Merknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren
-        er unik innenfor navnerommet. For FKB-data benyttes UUID som lokalId.'
       required: true
-    - name: navnerom
-      logicalType: string
-      description: 'navnerom som unikt identifiserer datakilden til et objekt, anbefales
-        å være en http-URI
+    description: '-- Definition --
 
+      The cross-sectional profile of an opening (for example: a tunnel or the space
+      under a bridge span).
 
-        Eksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0
+      -- Description --
 
-
-        Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar
-        for de unike identifikatorene og må være registrert i data.geonorge.no eller
-        data.norge.no'
-      required: true
-    - name: versjonId
-      logicalType: string
-      description: identifikasjon av en spesiell versjon av et geografisk objekt (instans)
-    description: unik identifikasjon av et objekt
-    required: true
-  - name: eksternPeker
-    logicalType: string
-    description: referanse til objektet i et eksternt system, som ikke er Nasjonal
-      vegdatabank (NVDB).
-  - name: nvdbPeker
-    logicalType: string
-    description: referanse til objektet i Nasjonal vegdatabank (NVDB).
-  - name: datafangstdato
-    logicalType: date
-    description: 'dato når objektet siste gang ble registrert/observert/målt i terrenget
-
-
-      Merknad: I mange tilfeller er denne forskjellig fra oppdateringsdato, da registrerte
-      endringer kan bufres i en kortere eller lengre periode før disse legges inn
-      i databasen.
-
-      Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.'
-    required: true
-  - name: verifiseringsdato
-    logicalType: date
-    description: 'dato når dataene er fastslått å være i samsvar med virkeligheten
-
-
-      Merknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI'
-  - name: kvalitet
-    logicalType: array
-    items:
-      logicalType: object
-      properties:
-      - name: datafangstmetode
-        logicalType: string
-        logicalTypeOptions:
-          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
-        customProperties:
-        - property: allowedValues
-          value:
-          - value: byg
-            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
-              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
-          - value: ukj
-            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
-          - value: pla
-            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
-              med innmåling.
-          - value: sat
-            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
-              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
-              Landmåling benyttes)
-          - value: gen
-            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
-              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
-              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
-              typer sensordata.
-          - value: fot
-            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
-              stereomodell
-          - value: dig
-            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
-              plane kartdata
-          - value: lan
-            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
-              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
-              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
-              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
-              utføres normalt med overskytende målinger og utjevning av resultatet.
-        description: 'metode for datafangst.
-
-          Egenskapen beskriver datafangstmetode for grunnrisskoordinater (x,y), eller
-          for både grunnriss og høyde (x,y,z) dersom det ikke er oppgitt noen verdi
-          for datafangstmetodeHøyde.'
-        required: true
-      - name: nøyaktighet
-        logicalType: integer
-        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
-
-
-          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
-          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
-
-
-          For objekter med punktgeometri benyttes verdi for punktstandardavvik. For
-          objekter med kurvegeometri benyttes standardavviket for tverravviket fra
-          kurva. For objekter med overflate- eller volumgeometri er forståelsen at
-          standardavviket beregnes ut fra (3D) avvikene mellom sann posisjon og nærmeste
-          punkt på overflata.
-
-
-          Merknad:
-
-          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
-          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
-          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
-          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
-          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
-          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
-          defineres, beregnes og kontrolleres.'
-      - name: synbarhet
-        logicalType: string
-        logicalTypeOptions:
-          pattern: ^(2|3|0|1)$
-        customProperties:
-        - property: allowedValues
-          value:
-          - value: '2'
-            label: Middels synlig - Objektet er middels synlig/gjenkjennbart i flybilde
-              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
-              brukes denne koden for objekter som har lav kontrast eller er delvis
-              skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.).
-              For slike objekter settes en større verdi for nøyaktighet enn kravet
-              (opptil 3 ganger kravet)
-          - value: '3'
-            label: Ikke synlig - Objektet er ikke synlig/gjenkjennbart i flybilde
-              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
-              brukes denne koden for objekter som er helt skjult av overliggende objekter
-              (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en
-              stor verdi for nøyaktighet (mer enn 3 ganger kravet)
-          - value: '0'
-            label: Fullt ut synlig - Objektet er fullt ut synlig/gjenfinnbart i flybilde
-              eller annen datakilde for posisjonering. Ved fotogrammetrisk registrering
-              skal objekter som er fullt ut synlige registreres i tråd med angitte
-              krav til nøyaktig registrering.
-          - value: '1'
-            label: Dårlig gjenfinnbar i terreng - Objektets posisjon er vanskelig
-              å definere presist i terrenget på grunn av objektets natur eller manglende
-              kontrast mot omgivelsene. Koden kan f.eks. brukes på høydekurver (eller
-              andre isolinjer) eller objekter som er skjult i bakken (f.eks. innmåling
-              av ledninger på lukket grøft)
-        description: beskrivelse av hvor godt objektene framgår i datagrunnlaget for
-          posisjonering (f.eks. flybildene).
-      - name: datafangstmetodeHøyde
-        logicalType: string
-        logicalTypeOptions:
-          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
-        customProperties:
-        - property: allowedValues
-          value:
-          - value: byg
-            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
-              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
-          - value: ukj
-            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
-          - value: pla
-            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
-              med innmåling.
-          - value: sat
-            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
-              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
-              Landmåling benyttes)
-          - value: gen
-            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
-              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
-              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
-              typer sensordata.
-          - value: fot
-            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
-              stereomodell
-          - value: dig
-            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
-              plane kartdata
-          - value: lan
-            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
-              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
-              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
-              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
-              utføres normalt med overskytende målinger og utjevning av resultatet.
-        description: 'metoden brukt for høyderegistrering av posisjon.
-
-
-          Det er bare nødvending å angi en verdi for egenskapen dersom datafangstmetode
-          for høyde avviker fra datafangstmetode for grunnriss.'
-      - name: nøyaktighetHøyde
-        logicalType: integer
-        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
-
-
-          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
-          for standardavviket, men dersom man faktisk har standardavviket til posisjoneringa
-          av objektet oppgitt i cm
-
-
-          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
-          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
-
-
-          Merknad:
-
-          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
-          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
-          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
-          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
-          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
-          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
-          defineres, beregnes og kontrolleres.'
-    description: 'beskrivelse av kvaliteten på stedfestingen
-
-
-      Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.'
-    required: true
-  - name: medium
-    logicalType: array
-    items:
-      logicalType: string
-      authoritativeDefinitions:
-      - url: https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium
-        type: businessDefinition
-      customProperties:
-      - property: sosiCodeList
-        value: Medium
-      - property: asDictionary
-        value: 'true'
-    description: 'objektets beliggenhet i forhold til jordoverflaten
-
-
-      Eksempel:
-
-      På bro, i tunnel, inne i et bygningsmessig anlegg, etc.'
-  - name: informasjon
-    logicalType: array
-    items:
-      logicalType: string
-    description: 'generell opplysning
-
-
-      Merknad:
-
-      mulighet til å legge inn utfyllende informasjon om objektet'
-  - name: høydereferanse
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(toppUtvendig|toppInnvendig|senter|bunnInnvendig|underkantUtvendig|påBakken|fot|ukjent)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: toppUtvendig
-        label: høydereferansen er til toppen av komponenten
-      - value: toppInnvendig
-        label: høydereferansen er topp innvendig komponent
-      - value: senter
-        label: 'høydereferansen er senter innvendig
-
-
-          Eksempel: Dersom en ønsker å representere volumet på rør, kan dette gjøres
-          med å angi LedningHøydereferanse = senter og supplere dette med passende
-          radius.'
-      - value: bunnInnvendig
-        label: 'høydereferansen er bunn innvendig
-
-
-          Eksempel: Dette er nyttig når en skal modellere fall på avløpsrør'
-      - value: underkantUtvendig
-        label: høydereferansen er bunn utvendig
-      - value: påBakken
-        label: 'høydereferanse er på bakken
-
-
-          Merknad: Mange ledninger er målt på lukket grøft'
-      - value: fot
-        label: naturlig å bruke for eksempel på master/mastefundamenter
-      - value: ukjent
-        label: brukes der det ikke er kjent hva som er benyttet som høydereferanse
-    description: koordinatregistering utført på topp eller bunn av et objekt
-  - name: tilknyttetLukkaDren
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn
-      i et lukket dreneringssystem.
-  - name: gjennomløpForElvBekk
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om elv/bekk renner gjennom stikkrenne/kulvert.
-  - name: materialtype
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(betong|eternitt|naturstein|plast|stål|tre)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: betong
-        label: Betong
-      - value: eternitt
-        label: Eternitt
-      - value: naturstein
-        label: Naturstein
-      - value: plast
-        label: Plast
-      - value: stål
-        label: Stål - Stål
-      - value: tre
-        label: Tre
-    description: Angir materialtype.
-  - name: tverrsnittsform
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ellipseform|flatbunnetMedHvelv|rektangulær|sirkulær)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ellipseform
-        label: Ellipseform
-      - value: flatbunnetMedHvelv
-        label: Flatbunnet med hvelv
-      - value: rektangulær
-        label: Rektangulær - Rektangulær
-      - value: sirkulær
-        label: Sirkulær - Sirkulær
-    description: Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.
-  - name: typeInnløp
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(kumOverStikkrenne|åpenGrøft|åpenGrøftMedStøtteskjold|åpenMedFrontmur|åpenMedVingemur)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: kumOverStikkrenne
-        label: Kum over stikkrenne
-      - value: åpenGrøft
-        label: Åpent i grøft - Vann renner inn direkte fra åpen grøft.
-      - value: åpenGrøftMedStøtteskjold
-        label: Åpent i grøft med støtteskjold - Åpen i grøft med støtteskjold
-      - value: åpenMedFrontmur
-        label: Åpent med frontmur - Åpent med frontmur
-      - value: åpenMedVingemur
-        label: Åpent med vingemur - Åpent med vingemur
-    description: Angir hvilken type innløp det er i ei stikkrenne.
-  - name: typeUtløp
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(bekkElv|kum|skråningTerreng|åpenGrøft)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: bekkElv
-        label: I bekk/elv - Vann ledes ut i bekk/elv.
-      - value: kum
-        label: Kum - Vann ledes til kum.
-      - value: skråningTerreng
-        label: I skråning/terreng - Vann ledes ut i skråning eller ut i terreng.
-      - value: åpenGrøft
-        label: Åpen grøft - Vann ledes til åpen grøft
-    description: Angir hvilken type utløp det er i ei stikkrenne.
-  - name: lengde
-    logicalType: number
-    description: Angir lengde av vegobjektet.
-  - name: bredde_Innvendig
-    logicalType: number
-    description: Angir innvendig bredde av gjennomløpskonstruksjon. Ikke aktuell for
-      sirkulære tverrsnitt.
-  - name: høyde_Innvendig
-    logicalType: number
-    description: Angir innvendig høyde av gjennomløpskonstruksjon. Tar ikke hensyn
-      til ev. igjenfylling i bunn av konstruksjon.
-  - name: overfyllingInnløp
-    logicalType: number
-    description: Angir tykkelsen på overfylling ved innløp. Det vil si tykkelse fra
-      topp av stikkrenne til topp dekke.
-  - name: harInnløpsrist
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om det er innløpsrist i tilknytning til vegobjektet.
-  - name: varmekabler
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.
-  - name: etableringsår
-    logicalType: number
-    description: Angir hvilket år vegobjektet ble etablert på stedet.
-  - name: tilleggsinformasjon
-    logicalType: string
-    description: Supplerende informasjon om vegobjektet som ikke framkommer direkte
-      av andre egenskapstyper, kan f.eks. være spesielle forhold knyttet til oppbygging,
-      utdyping av spesielle problem, m.m.
-  - name: FKB_ID
-    logicalType: string
-    description: Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning
-      av geometri.
-  - name: eier
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(fylkeskommune|kommune|nyeVeier|privat|statensVegvesen|uavklart|baneNor)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: fylkeskommune
-        label: Fylkeskommune
-      - value: kommune
-        label: Kommune
-      - value: nyeVeier
-        label: Stat, Nye Veier - Nye Veier
-      - value: privat
-        label: Privat
-      - value: statensVegvesen
-        label: Stat, Statens vegvesen - Statens vegvesen
-      - value: uavklart
-        label: Uavklart - Verdi benyttes inntil det er avklart hvem som er eier (ingen
-          verdi tolkes som at vegeier er eier).
-      - value: baneNor
-        label: Stat, Bane NOR - Bane NOR
-    description: Angir hvem som er eier av vegobjektet.
-  - name: vedlikeholdsansvarlig
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(Fylkeskommune|Kommune|Nye\ Veier|OPS|Privat|Statens\ vegvesen|Uavklart|Bane\
-        NOR)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: Fylkeskommune
-        label: Fylkeskommune
-      - value: Kommune
-        label: Kommune
-      - value: Nye Veier
-        label: Nye Veier
-      - value: OPS
-        label: OPS
-      - value: Privat
-        label: Privat
-      - value: Statens vegvesen
-        label: Statens vegvesen
-      - value: Uavklart
-        label: Verdi benyttes inntil det er avklart hvem som er vedlikeholdsansvarlig.
-      - value: Bane NOR
-        label: Bane NOR
-    description: Angir hvem som er ansvarlig for vedlikehold av vegobjektet.
-  - name: posisjon
-    logicalType: object
-    physicalType: geometry(Point)
-    required: true
-    customProperties:
-    - property: geometryType
-      value: Point
-- name: StikkrenneKulvertFlate
-  physicalName: stikkrennekulvertflate
+      -- UnitOfMeasure --'
+- name: TurnaroundSite
+  physicalName: turnaroundsite
   logicalType: object
   physicalType: table
-  description: kkkk
+  description: '-- Definition --
+
+    A shaped area at the terminus of a road that provides sufficient turning space
+    allowing incoming traffic to turn around and exit without performing a stop-and-change-direction
+    manoeuvre.
+
+    -- Description --
+
+    Construction is typically in the form of a defined shape (for example: circle,
+    loop, or crescent). A median-like structure may exist in the center of the turnaround
+    site, thus ensuring a well-defined pattern of vehicle movement. In residential
+    areas the turnaround site often has multiple adjoining properties, each of which
+    may have a separate driveway and/or defined parking area along the perimeter of
+    the shaped area.'
   customProperties:
   - property: sosiObjektType
-    value: StikkrenneKulvertFlate
+    value: TurnaroundSite
   - property: inheritsFrom
-    value: StikkrenneKulvert-NVDB
+    value: FeatureEntity
   properties:
-  - name: identifikasjon
-    logicalType: object
-    properties:
-    - name: lokalId
-      logicalType: string
-      description: 'lokal identifikator av et objekt
-
-
-        Merknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren
-        er unik innenfor navnerommet. For FKB-data benyttes UUID som lokalId.'
-      required: true
-    - name: navnerom
-      logicalType: string
-      description: 'navnerom som unikt identifiserer datakilden til et objekt, anbefales
-        å være en http-URI
-
-
-        Eksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0
-
-
-        Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar
-        for de unike identifikatorene og må være registrert i data.geonorge.no eller
-        data.norge.no'
-      required: true
-    - name: versjonId
-      logicalType: string
-      description: identifikasjon av en spesiell versjon av et geografisk objekt (instans)
-    description: unik identifikasjon av et objekt
-    required: true
-  - name: eksternPeker
-    logicalType: string
-    description: referanse til objektet i et eksternt system, som ikke er Nasjonal
-      vegdatabank (NVDB).
-  - name: nvdbPeker
-    logicalType: string
-    description: referanse til objektet i Nasjonal vegdatabank (NVDB).
-  - name: datafangstdato
-    logicalType: date
-    description: 'dato når objektet siste gang ble registrert/observert/målt i terrenget
-
-
-      Merknad: I mange tilfeller er denne forskjellig fra oppdateringsdato, da registrerte
-      endringer kan bufres i en kortere eller lengre periode før disse legges inn
-      i databasen.
-
-      Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.'
-    required: true
-  - name: verifiseringsdato
-    logicalType: date
-    description: 'dato når dataene er fastslått å være i samsvar med virkeligheten
-
-
-      Merknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI'
-  - name: kvalitet
-    logicalType: array
-    items:
-      logicalType: object
-      properties:
-      - name: datafangstmetode
-        logicalType: string
-        logicalTypeOptions:
-          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
-        customProperties:
-        - property: allowedValues
-          value:
-          - value: byg
-            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
-              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
-          - value: ukj
-            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
-          - value: pla
-            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
-              med innmåling.
-          - value: sat
-            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
-              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
-              Landmåling benyttes)
-          - value: gen
-            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
-              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
-              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
-              typer sensordata.
-          - value: fot
-            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
-              stereomodell
-          - value: dig
-            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
-              plane kartdata
-          - value: lan
-            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
-              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
-              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
-              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
-              utføres normalt med overskytende målinger og utjevning av resultatet.
-        description: 'metode for datafangst.
-
-          Egenskapen beskriver datafangstmetode for grunnrisskoordinater (x,y), eller
-          for både grunnriss og høyde (x,y,z) dersom det ikke er oppgitt noen verdi
-          for datafangstmetodeHøyde.'
-        required: true
-      - name: nøyaktighet
-        logicalType: integer
-        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
-
-
-          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
-          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
-
-
-          For objekter med punktgeometri benyttes verdi for punktstandardavvik. For
-          objekter med kurvegeometri benyttes standardavviket for tverravviket fra
-          kurva. For objekter med overflate- eller volumgeometri er forståelsen at
-          standardavviket beregnes ut fra (3D) avvikene mellom sann posisjon og nærmeste
-          punkt på overflata.
-
-
-          Merknad:
-
-          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
-          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
-          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
-          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
-          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
-          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
-          defineres, beregnes og kontrolleres.'
-      - name: synbarhet
-        logicalType: string
-        logicalTypeOptions:
-          pattern: ^(2|3|0|1)$
-        customProperties:
-        - property: allowedValues
-          value:
-          - value: '2'
-            label: Middels synlig - Objektet er middels synlig/gjenkjennbart i flybilde
-              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
-              brukes denne koden for objekter som har lav kontrast eller er delvis
-              skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.).
-              For slike objekter settes en større verdi for nøyaktighet enn kravet
-              (opptil 3 ganger kravet)
-          - value: '3'
-            label: Ikke synlig - Objektet er ikke synlig/gjenkjennbart i flybilde
-              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
-              brukes denne koden for objekter som er helt skjult av overliggende objekter
-              (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en
-              stor verdi for nøyaktighet (mer enn 3 ganger kravet)
-          - value: '0'
-            label: Fullt ut synlig - Objektet er fullt ut synlig/gjenfinnbart i flybilde
-              eller annen datakilde for posisjonering. Ved fotogrammetrisk registrering
-              skal objekter som er fullt ut synlige registreres i tråd med angitte
-              krav til nøyaktig registrering.
-          - value: '1'
-            label: Dårlig gjenfinnbar i terreng - Objektets posisjon er vanskelig
-              å definere presist i terrenget på grunn av objektets natur eller manglende
-              kontrast mot omgivelsene. Koden kan f.eks. brukes på høydekurver (eller
-              andre isolinjer) eller objekter som er skjult i bakken (f.eks. innmåling
-              av ledninger på lukket grøft)
-        description: beskrivelse av hvor godt objektene framgår i datagrunnlaget for
-          posisjonering (f.eks. flybildene).
-      - name: datafangstmetodeHøyde
-        logicalType: string
-        logicalTypeOptions:
-          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
-        customProperties:
-        - property: allowedValues
-          value:
-          - value: byg
-            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
-              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
-          - value: ukj
-            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
-          - value: pla
-            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
-              med innmåling.
-          - value: sat
-            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
-              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
-              Landmåling benyttes)
-          - value: gen
-            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
-              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
-              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
-              typer sensordata.
-          - value: fot
-            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
-              stereomodell
-          - value: dig
-            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
-              plane kartdata
-          - value: lan
-            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
-              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
-              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
-              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
-              utføres normalt med overskytende målinger og utjevning av resultatet.
-        description: 'metoden brukt for høyderegistrering av posisjon.
-
-
-          Det er bare nødvending å angi en verdi for egenskapen dersom datafangstmetode
-          for høyde avviker fra datafangstmetode for grunnriss.'
-      - name: nøyaktighetHøyde
-        logicalType: integer
-        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
-
-
-          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
-          for standardavviket, men dersom man faktisk har standardavviket til posisjoneringa
-          av objektet oppgitt i cm
-
-
-          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
-          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
-
-
-          Merknad:
-
-          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
-          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
-          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
-          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
-          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
-          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
-          defineres, beregnes og kontrolleres.'
-    description: 'beskrivelse av kvaliteten på stedfestingen
-
-
-      Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.'
-    required: true
-  - name: medium
-    logicalType: array
-    items:
-      logicalType: string
-      authoritativeDefinitions:
-      - url: https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium
-        type: businessDefinition
-      customProperties:
-      - property: sosiCodeList
-        value: Medium
-      - property: asDictionary
-        value: 'true'
-    description: 'objektets beliggenhet i forhold til jordoverflaten
-
-
-      Eksempel:
-
-      På bro, i tunnel, inne i et bygningsmessig anlegg, etc.'
-  - name: informasjon
-    logicalType: array
-    items:
-      logicalType: string
-    description: 'generell opplysning
-
-
-      Merknad:
-
-      mulighet til å legge inn utfyllende informasjon om objektet'
-  - name: høydereferanse
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(toppUtvendig|toppInnvendig|senter|bunnInnvendig|underkantUtvendig|påBakken|fot|ukjent)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: toppUtvendig
-        label: høydereferansen er til toppen av komponenten
-      - value: toppInnvendig
-        label: høydereferansen er topp innvendig komponent
-      - value: senter
-        label: 'høydereferansen er senter innvendig
-
-
-          Eksempel: Dersom en ønsker å representere volumet på rør, kan dette gjøres
-          med å angi LedningHøydereferanse = senter og supplere dette med passende
-          radius.'
-      - value: bunnInnvendig
-        label: 'høydereferansen er bunn innvendig
-
-
-          Eksempel: Dette er nyttig når en skal modellere fall på avløpsrør'
-      - value: underkantUtvendig
-        label: høydereferansen er bunn utvendig
-      - value: påBakken
-        label: 'høydereferanse er på bakken
-
-
-          Merknad: Mange ledninger er målt på lukket grøft'
-      - value: fot
-        label: naturlig å bruke for eksempel på master/mastefundamenter
-      - value: ukjent
-        label: brukes der det ikke er kjent hva som er benyttet som høydereferanse
-    description: koordinatregistering utført på topp eller bunn av et objekt
-  - name: tilknyttetLukkaDren
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn
-      i et lukket dreneringssystem.
-  - name: gjennomløpForElvBekk
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om elv/bekk renner gjennom stikkrenne/kulvert.
-  - name: materialtype
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(betong|eternitt|naturstein|plast|stål|tre)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: betong
-        label: Betong
-      - value: eternitt
-        label: Eternitt
-      - value: naturstein
-        label: Naturstein
-      - value: plast
-        label: Plast
-      - value: stål
-        label: Stål - Stål
-      - value: tre
-        label: Tre
-    description: Angir materialtype.
-  - name: tverrsnittsform
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ellipseform|flatbunnetMedHvelv|rektangulær|sirkulær)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ellipseform
-        label: Ellipseform
-      - value: flatbunnetMedHvelv
-        label: Flatbunnet med hvelv
-      - value: rektangulær
-        label: Rektangulær - Rektangulær
-      - value: sirkulær
-        label: Sirkulær - Sirkulær
-    description: Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.
-  - name: typeInnløp
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(kumOverStikkrenne|åpenGrøft|åpenGrøftMedStøtteskjold|åpenMedFrontmur|åpenMedVingemur)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: kumOverStikkrenne
-        label: Kum over stikkrenne
-      - value: åpenGrøft
-        label: Åpent i grøft - Vann renner inn direkte fra åpen grøft.
-      - value: åpenGrøftMedStøtteskjold
-        label: Åpent i grøft med støtteskjold - Åpen i grøft med støtteskjold
-      - value: åpenMedFrontmur
-        label: Åpent med frontmur - Åpent med frontmur
-      - value: åpenMedVingemur
-        label: Åpent med vingemur - Åpent med vingemur
-    description: Angir hvilken type innløp det er i ei stikkrenne.
-  - name: typeUtløp
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(bekkElv|kum|skråningTerreng|åpenGrøft)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: bekkElv
-        label: I bekk/elv - Vann ledes ut i bekk/elv.
-      - value: kum
-        label: Kum - Vann ledes til kum.
-      - value: skråningTerreng
-        label: I skråning/terreng - Vann ledes ut i skråning eller ut i terreng.
-      - value: åpenGrøft
-        label: Åpen grøft - Vann ledes til åpen grøft
-    description: Angir hvilken type utløp det er i ei stikkrenne.
-  - name: lengde
-    logicalType: number
-    description: Angir lengde av vegobjektet.
-  - name: bredde_Innvendig
-    logicalType: number
-    description: Angir innvendig bredde av gjennomløpskonstruksjon. Ikke aktuell for
-      sirkulære tverrsnitt.
-  - name: høyde_Innvendig
-    logicalType: number
-    description: Angir innvendig høyde av gjennomløpskonstruksjon. Tar ikke hensyn
-      til ev. igjenfylling i bunn av konstruksjon.
-  - name: overfyllingInnløp
-    logicalType: number
-    description: Angir tykkelsen på overfylling ved innløp. Det vil si tykkelse fra
-      topp av stikkrenne til topp dekke.
-  - name: harInnløpsrist
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om det er innløpsrist i tilknytning til vegobjektet.
-  - name: varmekabler
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.
-  - name: etableringsår
-    logicalType: number
-    description: Angir hvilket år vegobjektet ble etablert på stedet.
-  - name: tilleggsinformasjon
-    logicalType: string
-    description: Supplerende informasjon om vegobjektet som ikke framkommer direkte
-      av andre egenskapstyper, kan f.eks. være spesielle forhold knyttet til oppbygging,
-      utdyping av spesielle problem, m.m.
-  - name: FKB_ID
-    logicalType: string
-    description: Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning
-      av geometri.
-  - name: eier
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(fylkeskommune|kommune|nyeVeier|privat|statensVegvesen|uavklart|baneNor)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: fylkeskommune
-        label: Fylkeskommune
-      - value: kommune
-        label: Kommune
-      - value: nyeVeier
-        label: Stat, Nye Veier - Nye Veier
-      - value: privat
-        label: Privat
-      - value: statensVegvesen
-        label: Stat, Statens vegvesen - Statens vegvesen
-      - value: uavklart
-        label: Uavklart - Verdi benyttes inntil det er avklart hvem som er eier (ingen
-          verdi tolkes som at vegeier er eier).
-      - value: baneNor
-        label: Stat, Bane NOR - Bane NOR
-    description: Angir hvem som er eier av vegobjektet.
-  - name: vedlikeholdsansvarlig
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(Fylkeskommune|Kommune|Nye\ Veier|OPS|Privat|Statens\ vegvesen|Uavklart|Bane\
-        NOR)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: Fylkeskommune
-        label: Fylkeskommune
-      - value: Kommune
-        label: Kommune
-      - value: Nye Veier
-        label: Nye Veier
-      - value: OPS
-        label: OPS
-      - value: Privat
-        label: Privat
-      - value: Statens vegvesen
-        label: Statens vegvesen
-      - value: Uavklart
-        label: Verdi benyttes inntil det er avklart hvem som er vedlikeholdsansvarlig.
-      - value: Bane NOR
-        label: Bane NOR
-    description: Angir hvem som er ansvarlig for vedlikehold av vegobjektet.
-  - name: område
-    logicalType: object
-    physicalType: geometry(Surface)
-    required: true
-    customProperties:
-    - property: geometryType
-      value: Surface
-- name: StikkrenneKulvert
-  physicalName: stikkrennekulvert
-  logicalType: object
-  physicalType: table
-  description: <i>Konstruksjoner og rør med maks. lysåpning på 2,5 meter, der vann
-    kan strømme igjennom, oftest under veg eller jernbane</i>.
-  customProperties:
-  - property: sosiObjektType
-    value: StikkrenneKulvert
-  - property: inheritsFrom
-    value: StikkrenneKulvert-NVDB
-  properties:
-  - name: identifikasjon
-    logicalType: object
-    properties:
-    - name: lokalId
-      logicalType: string
-      description: 'lokal identifikator av et objekt
-
-
-        Merknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren
-        er unik innenfor navnerommet. For FKB-data benyttes UUID som lokalId.'
-      required: true
-    - name: navnerom
-      logicalType: string
-      description: 'navnerom som unikt identifiserer datakilden til et objekt, anbefales
-        å være en http-URI
-
-
-        Eksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0
-
-
-        Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar
-        for de unike identifikatorene og må være registrert i data.geonorge.no eller
-        data.norge.no'
-      required: true
-    - name: versjonId
-      logicalType: string
-      description: identifikasjon av en spesiell versjon av et geografisk objekt (instans)
-    description: unik identifikasjon av et objekt
-    required: true
-  - name: eksternPeker
-    logicalType: string
-    description: referanse til objektet i et eksternt system, som ikke er Nasjonal
-      vegdatabank (NVDB).
-  - name: nvdbPeker
-    logicalType: string
-    description: referanse til objektet i Nasjonal vegdatabank (NVDB).
-  - name: datafangstdato
-    logicalType: date
-    description: 'dato når objektet siste gang ble registrert/observert/målt i terrenget
-
-
-      Merknad: I mange tilfeller er denne forskjellig fra oppdateringsdato, da registrerte
-      endringer kan bufres i en kortere eller lengre periode før disse legges inn
-      i databasen.
-
-      Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.'
-    required: true
-  - name: verifiseringsdato
-    logicalType: date
-    description: 'dato når dataene er fastslått å være i samsvar med virkeligheten
-
-
-      Merknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI'
-  - name: kvalitet
-    logicalType: array
-    items:
-      logicalType: object
-      properties:
-      - name: datafangstmetode
-        logicalType: string
-        logicalTypeOptions:
-          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
-        customProperties:
-        - property: allowedValues
-          value:
-          - value: byg
-            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
-              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
-          - value: ukj
-            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
-          - value: pla
-            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
-              med innmåling.
-          - value: sat
-            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
-              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
-              Landmåling benyttes)
-          - value: gen
-            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
-              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
-              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
-              typer sensordata.
-          - value: fot
-            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
-              stereomodell
-          - value: dig
-            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
-              plane kartdata
-          - value: lan
-            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
-              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
-              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
-              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
-              utføres normalt med overskytende målinger og utjevning av resultatet.
-        description: 'metode for datafangst.
-
-          Egenskapen beskriver datafangstmetode for grunnrisskoordinater (x,y), eller
-          for både grunnriss og høyde (x,y,z) dersom det ikke er oppgitt noen verdi
-          for datafangstmetodeHøyde.'
-        required: true
-      - name: nøyaktighet
-        logicalType: integer
-        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
-
-
-          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
-          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
-
-
-          For objekter med punktgeometri benyttes verdi for punktstandardavvik. For
-          objekter med kurvegeometri benyttes standardavviket for tverravviket fra
-          kurva. For objekter med overflate- eller volumgeometri er forståelsen at
-          standardavviket beregnes ut fra (3D) avvikene mellom sann posisjon og nærmeste
-          punkt på overflata.
-
-
-          Merknad:
-
-          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
-          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
-          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
-          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
-          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
-          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
-          defineres, beregnes og kontrolleres.'
-      - name: synbarhet
-        logicalType: string
-        logicalTypeOptions:
-          pattern: ^(2|3|0|1)$
-        customProperties:
-        - property: allowedValues
-          value:
-          - value: '2'
-            label: Middels synlig - Objektet er middels synlig/gjenkjennbart i flybilde
-              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
-              brukes denne koden for objekter som har lav kontrast eller er delvis
-              skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.).
-              For slike objekter settes en større verdi for nøyaktighet enn kravet
-              (opptil 3 ganger kravet)
-          - value: '3'
-            label: Ikke synlig - Objektet er ikke synlig/gjenkjennbart i flybilde
-              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
-              brukes denne koden for objekter som er helt skjult av overliggende objekter
-              (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en
-              stor verdi for nøyaktighet (mer enn 3 ganger kravet)
-          - value: '0'
-            label: Fullt ut synlig - Objektet er fullt ut synlig/gjenfinnbart i flybilde
-              eller annen datakilde for posisjonering. Ved fotogrammetrisk registrering
-              skal objekter som er fullt ut synlige registreres i tråd med angitte
-              krav til nøyaktig registrering.
-          - value: '1'
-            label: Dårlig gjenfinnbar i terreng - Objektets posisjon er vanskelig
-              å definere presist i terrenget på grunn av objektets natur eller manglende
-              kontrast mot omgivelsene. Koden kan f.eks. brukes på høydekurver (eller
-              andre isolinjer) eller objekter som er skjult i bakken (f.eks. innmåling
-              av ledninger på lukket grøft)
-        description: beskrivelse av hvor godt objektene framgår i datagrunnlaget for
-          posisjonering (f.eks. flybildene).
-      - name: datafangstmetodeHøyde
-        logicalType: string
-        logicalTypeOptions:
-          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
-        customProperties:
-        - property: allowedValues
-          value:
-          - value: byg
-            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
-              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
-          - value: ukj
-            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
-          - value: pla
-            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
-              med innmåling.
-          - value: sat
-            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
-              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
-              Landmåling benyttes)
-          - value: gen
-            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
-              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
-              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
-              typer sensordata.
-          - value: fot
-            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
-              stereomodell
-          - value: dig
-            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
-              plane kartdata
-          - value: lan
-            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
-              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
-              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
-              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
-              utføres normalt med overskytende målinger og utjevning av resultatet.
-        description: 'metoden brukt for høyderegistrering av posisjon.
-
-
-          Det er bare nødvending å angi en verdi for egenskapen dersom datafangstmetode
-          for høyde avviker fra datafangstmetode for grunnriss.'
-      - name: nøyaktighetHøyde
-        logicalType: integer
-        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
-
-
-          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
-          for standardavviket, men dersom man faktisk har standardavviket til posisjoneringa
-          av objektet oppgitt i cm
-
-
-          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
-          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
-
-
-          Merknad:
-
-          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
-          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
-          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
-          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
-          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
-          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
-          defineres, beregnes og kontrolleres.'
-    description: 'beskrivelse av kvaliteten på stedfestingen
-
-
-      Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.'
-    required: true
-  - name: medium
-    logicalType: array
-    items:
-      logicalType: string
-      authoritativeDefinitions:
-      - url: https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium
-        type: businessDefinition
-      customProperties:
-      - property: sosiCodeList
-        value: Medium
-      - property: asDictionary
-        value: 'true'
-    description: 'objektets beliggenhet i forhold til jordoverflaten
-
-
-      Eksempel:
-
-      På bro, i tunnel, inne i et bygningsmessig anlegg, etc.'
-  - name: informasjon
-    logicalType: array
-    items:
-      logicalType: string
-    description: 'generell opplysning
-
-
-      Merknad:
-
-      mulighet til å legge inn utfyllende informasjon om objektet'
-  - name: høydereferanse
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(toppUtvendig|toppInnvendig|senter|bunnInnvendig|underkantUtvendig|påBakken|fot|ukjent)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: toppUtvendig
-        label: høydereferansen er til toppen av komponenten
-      - value: toppInnvendig
-        label: høydereferansen er topp innvendig komponent
-      - value: senter
-        label: 'høydereferansen er senter innvendig
-
-
-          Eksempel: Dersom en ønsker å representere volumet på rør, kan dette gjøres
-          med å angi LedningHøydereferanse = senter og supplere dette med passende
-          radius.'
-      - value: bunnInnvendig
-        label: 'høydereferansen er bunn innvendig
-
-
-          Eksempel: Dette er nyttig når en skal modellere fall på avløpsrør'
-      - value: underkantUtvendig
-        label: høydereferansen er bunn utvendig
-      - value: påBakken
-        label: 'høydereferanse er på bakken
-
-
-          Merknad: Mange ledninger er målt på lukket grøft'
-      - value: fot
-        label: naturlig å bruke for eksempel på master/mastefundamenter
-      - value: ukjent
-        label: brukes der det ikke er kjent hva som er benyttet som høydereferanse
-    description: koordinatregistering utført på topp eller bunn av et objekt
-  - name: tilknyttetLukkaDren
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn
-      i et lukket dreneringssystem.
-  - name: gjennomløpForElvBekk
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om elv/bekk renner gjennom stikkrenne/kulvert.
-  - name: materialtype
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(betong|eternitt|naturstein|plast|stål|tre)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: betong
-        label: Betong
-      - value: eternitt
-        label: Eternitt
-      - value: naturstein
-        label: Naturstein
-      - value: plast
-        label: Plast
-      - value: stål
-        label: Stål - Stål
-      - value: tre
-        label: Tre
-    description: Angir materialtype.
-  - name: tverrsnittsform
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ellipseform|flatbunnetMedHvelv|rektangulær|sirkulær)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ellipseform
-        label: Ellipseform
-      - value: flatbunnetMedHvelv
-        label: Flatbunnet med hvelv
-      - value: rektangulær
-        label: Rektangulær - Rektangulær
-      - value: sirkulær
-        label: Sirkulær - Sirkulær
-    description: Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.
-  - name: typeInnløp
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(kumOverStikkrenne|åpenGrøft|åpenGrøftMedStøtteskjold|åpenMedFrontmur|åpenMedVingemur)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: kumOverStikkrenne
-        label: Kum over stikkrenne
-      - value: åpenGrøft
-        label: Åpent i grøft - Vann renner inn direkte fra åpen grøft.
-      - value: åpenGrøftMedStøtteskjold
-        label: Åpent i grøft med støtteskjold - Åpen i grøft med støtteskjold
-      - value: åpenMedFrontmur
-        label: Åpent med frontmur - Åpent med frontmur
-      - value: åpenMedVingemur
-        label: Åpent med vingemur - Åpent med vingemur
-    description: Angir hvilken type innløp det er i ei stikkrenne.
-  - name: typeUtløp
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(bekkElv|kum|skråningTerreng|åpenGrøft)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: bekkElv
-        label: I bekk/elv - Vann ledes ut i bekk/elv.
-      - value: kum
-        label: Kum - Vann ledes til kum.
-      - value: skråningTerreng
-        label: I skråning/terreng - Vann ledes ut i skråning eller ut i terreng.
-      - value: åpenGrøft
-        label: Åpen grøft - Vann ledes til åpen grøft
-    description: Angir hvilken type utløp det er i ei stikkrenne.
-  - name: lengde
-    logicalType: number
-    description: Angir lengde av vegobjektet.
-  - name: bredde_Innvendig
-    logicalType: number
-    description: Angir innvendig bredde av gjennomløpskonstruksjon. Ikke aktuell for
-      sirkulære tverrsnitt.
-  - name: høyde_Innvendig
-    logicalType: number
-    description: Angir innvendig høyde av gjennomløpskonstruksjon. Tar ikke hensyn
-      til ev. igjenfylling i bunn av konstruksjon.
-  - name: overfyllingInnløp
-    logicalType: number
-    description: Angir tykkelsen på overfylling ved innløp. Det vil si tykkelse fra
-      topp av stikkrenne til topp dekke.
-  - name: harInnløpsrist
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om det er innløpsrist i tilknytning til vegobjektet.
-  - name: varmekabler
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.
-  - name: etableringsår
-    logicalType: number
-    description: Angir hvilket år vegobjektet ble etablert på stedet.
-  - name: tilleggsinformasjon
-    logicalType: string
-    description: Supplerende informasjon om vegobjektet som ikke framkommer direkte
-      av andre egenskapstyper, kan f.eks. være spesielle forhold knyttet til oppbygging,
-      utdyping av spesielle problem, m.m.
-  - name: FKB_ID
-    logicalType: string
-    description: Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning
-      av geometri.
-  - name: eier
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(fylkeskommune|kommune|nyeVeier|privat|statensVegvesen|uavklart|baneNor)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: fylkeskommune
-        label: Fylkeskommune
-      - value: kommune
-        label: Kommune
-      - value: nyeVeier
-        label: Stat, Nye Veier - Nye Veier
-      - value: privat
-        label: Privat
-      - value: statensVegvesen
-        label: Stat, Statens vegvesen - Statens vegvesen
-      - value: uavklart
-        label: Uavklart - Verdi benyttes inntil det er avklart hvem som er eier (ingen
-          verdi tolkes som at vegeier er eier).
-      - value: baneNor
-        label: Stat, Bane NOR - Bane NOR
-    description: Angir hvem som er eier av vegobjektet.
-  - name: vedlikeholdsansvarlig
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(Fylkeskommune|Kommune|Nye\ Veier|OPS|Privat|Statens\ vegvesen|Uavklart|Bane\
-        NOR)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: Fylkeskommune
-        label: Fylkeskommune
-      - value: Kommune
-        label: Kommune
-      - value: Nye Veier
-        label: Nye Veier
-      - value: OPS
-        label: OPS
-      - value: Privat
-        label: Privat
-      - value: Statens vegvesen
-        label: Statens vegvesen
-      - value: Uavklart
-        label: Verdi benyttes inntil det er avklart hvem som er vedlikeholdsansvarlig.
-      - value: Bane NOR
-        label: Bane NOR
-    description: Angir hvem som er ansvarlig for vedlikehold av vegobjektet.
-  - name: senterlinje
-    logicalType: object
-    physicalType: geometry(LineString)
-    required: true
-    customProperties:
-    - property: geometryType
-      value: LineString
-- name: StikkrenneKulvert3DGeometri
-  physicalName: stikkrennekulvert3dgeometri
-  logicalType: object
-  physicalType: table
-  description: ffff
-  customProperties:
-  - property: sosiObjektType
-    value: StikkrenneKulvert3DGeometri
-  - property: inheritsFrom
-    value: StikkrenneKulvert-NVDB
-  - property: associations
-    value:
-    - role: grunnriss
-      target: StikkrenneKulvertFlate
-      cardinality: 0..*
-  properties:
-  - name: identifikasjon
-    logicalType: object
-    properties:
-    - name: lokalId
-      logicalType: string
-      description: 'lokal identifikator av et objekt
-
-
-        Merknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren
-        er unik innenfor navnerommet. For FKB-data benyttes UUID som lokalId.'
-      required: true
-    - name: navnerom
-      logicalType: string
-      description: 'navnerom som unikt identifiserer datakilden til et objekt, anbefales
-        å være en http-URI
-
-
-        Eksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0
-
-
-        Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar
-        for de unike identifikatorene og må være registrert i data.geonorge.no eller
-        data.norge.no'
-      required: true
-    - name: versjonId
-      logicalType: string
-      description: identifikasjon av en spesiell versjon av et geografisk objekt (instans)
-    description: unik identifikasjon av et objekt
-    required: true
-  - name: eksternPeker
-    logicalType: string
-    description: referanse til objektet i et eksternt system, som ikke er Nasjonal
-      vegdatabank (NVDB).
-  - name: nvdbPeker
-    logicalType: string
-    description: referanse til objektet i Nasjonal vegdatabank (NVDB).
-  - name: datafangstdato
-    logicalType: date
-    description: 'dato når objektet siste gang ble registrert/observert/målt i terrenget
-
-
-      Merknad: I mange tilfeller er denne forskjellig fra oppdateringsdato, da registrerte
-      endringer kan bufres i en kortere eller lengre periode før disse legges inn
-      i databasen.
-
-      Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.'
-    required: true
-  - name: verifiseringsdato
-    logicalType: date
-    description: 'dato når dataene er fastslått å være i samsvar med virkeligheten
-
-
-      Merknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI'
-  - name: kvalitet
-    logicalType: array
-    items:
-      logicalType: object
-      properties:
-      - name: datafangstmetode
-        logicalType: string
-        logicalTypeOptions:
-          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
-        customProperties:
-        - property: allowedValues
-          value:
-          - value: byg
-            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
-              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
-          - value: ukj
-            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
-          - value: pla
-            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
-              med innmåling.
-          - value: sat
-            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
-              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
-              Landmåling benyttes)
-          - value: gen
-            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
-              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
-              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
-              typer sensordata.
-          - value: fot
-            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
-              stereomodell
-          - value: dig
-            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
-              plane kartdata
-          - value: lan
-            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
-              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
-              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
-              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
-              utføres normalt med overskytende målinger og utjevning av resultatet.
-        description: 'metode for datafangst.
-
-          Egenskapen beskriver datafangstmetode for grunnrisskoordinater (x,y), eller
-          for både grunnriss og høyde (x,y,z) dersom det ikke er oppgitt noen verdi
-          for datafangstmetodeHøyde.'
-        required: true
-      - name: nøyaktighet
-        logicalType: integer
-        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
-
-
-          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
-          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
-
-
-          For objekter med punktgeometri benyttes verdi for punktstandardavvik. For
-          objekter med kurvegeometri benyttes standardavviket for tverravviket fra
-          kurva. For objekter med overflate- eller volumgeometri er forståelsen at
-          standardavviket beregnes ut fra (3D) avvikene mellom sann posisjon og nærmeste
-          punkt på overflata.
-
-
-          Merknad:
-
-          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
-          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
-          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
-          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
-          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
-          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
-          defineres, beregnes og kontrolleres.'
-      - name: synbarhet
-        logicalType: string
-        logicalTypeOptions:
-          pattern: ^(2|3|0|1)$
-        customProperties:
-        - property: allowedValues
-          value:
-          - value: '2'
-            label: Middels synlig - Objektet er middels synlig/gjenkjennbart i flybilde
-              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
-              brukes denne koden for objekter som har lav kontrast eller er delvis
-              skjult av overliggende objekter (vegetasjon, takoverbygg, bruer etc.).
-              For slike objekter settes en større verdi for nøyaktighet enn kravet
-              (opptil 3 ganger kravet)
-          - value: '3'
-            label: Ikke synlig - Objektet er ikke synlig/gjenkjennbart i flybilde
-              eller annen datakilde for posisjonering. Ved fotogrammetrisk datafangst
-              brukes denne koden for objekter som er helt skjult av overliggende objekter
-              (vegetasjon, takoverbygg, bruer etc.). For slike objekter settes en
-              stor verdi for nøyaktighet (mer enn 3 ganger kravet)
-          - value: '0'
-            label: Fullt ut synlig - Objektet er fullt ut synlig/gjenfinnbart i flybilde
-              eller annen datakilde for posisjonering. Ved fotogrammetrisk registrering
-              skal objekter som er fullt ut synlige registreres i tråd med angitte
-              krav til nøyaktig registrering.
-          - value: '1'
-            label: Dårlig gjenfinnbar i terreng - Objektets posisjon er vanskelig
-              å definere presist i terrenget på grunn av objektets natur eller manglende
-              kontrast mot omgivelsene. Koden kan f.eks. brukes på høydekurver (eller
-              andre isolinjer) eller objekter som er skjult i bakken (f.eks. innmåling
-              av ledninger på lukket grøft)
-        description: beskrivelse av hvor godt objektene framgår i datagrunnlaget for
-          posisjonering (f.eks. flybildene).
-      - name: datafangstmetodeHøyde
-        logicalType: string
-        logicalTypeOptions:
-          pattern: ^(byg|ukj|pla|sat|gen|fot|dig|lan)$
-        customProperties:
-        - property: allowedValues
-          value:
-          - value: byg
-            label: Som bygget - Posisjonen er hentet fra prosjekterte eller planlagte
-              data, f.eks. fra en BIM-modell, som er verifisert som bygget ved innmålinger
-          - value: ukj
-            label: Ukjent - Ukjent eller uspesifisert datafangstmetode
-          - value: pla
-            label: Plandata - Posisjonen er hentet plandata. Posisjonen er ikke verifisert
-              med innmåling.
-          - value: sat
-            label: Satellittmålt - Posisjonen er målt inn direkte med GNSS (for posisjoner
-              målt inn med GNSS i kombinasjon med andre landmålingsmetoder skal koden
-              Landmåling benyttes)
-          - value: gen
-            label: Generert - Posisjonen er manuelt konstruert, eller generert ved
-              maskinlæring eller annen type programvare, fra punktsky fra laserskanning,
-              bildematching, sonar, andre typer sensordata eller kombinasjon av flere
-              typer sensordata.
-          - value: fot
-            label: Fotogrammetri - Posisjonen er konstruert/generert fra en fotogrammetrisk
-              stereomodell
-          - value: dig
-            label: Digitalisert - Posisjonen er digitalisert fra ortofoto eller andre
-              plane kartdata
-          - value: lan
-            label: Landmålt - Posisjonen er målt inn direkte med en landmålingsmetode.
-              Aktuelle landmålingsmetoder kan være nivellering, vinkelmåling, avstandsmåling
-              eller treghetsmåling. Kodeverdien brukes også for kombinasjoner av disse
-              målemetodene eller der disse målemetodene kombineres med GNSS. Landmåling
-              utføres normalt med overskytende målinger og utjevning av resultatet.
-        description: 'metoden brukt for høyderegistrering av posisjon.
-
-
-          Det er bare nødvending å angi en verdi for egenskapen dersom datafangstmetode
-          for høyde avviker fra datafangstmetode for grunnriss.'
-      - name: nøyaktighetHøyde
-        logicalType: integer
-        description: 'standardavviket til posisjoneringa av objektet oppgitt i cm
-
-
-          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
-          for standardavviket, men dersom man faktisk har standardavviket til posisjoneringa
-          av objektet oppgitt i cm
-
-
-          I de aller fleste sammenhenger benyttes en anslått eller forventet verdi
-          for standardavvik, men dersom man har en beregnet verdi skal denne benyttes.
-
-
-          Merknad:
-
-          Verdien er ment å beskrive nøyaktigheten til objektet sammenlignet med sann
-          verdi. Standardavvik er i utgangspunktet et mål på det tilfeldige avviket
-          og det innebærer at vi forutsetter at det systematiske avviket i liten grad
-          påvirker nøyaktigheten til posisjoneringa. For fotogrammetriske data settes
-          som hovedregel verdien lik kravet til standardavvik ved datafangst. Se standarden
-          Geodatakvalitet for nærmere definisjon av standardavvik og hvordan dette
-          defineres, beregnes og kontrolleres.'
-    description: 'beskrivelse av kvaliteten på stedfestingen
-
-
-      Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.'
-    required: true
-  - name: medium
-    logicalType: array
-    items:
-      logicalType: string
-      authoritativeDefinitions:
-      - url: https://register.geonorge.no/sosi-kodelister/fkb/generell/5.0/medium
-        type: businessDefinition
-      customProperties:
-      - property: sosiCodeList
-        value: Medium
-      - property: asDictionary
-        value: 'true'
-    description: 'objektets beliggenhet i forhold til jordoverflaten
-
-
-      Eksempel:
-
-      På bro, i tunnel, inne i et bygningsmessig anlegg, etc.'
-  - name: informasjon
-    logicalType: array
-    items:
-      logicalType: string
-    description: 'generell opplysning
-
-
-      Merknad:
-
-      mulighet til å legge inn utfyllende informasjon om objektet'
-  - name: høydereferanse
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(toppUtvendig|toppInnvendig|senter|bunnInnvendig|underkantUtvendig|påBakken|fot|ukjent)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: toppUtvendig
-        label: høydereferansen er til toppen av komponenten
-      - value: toppInnvendig
-        label: høydereferansen er topp innvendig komponent
-      - value: senter
-        label: 'høydereferansen er senter innvendig
-
-
-          Eksempel: Dersom en ønsker å representere volumet på rør, kan dette gjøres
-          med å angi LedningHøydereferanse = senter og supplere dette med passende
-          radius.'
-      - value: bunnInnvendig
-        label: 'høydereferansen er bunn innvendig
-
-
-          Eksempel: Dette er nyttig når en skal modellere fall på avløpsrør'
-      - value: underkantUtvendig
-        label: høydereferansen er bunn utvendig
-      - value: påBakken
-        label: 'høydereferanse er på bakken
-
-
-          Merknad: Mange ledninger er målt på lukket grøft'
-      - value: fot
-        label: naturlig å bruke for eksempel på master/mastefundamenter
-      - value: ukjent
-        label: brukes der det ikke er kjent hva som er benyttet som høydereferanse
-    description: koordinatregistering utført på topp eller bunn av et objekt
-  - name: tilknyttetLukkaDren
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om stikkrenne er tilknytta lukka drenering. Vannet ledes inn
-      i et lukket dreneringssystem.
-  - name: gjennomløpForElvBekk
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om elv/bekk renner gjennom stikkrenne/kulvert.
-  - name: materialtype
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(betong|eternitt|naturstein|plast|stål|tre)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: betong
-        label: Betong
-      - value: eternitt
-        label: Eternitt
-      - value: naturstein
-        label: Naturstein
-      - value: plast
-        label: Plast
-      - value: stål
-        label: Stål - Stål
-      - value: tre
-        label: Tre
-    description: Angir materialtype.
-  - name: tverrsnittsform
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ellipseform|flatbunnetMedHvelv|rektangulær|sirkulær)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ellipseform
-        label: Ellipseform
-      - value: flatbunnetMedHvelv
-        label: Flatbunnet med hvelv
-      - value: rektangulær
-        label: Rektangulær - Rektangulær
-      - value: sirkulær
-        label: Sirkulær - Sirkulær
-    description: Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.
-  - name: typeInnløp
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(kumOverStikkrenne|åpenGrøft|åpenGrøftMedStøtteskjold|åpenMedFrontmur|åpenMedVingemur)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: kumOverStikkrenne
-        label: Kum over stikkrenne
-      - value: åpenGrøft
-        label: Åpent i grøft - Vann renner inn direkte fra åpen grøft.
-      - value: åpenGrøftMedStøtteskjold
-        label: Åpent i grøft med støtteskjold - Åpen i grøft med støtteskjold
-      - value: åpenMedFrontmur
-        label: Åpent med frontmur - Åpent med frontmur
-      - value: åpenMedVingemur
-        label: Åpent med vingemur - Åpent med vingemur
-    description: Angir hvilken type innløp det er i ei stikkrenne.
-  - name: typeUtløp
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(bekkElv|kum|skråningTerreng|åpenGrøft)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: bekkElv
-        label: I bekk/elv - Vann ledes ut i bekk/elv.
-      - value: kum
-        label: Kum - Vann ledes til kum.
-      - value: skråningTerreng
-        label: I skråning/terreng - Vann ledes ut i skråning eller ut i terreng.
-      - value: åpenGrøft
-        label: Åpen grøft - Vann ledes til åpen grøft
-    description: Angir hvilken type utløp det er i ei stikkrenne.
-  - name: lengde
-    logicalType: number
-    description: Angir lengde av vegobjektet.
-  - name: bredde_Innvendig
-    logicalType: number
-    description: Angir innvendig bredde av gjennomløpskonstruksjon. Ikke aktuell for
-      sirkulære tverrsnitt.
-  - name: høyde_Innvendig
-    logicalType: number
-    description: Angir innvendig høyde av gjennomløpskonstruksjon. Tar ikke hensyn
-      til ev. igjenfylling i bunn av konstruksjon.
-  - name: overfyllingInnløp
-    logicalType: number
-    description: Angir tykkelsen på overfylling ved innløp. Det vil si tykkelse fra
-      topp av stikkrenne til topp dekke.
-  - name: harInnløpsrist
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om det er innløpsrist i tilknytning til vegobjektet.
-  - name: varmekabler
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(ja|nei)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: ja
-        label: Ja - ja
-      - value: nei
-        label: Nei - nei
-    description: Angir om det er varmekabler eller ikke i tilknytning til vegobjektet.
-  - name: etableringsår
-    logicalType: number
-    description: Angir hvilket år vegobjektet ble etablert på stedet.
-  - name: tilleggsinformasjon
-    logicalType: string
-    description: Supplerende informasjon om vegobjektet som ikke framkommer direkte
-      av andre egenskapstyper, kan f.eks. være spesielle forhold knyttet til oppbygging,
-      utdyping av spesielle problem, m.m.
-  - name: FKB_ID
-    logicalType: string
-    description: Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning
-      av geometri.
-  - name: eier
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(fylkeskommune|kommune|nyeVeier|privat|statensVegvesen|uavklart|baneNor)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: fylkeskommune
-        label: Fylkeskommune
-      - value: kommune
-        label: Kommune
-      - value: nyeVeier
-        label: Stat, Nye Veier - Nye Veier
-      - value: privat
-        label: Privat
-      - value: statensVegvesen
-        label: Stat, Statens vegvesen - Statens vegvesen
-      - value: uavklart
-        label: Uavklart - Verdi benyttes inntil det er avklart hvem som er eier (ingen
-          verdi tolkes som at vegeier er eier).
-      - value: baneNor
-        label: Stat, Bane NOR - Bane NOR
-    description: Angir hvem som er eier av vegobjektet.
-  - name: vedlikeholdsansvarlig
-    logicalType: string
-    logicalTypeOptions:
-      pattern: ^(Fylkeskommune|Kommune|Nye\ Veier|OPS|Privat|Statens\ vegvesen|Uavklart|Bane\
-        NOR)$
-    customProperties:
-    - property: allowedValues
-      value:
-      - value: Fylkeskommune
-        label: Fylkeskommune
-      - value: Kommune
-        label: Kommune
-      - value: Nye Veier
-        label: Nye Veier
-      - value: OPS
-        label: OPS
-      - value: Privat
-        label: Privat
-      - value: Statens vegvesen
-        label: Statens vegvesen
-      - value: Uavklart
-        label: Verdi benyttes inntil det er avklart hvem som er vedlikeholdsansvarlig.
-      - value: Bane NOR
-        label: Bane NOR
-    description: Angir hvem som er ansvarlig for vedlikehold av vegobjektet.
-  - name: form
+  - name: geometry
     logicalType: object
     physicalType: geometry(Geometry)
     required: true
     customProperties:
     - property: geometryType
       value: Geometry
+  - name: controllingAuthority
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The controlling authority responsible for a facility or site.
+
+      -- Description --
+
+      Controlling authorities may be distinguished by organizational level (for example:
+      national, sub-national, or military district) and/or type (for example: private
+      or public).
+
+      -- UnitOfMeasure --'
+  - name: controllingAuthorityIdent
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The recognized authority responsible for establishing and maintaining the administrative
+      affairs of all matters relating to a particular field or subject.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: generalPavementCondition
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A general description of the surface quality of a paved surface.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: loadBearingSurfaceType
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The physical surface composition of a terrain surface that is intended to bear
+      loads.
+
+      -- Description --
+
+      For example, the surface of a road, a runway, a hard standing, or a vehicle
+      storage lot.
+
+      -- UnitOfMeasure --'
+  - name: maximumVehicleHeight
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The maximum height of a vehicle that can pass through the obstructing feature
+      on a travelled way.
+
+      -- Description --
+
+      The height limitation assumes that the vehicle is less than 12 metres long and
+      has a maximum rectangular width of 2.6 metres.
+
+      -- UnitOfMeasure --'
+  - name: maximumVehicleLength
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The maximum length of a vehicle that can pass through the obstructing feature
+      on a travelled way.
+
+      -- Description --
+
+      The length limitation assumes that the vehicle has a maximum rectangular height
+      of 4.3 metres and a maximum rectangular width of 2.6 metres.
+
+      -- UnitOfMeasure --'
+  - name: maximumVehicleWidth
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The maximum width of a vehicle that can pass through the obstructing feature
+      on a travelled way.
+
+      -- Description --
+
+      The width limitation assumes that the vehicle is less than 12 metres long and
+      has a maximum rectangular height of 4.3 metres.
+
+      -- UnitOfMeasure --'
+  - name: meansTransportation
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The intended method or means of moving from one place to another related to
+      the feature or the feature''s intended use.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: medianPresent
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that the lanes or tracks of a divided land transportation route
+      (for example: a road or a railway) are separated by a vertical median barrier.
+
+      -- Description --
+
+      Often used to separate opposing flows of traffic in order to improve safety.
+      For example, may be a substantial concrete barrier of approximately 1 metre
+      height.
+
+      -- UnitOfMeasure --'
+  - name: permanent
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is permanent.
+
+      -- Description --
+
+      Temporary features last, or are meant to last, for a limited time only.
+
+      -- UnitOfMeasure --'
+  - name: physicalCondition
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The physical condition of a man-made structure, as a whole, including the inside
+      and/or outside of the structure and any contained and/or associated equipment.
+
+      -- Description --
+
+      The physical condition applies to any phase of the life cycle of a man-made
+      structure from construction to destruction. Examples of man-made structures
+      include roads, canals, buildings, towers, aerodromes and facilities.
+
+      -- UnitOfMeasure --'
+  - name: trafficRestrictionType
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The reason for traffic restriction based on the nature of the route.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: verticalRelativeLocation
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The relationship between the feature and the underlying ground (terrain) or
+      waterbody bottom.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: waySurfaceCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A categorisation based on the general pavement characteristic of the surface
+      intending to sustain ground transport.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: weatherRestrictionType
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The type of weather conditions under which a feature is usable.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: weightBearingCapacity
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The maximum weight that can be supported by a surface.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+- name: CausewayStructure
+  physicalName: causewaystructure
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    A solid raised way across a terrain obstacle (for example: a wetland or a body
+    of shallow water) that is intended to support a transportation route (for example:
+    a road or a railway).
+
+    -- Description --
+
+    The causeway structure is often constructed from local fill supplemented by other
+    materials (for example: rocks, boulders or gravel) and consists of a solid linear
+    structure in the configuration of an embankment. Causeway structures are built
+    just high enough to insure that the transportation route will remain passable
+    during periods of flooding, tides and seasonal rainfall. Culverts may occur along
+    the length of the causeway structure and individual sections of the causeway structure
+    may be interrupted by bridges.'
+  customProperties:
+  - property: sosiObjektType
+    value: CausewayStructure
+  - property: inheritsFrom
+    value: FeatureEntity
+  properties:
+  - name: geometry
+    logicalType: object
+    physicalType: geometry(Geometry)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
+  - name: conspicuousAirCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the air.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousGroundCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from on the ground.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousSeaCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the sea.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: controllingAuthority
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The controlling authority responsible for a facility or site.
+
+      -- Description --
+
+      Controlling authorities may be distinguished by organizational level (for example:
+      national, sub-national, or military district) and/or type (for example: private
+      or public).
+
+      -- UnitOfMeasure --'
+  - name: controllingAuthorityIdent
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The recognized authority responsible for establishing and maintaining the administrative
+      affairs of all matters relating to a particular field or subject.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: directivity
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The side(s) of a feature that produce the greatest visual significance and/or
+      reflectivity potential.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: facilityOperationalStatus
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The status of operation of a man-made structure, as a whole.
+
+      -- Description --
+
+      Includes actual operations, operational capability, and planned or proposed
+      man-made structures.
+
+      -- UnitOfMeasure --'
+  - name: floodlit
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a structure is floodlit.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: heightAboveSurfaceLevel
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The vertical distance measured from the lowest point of the base of the feature
+      at ground or water level (downhill/downstream side) to the tallest point of
+      the feature.
+
+      -- Description --
+
+      For non-inland water bodies, the water level is usually understood to be Mean
+      Sea Level (MSL). Note that the feature may be supported above the surface by
+      another feature (for example: a tower supported by a building) and as a consequence
+      the value of the Height Above Surface Level is different (larger) than the base-to-top
+      height of the feature (for example: supported tower) itself.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: highestElevation
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The elevation from a specified vertical datum to the highest point on a feature.
+
+      -- Description --
+
+      In the case of multiple features that may be stacked on each other (for example:
+      a railway on a bridge, a superstructure on a building, or an aerial on a tower)
+      the highest elevation is that of the entire feature stack. For example, the
+      highest elevation of a church is that of its steeple and not that of the roof
+      of the church itself. The church itself may have a height above surface level
+      that excludes the additional height of the steeple superstructure located on
+      the church roof.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: maximumObstacleHeight
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The maximum distance from the bottom to the top of a terrain (or waterbody floor)
+      obstacle.
+
+      -- Description --
+
+      May be a height or a depth.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: permanent
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is permanent.
+
+      -- Description --
+
+      Temporary features last, or are meant to last, for a limited time only.
+
+      -- UnitOfMeasure --'
+  - name: physicalCondition
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The physical condition of a man-made structure, as a whole, including the inside
+      and/or outside of the structure and any contained and/or associated equipment.
+
+      -- Description --
+
+      The physical condition applies to any phase of the life cycle of a man-made
+      structure from construction to destruction. Examples of man-made structures
+      include roads, canals, buildings, towers, aerodromes and facilities.
+
+      -- UnitOfMeasure --'
+  - name: predominantFeatureHeight
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The predominant height (the height of at least 50 percent) of the feature measured
+      from the lowest point of the base at ground or water level (downhill side/downstream
+      side).
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: structMatType
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The primary type(s) of material composing a feature, exclusive of the surface.
+
+      -- Description --
+
+      The basis for ''primary'' may be, for example, compositional dominance or structural
+      organization.
+
+      -- UnitOfMeasure --'
+  - name: surfaceSlope
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The slope (rate of upward inclination of the surface from the horizontal) of
+      the surface of a feature (for example: the terrain or a waterbody floor).
+
+      -- Description --
+
+      The (percent) slope is determined as the change in height divided by the horizontal
+      distance over which the change takes place, multiplied by one hundred: ((h2-h1)/d)*100.
+      Generally the slope is determined along the primary alignment of a feature (its
+      established direction of flow or use; for example: a road, a railway, a ridge
+      line, and/or a bridge). In those cases where the primary alignment is essentially
+      horizontal (for example, a beach, a watercourse bank, or a cut) the surface
+      slope is typically determined at right angles to the primary alignment.
+
+      -- UnitOfMeasure --
+
+      percent'
+  - name: waterLevelEffect
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The relationship between the feature and surrounding (including covering and/or
+      underlying) water.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+- name: BridgeSpan
+  physicalName: bridgespan
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    A component of the deck of a bridge spanning successive bridge piers.
+
+    -- Description --'
+  customProperties:
+  - property: sosiObjektType
+    value: BridgeSpan
+  - property: inheritsFrom
+    value: FeatureEntity
+  properties:
+  - name: geometry
+    logicalType: object
+    physicalType: geometry(Geometry)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
+  - name: angleOfIntendedPassage
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The angular distance in the horizontal plane measured from true north (0 degrees)
+      clockwise to the path on the feature (0-180 degrees) where passage was intended.
+
+      -- Description --
+
+      The path of intended passage may go across or over the feature (ex. a bridge)
+      or through it (ex. a tunnel).
+
+      -- UnitOfMeasure --
+
+      arcDegree'
+  - name: horizontalClearanceOpen
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The horizontal clearance measured between two points for an opening span.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: structMatType
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The primary type(s) of material composing a feature, exclusive of the surface.
+
+      -- Description --
+
+      The basis for ''primary'' may be, for example, compositional dominance or structural
+      organization.
+
+      -- UnitOfMeasure --'
+  - name: verticalClearanceClosed
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The vertical clearance of a feature in closed condition (for example: a closed
+      lifting bridge) measured from the horizontal plane towards the feature overhead.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: verticalClearanceOpen
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The vertical clearance of a feature in opened condition (for example an open
+      lifting bridge) measured from the horizontal plane towards the feature overhead.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: bridgeOpeningType
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The type of structure or mechanism by which a bridge or bridge span is moved
+      to allow passage of a vessel.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: bridgeReferenceNumber
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The unique identifier of a bridge in accordance with the provisions of terrain
+      analysis databases (for example: PTADB or TTADB).
+
+      -- Description --
+
+      The identifier is assigned consecutively (for example: within a map sheet or
+      within a local area of interest) and begins with the northwest grid square of
+      the UTM reference system and proceeds from left to right to the east edge of
+      the sheet or area, continuing consecutively in the same way starting back at
+      the west edge of the next line of UTM grid squares below those previously completed.
+      The resulting identifiers are used to index an associated Bridge Information
+      Table.
+
+      -- UnitOfMeasure --'
+  - name: bridgeStructureType
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The type(s) of structural design of a bridge, bridge span, or bridge superstructure.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: bypassCondition
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The ease or ability to circumvent a destroyed section of bridge, tunnel or pass
+      within a distance of two kilometres from the feature.
+
+      -- Description --
+
+      Bypass condition will not consider other bridges in bypass determination.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousAirCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the air.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousGroundCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from on the ground.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousSeaCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the sea.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: facilityOperationalStatus
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The status of operation of a man-made structure, as a whole.
+
+      -- Description --
+
+      Includes actual operations, operational capability, and planned or proposed
+      man-made structures.
+
+      -- UnitOfMeasure --'
+  - name: heightAboveSurfaceLevel
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The vertical distance measured from the lowest point of the base of the feature
+      at ground or water level (downhill/downstream side) to the tallest point of
+      the feature.
+
+      -- Description --
+
+      For non-inland water bodies, the water level is usually understood to be Mean
+      Sea Level (MSL). Note that the feature may be supported above the surface by
+      another feature (for example: a tower supported by a building) and as a consequence
+      the value of the Height Above Surface Level is different (larger) than the base-to-top
+      height of the feature (for example: supported tower) itself.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: highestElevation
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The elevation from a specified vertical datum to the highest point on a feature.
+
+      -- Description --
+
+      In the case of multiple features that may be stacked on each other (for example:
+      a railway on a bridge, a superstructure on a building, or an aerial on a tower)
+      the highest elevation is that of the entire feature stack. For example, the
+      highest elevation of a church is that of its steeple and not that of the roof
+      of the church itself. The church itself may have a height above surface level
+      that excludes the additional height of the steeple superstructure located on
+      the church roof.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: horizontalClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The distance available to pass a load that extends laterally beyond the wheels
+      of a vehicle.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: loadClassType1
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The dynamic live load weight-bearing capacity of a bridge or bridge span for
+      one-way, wheeled vehicle traffic in MLC units.
+
+      -- Description --
+
+      Military load classification values are calculated in part from the size, cross-sectional
+      shape, and material of the stringers under the bridge span; they are similar
+      to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method
+      of calculation.
+
+      -- UnitOfMeasure --
+
+      militaryLoadClass'
+  - name: loadClassType2
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The dynamic live load weight-bearing capacity of a bridge or bridge span for
+      two-way, wheeled vehicle traffic in MLC units.
+
+      -- Description --
+
+      Military load classification values are calculated in part from the size, cross-sectional
+      shape, and material of the stringers under the bridge span; they are similar
+      to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method
+      of calculation.
+
+      -- UnitOfMeasure --
+
+      militaryLoadClass'
+  - name: loadClassType3
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The dynamic live load weight-bearing capacity of a bridge or bridge span for
+      one-way, tracked vehicle traffic in MLC units.
+
+      -- Description --
+
+      Military load classification values are calculated in part from the size, cross-sectional
+      shape, and material of the stringers under the bridge span; they are similar
+      to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method
+      of calculation.
+
+      -- UnitOfMeasure --
+
+      militaryLoadClass'
+  - name: loadClassType4
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The dynamic live load weight-bearing capacity of a bridge or bridge span for
+      two-way, tracked vehicle traffic in MLC units.
+
+      -- Description --
+
+      Military load classification values are calculated in part from the size, cross-sectional
+      shape, and material of the stringers under the bridge span; they are similar
+      to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method
+      of calculation.
+
+      -- UnitOfMeasure --
+
+      militaryLoadClass'
+  - name: maximumVerticalClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The greatest distance between the travelled way and any obstruction vertically
+      above it.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: mobileBridgeSpan
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a bridge span moves in some manner to allow passage underneath.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: overheadClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The least distance between the travelled way and any obstruction vertically
+      above it.
+
+      -- Description --
+
+      Reference STANAG 2253.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: permanent
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is permanent.
+
+      -- Description --
+
+      Temporary features last, or are meant to last, for a limited time only.
+
+      -- UnitOfMeasure --'
+  - name: physicalCondition
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The physical condition of a man-made structure, as a whole, including the inside
+      and/or outside of the structure and any contained and/or associated equipment.
+
+      -- Description --
+
+      The physical condition applies to any phase of the life cycle of a man-made
+      structure from construction to destruction. Examples of man-made structures
+      include roads, canals, buildings, towers, aerodromes and facilities.
+
+      -- UnitOfMeasure --'
+  - name: restrictHorizClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that horizontal clearance for vehicles on a land transportation
+      route is restricted.
+
+      -- Description --
+
+      Horizontal clearance affects the maximum width of loads that extend laterally
+      beyond the wheels of a vehicle.
+
+      -- UnitOfMeasure --'
+  - name: restrictOverheadClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that there is an overhead obstruction located less than 4.3 metres
+      above a land transportation route.
+
+      -- Description --
+
+      Vertical clearance affects the maximum height of vehicle loads. (Reference STANAG
+      2253)
+
+      -- UnitOfMeasure --'
+  - name: underbridgeClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Clearance below bridge, measured from the lowest surface level to the base of
+      the lower of either a cross beam or the lowest bridge deck.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: verticalClearanceSafe
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The safe vertical clearance of an object measured from the horizontal plane
+      toward the object overhead.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: waterbodyOverheadObstruct
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that an object is an overhead obstruction over a navigable waterbody.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+- name: BridgePier
+  physicalName: bridgepier
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    A pillar or abutment that supports a bridge span.
+
+    -- Description --'
+  customProperties:
+  - property: sosiObjektType
+    value: BridgePier
+  - property: inheritsFrom
+    value: FeatureEntity
+  properties:
+  - name: geometry
+    logicalType: object
+    physicalType: geometry(Geometry)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
+  - name: structMatType
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The primary type(s) of material composing a feature, exclusive of the surface.
+
+      -- Description --
+
+      The basis for ''primary'' may be, for example, compositional dominance or structural
+      organization.
+
+      -- UnitOfMeasure --'
+  - name: colourPattern
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The colour pattern(s) of an aid to navigation (for example: a buoy, a beacon,
+      and/or a navigation light) or other feature of importance to maritime navigation.
+
+      -- Description --
+
+      The Attribute: ''Navigation Mark Colour'' may be used to specify the colours
+      in the order in which they appear in the pattern.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousAirCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the air.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousGroundCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from on the ground.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousSeaCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the sea.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: crossSectionalShape
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The cross-sectional shape of a feature in the horizontal plane.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: heightAboveSurfaceLevel
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The vertical distance measured from the lowest point of the base of the feature
+      at ground or water level (downhill/downstream side) to the tallest point of
+      the feature.
+
+      -- Description --
+
+      For non-inland water bodies, the water level is usually understood to be Mean
+      Sea Level (MSL). Note that the feature may be supported above the surface by
+      another feature (for example: a tower supported by a building) and as a consequence
+      the value of the Height Above Surface Level is different (larger) than the base-to-top
+      height of the feature (for example: supported tower) itself.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: highestElevation
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The elevation from a specified vertical datum to the highest point on a feature.
+
+      -- Description --
+
+      In the case of multiple features that may be stacked on each other (for example:
+      a railway on a bridge, a superstructure on a building, or an aerial on a tower)
+      the highest elevation is that of the entire feature stack. For example, the
+      highest elevation of a church is that of its steeple and not that of the roof
+      of the church itself. The church itself may have a height above surface level
+      that excludes the additional height of the steeple superstructure located on
+      the church roof.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: maritimeNavigationMarked
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is significant to maritime safety of navigation
+      and is marked (for example: by a light or beacon) by a maritime-specific navigational
+      aid.
+
+      -- Description --
+
+      Mariners may also use other prominent features (for example: rotating aeronautical
+      beacons or lighted structures) for informal navigational purposes.
+
+      -- UnitOfMeasure --'
+  - name: navigationMarkColour
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The colour(s) of a International Association of Lighthouse Authorities (IALA)
+      navigation mark.
+
+      -- Description --
+
+      When the navigation mark is patterned, the Attribute: ''Colour Pattern'' may
+      be used to identify the pattern and a corresponding list of colours specified.
+
+      -- UnitOfMeasure --'
+  - name: physicalCondition
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The physical condition of a man-made structure, as a whole, including the inside
+      and/or outside of the structure and any contained and/or associated equipment.
+
+      -- Description --
+
+      The physical condition applies to any phase of the life cycle of a man-made
+      structure from construction to destruction. Examples of man-made structures
+      include roads, canals, buildings, towers, aerodromes and facilities.
+
+      -- UnitOfMeasure --'
+- name: BridgeSuperstructure
+  physicalName: bridgesuperstructure
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    A superstructure of a bridge, above the lowest deck, not including pylons or towers.
+
+    -- Description --'
+  customProperties:
+  - property: sosiObjektType
+    value: BridgeSuperstructure
+  - property: inheritsFrom
+    value: FeatureEntity
+  properties:
+  - name: geometry
+    logicalType: object
+    physicalType: geometry(Geometry)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
+  - name: structMatType
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The primary type(s) of material composing a feature, exclusive of the surface.
+
+      -- Description --
+
+      The basis for ''primary'' may be, for example, compositional dominance or structural
+      organization.
+
+      -- UnitOfMeasure --'
+  - name: bridgeReferenceNumber
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The unique identifier of a bridge in accordance with the provisions of terrain
+      analysis databases (for example: PTADB or TTADB).
+
+      -- Description --
+
+      The identifier is assigned consecutively (for example: within a map sheet or
+      within a local area of interest) and begins with the northwest grid square of
+      the UTM reference system and proceeds from left to right to the east edge of
+      the sheet or area, continuing consecutively in the same way starting back at
+      the west edge of the next line of UTM grid squares below those previously completed.
+      The resulting identifiers are used to index an associated Bridge Information
+      Table.
+
+      -- UnitOfMeasure --'
+  - name: bridgeStructureType
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The type(s) of structural design of a bridge, bridge span, or bridge superstructure.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: conspicuousAirCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the air.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousGroundCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from on the ground.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousSeaCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the sea.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: directivity
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The side(s) of a feature that produce the greatest visual significance and/or
+      reflectivity potential.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: heightAboveSurfaceLevel
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The vertical distance measured from the lowest point of the base of the feature
+      at ground or water level (downhill/downstream side) to the tallest point of
+      the feature.
+
+      -- Description --
+
+      For non-inland water bodies, the water level is usually understood to be Mean
+      Sea Level (MSL). Note that the feature may be supported above the surface by
+      another feature (for example: a tower supported by a building) and as a consequence
+      the value of the Height Above Surface Level is different (larger) than the base-to-top
+      height of the feature (for example: supported tower) itself.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: heightOfObject
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The vertical distance measured from the base to the top of the feature that
+      gives the greatest value.
+
+      -- Description --
+
+      For example, the Height of Object of a two story building with a basement is
+      three stories while the Height of Object of a man doesn''t change as a result
+      of standing in a trench whereas his Height Above Surface Level (based on the
+      prevailing terrain surface level) may be considered to be correspondingly reduced
+      by the depth of the trench.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: highestElevation
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The elevation from a specified vertical datum to the highest point on a feature.
+
+      -- Description --
+
+      In the case of multiple features that may be stacked on each other (for example:
+      a railway on a bridge, a superstructure on a building, or an aerial on a tower)
+      the highest elevation is that of the entire feature stack. For example, the
+      highest elevation of a church is that of its steeple and not that of the roof
+      of the church itself. The church itself may have a height above surface level
+      that excludes the additional height of the steeple superstructure located on
+      the church roof.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: maritimeNavigationMarked
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is significant to maritime safety of navigation
+      and is marked (for example: by a light or beacon) by a maritime-specific navigational
+      aid.
+
+      -- Description --
+
+      Mariners may also use other prominent features (for example: rotating aeronautical
+      beacons or lighted structures) for informal navigational purposes.
+
+      -- UnitOfMeasure --'
+  - name: mobileBridgeSpan
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a bridge span moves in some manner to allow passage underneath.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: overheadClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The least distance between the travelled way and any obstruction vertically
+      above it.
+
+      -- Description --
+
+      Reference STANAG 2253.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: permanent
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is permanent.
+
+      -- Description --
+
+      Temporary features last, or are meant to last, for a limited time only.
+
+      -- UnitOfMeasure --'
+  - name: physicalCondition
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The physical condition of a man-made structure, as a whole, including the inside
+      and/or outside of the structure and any contained and/or associated equipment.
+
+      -- Description --
+
+      The physical condition applies to any phase of the life cycle of a man-made
+      structure from construction to destruction. Examples of man-made structures
+      include roads, canals, buildings, towers, aerodromes and facilities.
+
+      -- UnitOfMeasure --'
+  - name: radarSignificance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The predominant exposed surface material, categorized by its significance to
+      radar-based sensors.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: restrictOverheadClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that there is an overhead obstruction located less than 4.3 metres
+      above a land transportation route.
+
+      -- Description --
+
+      Vertical clearance affects the maximum height of vehicle loads. (Reference STANAG
+      2253)
+
+      -- UnitOfMeasure --'
+- name: TransportationPlatform
+  physicalName: transportationplatform
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    A permanent raised physical structure which serves as a surface for disembarking
+    or taking on passengers or freight from a form of transport.
+
+    -- Description --'
+  customProperties:
+  - property: sosiObjektType
+    value: TransportationPlatform
+  properties:
+  - name: meansTransportation
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The intended method or means of moving from one place to another related to
+      the feature or the feature''s intended use.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: transportationUse
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The primary use(s) of a transportation system.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+- name: BridgeTower
+  physicalName: bridgetower
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    A tower and/or pylon from which the deck of a bridge is suspended.
+
+    -- Description --'
+  customProperties:
+  - property: sosiObjektType
+    value: BridgeTower
+  - property: inheritsFrom
+    value: FeatureEntity
+  properties:
+  - name: geometry
+    logicalType: object
+    physicalType: geometry(Geometry)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
+  - name: structMatType
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The primary type(s) of material composing a feature, exclusive of the surface.
+
+      -- Description --
+
+      The basis for ''primary'' may be, for example, compositional dominance or structural
+      organization.
+
+      -- UnitOfMeasure --'
+  - name: bridgeReferenceNumber
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The unique identifier of a bridge in accordance with the provisions of terrain
+      analysis databases (for example: PTADB or TTADB).
+
+      -- Description --
+
+      The identifier is assigned consecutively (for example: within a map sheet or
+      within a local area of interest) and begins with the northwest grid square of
+      the UTM reference system and proceeds from left to right to the east edge of
+      the sheet or area, continuing consecutively in the same way starting back at
+      the west edge of the next line of UTM grid squares below those previously completed.
+      The resulting identifiers are used to index an associated Bridge Information
+      Table.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousAirCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the air.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousGroundCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from on the ground.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousSeaCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the sea.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: directivity
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The side(s) of a feature that produce the greatest visual significance and/or
+      reflectivity potential.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: heightAboveSurfaceLevel
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The vertical distance measured from the lowest point of the base of the feature
+      at ground or water level (downhill/downstream side) to the tallest point of
+      the feature.
+
+      -- Description --
+
+      For non-inland water bodies, the water level is usually understood to be Mean
+      Sea Level (MSL). Note that the feature may be supported above the surface by
+      another feature (for example: a tower supported by a building) and as a consequence
+      the value of the Height Above Surface Level is different (larger) than the base-to-top
+      height of the feature (for example: supported tower) itself.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: highestElevation
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The elevation from a specified vertical datum to the highest point on a feature.
+
+      -- Description --
+
+      In the case of multiple features that may be stacked on each other (for example:
+      a railway on a bridge, a superstructure on a building, or an aerial on a tower)
+      the highest elevation is that of the entire feature stack. For example, the
+      highest elevation of a church is that of its steeple and not that of the roof
+      of the church itself. The church itself may have a height above surface level
+      that excludes the additional height of the steeple superstructure located on
+      the church roof.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: maritimeNavigationMarked
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is significant to maritime safety of navigation
+      and is marked (for example: by a light or beacon) by a maritime-specific navigational
+      aid.
+
+      -- Description --
+
+      Mariners may also use other prominent features (for example: rotating aeronautical
+      beacons or lighted structures) for informal navigational purposes.
+
+      -- UnitOfMeasure --'
+  - name: physicalCondition
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The physical condition of a man-made structure, as a whole, including the inside
+      and/or outside of the structure and any contained and/or associated equipment.
+
+      -- Description --
+
+      The physical condition applies to any phase of the life cycle of a man-made
+      structure from construction to destruction. Examples of man-made structures
+      include roads, canals, buildings, towers, aerodromes and facilities.
+
+      -- UnitOfMeasure --'
+  - name: pylonConfiguration
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The configuration of a pylon or pole.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: radarSignificance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The predominant exposed surface material, categorized by its significance to
+      radar-based sensors.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: towerShape
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The general shape and/or structure of a tower.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+- name: Bridge
+  physicalName: bridge
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    A structure that connects two locations and provides for the passage of a transportation
+    route (for example: a road or a railway) over a terrain obstacle (for example:
+    a waterbody, a gully, and/or a road).
+
+    -- Description --
+
+    A bridge consists of a set of two abutments and/or zero or more bridge piers joined
+    by bridge spans. A bridge may serve, for example, as an overpass or a viaduct.
+    In the context of a bridge, the scope of the term ''transportation route'' includes
+    the transportation of liquids or gases by means of either pipelines or aqueducts.'
+  customProperties:
+  - property: sosiObjektType
+    value: Bridge
+  - property: inheritsFrom
+    value: FeatureEntity
+  properties:
+  - name: geometry
+    logicalType: object
+    physicalType: geometry(Geometry)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
+  - name: directivity
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The side(s) of a feature that produce the greatest visual significance and/or
+      reflectivity potential.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: structMatType
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The primary type(s) of material composing a feature, exclusive of the surface.
+
+      -- Description --
+
+      The basis for ''primary'' may be, for example, compositional dominance or structural
+      organization.
+
+      -- UnitOfMeasure --'
+  - name: angleOfIntendedPassage
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The angular distance in the horizontal plane measured from true north (0 degrees)
+      clockwise to the path on the feature (0-180 degrees) where passage was intended.
+
+      -- Description --
+
+      The path of intended passage may go across or over the feature (ex. a bridge)
+      or through it (ex. a tunnel).
+
+      -- UnitOfMeasure --
+
+      arcDegree'
+  - name: bridgeInfoReliability
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The reliability of information regarding bridge military load classification
+      and related characteristics.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: controllingAuthorityIdent
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The recognized authority responsible for establishing and maintaining the administrative
+      affairs of all matters relating to a particular field or subject.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: bridgeOpeningType
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The type of structure or mechanism by which a bridge or bridge span is moved
+      to allow passage of a vessel.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: bridgeReferenceNumber
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The unique identifier of a bridge in accordance with the provisions of terrain
+      analysis databases (for example: PTADB or TTADB).
+
+      -- Description --
+
+      The identifier is assigned consecutively (for example: within a map sheet or
+      within a local area of interest) and begins with the northwest grid square of
+      the UTM reference system and proceeds from left to right to the east edge of
+      the sheet or area, continuing consecutively in the same way starting back at
+      the west edge of the next line of UTM grid squares below those previously completed.
+      The resulting identifiers are used to index an associated Bridge Information
+      Table.
+
+      -- UnitOfMeasure --'
+  - name: bridgeStructureType
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The type(s) of structural design of a bridge, bridge span, or bridge superstructure.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: bypassCondition
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The ease or ability to circumvent a destroyed section of bridge, tunnel or pass
+      within a distance of two kilometres from the feature.
+
+      -- Description --
+
+      Bypass condition will not consider other bridges in bypass determination.
+
+      -- UnitOfMeasure --'
+  - name: colourPattern
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The colour pattern(s) of an aid to navigation (for example: a buoy, a beacon,
+      and/or a navigation light) or other feature of importance to maritime navigation.
+
+      -- Description --
+
+      The Attribute: ''Navigation Mark Colour'' may be used to specify the colours
+      in the order in which they appear in the pattern.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousAirCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the air.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousGroundCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from on the ground.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousSeaCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the sea.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: controllingAuthority
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The controlling authority responsible for a facility or site.
+
+      -- Description --
+
+      Controlling authorities may be distinguished by organizational level (for example:
+      national, sub-national, or military district) and/or type (for example: private
+      or public).
+
+      -- UnitOfMeasure --'
+  - name: deckCount
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The number of vertically stacked decks, one over another, in a transportation
+      structure (for example: a bridge or a tunnel).
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      unitless'
+  - name: elevationMsl
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The vertical distance of a point or a level, on or affixed to the surface of
+      the Earth, measured from Mean Sea Level (MSL).
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: facilityOperationalStatus
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The status of operation of a man-made structure, as a whole.
+
+      -- Description --
+
+      Includes actual operations, operational capability, and planned or proposed
+      man-made structures.
+
+      -- UnitOfMeasure --'
+  - name: heightAboveSurfaceLevel
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The vertical distance measured from the lowest point of the base of the feature
+      at ground or water level (downhill/downstream side) to the tallest point of
+      the feature.
+
+      -- Description --
+
+      For non-inland water bodies, the water level is usually understood to be Mean
+      Sea Level (MSL). Note that the feature may be supported above the surface by
+      another feature (for example: a tower supported by a building) and as a consequence
+      the value of the Height Above Surface Level is different (larger) than the base-to-top
+      height of the feature (for example: supported tower) itself.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: highestElevation
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The elevation from a specified vertical datum to the highest point on a feature.
+
+      -- Description --
+
+      In the case of multiple features that may be stacked on each other (for example:
+      a railway on a bridge, a superstructure on a building, or an aerial on a tower)
+      the highest elevation is that of the entire feature stack. For example, the
+      highest elevation of a church is that of its steeple and not that of the roof
+      of the church itself. The church itself may have a height above surface level
+      that excludes the additional height of the steeple superstructure located on
+      the church roof.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: horizontalClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The distance available to pass a load that extends laterally beyond the wheels
+      of a vehicle.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: loadClassType1
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The dynamic live load weight-bearing capacity of a bridge or bridge span for
+      one-way, wheeled vehicle traffic in MLC units.
+
+      -- Description --
+
+      Military load classification values are calculated in part from the size, cross-sectional
+      shape, and material of the stringers under the bridge span; they are similar
+      to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method
+      of calculation.
+
+      -- UnitOfMeasure --
+
+      militaryLoadClass'
+  - name: loadClassType2
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The dynamic live load weight-bearing capacity of a bridge or bridge span for
+      two-way, wheeled vehicle traffic in MLC units.
+
+      -- Description --
+
+      Military load classification values are calculated in part from the size, cross-sectional
+      shape, and material of the stringers under the bridge span; they are similar
+      to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method
+      of calculation.
+
+      -- UnitOfMeasure --
+
+      militaryLoadClass'
+  - name: loadClassType3
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The dynamic live load weight-bearing capacity of a bridge or bridge span for
+      one-way, tracked vehicle traffic in MLC units.
+
+      -- Description --
+
+      Military load classification values are calculated in part from the size, cross-sectional
+      shape, and material of the stringers under the bridge span; they are similar
+      to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method
+      of calculation.
+
+      -- UnitOfMeasure --
+
+      militaryLoadClass'
+  - name: loadClassType4
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The dynamic live load weight-bearing capacity of a bridge or bridge span for
+      two-way, tracked vehicle traffic in MLC units.
+
+      -- Description --
+
+      Military load classification values are calculated in part from the size, cross-sectional
+      shape, and material of the stringers under the bridge span; they are similar
+      to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method
+      of calculation.
+
+      -- UnitOfMeasure --
+
+      militaryLoadClass'
+  - name: maritimeNavigationMarked
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is significant to maritime safety of navigation
+      and is marked (for example: by a light or beacon) by a maritime-specific navigational
+      aid.
+
+      -- Description --
+
+      Mariners may also use other prominent features (for example: rotating aeronautical
+      beacons or lighted structures) for informal navigational purposes.
+
+      -- UnitOfMeasure --'
+  - name: maximumVerticalClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The greatest distance between the travelled way and any obstruction vertically
+      above it.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: militaryBridgeInformation
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Information describing a bridge, typically one that is subject to preplanned
+      military interdiction.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: mobileBridgeSpan
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a bridge span moves in some manner to allow passage underneath.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: navigationMarkColour
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The colour(s) of a International Association of Lighthouse Authorities (IALA)
+      navigation mark.
+
+      -- Description --
+
+      When the navigation mark is patterned, the Attribute: ''Colour Pattern'' may
+      be used to identify the pattern and a corresponding list of colours specified.
+
+      -- UnitOfMeasure --'
+  - name: overheadClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The least distance between the travelled way and any obstruction vertically
+      above it.
+
+      -- Description --
+
+      Reference STANAG 2253.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: permanent
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is permanent.
+
+      -- Description --
+
+      Temporary features last, or are meant to last, for a limited time only.
+
+      -- UnitOfMeasure --'
+  - name: physicalCondition
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The physical condition of a man-made structure, as a whole, including the inside
+      and/or outside of the structure and any contained and/or associated equipment.
+
+      -- Description --
+
+      The physical condition applies to any phase of the life cycle of a man-made
+      structure from construction to destruction. Examples of man-made structures
+      include roads, canals, buildings, towers, aerodromes and facilities.
+
+      -- UnitOfMeasure --'
+  - name: radarSignificance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The predominant exposed surface material, categorized by its significance to
+      radar-based sensors.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: restrictHorizClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that horizontal clearance for vehicles on a land transportation
+      route is restricted.
+
+      -- Description --
+
+      Horizontal clearance affects the maximum width of loads that extend laterally
+      beyond the wheels of a vehicle.
+
+      -- UnitOfMeasure --'
+  - name: restrictOverheadClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that there is an overhead obstruction located less than 4.3 metres
+      above a land transportation route.
+
+      -- Description --
+
+      Vertical clearance affects the maximum height of vehicle loads. (Reference STANAG
+      2253)
+
+      -- UnitOfMeasure --'
+  - name: roofed
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is covered by a roof.
+
+      -- Description --
+
+      The roof may be supported by spaced pillars with intervening openings or the
+      sides may be completely closed (for example: by walls or windows) and thus afford
+      substantial protection from the weather.
+
+      -- UnitOfMeasure --'
+  - name: spanCount
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The number of spans in a bridge.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: underbridgeClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Clearance below bridge, measured from the lowest surface level to the base of
+      the lower of either a cross beam or the lowest bridge deck.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: verticalClearanceSafe
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The safe vertical clearance of an object measured from the horizontal plane
+      toward the object overhead.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: waterbodyOverheadObstruct
+    logicalType: string
+    description: '-- Definition --
+
+      An indication that an object is an overhead obstruction over a navigable waterbody.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+- name: Tunnel
+  physicalName: tunnel
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    An underground passage that is open at both ends and usually contains a land transportation
+    route (for example: a road and/or a railway).
+
+    -- Description --
+
+    Commonly used to pass through a hill or mountain, or under a river or road. May
+    also provide underground passage in a mine.'
+  customProperties:
+  - property: sosiObjektType
+    value: Tunnel
+  - property: inheritsFrom
+    value: FeatureEntity
+  properties:
+  - name: geometry
+    logicalType: object
+    physicalType: geometry(Geometry)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
+  - name: angleOfIntendedPassage
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The angular distance in the horizontal plane measured from true north (0 degrees)
+      clockwise to the path on the feature (0-180 degrees) where passage was intended.
+
+      -- Description --
+
+      The path of intended passage may go across or over the feature (ex. a bridge)
+      or through it (ex. a tunnel).
+
+      -- UnitOfMeasure --
+
+      arcDegree'
+  - name: bypassCondition
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The ease or ability to circumvent a destroyed section of bridge, tunnel or pass
+      within a distance of two kilometres from the feature.
+
+      -- Description --
+
+      Bypass condition will not consider other bridges in bypass determination.
+
+      -- UnitOfMeasure --'
+  - name: controllingAuthority
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The controlling authority responsible for a facility or site.
+
+      -- Description --
+
+      Controlling authorities may be distinguished by organizational level (for example:
+      national, sub-national, or military district) and/or type (for example: private
+      or public).
+
+      -- UnitOfMeasure --'
+  - name: controllingAuthorityIdent
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The recognized authority responsible for establishing and maintaining the administrative
+      affairs of all matters relating to a particular field or subject.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: crossSectionalProfile
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The cross-sectional profile of an opening (for example: a tunnel or the space
+      under a bridge span).
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: deckCount
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The number of vertically stacked decks, one over another, in a transportation
+      structure (for example: a bridge or a tunnel).
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      unitless'
+  - name: deepDepthBelowSurfLevel
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The distance measured from ground or water level (uphill/upstream side of the
+      feature) to the deepest point of the feature.
+
+      -- Description --
+
+      May be used to measure the depth of an inland waterbody (for example: a lake),
+      the depth of a terrain surface depression or excavation (for example: a crevice
+      or trench), the distance to the deepest point of a drilled feature (for example:
+      a water well or borehole) or the distance to the deepest point of a feature
+      located entirely underground (for example: a cave chamber). In the case of a
+      feature located below a waterbody (for example: a non-water well) the reference
+      surface is the waterbody bottom, rather than the waterbody surface.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: facilityOperationalStatus
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The status of operation of a man-made structure, as a whole.
+
+      -- Description --
+
+      Includes actual operations, operational capability, and planned or proposed
+      man-made structures.
+
+      -- UnitOfMeasure --'
+  - name: hazardShelterIntendedUse
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The intended use(s) of a designated hazard protection shelter based on the kind
+      of emergency.
+
+      -- Description --
+
+      Hazard shelters may be located inside buildings or other structures. Shelters
+      may be equipped with disaster supplies and equipment such as food and cots.
+
+      -- UnitOfMeasure --'
+  - name: heightAboveSurfaceLevel
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The vertical distance measured from the lowest point of the base of the feature
+      at ground or water level (downhill/downstream side) to the tallest point of
+      the feature.
+
+      -- Description --
+
+      For non-inland water bodies, the water level is usually understood to be Mean
+      Sea Level (MSL). Note that the feature may be supported above the surface by
+      another feature (for example: a tower supported by a building) and as a consequence
+      the value of the Height Above Surface Level is different (larger) than the base-to-top
+      height of the feature (for example: supported tower) itself.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: horizontalClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The distance available to pass a load that extends laterally beyond the wheels
+      of a vehicle.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: leastDepthBelowSurfLevel
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The distance measured from ground or water level (uphill/upstream side of the
+      feature) to the highest point of a feature located completely underground.
+
+      -- Description --
+
+      For example, in the case of an underground dwelling the least depth below surface
+      level would be measured to its ceiling. The least depth below surface level
+      may be located at ground or water level and therefore have a value of zero (for
+      example: an opencast extraction mine, a terrain depression or a lake). For depths
+      defined with respect to a time-varying water level, consideration should be
+      given to the use of Attribute: ''Hydrographic Depth''.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: manMade
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is man-made.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: maximumVerticalClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The greatest distance between the travelled way and any obstruction vertically
+      above it.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: monitored
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is actively monitored.
+
+      -- Description --
+
+      For example, attended or watched over by personnel.
+
+      -- UnitOfMeasure --'
+  - name: overheadClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The least distance between the travelled way and any obstruction vertically
+      above it.
+
+      -- Description --
+
+      Reference STANAG 2253.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: pedestrianTraversable
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is traversable on foot.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: permanent
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is permanent.
+
+      -- Description --
+
+      Temporary features last, or are meant to last, for a limited time only.
+
+      -- UnitOfMeasure --'
+  - name: physicalCondition
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The physical condition of a man-made structure, as a whole, including the inside
+      and/or outside of the structure and any contained and/or associated equipment.
+
+      -- Description --
+
+      The physical condition applies to any phase of the life cycle of a man-made
+      structure from construction to destruction. Examples of man-made structures
+      include roads, canals, buildings, towers, aerodromes and facilities.
+
+      -- UnitOfMeasure --'
+  - name: restrictHorizClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that horizontal clearance for vehicles on a land transportation
+      route is restricted.
+
+      -- Description --
+
+      Horizontal clearance affects the maximum width of loads that extend laterally
+      beyond the wheels of a vehicle.
+
+      -- UnitOfMeasure --'
+  - name: routeTotalUsableWidth
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The total usable width of the travelled way of a route.
+
+      -- Description --
+
+      Includes pavements and shoulders.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: safeHorizontalClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Minimum safe horizontal distance between adjacent structures on either side
+      of a navigable channel.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: structMatType
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The primary type(s) of material composing a feature, exclusive of the surface.
+
+      -- Description --
+
+      The basis for ''primary'' may be, for example, compositional dominance or structural
+      organization.
+
+      -- UnitOfMeasure --'
+  - name: verticalRelativeLocation
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The relationship between the feature and the underlying ground (terrain) or
+      waterbody bottom.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+- name: TransRouteProtectStruct
+  physicalName: transrouteprotectstruct
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    A structure built over and/or along a transportation route designed to prevent
+    damage to, or blockage of, the route from rock slides, snow slides and/or weather
+    phenomena.
+
+    -- Description --
+
+    For example, a snow shed, a rock shed or a gallery. These structures are usually
+    located in rugged mountainous regions.'
+  customProperties:
+  - property: sosiObjektType
+    value: TransRouteProtectStruct
+  - property: inheritsFrom
+    value: FeatureEntity
+  properties:
+  - name: geometry
+    logicalType: object
+    physicalType: geometry(Geometry)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
+  - name: structMatType
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The primary type(s) of material composing a feature, exclusive of the surface.
+
+      -- Description --
+
+      The basis for ''primary'' may be, for example, compositional dominance or structural
+      organization.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousAirCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the air.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: conspicuousGroundCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from on the ground.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: controllingAuthorityIdent
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The recognized authority responsible for establishing and maintaining the administrative
+      affairs of all matters relating to a particular field or subject.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: conspicuousSeaCategory
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The manner in which an object is conspicuous when viewed from the sea.
+
+      -- Description --
+
+      A conspicuous feature is easily detected and identified under varying conditions
+      (for example: lighting). Factors affecting conspicuousness include size, shape,
+      and/or height.
+
+      -- UnitOfMeasure --'
+  - name: controllingAuthority
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The controlling authority responsible for a facility or site.
+
+      -- Description --
+
+      Controlling authorities may be distinguished by organizational level (for example:
+      national, sub-national, or military district) and/or type (for example: private
+      or public).
+
+      -- UnitOfMeasure --'
+  - name: facilityOperationalStatus
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The status of operation of a man-made structure, as a whole.
+
+      -- Description --
+
+      Includes actual operations, operational capability, and planned or proposed
+      man-made structures.
+
+      -- UnitOfMeasure --'
+  - name: floodlit
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a structure is floodlit.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: heightAboveSurfaceLevel
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The vertical distance measured from the lowest point of the base of the feature
+      at ground or water level (downhill/downstream side) to the tallest point of
+      the feature.
+
+      -- Description --
+
+      For non-inland water bodies, the water level is usually understood to be Mean
+      Sea Level (MSL). Note that the feature may be supported above the surface by
+      another feature (for example: a tower supported by a building) and as a consequence
+      the value of the Height Above Surface Level is different (larger) than the base-to-top
+      height of the feature (for example: supported tower) itself.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: highestElevation
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The elevation from a specified vertical datum to the highest point on a feature.
+
+      -- Description --
+
+      In the case of multiple features that may be stacked on each other (for example:
+      a railway on a bridge, a superstructure on a building, or an aerial on a tower)
+      the highest elevation is that of the entire feature stack. For example, the
+      highest elevation of a church is that of its steeple and not that of the roof
+      of the church itself. The church itself may have a height above surface level
+      that excludes the additional height of the steeple superstructure located on
+      the church roof.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: horizontalClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The distance available to pass a load that extends laterally beyond the wheels
+      of a vehicle.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: overheadClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The least distance between the travelled way and any obstruction vertically
+      above it.
+
+      -- Description --
+
+      Reference STANAG 2253.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: permanent
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that a feature is permanent.
+
+      -- Description --
+
+      Temporary features last, or are meant to last, for a limited time only.
+
+      -- UnitOfMeasure --'
+  - name: physicalCondition
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The physical condition of a man-made structure, as a whole, including the inside
+      and/or outside of the structure and any contained and/or associated equipment.
+
+      -- Description --
+
+      The physical condition applies to any phase of the life cycle of a man-made
+      structure from construction to destruction. Examples of man-made structures
+      include roads, canals, buildings, towers, aerodromes and facilities.
+
+      -- UnitOfMeasure --'
+  - name: restrictHorizClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An indication that horizontal clearance for vehicles on a land transportation
+      route is restricted.
+
+      -- Description --
+
+      Horizontal clearance affects the maximum width of loads that extend laterally
+      beyond the wheels of a vehicle.
+
+      -- UnitOfMeasure --'
+  - name: safeHorizontalClearance
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Minimum safe horizontal distance between adjacent structures on either side
+      of a navigable channel.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: transRteProtStructType
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The type of a transportation route protection structure based on its configuration
+      and/or intended purpose.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: verticalRelativeLocation
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The relationship between the feature and the underlying ground (terrain) or
+      waterbody bottom.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+- name: MiscFeatureType
+  physicalName: miscfeaturetype
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    Any feature type that falls within the scope of a feature type domain (for example:
+    a feature coverage or a product specification) but is not explicitly specified
+    in that domain.
+
+    -- Description --
+
+    May be used to allow for the flexible capture of feature instances that are unanticipated
+    at the time of specifying the feature type domain. This ensures that feature instances
+    deemed important for a particular mission and/or user can be captured, even though
+    the most appropriate feature type is not used.'
+  customProperties:
+  - property: sosiObjektType
+    value: MiscFeatureType
+  - property: inheritsFrom
+    value: FeatureEntity
+  properties:
+  - name: geometry
+    logicalType: object
+    physicalType: geometry(Geometry)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
+  - name: highestElevation
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The elevation from a specified vertical datum to the highest point on a feature.
+
+      -- Description --
+
+      In the case of multiple features that may be stacked on each other (for example:
+      a railway on a bridge, a superstructure on a building, or an aerial on a tower)
+      the highest elevation is that of the entire feature stack. For example, the
+      highest elevation of a church is that of its steeple and not that of the roof
+      of the church itself. The church itself may have a height above surface level
+      that excludes the additional height of the steeple superstructure located on
+      the church roof.
+
+      -- UnitOfMeasure --
+
+      metre'
+  - name: miscFeatureTypeDescription
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An explanation of the feature being captured such that a user of the data can
+      understand what is being represented by the geometry.
+
+      -- Description --
+
+      When the use of MiscFeatureType is required to capture an unanticipated feature
+      instance, this description will enable the end-user to understand what has been
+      captured and represented by the feature geometry.
+
+      -- UnitOfMeasure --'
+  - name: heightAboveSurfaceLevel
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The vertical distance measured from the lowest point of the base of the feature
+      at ground or water level (downhill/downstream side) to the tallest point of
+      the feature.
+
+      -- Description --
+
+      For non-inland water bodies, the water level is usually understood to be Mean
+      Sea Level (MSL). Note that the feature may be supported above the surface by
+      another feature (for example: a tower supported by a building) and as a consequence
+      the value of the Height Above Surface Level is different (larger) than the base-to-top
+      height of the feature (for example: supported tower) itself.
+
+      -- UnitOfMeasure --
+
+      metre'
+- name: IdentifiedQualityIssue
+  physicalName: identifiedqualityissue
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    A modeling entity where issues with data quality are identified.
+
+    -- Description --
+
+    For example, the identification of specific known problems in the data that could
+    not be fixed within the context of the dataset delivery. This feature indicates
+    to the user the potential need for caution when utilizing any data that touches,
+    crosses, or exists within the identified location.'
+  customProperties:
+  - property: sosiObjektType
+    value: IdentifiedQualityIssue
+  - property: inheritsFrom
+    value: FeatureEntity
+  properties:
+  - name: geometry
+    logicalType: object
+    physicalType: geometry(Geometry)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
+  - name: qualityIssueImpact
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An explanation of the assessed impact of the identified quality issue on data
+      utilization.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --'
+  - name: qualityIssueDescription
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      An explanation of the type, nature, or origin of the identified quality issue.
+
+      -- Description --
+
+      The intent of this attribute is to fully inform data users of the scope and
+      breadth of the quality issue so that informed decisions can be made to how the
+      data is employed.
+
+      -- UnitOfMeasure --'
+- name: VoidCollectionArea
+  physicalName: voidcollectionarea
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    A data collection region lacking suitable source coverage and/or where data is
+    not required.
+
+    -- Description --'
+  customProperties:
+  - property: sosiObjektType
+    value: VoidCollectionArea
+  - property: inheritsFrom
+    value: FeatureEntity
+  properties:
+  - name: geometry
+    logicalType: object
+    physicalType: geometry(Geometry)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
+  - name: voidCollectionReason
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The reason(s) that geospatial data was not collected.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: voidCollectionType
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      The type(s) of geospatial data that were not collected.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+- name: GeneralLocation
+  physicalName: generallocation
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    A location that normally does not appear as a specific, characterized object but
+    that has either a name that is required to be displayed or other specific information
+    associated with that location.
+
+    -- Description --
+
+    For example, the name of the Alps or the Sahara.'
+  customProperties:
+  - property: sosiObjektType
+    value: GeneralLocation
+  - property: inheritsFrom
+    value: FeatureEntity
+  properties:
+  - name: geometry
+    logicalType: object
+    physicalType: geometry(Geometry)
+    required: true
+    customProperties:
+    - property: geometryType
+      value: Geometry
+  - name: namedLocationType
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The type of a location that normally does not appear as a specific, characterized
+      object but that has a name that is required to be displayed in association with
+      that location.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: thematicClassification
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The classification of a feature among geographic themes.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+  - name: informationReference
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A reference to an external source or additional information.
+
+      -- Description --
+
+      For example a hyperlink.
+
+      -- UnitOfMeasure --'
+- name: OrganisationalUnit
+  physicalName: organisationalunit
+  logicalType: object
+  physicalType: table
+  description: '-- Definition --
+
+    An actor established to manage the performance of activities to achieve one or
+    more purposes of an organisation.
+
+    -- Description --
+
+    For example, a task unit or local office group.'
+  customProperties:
+  - property: sosiObjektType
+    value: OrganisationalUnit
+  - property: inheritsFrom
+    value: ActorEntity
+  properties:
+  - name: contactInfo
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      The telephone, postal, electronic and/or other contact information for a facility,
+      organisation or person.
+
+      -- Description --
+
+      -- UnitOfMeasure --'
+    required: true
