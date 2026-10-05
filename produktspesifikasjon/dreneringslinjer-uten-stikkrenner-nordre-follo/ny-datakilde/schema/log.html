@@ -99,14 +99,14 @@ return true;
         <td>
           <p>Start time:</p>
         </td><td>
-          <p>Wed Sep 23 12:08:44 UTC 2026</p>
+          <p>Mon Oct 05 09:32:20 UTC 2026</p>
         </td>
       </tr>
       <tr>
         <td>
           <p>End time:</p>
         </td><td>
-          <p>Wed Sep 23 12:08:52 UTC 2026</p>
+          <p>Mon Oct 05 09:32:29 UTC 2026</p>
         </td>
       </tr>
       <tr>
@@ -229,6 +229,16 @@ return true;
           <p>ProcessFlowInfo</p>
         </td><td>
           <p>---------- Semantic validation of ShapeChange configuration: COMPLETE ----------</p>
+        </td>
+      </tr>
+      <tr style="display:table-row" class="Warning">
+        <td>
+          <p>Warning</p>
+        </td><td>
+          <p>The type 'Tunnel_crossSectionalProfileReason' of property 'Tunnel_crossSectionalProfileMeta.valueOrReason' was not found.</p>
+          <p>
+            <small>Context: Property 'ny-datakilde::Tunnel_crossSectionalProfileMeta::valueOrReason'</small>
+          </p>
         </td>
       </tr>
       <tr style="display:table-row" class="Warning">
@@ -1228,16 +1238,6 @@ return true;
           <p>The type 'Tunnel_controllingAuthorityReason' of property 'Tunnel_controllingAuthorityMeta.valueOrReason' was not found.</p>
           <p>
             <small>Context: Property 'ny-datakilde::Tunnel_controllingAuthorityMeta::valueOrReason'</small>
-          </p>
-        </td>
-      </tr>
-      <tr style="display:table-row" class="Warning">
-        <td>
-          <p>Warning</p>
-        </td><td>
-          <p>The type 'Tunnel_crossSectionalProfileReason' of property 'Tunnel_crossSectionalProfileMeta.valueOrReason' was not found.</p>
-          <p>
-            <small>Context: Property 'ny-datakilde::Tunnel_crossSectionalProfileMeta::valueOrReason'</small>
           </p>
         </td>
       </tr>
@@ -2732,16 +2732,6 @@ return true;
         <td>
           <p>Warning</p>
         </td><td>
-          <p>Value type 'GM_Object' of primary geometry property 'geometry' is not one of the GeoJSON compatible geometry types defined via target parameter geoJsonCompatibleGeometryTypes. No restriction will be encoded for the "geometry" member.</p>
-          <p>
-            <small>Context: property 'ny-datakilde::NyFoundation::FeatureEntity::geometry'</small>
-          </p>
-        </td>
-      </tr>
-      <tr style="display:table-row" class="Warning">
-        <td>
-          <p>Warning</p>
-        </td><td>
           <p>JSON Schema definition for type 'GeneralLocation_namedLocationTypeReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type.</p>
         </td>
       </tr>
@@ -3133,6 +3123,16 @@ return true;
           <p>Type 'CausewayStructure' has one or more supertypes. Conversion of inheritance relationships is only supported by this target if parameter 'enableFragments' is set to 'true'. The relationship will be ignored.</p>
           <p>
             <small>Context: class 'ny-datakilde::NyTransportation::CausewayStructure'</small>
+          </p>
+        </td>
+      </tr>
+      <tr style="display:table-row" class="Warning">
+        <td>
+          <p>Warning</p>
+        </td><td>
+          <p>Type 'Entity' is abstract. Conversion of abstract types is only supported by this target if parameter 'enableFragments' is set to 'true'. The type will be ignored.</p>
+          <p>
+            <small>Context: class 'ny-datakilde::NyFoundation::Entity'</small>
           </p>
         </td>
       </tr>

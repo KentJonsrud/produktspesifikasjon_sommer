@@ -9,7 +9,7 @@ logo: "https://register.geonorge.no/data/organizations/922092648_nordre-follo_li
 
 *Dreneringslinjer uten stikkrenner, Nordre Follo.*
 
-**Nøkkelord:** Nordre Follo kommune, Det offentlige kartgrunnlaget, fellesDatakatalog, Basis geodata
+**Nøkkelord:** Det offentlige kartgrunnlaget, fellesDatakatalog, Basis geodata
 
 **Emnekategorier:** 
 
@@ -20,6 +20,9 @@ logo: "https://register.geonorge.no/data/organizations/922092648_nordre-follo_li
 - **Sør**: 59.618675
 - **Nord**: 59.839283
 
+**Geografisk område**:
+Nordre Follo kommune
+
 **Tidsmessig utstrekning**:
 
 - **Tidsperiode**:
@@ -27,7 +30,7 @@ logo: "https://register.geonorge.no/data/organizations/922092648_nordre-follo_li
   - **Til**: 2020-05-06
 
 ## Om spesifikasjonen
-
+Versjon 2 2026-10-05
 
 > **Denne versjonen av produktspesifikasjonen:** <br>
 > **Opprettet dato:** 2020-05-06<br>

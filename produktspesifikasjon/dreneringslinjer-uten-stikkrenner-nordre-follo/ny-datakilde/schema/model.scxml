@@ -42,22 +42,6 @@
    <sc:classes>
     <sc:Class>
      <sc:name>TunnelMouth_crossSectionalProfileMeta</sc:name>
-     <sc:id>C18</sc:id>
-     <sc:stereotypes>
-      <sc:Stereotype>datatype</sc:Stereotype>
-     </sc:stereotypes>
-     <sc:properties>
-      <sc:Property>
-       <sc:name>valueOrReason</sc:name>
-       <sc:id>C18_1</sc:id>
-       <sc:cardinality>1</sc:cardinality>
-       <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TunnelMouth_crossSectionalProfileReason</sc:typeName>
-      </sc:Property>
-     </sc:properties>
-    </sc:Class>
-    <sc:Class>
-     <sc:name>TurnaroundSite_controllingAuthorityMeta</sc:name>
      <sc:id>C19</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -68,12 +52,12 @@
        <sc:id>C19_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TurnaroundSite_controllingAuthorityReason</sc:typeName>
+       <sc:typeName>TunnelMouth_crossSectionalProfileReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>CharacterStringMeta</sc:name>
+     <sc:name>TurnaroundSite_controllingAuthorityMeta</sc:name>
      <sc:id>C20</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -84,12 +68,12 @@
        <sc:id>C20_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>CharacterStringReason</sc:typeName>
+       <sc:typeName>TurnaroundSite_controllingAuthorityReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TurnaroundSite_generalPavementConditionMeta</sc:name>
+     <sc:name>CharacterStringMeta</sc:name>
      <sc:id>C21</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -100,12 +84,12 @@
        <sc:id>C21_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TurnaroundSite_generalPavementConditionReason</sc:typeName>
+       <sc:typeName>CharacterStringReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TurnaroundSite_loadBearingSurfaceTypeMeta</sc:name>
+     <sc:name>TurnaroundSite_generalPavementConditionMeta</sc:name>
      <sc:id>C22</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -116,12 +100,12 @@
        <sc:id>C22_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TurnaroundSite_loadBearingSurfaceTypeReason</sc:typeName>
+       <sc:typeName>TurnaroundSite_generalPavementConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>MeasureMeta</sc:name>
+     <sc:name>TurnaroundSite_loadBearingSurfaceTypeMeta</sc:name>
      <sc:id>C23</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -132,12 +116,12 @@
        <sc:id>C23_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>MeasureReason</sc:typeName>
+       <sc:typeName>TurnaroundSite_loadBearingSurfaceTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TurnaroundSite_meansTransportationMeta</sc:name>
+     <sc:name>MeasureMeta</sc:name>
      <sc:id>C24</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -148,12 +132,12 @@
        <sc:id>C24_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TurnaroundSite_meansTransportationReason</sc:typeName>
+       <sc:typeName>MeasureReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BooleanMeta</sc:name>
+     <sc:name>TurnaroundSite_meansTransportationMeta</sc:name>
      <sc:id>C25</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -164,12 +148,12 @@
        <sc:id>C25_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BooleanReason</sc:typeName>
+       <sc:typeName>TurnaroundSite_meansTransportationReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TurnaroundSite_physicalConditionMeta</sc:name>
+     <sc:name>BooleanMeta</sc:name>
      <sc:id>C26</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -180,12 +164,12 @@
        <sc:id>C26_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TurnaroundSite_physicalConditionReason</sc:typeName>
+       <sc:typeName>BooleanReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TurnaroundSite_trafficRestrictionTypeMeta</sc:name>
+     <sc:name>TurnaroundSite_physicalConditionMeta</sc:name>
      <sc:id>C27</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -196,12 +180,12 @@
        <sc:id>C27_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TurnaroundSite_trafficRestrictionTypeReason</sc:typeName>
+       <sc:typeName>TurnaroundSite_physicalConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TurnaroundSite_verticalRelativeLocationMeta</sc:name>
+     <sc:name>TurnaroundSite_trafficRestrictionTypeMeta</sc:name>
      <sc:id>C28</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -212,12 +196,12 @@
        <sc:id>C28_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TurnaroundSite_verticalRelativeLocationReason</sc:typeName>
+       <sc:typeName>TurnaroundSite_trafficRestrictionTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TurnaroundSite_waySurfaceCategoryMeta</sc:name>
+     <sc:name>TurnaroundSite_verticalRelativeLocationMeta</sc:name>
      <sc:id>C29</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -228,12 +212,12 @@
        <sc:id>C29_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TurnaroundSite_waySurfaceCategoryReason</sc:typeName>
+       <sc:typeName>TurnaroundSite_verticalRelativeLocationReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TurnaroundSite_weatherRestrictionTypeMeta</sc:name>
+     <sc:name>TurnaroundSite_waySurfaceCategoryMeta</sc:name>
      <sc:id>C30</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -244,12 +228,12 @@
        <sc:id>C30_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TurnaroundSite_weatherRestrictionTypeReason</sc:typeName>
+       <sc:typeName>TurnaroundSite_waySurfaceCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>MeasureIntervalMeta</sc:name>
+     <sc:name>TurnaroundSite_weatherRestrictionTypeMeta</sc:name>
      <sc:id>C31</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -260,12 +244,12 @@
        <sc:id>C31_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>MeasureIntervalReason</sc:typeName>
+       <sc:typeName>TurnaroundSite_weatherRestrictionTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>CausewayStructure_conspicuousAirCategoryMeta</sc:name>
+     <sc:name>MeasureIntervalMeta</sc:name>
      <sc:id>C32</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -276,12 +260,12 @@
        <sc:id>C32_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>CausewayStructure_conspicuousAirCategoryReason</sc:typeName>
+       <sc:typeName>MeasureIntervalReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>CausewayStructure_conspicuousGroundCategoryMeta</sc:name>
+     <sc:name>CausewayStructure_conspicuousAirCategoryMeta</sc:name>
      <sc:id>C33</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -292,12 +276,12 @@
        <sc:id>C33_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>CausewayStructure_conspicuousGroundCategoryReason</sc:typeName>
+       <sc:typeName>CausewayStructure_conspicuousAirCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>CausewayStructure_conspicuousSeaCategoryMeta</sc:name>
+     <sc:name>CausewayStructure_conspicuousGroundCategoryMeta</sc:name>
      <sc:id>C34</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -308,12 +292,12 @@
        <sc:id>C34_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>CausewayStructure_conspicuousSeaCategoryReason</sc:typeName>
+       <sc:typeName>CausewayStructure_conspicuousGroundCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>CausewayStructure_controllingAuthorityMeta</sc:name>
+     <sc:name>CausewayStructure_conspicuousSeaCategoryMeta</sc:name>
      <sc:id>C35</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -324,12 +308,12 @@
        <sc:id>C35_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>CausewayStructure_controllingAuthorityReason</sc:typeName>
+       <sc:typeName>CausewayStructure_conspicuousSeaCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>CausewayStructure_directivityMeta</sc:name>
+     <sc:name>CausewayStructure_controllingAuthorityMeta</sc:name>
      <sc:id>C36</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -340,12 +324,12 @@
        <sc:id>C36_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>CausewayStructure_directivityReason</sc:typeName>
+       <sc:typeName>CausewayStructure_controllingAuthorityReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>CausewayStructure_facilityOperationalStatusMeta</sc:name>
+     <sc:name>CausewayStructure_directivityMeta</sc:name>
      <sc:id>C37</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -356,12 +340,12 @@
        <sc:id>C37_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>CausewayStructure_facilityOperationalStatusReason</sc:typeName>
+       <sc:typeName>CausewayStructure_directivityReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>HeightMeasureMeta</sc:name>
+     <sc:name>CausewayStructure_facilityOperationalStatusMeta</sc:name>
      <sc:id>C38</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -372,12 +356,12 @@
        <sc:id>C38_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>HeightMeasureReason</sc:typeName>
+       <sc:typeName>CausewayStructure_facilityOperationalStatusReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>ElevationMeasureMeta</sc:name>
+     <sc:name>HeightMeasureMeta</sc:name>
      <sc:id>C39</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -388,12 +372,12 @@
        <sc:id>C39_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>ElevationMeasureReason</sc:typeName>
+       <sc:typeName>HeightMeasureReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>CausewayStructure_physicalConditionMeta</sc:name>
+     <sc:name>ElevationMeasureMeta</sc:name>
      <sc:id>C40</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -404,12 +388,12 @@
        <sc:id>C40_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>CausewayStructure_physicalConditionReason</sc:typeName>
+       <sc:typeName>ElevationMeasureReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>CausewayStructure_structMatTypeMeta</sc:name>
+     <sc:name>CausewayStructure_physicalConditionMeta</sc:name>
      <sc:id>C41</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -420,12 +404,12 @@
        <sc:id>C41_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>CausewayStructure_structMatTypeReason</sc:typeName>
+       <sc:typeName>CausewayStructure_physicalConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>CausewayStructure_waterLevelEffectMeta</sc:name>
+     <sc:name>CausewayStructure_structMatTypeMeta</sc:name>
      <sc:id>C42</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -436,12 +420,12 @@
        <sc:id>C42_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>CausewayStructure_waterLevelEffectReason</sc:typeName>
+       <sc:typeName>CausewayStructure_structMatTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>AngleMeasureMeta</sc:name>
+     <sc:name>CausewayStructure_waterLevelEffectMeta</sc:name>
      <sc:id>C43</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -452,12 +436,12 @@
        <sc:id>C43_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>AngleMeasureReason</sc:typeName>
+       <sc:typeName>CausewayStructure_waterLevelEffectReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSpan_structMatTypeMeta</sc:name>
+     <sc:name>AngleMeasureMeta</sc:name>
      <sc:id>C44</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -468,12 +452,12 @@
        <sc:id>C44_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSpan_structMatTypeReason</sc:typeName>
+       <sc:typeName>AngleMeasureReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSpan_bridgeOpeningTypeMeta</sc:name>
+     <sc:name>BridgeSpan_structMatTypeMeta</sc:name>
      <sc:id>C45</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -484,12 +468,12 @@
        <sc:id>C45_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSpan_bridgeOpeningTypeReason</sc:typeName>
+       <sc:typeName>BridgeSpan_structMatTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSpan_bridgeStructureTypeMeta</sc:name>
+     <sc:name>BridgeSpan_bridgeOpeningTypeMeta</sc:name>
      <sc:id>C46</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -500,12 +484,12 @@
        <sc:id>C46_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSpan_bridgeStructureTypeReason</sc:typeName>
+       <sc:typeName>BridgeSpan_bridgeOpeningTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSpan_bypassConditionMeta</sc:name>
+     <sc:name>BridgeSpan_bridgeStructureTypeMeta</sc:name>
      <sc:id>C47</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -516,12 +500,12 @@
        <sc:id>C47_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSpan_bypassConditionReason</sc:typeName>
+       <sc:typeName>BridgeSpan_bridgeStructureTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSpan_conspicuousAirCategoryMeta</sc:name>
+     <sc:name>BridgeSpan_bypassConditionMeta</sc:name>
      <sc:id>C48</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -532,12 +516,12 @@
        <sc:id>C48_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSpan_conspicuousAirCategoryReason</sc:typeName>
+       <sc:typeName>BridgeSpan_bypassConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSpan_conspicuousGroundCategoryMeta</sc:name>
+     <sc:name>BridgeSpan_conspicuousAirCategoryMeta</sc:name>
      <sc:id>C49</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -548,12 +532,12 @@
        <sc:id>C49_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSpan_conspicuousGroundCategoryReason</sc:typeName>
+       <sc:typeName>BridgeSpan_conspicuousAirCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSpan_conspicuousSeaCategoryMeta</sc:name>
+     <sc:name>BridgeSpan_conspicuousGroundCategoryMeta</sc:name>
      <sc:id>C50</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -564,12 +548,12 @@
        <sc:id>C50_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSpan_conspicuousSeaCategoryReason</sc:typeName>
+       <sc:typeName>BridgeSpan_conspicuousGroundCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSpan_facilityOperationalStatusMeta</sc:name>
+     <sc:name>BridgeSpan_conspicuousSeaCategoryMeta</sc:name>
      <sc:id>C51</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -580,12 +564,12 @@
        <sc:id>C51_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSpan_facilityOperationalStatusReason</sc:typeName>
+       <sc:typeName>BridgeSpan_conspicuousSeaCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>IntegerMeta</sc:name>
+     <sc:name>BridgeSpan_facilityOperationalStatusMeta</sc:name>
      <sc:id>C52</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -596,12 +580,12 @@
        <sc:id>C52_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>IntegerReason</sc:typeName>
+       <sc:typeName>BridgeSpan_facilityOperationalStatusReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSpan_physicalConditionMeta</sc:name>
+     <sc:name>IntegerMeta</sc:name>
      <sc:id>C53</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -612,12 +596,12 @@
        <sc:id>C53_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSpan_physicalConditionReason</sc:typeName>
+       <sc:typeName>IntegerReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>HydroClearRefMeta</sc:name>
+     <sc:name>BridgeSpan_physicalConditionMeta</sc:name>
      <sc:id>C54</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -628,12 +612,12 @@
        <sc:id>C54_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>HydroClearRefReason</sc:typeName>
+       <sc:typeName>BridgeSpan_physicalConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgePier_structMatTypeMeta</sc:name>
+     <sc:name>HydroClearRefMeta</sc:name>
      <sc:id>C55</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -644,12 +628,12 @@
        <sc:id>C55_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgePier_structMatTypeReason</sc:typeName>
+       <sc:typeName>HydroClearRefReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgePier_colourPatternMeta</sc:name>
+     <sc:name>BridgePier_structMatTypeMeta</sc:name>
      <sc:id>C56</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -660,12 +644,12 @@
        <sc:id>C56_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgePier_colourPatternReason</sc:typeName>
+       <sc:typeName>BridgePier_structMatTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgePier_conspicuousAirCategoryMeta</sc:name>
+     <sc:name>BridgePier_colourPatternMeta</sc:name>
      <sc:id>C57</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -676,12 +660,12 @@
        <sc:id>C57_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgePier_conspicuousAirCategoryReason</sc:typeName>
+       <sc:typeName>BridgePier_colourPatternReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgePier_conspicuousGroundCategoryMeta</sc:name>
+     <sc:name>BridgePier_conspicuousAirCategoryMeta</sc:name>
      <sc:id>C58</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -692,12 +676,12 @@
        <sc:id>C58_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgePier_conspicuousGroundCategoryReason</sc:typeName>
+       <sc:typeName>BridgePier_conspicuousAirCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgePier_conspicuousSeaCategoryMeta</sc:name>
+     <sc:name>BridgePier_conspicuousGroundCategoryMeta</sc:name>
      <sc:id>C59</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -708,12 +692,12 @@
        <sc:id>C59_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgePier_conspicuousSeaCategoryReason</sc:typeName>
+       <sc:typeName>BridgePier_conspicuousGroundCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgePier_crossSectionalShapeMeta</sc:name>
+     <sc:name>BridgePier_conspicuousSeaCategoryMeta</sc:name>
      <sc:id>C60</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -724,12 +708,12 @@
        <sc:id>C60_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgePier_crossSectionalShapeReason</sc:typeName>
+       <sc:typeName>BridgePier_conspicuousSeaCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgePier_navigationMarkColourMeta</sc:name>
+     <sc:name>BridgePier_crossSectionalShapeMeta</sc:name>
      <sc:id>C61</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -740,12 +724,12 @@
        <sc:id>C61_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgePier_navigationMarkColourReason</sc:typeName>
+       <sc:typeName>BridgePier_crossSectionalShapeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgePier_physicalConditionMeta</sc:name>
+     <sc:name>BridgePier_navigationMarkColourMeta</sc:name>
      <sc:id>C62</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -756,12 +740,12 @@
        <sc:id>C62_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgePier_physicalConditionReason</sc:typeName>
+       <sc:typeName>BridgePier_navigationMarkColourReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSuperstructure_structMatTypeMeta</sc:name>
+     <sc:name>BridgePier_physicalConditionMeta</sc:name>
      <sc:id>C63</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -772,12 +756,12 @@
        <sc:id>C63_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSuperstructure_structMatTypeReason</sc:typeName>
+       <sc:typeName>BridgePier_physicalConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSuperstructure_bridgeStructureTypeMeta</sc:name>
+     <sc:name>BridgeSuperstructure_structMatTypeMeta</sc:name>
      <sc:id>C64</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -788,12 +772,12 @@
        <sc:id>C64_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSuperstructure_bridgeStructureTypeReason</sc:typeName>
+       <sc:typeName>BridgeSuperstructure_structMatTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSuperstructure_conspicuousAirCategoryMeta</sc:name>
+     <sc:name>BridgeSuperstructure_bridgeStructureTypeMeta</sc:name>
      <sc:id>C65</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -804,12 +788,12 @@
        <sc:id>C65_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSuperstructure_conspicuousAirCategoryReason</sc:typeName>
+       <sc:typeName>BridgeSuperstructure_bridgeStructureTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSuperstructure_conspicuousGroundCategoryMeta</sc:name>
+     <sc:name>BridgeSuperstructure_conspicuousAirCategoryMeta</sc:name>
      <sc:id>C66</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -820,12 +804,12 @@
        <sc:id>C66_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSuperstructure_conspicuousGroundCategoryReason</sc:typeName>
+       <sc:typeName>BridgeSuperstructure_conspicuousAirCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSuperstructure_conspicuousSeaCategoryMeta</sc:name>
+     <sc:name>BridgeSuperstructure_conspicuousGroundCategoryMeta</sc:name>
      <sc:id>C67</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -836,12 +820,12 @@
        <sc:id>C67_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSuperstructure_conspicuousSeaCategoryReason</sc:typeName>
+       <sc:typeName>BridgeSuperstructure_conspicuousGroundCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSuperstructure_directivityMeta</sc:name>
+     <sc:name>BridgeSuperstructure_conspicuousSeaCategoryMeta</sc:name>
      <sc:id>C68</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -852,12 +836,12 @@
        <sc:id>C68_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSuperstructure_directivityReason</sc:typeName>
+       <sc:typeName>BridgeSuperstructure_conspicuousSeaCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSuperstructure_physicalConditionMeta</sc:name>
+     <sc:name>BridgeSuperstructure_directivityMeta</sc:name>
      <sc:id>C69</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -868,12 +852,12 @@
        <sc:id>C69_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSuperstructure_physicalConditionReason</sc:typeName>
+       <sc:typeName>BridgeSuperstructure_directivityReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeSuperstructure_radarSignificanceMeta</sc:name>
+     <sc:name>BridgeSuperstructure_physicalConditionMeta</sc:name>
      <sc:id>C70</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -884,12 +868,12 @@
        <sc:id>C70_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeSuperstructure_radarSignificanceReason</sc:typeName>
+       <sc:typeName>BridgeSuperstructure_physicalConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransportationPlatform_meansTransportationMeta</sc:name>
+     <sc:name>BridgeSuperstructure_radarSignificanceMeta</sc:name>
      <sc:id>C71</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -900,12 +884,12 @@
        <sc:id>C71_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransportationPlatform_meansTransportationReason</sc:typeName>
+       <sc:typeName>BridgeSuperstructure_radarSignificanceReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransportationPlatform_transportationUseMeta</sc:name>
+     <sc:name>TransportationPlatform_meansTransportationMeta</sc:name>
      <sc:id>C72</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -916,12 +900,12 @@
        <sc:id>C72_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransportationPlatform_transportationUseReason</sc:typeName>
+       <sc:typeName>TransportationPlatform_meansTransportationReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeTower_structMatTypeMeta</sc:name>
+     <sc:name>TransportationPlatform_transportationUseMeta</sc:name>
      <sc:id>C73</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -932,12 +916,12 @@
        <sc:id>C73_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeTower_structMatTypeReason</sc:typeName>
+       <sc:typeName>TransportationPlatform_transportationUseReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeTower_conspicuousAirCategoryMeta</sc:name>
+     <sc:name>BridgeTower_structMatTypeMeta</sc:name>
      <sc:id>C74</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -948,12 +932,12 @@
        <sc:id>C74_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeTower_conspicuousAirCategoryReason</sc:typeName>
+       <sc:typeName>BridgeTower_structMatTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeTower_conspicuousGroundCategoryMeta</sc:name>
+     <sc:name>BridgeTower_conspicuousAirCategoryMeta</sc:name>
      <sc:id>C75</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -964,12 +948,12 @@
        <sc:id>C75_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeTower_conspicuousGroundCategoryReason</sc:typeName>
+       <sc:typeName>BridgeTower_conspicuousAirCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeTower_conspicuousSeaCategoryMeta</sc:name>
+     <sc:name>BridgeTower_conspicuousGroundCategoryMeta</sc:name>
      <sc:id>C76</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -980,12 +964,12 @@
        <sc:id>C76_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeTower_conspicuousSeaCategoryReason</sc:typeName>
+       <sc:typeName>BridgeTower_conspicuousGroundCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeTower_directivityMeta</sc:name>
+     <sc:name>BridgeTower_conspicuousSeaCategoryMeta</sc:name>
      <sc:id>C77</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -996,12 +980,12 @@
        <sc:id>C77_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeTower_directivityReason</sc:typeName>
+       <sc:typeName>BridgeTower_conspicuousSeaCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeTower_physicalConditionMeta</sc:name>
+     <sc:name>BridgeTower_directivityMeta</sc:name>
      <sc:id>C78</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1012,12 +996,12 @@
        <sc:id>C78_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeTower_physicalConditionReason</sc:typeName>
+       <sc:typeName>BridgeTower_directivityReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeTower_pylonConfigurationMeta</sc:name>
+     <sc:name>BridgeTower_physicalConditionMeta</sc:name>
      <sc:id>C79</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1028,12 +1012,12 @@
        <sc:id>C79_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeTower_pylonConfigurationReason</sc:typeName>
+       <sc:typeName>BridgeTower_physicalConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeTower_radarSignificanceMeta</sc:name>
+     <sc:name>BridgeTower_pylonConfigurationMeta</sc:name>
      <sc:id>C80</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1044,12 +1028,12 @@
        <sc:id>C80_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeTower_radarSignificanceReason</sc:typeName>
+       <sc:typeName>BridgeTower_pylonConfigurationReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>BridgeTower_towerShapeMeta</sc:name>
+     <sc:name>BridgeTower_radarSignificanceMeta</sc:name>
      <sc:id>C81</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1060,12 +1044,12 @@
        <sc:id>C81_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>BridgeTower_towerShapeReason</sc:typeName>
+       <sc:typeName>BridgeTower_radarSignificanceReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_directivityMeta</sc:name>
+     <sc:name>BridgeTower_towerShapeMeta</sc:name>
      <sc:id>C82</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1076,12 +1060,12 @@
        <sc:id>C82_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_directivityReason</sc:typeName>
+       <sc:typeName>BridgeTower_towerShapeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_structMatTypeMeta</sc:name>
+     <sc:name>Bridge_directivityMeta</sc:name>
      <sc:id>C83</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1092,12 +1076,12 @@
        <sc:id>C83_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_structMatTypeReason</sc:typeName>
+       <sc:typeName>Bridge_directivityReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_bridgeInfoReliabilityMeta</sc:name>
+     <sc:name>Bridge_structMatTypeMeta</sc:name>
      <sc:id>C84</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1108,12 +1092,12 @@
        <sc:id>C84_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_bridgeInfoReliabilityReason</sc:typeName>
+       <sc:typeName>Bridge_structMatTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_bridgeOpeningTypeMeta</sc:name>
+     <sc:name>Bridge_bridgeInfoReliabilityMeta</sc:name>
      <sc:id>C85</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1124,12 +1108,12 @@
        <sc:id>C85_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_bridgeOpeningTypeReason</sc:typeName>
+       <sc:typeName>Bridge_bridgeInfoReliabilityReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_bridgeStructureTypeMeta</sc:name>
+     <sc:name>Bridge_bridgeOpeningTypeMeta</sc:name>
      <sc:id>C86</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1140,12 +1124,12 @@
        <sc:id>C86_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_bridgeStructureTypeReason</sc:typeName>
+       <sc:typeName>Bridge_bridgeOpeningTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_bypassConditionMeta</sc:name>
+     <sc:name>Bridge_bridgeStructureTypeMeta</sc:name>
      <sc:id>C87</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1156,12 +1140,12 @@
        <sc:id>C87_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_bypassConditionReason</sc:typeName>
+       <sc:typeName>Bridge_bridgeStructureTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_colourPatternMeta</sc:name>
+     <sc:name>Bridge_bypassConditionMeta</sc:name>
      <sc:id>C88</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1172,12 +1156,12 @@
        <sc:id>C88_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_colourPatternReason</sc:typeName>
+       <sc:typeName>Bridge_bypassConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_conspicuousAirCategoryMeta</sc:name>
+     <sc:name>Bridge_colourPatternMeta</sc:name>
      <sc:id>C89</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1188,12 +1172,12 @@
        <sc:id>C89_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_conspicuousAirCategoryReason</sc:typeName>
+       <sc:typeName>Bridge_colourPatternReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_conspicuousGroundCategoryMeta</sc:name>
+     <sc:name>Bridge_conspicuousAirCategoryMeta</sc:name>
      <sc:id>C90</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1204,12 +1188,12 @@
        <sc:id>C90_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_conspicuousGroundCategoryReason</sc:typeName>
+       <sc:typeName>Bridge_conspicuousAirCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_conspicuousSeaCategoryMeta</sc:name>
+     <sc:name>Bridge_conspicuousGroundCategoryMeta</sc:name>
      <sc:id>C91</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1220,12 +1204,12 @@
        <sc:id>C91_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_conspicuousSeaCategoryReason</sc:typeName>
+       <sc:typeName>Bridge_conspicuousGroundCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_controllingAuthorityMeta</sc:name>
+     <sc:name>Bridge_conspicuousSeaCategoryMeta</sc:name>
      <sc:id>C92</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1236,12 +1220,12 @@
        <sc:id>C92_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_controllingAuthorityReason</sc:typeName>
+       <sc:typeName>Bridge_conspicuousSeaCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_facilityOperationalStatusMeta</sc:name>
+     <sc:name>Bridge_controllingAuthorityMeta</sc:name>
      <sc:id>C93</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1252,12 +1236,12 @@
        <sc:id>C93_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_facilityOperationalStatusReason</sc:typeName>
+       <sc:typeName>Bridge_controllingAuthorityReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_navigationMarkColourMeta</sc:name>
+     <sc:name>Bridge_facilityOperationalStatusMeta</sc:name>
      <sc:id>C94</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1268,12 +1252,12 @@
        <sc:id>C94_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_navigationMarkColourReason</sc:typeName>
+       <sc:typeName>Bridge_facilityOperationalStatusReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_physicalConditionMeta</sc:name>
+     <sc:name>Bridge_navigationMarkColourMeta</sc:name>
      <sc:id>C95</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1284,12 +1268,12 @@
        <sc:id>C95_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_physicalConditionReason</sc:typeName>
+       <sc:typeName>Bridge_navigationMarkColourReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_radarSignificanceMeta</sc:name>
+     <sc:name>Bridge_physicalConditionMeta</sc:name>
      <sc:id>C96</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1300,12 +1284,12 @@
        <sc:id>C96_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_radarSignificanceReason</sc:typeName>
+       <sc:typeName>Bridge_physicalConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_bypassConditionMeta</sc:name>
+     <sc:name>Bridge_radarSignificanceMeta</sc:name>
      <sc:id>C97</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1316,12 +1300,12 @@
        <sc:id>C97_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_bypassConditionReason</sc:typeName>
+       <sc:typeName>Bridge_radarSignificanceReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_controllingAuthorityMeta</sc:name>
+     <sc:name>Tunnel_bypassConditionMeta</sc:name>
      <sc:id>C98</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1332,12 +1316,12 @@
        <sc:id>C98_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_controllingAuthorityReason</sc:typeName>
+       <sc:typeName>Tunnel_bypassConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_crossSectionalProfileMeta</sc:name>
+     <sc:name>Tunnel_controllingAuthorityMeta</sc:name>
      <sc:id>C99</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1348,12 +1332,12 @@
        <sc:id>C99_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_crossSectionalProfileReason</sc:typeName>
+       <sc:typeName>Tunnel_controllingAuthorityReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_facilityOperationalStatusMeta</sc:name>
+     <sc:name>Tunnel_crossSectionalProfileMeta</sc:name>
      <sc:id>C100</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1364,12 +1348,12 @@
        <sc:id>C100_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_facilityOperationalStatusReason</sc:typeName>
+       <sc:typeName>Tunnel_crossSectionalProfileReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_hazardShelterIntendedUseMeta</sc:name>
+     <sc:name>Tunnel_facilityOperationalStatusMeta</sc:name>
      <sc:id>C101</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1380,12 +1364,12 @@
        <sc:id>C101_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_hazardShelterIntendedUseReason</sc:typeName>
+       <sc:typeName>Tunnel_facilityOperationalStatusReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_physicalConditionMeta</sc:name>
+     <sc:name>Tunnel_hazardShelterIntendedUseMeta</sc:name>
      <sc:id>C102</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1396,12 +1380,12 @@
        <sc:id>C102_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_physicalConditionReason</sc:typeName>
+       <sc:typeName>Tunnel_hazardShelterIntendedUseReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_structMatTypeMeta</sc:name>
+     <sc:name>Tunnel_physicalConditionMeta</sc:name>
      <sc:id>C103</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1412,12 +1396,12 @@
        <sc:id>C103_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_structMatTypeReason</sc:typeName>
+       <sc:typeName>Tunnel_physicalConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_verticalRelativeLocationMeta</sc:name>
+     <sc:name>Tunnel_structMatTypeMeta</sc:name>
      <sc:id>C104</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1428,12 +1412,12 @@
        <sc:id>C104_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_verticalRelativeLocationReason</sc:typeName>
+       <sc:typeName>Tunnel_structMatTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_structMatTypeMeta</sc:name>
+     <sc:name>Tunnel_verticalRelativeLocationMeta</sc:name>
      <sc:id>C105</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1444,12 +1428,12 @@
        <sc:id>C105_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_structMatTypeReason</sc:typeName>
+       <sc:typeName>Tunnel_verticalRelativeLocationReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_conspicuousAirCategoryMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_structMatTypeMeta</sc:name>
      <sc:id>C106</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1460,12 +1444,12 @@
        <sc:id>C106_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_conspicuousAirCategoryReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_structMatTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_conspicuousGroundCategoryMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_conspicuousAirCategoryMeta</sc:name>
      <sc:id>C107</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1476,12 +1460,12 @@
        <sc:id>C107_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_conspicuousGroundCategoryReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_conspicuousAirCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_conspicuousSeaCategoryMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_conspicuousGroundCategoryMeta</sc:name>
      <sc:id>C108</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1492,12 +1476,12 @@
        <sc:id>C108_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_conspicuousSeaCategoryReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_conspicuousGroundCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_controllingAuthorityMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_conspicuousSeaCategoryMeta</sc:name>
      <sc:id>C109</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1508,12 +1492,12 @@
        <sc:id>C109_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_controllingAuthorityReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_conspicuousSeaCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_facilityOperationalStatusMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_controllingAuthorityMeta</sc:name>
      <sc:id>C110</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1524,12 +1508,12 @@
        <sc:id>C110_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_facilityOperationalStatusReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_controllingAuthorityReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_physicalConditionMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_facilityOperationalStatusMeta</sc:name>
      <sc:id>C111</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1540,12 +1524,12 @@
        <sc:id>C111_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_physicalConditionReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_facilityOperationalStatusReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_transRteProtStructTypeMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_physicalConditionMeta</sc:name>
      <sc:id>C112</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1556,12 +1540,12 @@
        <sc:id>C112_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_transRteProtStructTypeReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_physicalConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_verticalRelativeLocationMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_transRteProtStructTypeMeta</sc:name>
      <sc:id>C113</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1572,12 +1556,12 @@
        <sc:id>C113_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_verticalRelativeLocationReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_transRteProtStructTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>VoidCollectionArea_voidCollectionReasonMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_verticalRelativeLocationMeta</sc:name>
      <sc:id>C114</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1588,12 +1572,12 @@
        <sc:id>C114_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>VoidCollectionArea_voidCollectionReasonReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_verticalRelativeLocationReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>VoidCollectionArea_voidCollectionTypeMeta</sc:name>
+     <sc:name>VoidCollectionArea_voidCollectionReasonMeta</sc:name>
      <sc:id>C115</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1604,12 +1588,12 @@
        <sc:id>C115_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>VoidCollectionArea_voidCollectionTypeReason</sc:typeName>
+       <sc:typeName>VoidCollectionArea_voidCollectionReasonReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>GeneralLocation_namedLocationTypeMeta</sc:name>
+     <sc:name>VoidCollectionArea_voidCollectionTypeMeta</sc:name>
      <sc:id>C116</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1620,12 +1604,12 @@
        <sc:id>C116_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>GeneralLocation_namedLocationTypeReason</sc:typeName>
+       <sc:typeName>VoidCollectionArea_voidCollectionTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>GeneralLocation_thematicClassificationMeta</sc:name>
+     <sc:name>GeneralLocation_namedLocationTypeMeta</sc:name>
      <sc:id>C117</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1636,12 +1620,12 @@
        <sc:id>C117_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>GeneralLocation_thematicClassificationReason</sc:typeName>
+       <sc:typeName>GeneralLocation_namedLocationTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>CI_ContactMeta</sc:name>
+     <sc:name>GeneralLocation_thematicClassificationMeta</sc:name>
      <sc:id>C118</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1650,6 +1634,22 @@
       <sc:Property>
        <sc:name>valueOrReason</sc:name>
        <sc:id>C118_1</sc:id>
+       <sc:cardinality>1</sc:cardinality>
+       <sc:sequenceNumber>1</sc:sequenceNumber>
+       <sc:typeName>GeneralLocation_thematicClassificationReason</sc:typeName>
+      </sc:Property>
+     </sc:properties>
+    </sc:Class>
+    <sc:Class>
+     <sc:name>CI_ContactMeta</sc:name>
+     <sc:id>C119</sc:id>
+     <sc:stereotypes>
+      <sc:Stereotype>datatype</sc:Stereotype>
+     </sc:stereotypes>
+     <sc:properties>
+      <sc:Property>
+       <sc:name>valueOrReason</sc:name>
+       <sc:id>C119_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
        <sc:typeName>CI_ContactReason</sc:typeName>
@@ -1699,7 +1699,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C39</sc:typeId>
+         <sc:typeId>C40</sc:typeId>
          <sc:typeName>ElevationMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -1718,7 +1718,7 @@ When the use of MiscFeatureType is required to capture an unanticipated feature 
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -1738,7 +1738,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>3</sc:sequenceNumber>
-         <sc:typeId>C38</sc:typeId>
+         <sc:typeId>C39</sc:typeId>
          <sc:typeName>HeightMeasureMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -1760,6 +1760,9 @@ The concept of a 'feature' is that of the ISO 19100-series standards and as such
         </sc:documentation>
        </sc:descriptors>
        <sc:isAbstract>true</sc:isAbstract>
+       <sc:supertypes>
+        <sc:SupertypeId>C16</sc:SupertypeId>
+       </sc:supertypes>
        <sc:properties>
         <sc:Property>
          <sc:name>geometry</sc:name>
@@ -1777,7 +1780,7 @@ A location may be spatially localized as a zero-dimensional point or spatially e
          </sc:descriptors>
          <sc:cardinality>1</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeName>GM_Object</sc:typeName>
+         <sc:typeName>GM_Curve</sc:typeName>
         </sc:Property>
        </sc:properties>
       </sc:Class>
@@ -1817,7 +1820,7 @@ An explanation of the assessed impact of the identified quality issue on data ut
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -1836,7 +1839,7 @@ The intent of this attribute is to fully inform data users of the scope and brea
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -1875,7 +1878,7 @@ The reason(s) that geospatial data was not collected.
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C114</sc:typeId>
+         <sc:typeId>C115</sc:typeId>
          <sc:typeName>VoidCollectionArea_voidCollectionReasonMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -1893,14 +1896,130 @@ The type(s) of geospatial data that were not collected.
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C115</sc:typeId>
+         <sc:typeId>C116</sc:typeId>
          <sc:typeName>VoidCollectionArea_voidCollectionTypeMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
       </sc:Class>
       <sc:Class>
-       <sc:name>GeneralLocation</sc:name>
+       <sc:name>Entity</sc:name>
        <sc:id>C16</sc:id>
+       <sc:stereotypes>
+        <sc:Stereotype>featuretype</sc:Stereotype>
+       </sc:stereotypes>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+An abstract modeling entity that is a superclass for modeling entities having identity and that represents common properties (attributes and association roles) of its subclasses.
+-- Description --
+Identity enables the ability to reference entity instances from other modeling entities. Common properties may include entity-related metadata, notes, and/or data-dissemination restriction(s) and security control(s) regarding the entity.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:isAbstract>true</sc:isAbstract>
+       <sc:properties>
+        <sc:Property>
+         <sc:name>externalReferences</sc:name>
+         <sc:id>C16_1</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>-- Definition --
+A list of external references that may provide additional or ancillary information about this entity instance.
+-- Description --
+For example: a website URL, a link to a photo or document, etc.
+-- UnitOfMeasure --</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:cardinality>0..*</sc:cardinality>
+         <sc:sequenceNumber>1</sc:sequenceNumber>
+         <sc:typeId>C21</sc:typeId>
+         <sc:typeName>CharacterStringMeta</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>uniqueUniversalEntityIdentifier</sc:name>
+         <sc:id>C16_2</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>-- Definition --
+A globally exclusive, distinct, and persistent identifier assigned to an entity (ex. feature, event, actor, etc.).
+-- Description --
+This identifier is used to support such things as: the unique identification of any individual instance of an entity, relationships between features in a relational database, and version control.
+-- UnitOfMeasure --</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>2</sc:sequenceNumber>
+         <sc:typeId>C21</sc:typeId>
+         <sc:typeName>CharacterStringMeta</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>beginLifespanVersion</sc:name>
+         <sc:id>C16_3</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>-- Definition --
+Date and time at which this version of the spatial object was inserted or changed in the spatial data set.
+-- Description --
+
+-- UnitOfMeasure --
+second</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:cardinality>1</sc:cardinality>
+         <sc:sequenceNumber>3</sc:sequenceNumber>
+         <sc:typeId>C21</sc:typeId>
+         <sc:typeName>CharacterStringMeta</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>endLifespanVersion</sc:name>
+         <sc:id>C16_4</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>-- Definition --
+Date and time at which this version of the spatial object was superseded or retired in the spatial data set.
+-- Description --
+-- UnitOfMeasure --
+second</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:cardinality>0..1</sc:cardinality>
+         <sc:sequenceNumber>4</sc:sequenceNumber>
+         <sc:typeId>C21</sc:typeId>
+         <sc:typeName>CharacterStringMeta</sc:typeName>
+        </sc:Property>
+        <sc:Property>
+         <sc:name>specifiedDomainValues</sc:name>
+         <sc:id>C16_5</sc:id>
+         <sc:descriptors>
+          <sc:documentation>
+           <sc:descriptorValues>
+            <sc:DescriptorValue>-- Definition --
+One or more intended attribute domain values for one or more enumeration or codelist attributes that are not currently valid members of their respective attribute ranges.
+-- Description --
+The actual attribute domain values may have been previously, or may become in the future, valid members of the attribute domain range.
+-- UnitOfMeasure --</sc:DescriptorValue>
+           </sc:descriptorValues>
+          </sc:documentation>
+         </sc:descriptors>
+         <sc:cardinality>0..1</sc:cardinality>
+         <sc:sequenceNumber>5</sc:sequenceNumber>
+         <sc:typeId>C21</sc:typeId>
+         <sc:typeName>CharacterStringMeta</sc:typeName>
+        </sc:Property>
+       </sc:properties>
+      </sc:Class>
+      <sc:Class>
+       <sc:name>GeneralLocation</sc:name>
+       <sc:id>C17</sc:id>
        <sc:stereotypes>
         <sc:Stereotype>featuretype</sc:Stereotype>
        </sc:stereotypes>
@@ -1920,7 +2039,7 @@ For example, the name of the Alps or the Sahara.</sc:DescriptorValue>
        <sc:properties>
         <sc:Property>
          <sc:name>namedLocationType</sc:name>
-         <sc:id>C16_1</sc:id>
+         <sc:id>C17_1</sc:id>
          <sc:descriptors>
           <sc:documentation>
            <sc:descriptorValues>
@@ -1933,12 +2052,12 @@ The type of a location that normally does not appear as a specific, characterize
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C116</sc:typeId>
+         <sc:typeId>C117</sc:typeId>
          <sc:typeName>GeneralLocation_namedLocationTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
          <sc:name>thematicClassification</sc:name>
-         <sc:id>C16_2</sc:id>
+         <sc:id>C17_2</sc:id>
          <sc:descriptors>
           <sc:documentation>
            <sc:descriptorValues>
@@ -1951,12 +2070,12 @@ The classification of a feature among geographic themes.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C117</sc:typeId>
+         <sc:typeId>C118</sc:typeId>
          <sc:typeName>GeneralLocation_thematicClassificationMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
          <sc:name>informationReference</sc:name>
-         <sc:id>C16_3</sc:id>
+         <sc:id>C17_3</sc:id>
          <sc:descriptors>
           <sc:documentation>
            <sc:descriptorValues>
@@ -1970,14 +2089,14 @@ For example a hyperlink.
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>3</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
       </sc:Class>
       <sc:Class>
        <sc:name>OrganisationalUnit</sc:name>
-       <sc:id>C17</sc:id>
+       <sc:id>C18</sc:id>
        <sc:stereotypes>
         <sc:Stereotype>featuretype</sc:Stereotype>
        </sc:stereotypes>
@@ -1994,7 +2113,7 @@ For example, a task unit or local office group.</sc:DescriptorValue>
        <sc:properties>
         <sc:Property>
          <sc:name>contactInfo</sc:name>
-         <sc:id>C17_1</sc:id>
+         <sc:id>C18_1</sc:id>
          <sc:descriptors>
           <sc:documentation>
            <sc:descriptorValues>
@@ -2007,7 +2126,7 @@ The telephone, postal, electronic and/or other contact information for a facilit
          </sc:descriptors>
          <sc:cardinality>1</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C118</sc:typeId>
+         <sc:typeId>C119</sc:typeId>
          <sc:typeName>CI_ContactMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -2050,7 +2169,7 @@ The cross-sectional profile of an opening (for example: a tunnel or the space un
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C18</sc:typeId>
+         <sc:typeId>C19</sc:typeId>
          <sc:typeName>TunnelMouth_crossSectionalProfileMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -2091,7 +2210,7 @@ Controlling authorities may be distinguished by organizational level (for exampl
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C19</sc:typeId>
+         <sc:typeId>C20</sc:typeId>
          <sc:typeName>TurnaroundSite_controllingAuthorityMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2109,7 +2228,7 @@ The recognized authority responsible for establishing and maintaining the admini
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2127,7 +2246,7 @@ A general description of the surface quality of a paved surface.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>3</sc:sequenceNumber>
-         <sc:typeId>C21</sc:typeId>
+         <sc:typeId>C22</sc:typeId>
          <sc:typeName>TurnaroundSite_generalPavementConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2146,7 +2265,7 @@ For example, the surface of a road, a runway, a hard standing, or a vehicle stor
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>4</sc:sequenceNumber>
-         <sc:typeId>C22</sc:typeId>
+         <sc:typeId>C23</sc:typeId>
          <sc:typeName>TurnaroundSite_loadBearingSurfaceTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2165,7 +2284,7 @@ The height limitation assumes that the vehicle is less than 12 metres long and h
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>5</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2184,7 +2303,7 @@ The length limitation assumes that the vehicle has a maximum rectangular height 
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>6</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2203,7 +2322,7 @@ The width limitation assumes that the vehicle is less than 12 metres long and ha
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>7</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2221,7 +2340,7 @@ The intended method or means of moving from one place to another related to the 
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>8</sc:sequenceNumber>
-         <sc:typeId>C24</sc:typeId>
+         <sc:typeId>C25</sc:typeId>
          <sc:typeName>TurnaroundSite_meansTransportationMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2240,7 +2359,7 @@ Often used to separate opposing flows of traffic in order to improve safety. For
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>9</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2259,7 +2378,7 @@ Temporary features last, or are meant to last, for a limited time only.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>10</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2278,7 +2397,7 @@ The physical condition applies to any phase of the life cycle of a man-made stru
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>11</sc:sequenceNumber>
-         <sc:typeId>C26</sc:typeId>
+         <sc:typeId>C27</sc:typeId>
          <sc:typeName>TurnaroundSite_physicalConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2296,7 +2415,7 @@ The reason for traffic restriction based on the nature of the route.
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>12</sc:sequenceNumber>
-         <sc:typeId>C27</sc:typeId>
+         <sc:typeId>C28</sc:typeId>
          <sc:typeName>TurnaroundSite_trafficRestrictionTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2314,7 +2433,7 @@ The relationship between the feature and the underlying ground (terrain) or wate
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>13</sc:sequenceNumber>
-         <sc:typeId>C28</sc:typeId>
+         <sc:typeId>C29</sc:typeId>
          <sc:typeName>TurnaroundSite_verticalRelativeLocationMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2332,7 +2451,7 @@ A categorisation based on the general pavement characteristic of the surface int
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>14</sc:sequenceNumber>
-         <sc:typeId>C29</sc:typeId>
+         <sc:typeId>C30</sc:typeId>
          <sc:typeName>TurnaroundSite_waySurfaceCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2350,7 +2469,7 @@ The type of weather conditions under which a feature is usable.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>15</sc:sequenceNumber>
-         <sc:typeId>C30</sc:typeId>
+         <sc:typeId>C31</sc:typeId>
          <sc:typeName>TurnaroundSite_weatherRestrictionTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2368,7 +2487,7 @@ The maximum weight that can be supported by a surface.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>16</sc:sequenceNumber>
-         <sc:typeId>C31</sc:typeId>
+         <sc:typeId>C32</sc:typeId>
          <sc:typeName>MeasureIntervalMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -2409,7 +2528,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C32</sc:typeId>
+         <sc:typeId>C33</sc:typeId>
          <sc:typeName>CausewayStructure_conspicuousAirCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2428,7 +2547,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C33</sc:typeId>
+         <sc:typeId>C34</sc:typeId>
          <sc:typeName>CausewayStructure_conspicuousGroundCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2447,7 +2566,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>3</sc:sequenceNumber>
-         <sc:typeId>C34</sc:typeId>
+         <sc:typeId>C35</sc:typeId>
          <sc:typeName>CausewayStructure_conspicuousSeaCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2466,7 +2585,7 @@ Controlling authorities may be distinguished by organizational level (for exampl
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>4</sc:sequenceNumber>
-         <sc:typeId>C35</sc:typeId>
+         <sc:typeId>C36</sc:typeId>
          <sc:typeName>CausewayStructure_controllingAuthorityMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2484,7 +2603,7 @@ The recognized authority responsible for establishing and maintaining the admini
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>5</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2502,7 +2621,7 @@ The side(s) of a feature that produce the greatest visual significance and/or re
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>6</sc:sequenceNumber>
-         <sc:typeId>C36</sc:typeId>
+         <sc:typeId>C37</sc:typeId>
          <sc:typeName>CausewayStructure_directivityMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2521,7 +2640,7 @@ Includes actual operations, operational capability, and planned or proposed man-
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>7</sc:sequenceNumber>
-         <sc:typeId>C37</sc:typeId>
+         <sc:typeId>C38</sc:typeId>
          <sc:typeName>CausewayStructure_facilityOperationalStatusMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2539,7 +2658,7 @@ An indication that a structure is floodlit.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>8</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2559,7 +2678,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>9</sc:sequenceNumber>
-         <sc:typeId>C38</sc:typeId>
+         <sc:typeId>C39</sc:typeId>
          <sc:typeName>HeightMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2579,7 +2698,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>10</sc:sequenceNumber>
-         <sc:typeId>C39</sc:typeId>
+         <sc:typeId>C40</sc:typeId>
          <sc:typeName>ElevationMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2599,7 +2718,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>11</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2618,7 +2737,7 @@ Temporary features last, or are meant to last, for a limited time only.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>12</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2637,7 +2756,7 @@ The physical condition applies to any phase of the life cycle of a man-made stru
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>13</sc:sequenceNumber>
-         <sc:typeId>C40</sc:typeId>
+         <sc:typeId>C41</sc:typeId>
          <sc:typeName>CausewayStructure_physicalConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2656,7 +2775,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>14</sc:sequenceNumber>
-         <sc:typeId>C31</sc:typeId>
+         <sc:typeId>C32</sc:typeId>
          <sc:typeName>MeasureIntervalMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2675,7 +2794,7 @@ The basis for 'primary' may be, for example, compositional dominance or structur
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>15</sc:sequenceNumber>
-         <sc:typeId>C41</sc:typeId>
+         <sc:typeId>C42</sc:typeId>
          <sc:typeName>CausewayStructure_structMatTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2695,7 +2814,7 @@ percent</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>16</sc:sequenceNumber>
-         <sc:typeId>C31</sc:typeId>
+         <sc:typeId>C32</sc:typeId>
          <sc:typeName>MeasureIntervalMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2713,7 +2832,7 @@ The relationship between the feature and surrounding (including covering and/or 
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>17</sc:sequenceNumber>
-         <sc:typeId>C42</sc:typeId>
+         <sc:typeId>C43</sc:typeId>
          <sc:typeName>CausewayStructure_waterLevelEffectMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -2754,7 +2873,7 @@ arcDegree</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C43</sc:typeId>
+         <sc:typeId>C44</sc:typeId>
          <sc:typeName>AngleMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2773,7 +2892,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2792,7 +2911,7 @@ The basis for 'primary' may be, for example, compositional dominance or structur
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>3</sc:sequenceNumber>
-         <sc:typeId>C44</sc:typeId>
+         <sc:typeId>C45</sc:typeId>
          <sc:typeName>BridgeSpan_structMatTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2811,7 +2930,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>4</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2830,7 +2949,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>5</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2848,7 +2967,7 @@ The type of structure or mechanism by which a bridge or bridge span is moved to 
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>6</sc:sequenceNumber>
-         <sc:typeId>C45</sc:typeId>
+         <sc:typeId>C46</sc:typeId>
          <sc:typeName>BridgeSpan_bridgeOpeningTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2867,7 +2986,7 @@ The identifier is assigned consecutively (for example: within a map sheet or wit
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>7</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2885,7 +3004,7 @@ The type(s) of structural design of a bridge, bridge span, or bridge superstruct
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>8</sc:sequenceNumber>
-         <sc:typeId>C46</sc:typeId>
+         <sc:typeId>C47</sc:typeId>
          <sc:typeName>BridgeSpan_bridgeStructureTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2904,7 +3023,7 @@ Bypass condition will not consider other bridges in bypass determination.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>9</sc:sequenceNumber>
-         <sc:typeId>C47</sc:typeId>
+         <sc:typeId>C48</sc:typeId>
          <sc:typeName>BridgeSpan_bypassConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2923,7 +3042,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>10</sc:sequenceNumber>
-         <sc:typeId>C48</sc:typeId>
+         <sc:typeId>C49</sc:typeId>
          <sc:typeName>BridgeSpan_conspicuousAirCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2942,7 +3061,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>11</sc:sequenceNumber>
-         <sc:typeId>C49</sc:typeId>
+         <sc:typeId>C50</sc:typeId>
          <sc:typeName>BridgeSpan_conspicuousGroundCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2961,7 +3080,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>12</sc:sequenceNumber>
-         <sc:typeId>C50</sc:typeId>
+         <sc:typeId>C51</sc:typeId>
          <sc:typeName>BridgeSpan_conspicuousSeaCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2980,7 +3099,7 @@ Includes actual operations, operational capability, and planned or proposed man-
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>13</sc:sequenceNumber>
-         <sc:typeId>C51</sc:typeId>
+         <sc:typeId>C52</sc:typeId>
          <sc:typeName>BridgeSpan_facilityOperationalStatusMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3000,7 +3119,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>14</sc:sequenceNumber>
-         <sc:typeId>C38</sc:typeId>
+         <sc:typeId>C39</sc:typeId>
          <sc:typeName>HeightMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3020,7 +3139,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>15</sc:sequenceNumber>
-         <sc:typeId>C39</sc:typeId>
+         <sc:typeId>C40</sc:typeId>
          <sc:typeName>ElevationMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3039,7 +3158,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>16</sc:sequenceNumber>
-         <sc:typeId>C31</sc:typeId>
+         <sc:typeId>C32</sc:typeId>
          <sc:typeName>MeasureIntervalMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3059,7 +3178,7 @@ militaryLoadClass</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>17</sc:sequenceNumber>
-         <sc:typeId>C52</sc:typeId>
+         <sc:typeId>C53</sc:typeId>
          <sc:typeName>IntegerMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3079,7 +3198,7 @@ militaryLoadClass</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>18</sc:sequenceNumber>
-         <sc:typeId>C52</sc:typeId>
+         <sc:typeId>C53</sc:typeId>
          <sc:typeName>IntegerMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3099,7 +3218,7 @@ militaryLoadClass</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>19</sc:sequenceNumber>
-         <sc:typeId>C52</sc:typeId>
+         <sc:typeId>C53</sc:typeId>
          <sc:typeName>IntegerMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3119,7 +3238,7 @@ militaryLoadClass</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>20</sc:sequenceNumber>
-         <sc:typeId>C52</sc:typeId>
+         <sc:typeId>C53</sc:typeId>
          <sc:typeName>IntegerMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3138,7 +3257,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>21</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3156,7 +3275,7 @@ An indication that a bridge span moves in some manner to allow passage underneat
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>22</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3176,7 +3295,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>23</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3195,7 +3314,7 @@ Temporary features last, or are meant to last, for a limited time only.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>24</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3214,7 +3333,7 @@ The physical condition applies to any phase of the life cycle of a man-made stru
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>25</sc:sequenceNumber>
-         <sc:typeId>C53</sc:typeId>
+         <sc:typeId>C54</sc:typeId>
          <sc:typeName>BridgeSpan_physicalConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3233,7 +3352,7 @@ Horizontal clearance affects the maximum width of loads that extend laterally be
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>26</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3252,7 +3371,7 @@ Vertical clearance affects the maximum height of vehicle loads. (Reference STANA
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>27</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3271,7 +3390,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>28</sc:sequenceNumber>
-         <sc:typeId>C31</sc:typeId>
+         <sc:typeId>C32</sc:typeId>
          <sc:typeName>MeasureIntervalMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3290,7 +3409,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>29</sc:sequenceNumber>
-         <sc:typeId>C54</sc:typeId>
+         <sc:typeId>C55</sc:typeId>
          <sc:typeName>HydroClearRefMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3308,7 +3427,7 @@ An indication that an object is an overhead obstruction over a navigable waterbo
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>30</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -3348,7 +3467,7 @@ The basis for 'primary' may be, for example, compositional dominance or structur
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C55</sc:typeId>
+         <sc:typeId>C56</sc:typeId>
          <sc:typeName>BridgePier_structMatTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3367,7 +3486,7 @@ The Attribute: 'Navigation Mark Colour' may be used to specify the colours in th
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C56</sc:typeId>
+         <sc:typeId>C57</sc:typeId>
          <sc:typeName>BridgePier_colourPatternMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3386,7 +3505,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>3</sc:sequenceNumber>
-         <sc:typeId>C57</sc:typeId>
+         <sc:typeId>C58</sc:typeId>
          <sc:typeName>BridgePier_conspicuousAirCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3405,7 +3524,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>4</sc:sequenceNumber>
-         <sc:typeId>C58</sc:typeId>
+         <sc:typeId>C59</sc:typeId>
          <sc:typeName>BridgePier_conspicuousGroundCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3424,7 +3543,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>5</sc:sequenceNumber>
-         <sc:typeId>C59</sc:typeId>
+         <sc:typeId>C60</sc:typeId>
          <sc:typeName>BridgePier_conspicuousSeaCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3442,7 +3561,7 @@ The cross-sectional shape of a feature in the horizontal plane.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>6</sc:sequenceNumber>
-         <sc:typeId>C60</sc:typeId>
+         <sc:typeId>C61</sc:typeId>
          <sc:typeName>BridgePier_crossSectionalShapeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3462,7 +3581,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>7</sc:sequenceNumber>
-         <sc:typeId>C38</sc:typeId>
+         <sc:typeId>C39</sc:typeId>
          <sc:typeName>HeightMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3482,7 +3601,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>8</sc:sequenceNumber>
-         <sc:typeId>C39</sc:typeId>
+         <sc:typeId>C40</sc:typeId>
          <sc:typeName>ElevationMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3501,7 +3620,7 @@ Mariners may also use other prominent features (for example: rotating aeronautic
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>9</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3520,7 +3639,7 @@ When the navigation mark is patterned, the Attribute: 'Colour Pattern' may be us
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>10</sc:sequenceNumber>
-         <sc:typeId>C61</sc:typeId>
+         <sc:typeId>C62</sc:typeId>
          <sc:typeName>BridgePier_navigationMarkColourMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3539,7 +3658,7 @@ The physical condition applies to any phase of the life cycle of a man-made stru
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>11</sc:sequenceNumber>
-         <sc:typeId>C62</sc:typeId>
+         <sc:typeId>C63</sc:typeId>
          <sc:typeName>BridgePier_physicalConditionMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -3579,7 +3698,7 @@ The basis for 'primary' may be, for example, compositional dominance or structur
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C63</sc:typeId>
+         <sc:typeId>C64</sc:typeId>
          <sc:typeName>BridgeSuperstructure_structMatTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3598,7 +3717,7 @@ The identifier is assigned consecutively (for example: within a map sheet or wit
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3616,7 +3735,7 @@ The type(s) of structural design of a bridge, bridge span, or bridge superstruct
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>3</sc:sequenceNumber>
-         <sc:typeId>C64</sc:typeId>
+         <sc:typeId>C65</sc:typeId>
          <sc:typeName>BridgeSuperstructure_bridgeStructureTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3635,7 +3754,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>4</sc:sequenceNumber>
-         <sc:typeId>C65</sc:typeId>
+         <sc:typeId>C66</sc:typeId>
          <sc:typeName>BridgeSuperstructure_conspicuousAirCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3654,7 +3773,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>5</sc:sequenceNumber>
-         <sc:typeId>C66</sc:typeId>
+         <sc:typeId>C67</sc:typeId>
          <sc:typeName>BridgeSuperstructure_conspicuousGroundCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3673,7 +3792,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>6</sc:sequenceNumber>
-         <sc:typeId>C67</sc:typeId>
+         <sc:typeId>C68</sc:typeId>
          <sc:typeName>BridgeSuperstructure_conspicuousSeaCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3691,7 +3810,7 @@ The side(s) of a feature that produce the greatest visual significance and/or re
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>7</sc:sequenceNumber>
-         <sc:typeId>C68</sc:typeId>
+         <sc:typeId>C69</sc:typeId>
          <sc:typeName>BridgeSuperstructure_directivityMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3711,7 +3830,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>8</sc:sequenceNumber>
-         <sc:typeId>C38</sc:typeId>
+         <sc:typeId>C39</sc:typeId>
          <sc:typeName>HeightMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3731,7 +3850,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>9</sc:sequenceNumber>
-         <sc:typeId>C31</sc:typeId>
+         <sc:typeId>C32</sc:typeId>
          <sc:typeName>MeasureIntervalMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3751,7 +3870,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>10</sc:sequenceNumber>
-         <sc:typeId>C39</sc:typeId>
+         <sc:typeId>C40</sc:typeId>
          <sc:typeName>ElevationMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3770,7 +3889,7 @@ Mariners may also use other prominent features (for example: rotating aeronautic
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>11</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3788,7 +3907,7 @@ An indication that a bridge span moves in some manner to allow passage underneat
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>12</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3808,7 +3927,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>13</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3827,7 +3946,7 @@ Temporary features last, or are meant to last, for a limited time only.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>14</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3846,7 +3965,7 @@ The physical condition applies to any phase of the life cycle of a man-made stru
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>15</sc:sequenceNumber>
-         <sc:typeId>C69</sc:typeId>
+         <sc:typeId>C70</sc:typeId>
          <sc:typeName>BridgeSuperstructure_physicalConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3864,7 +3983,7 @@ The predominant exposed surface material, categorized by its significance to rad
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>16</sc:sequenceNumber>
-         <sc:typeId>C70</sc:typeId>
+         <sc:typeId>C71</sc:typeId>
          <sc:typeName>BridgeSuperstructure_radarSignificanceMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3883,7 +4002,7 @@ Vertical clearance affects the maximum height of vehicle loads. (Reference STANA
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>17</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -3919,7 +4038,7 @@ The intended method or means of moving from one place to another related to the 
          </sc:descriptors>
          <sc:cardinality>0..3</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C71</sc:typeId>
+         <sc:typeId>C72</sc:typeId>
          <sc:typeName>TransportationPlatform_meansTransportationMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3937,7 +4056,7 @@ The primary use(s) of a transportation system.
          </sc:descriptors>
          <sc:cardinality>0..2</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C72</sc:typeId>
+         <sc:typeId>C73</sc:typeId>
          <sc:typeName>TransportationPlatform_transportationUseMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -3977,7 +4096,7 @@ The basis for 'primary' may be, for example, compositional dominance or structur
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C73</sc:typeId>
+         <sc:typeId>C74</sc:typeId>
          <sc:typeName>BridgeTower_structMatTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -3996,7 +4115,7 @@ The identifier is assigned consecutively (for example: within a map sheet or wit
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4015,7 +4134,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>3</sc:sequenceNumber>
-         <sc:typeId>C74</sc:typeId>
+         <sc:typeId>C75</sc:typeId>
          <sc:typeName>BridgeTower_conspicuousAirCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4034,7 +4153,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>4</sc:sequenceNumber>
-         <sc:typeId>C75</sc:typeId>
+         <sc:typeId>C76</sc:typeId>
          <sc:typeName>BridgeTower_conspicuousGroundCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4053,7 +4172,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>5</sc:sequenceNumber>
-         <sc:typeId>C76</sc:typeId>
+         <sc:typeId>C77</sc:typeId>
          <sc:typeName>BridgeTower_conspicuousSeaCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4071,7 +4190,7 @@ The side(s) of a feature that produce the greatest visual significance and/or re
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>6</sc:sequenceNumber>
-         <sc:typeId>C77</sc:typeId>
+         <sc:typeId>C78</sc:typeId>
          <sc:typeName>BridgeTower_directivityMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4091,7 +4210,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>7</sc:sequenceNumber>
-         <sc:typeId>C38</sc:typeId>
+         <sc:typeId>C39</sc:typeId>
          <sc:typeName>HeightMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4111,7 +4230,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>8</sc:sequenceNumber>
-         <sc:typeId>C39</sc:typeId>
+         <sc:typeId>C40</sc:typeId>
          <sc:typeName>ElevationMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4130,7 +4249,7 @@ Mariners may also use other prominent features (for example: rotating aeronautic
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>9</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4149,7 +4268,7 @@ The physical condition applies to any phase of the life cycle of a man-made stru
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>10</sc:sequenceNumber>
-         <sc:typeId>C78</sc:typeId>
+         <sc:typeId>C79</sc:typeId>
          <sc:typeName>BridgeTower_physicalConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4167,7 +4286,7 @@ The configuration of a pylon or pole.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>11</sc:sequenceNumber>
-         <sc:typeId>C79</sc:typeId>
+         <sc:typeId>C80</sc:typeId>
          <sc:typeName>BridgeTower_pylonConfigurationMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4185,7 +4304,7 @@ The predominant exposed surface material, categorized by its significance to rad
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>12</sc:sequenceNumber>
-         <sc:typeId>C80</sc:typeId>
+         <sc:typeId>C81</sc:typeId>
          <sc:typeName>BridgeTower_radarSignificanceMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4203,7 +4322,7 @@ The general shape and/or structure of a tower.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>13</sc:sequenceNumber>
-         <sc:typeId>C81</sc:typeId>
+         <sc:typeId>C82</sc:typeId>
          <sc:typeName>BridgeTower_towerShapeMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -4243,7 +4362,7 @@ The side(s) of a feature that produce the greatest visual significance and/or re
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C82</sc:typeId>
+         <sc:typeId>C83</sc:typeId>
          <sc:typeName>Bridge_directivityMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4262,7 +4381,7 @@ The basis for 'primary' may be, for example, compositional dominance or structur
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C83</sc:typeId>
+         <sc:typeId>C84</sc:typeId>
          <sc:typeName>Bridge_structMatTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4282,7 +4401,7 @@ arcDegree</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>3</sc:sequenceNumber>
-         <sc:typeId>C43</sc:typeId>
+         <sc:typeId>C44</sc:typeId>
          <sc:typeName>AngleMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4300,7 +4419,7 @@ The reliability of information regarding bridge military load classification and
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>4</sc:sequenceNumber>
-         <sc:typeId>C84</sc:typeId>
+         <sc:typeId>C85</sc:typeId>
          <sc:typeName>Bridge_bridgeInfoReliabilityMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4318,7 +4437,7 @@ The recognized authority responsible for establishing and maintaining the admini
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>5</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4336,7 +4455,7 @@ The type of structure or mechanism by which a bridge or bridge span is moved to 
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>6</sc:sequenceNumber>
-         <sc:typeId>C85</sc:typeId>
+         <sc:typeId>C86</sc:typeId>
          <sc:typeName>Bridge_bridgeOpeningTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4355,7 +4474,7 @@ The identifier is assigned consecutively (for example: within a map sheet or wit
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>7</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4373,7 +4492,7 @@ The type(s) of structural design of a bridge, bridge span, or bridge superstruct
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>8</sc:sequenceNumber>
-         <sc:typeId>C86</sc:typeId>
+         <sc:typeId>C87</sc:typeId>
          <sc:typeName>Bridge_bridgeStructureTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4392,7 +4511,7 @@ Bypass condition will not consider other bridges in bypass determination.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>9</sc:sequenceNumber>
-         <sc:typeId>C87</sc:typeId>
+         <sc:typeId>C88</sc:typeId>
          <sc:typeName>Bridge_bypassConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4411,7 +4530,7 @@ The Attribute: 'Navigation Mark Colour' may be used to specify the colours in th
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>10</sc:sequenceNumber>
-         <sc:typeId>C88</sc:typeId>
+         <sc:typeId>C89</sc:typeId>
          <sc:typeName>Bridge_colourPatternMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4430,7 +4549,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>11</sc:sequenceNumber>
-         <sc:typeId>C89</sc:typeId>
+         <sc:typeId>C90</sc:typeId>
          <sc:typeName>Bridge_conspicuousAirCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4449,7 +4568,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>12</sc:sequenceNumber>
-         <sc:typeId>C90</sc:typeId>
+         <sc:typeId>C91</sc:typeId>
          <sc:typeName>Bridge_conspicuousGroundCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4468,7 +4587,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>13</sc:sequenceNumber>
-         <sc:typeId>C91</sc:typeId>
+         <sc:typeId>C92</sc:typeId>
          <sc:typeName>Bridge_conspicuousSeaCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4487,7 +4606,7 @@ Controlling authorities may be distinguished by organizational level (for exampl
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>14</sc:sequenceNumber>
-         <sc:typeId>C92</sc:typeId>
+         <sc:typeId>C93</sc:typeId>
          <sc:typeName>Bridge_controllingAuthorityMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4506,7 +4625,7 @@ unitless</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>15</sc:sequenceNumber>
-         <sc:typeId>C52</sc:typeId>
+         <sc:typeId>C53</sc:typeId>
          <sc:typeName>IntegerMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4525,7 +4644,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>16</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4544,7 +4663,7 @@ Includes actual operations, operational capability, and planned or proposed man-
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>17</sc:sequenceNumber>
-         <sc:typeId>C93</sc:typeId>
+         <sc:typeId>C94</sc:typeId>
          <sc:typeName>Bridge_facilityOperationalStatusMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4564,7 +4683,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>18</sc:sequenceNumber>
-         <sc:typeId>C38</sc:typeId>
+         <sc:typeId>C39</sc:typeId>
          <sc:typeName>HeightMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4584,7 +4703,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>19</sc:sequenceNumber>
-         <sc:typeId>C39</sc:typeId>
+         <sc:typeId>C40</sc:typeId>
          <sc:typeName>ElevationMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4603,7 +4722,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>20</sc:sequenceNumber>
-         <sc:typeId>C31</sc:typeId>
+         <sc:typeId>C32</sc:typeId>
          <sc:typeName>MeasureIntervalMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4623,7 +4742,7 @@ militaryLoadClass</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>21</sc:sequenceNumber>
-         <sc:typeId>C52</sc:typeId>
+         <sc:typeId>C53</sc:typeId>
          <sc:typeName>IntegerMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4643,7 +4762,7 @@ militaryLoadClass</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>22</sc:sequenceNumber>
-         <sc:typeId>C52</sc:typeId>
+         <sc:typeId>C53</sc:typeId>
          <sc:typeName>IntegerMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4663,7 +4782,7 @@ militaryLoadClass</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>23</sc:sequenceNumber>
-         <sc:typeId>C52</sc:typeId>
+         <sc:typeId>C53</sc:typeId>
          <sc:typeName>IntegerMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4683,7 +4802,7 @@ militaryLoadClass</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>24</sc:sequenceNumber>
-         <sc:typeId>C52</sc:typeId>
+         <sc:typeId>C53</sc:typeId>
          <sc:typeName>IntegerMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4702,7 +4821,7 @@ Mariners may also use other prominent features (for example: rotating aeronautic
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>25</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4721,7 +4840,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>26</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4739,7 +4858,7 @@ Information describing a bridge, typically one that is subject to preplanned mil
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>27</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4757,7 +4876,7 @@ An indication that a bridge span moves in some manner to allow passage underneat
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>28</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4776,7 +4895,7 @@ When the navigation mark is patterned, the Attribute: 'Colour Pattern' may be us
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>29</sc:sequenceNumber>
-         <sc:typeId>C94</sc:typeId>
+         <sc:typeId>C95</sc:typeId>
          <sc:typeName>Bridge_navigationMarkColourMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4796,7 +4915,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>30</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4815,7 +4934,7 @@ Temporary features last, or are meant to last, for a limited time only.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>31</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4834,7 +4953,7 @@ The physical condition applies to any phase of the life cycle of a man-made stru
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>32</sc:sequenceNumber>
-         <sc:typeId>C95</sc:typeId>
+         <sc:typeId>C96</sc:typeId>
          <sc:typeName>Bridge_physicalConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4852,7 +4971,7 @@ The predominant exposed surface material, categorized by its significance to rad
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>33</sc:sequenceNumber>
-         <sc:typeId>C96</sc:typeId>
+         <sc:typeId>C97</sc:typeId>
          <sc:typeName>Bridge_radarSignificanceMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4871,7 +4990,7 @@ Horizontal clearance affects the maximum width of loads that extend laterally be
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>34</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4890,7 +5009,7 @@ Vertical clearance affects the maximum height of vehicle loads. (Reference STANA
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>35</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4909,7 +5028,7 @@ The roof may be supported by spaced pillars with intervening openings or the sid
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>36</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4927,7 +5046,7 @@ The number of spans in a bridge.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>37</sc:sequenceNumber>
-         <sc:typeId>C52</sc:typeId>
+         <sc:typeId>C53</sc:typeId>
          <sc:typeName>IntegerMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4946,7 +5065,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>38</sc:sequenceNumber>
-         <sc:typeId>C31</sc:typeId>
+         <sc:typeId>C32</sc:typeId>
          <sc:typeName>MeasureIntervalMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4965,7 +5084,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>39</sc:sequenceNumber>
-         <sc:typeId>C54</sc:typeId>
+         <sc:typeId>C55</sc:typeId>
          <sc:typeName>HydroClearRefMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5024,7 +5143,7 @@ arcDegree</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C43</sc:typeId>
+         <sc:typeId>C44</sc:typeId>
          <sc:typeName>AngleMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5043,7 +5162,7 @@ Bypass condition will not consider other bridges in bypass determination.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C97</sc:typeId>
+         <sc:typeId>C98</sc:typeId>
          <sc:typeName>Tunnel_bypassConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5062,7 +5181,7 @@ Controlling authorities may be distinguished by organizational level (for exampl
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>3</sc:sequenceNumber>
-         <sc:typeId>C98</sc:typeId>
+         <sc:typeId>C99</sc:typeId>
          <sc:typeName>Tunnel_controllingAuthorityMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5080,7 +5199,7 @@ The recognized authority responsible for establishing and maintaining the admini
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>4</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5098,7 +5217,7 @@ The cross-sectional profile of an opening (for example: a tunnel or the space un
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>5</sc:sequenceNumber>
-         <sc:typeId>C99</sc:typeId>
+         <sc:typeId>C100</sc:typeId>
          <sc:typeName>Tunnel_crossSectionalProfileMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5117,7 +5236,7 @@ unitless</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>6</sc:sequenceNumber>
-         <sc:typeId>C52</sc:typeId>
+         <sc:typeId>C53</sc:typeId>
          <sc:typeName>IntegerMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5137,7 +5256,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>7</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5156,7 +5275,7 @@ Includes actual operations, operational capability, and planned or proposed man-
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>8</sc:sequenceNumber>
-         <sc:typeId>C100</sc:typeId>
+         <sc:typeId>C101</sc:typeId>
          <sc:typeName>Tunnel_facilityOperationalStatusMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5175,7 +5294,7 @@ Hazard shelters may be located inside buildings or other structures. Shelters ma
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>9</sc:sequenceNumber>
-         <sc:typeId>C101</sc:typeId>
+         <sc:typeId>C102</sc:typeId>
          <sc:typeName>Tunnel_hazardShelterIntendedUseMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5195,7 +5314,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>10</sc:sequenceNumber>
-         <sc:typeId>C38</sc:typeId>
+         <sc:typeId>C39</sc:typeId>
          <sc:typeName>HeightMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5214,7 +5333,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>11</sc:sequenceNumber>
-         <sc:typeId>C31</sc:typeId>
+         <sc:typeId>C32</sc:typeId>
          <sc:typeName>MeasureIntervalMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5234,7 +5353,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>12</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5252,7 +5371,7 @@ An indication that a feature is man-made.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>13</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5271,7 +5390,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>14</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5290,7 +5409,7 @@ For example, attended or watched over by personnel.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>15</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5310,7 +5429,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>16</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5328,7 +5447,7 @@ An indication that a feature is traversable on foot.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>17</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5347,7 +5466,7 @@ Temporary features last, or are meant to last, for a limited time only.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>18</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5366,7 +5485,7 @@ The physical condition applies to any phase of the life cycle of a man-made stru
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>19</sc:sequenceNumber>
-         <sc:typeId>C102</sc:typeId>
+         <sc:typeId>C103</sc:typeId>
          <sc:typeName>Tunnel_physicalConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5385,7 +5504,7 @@ Horizontal clearance affects the maximum width of loads that extend laterally be
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>20</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5405,7 +5524,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>21</sc:sequenceNumber>
-         <sc:typeId>C31</sc:typeId>
+         <sc:typeId>C32</sc:typeId>
          <sc:typeName>MeasureIntervalMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5424,7 +5543,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>22</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5443,7 +5562,7 @@ The basis for 'primary' may be, for example, compositional dominance or structur
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>23</sc:sequenceNumber>
-         <sc:typeId>C103</sc:typeId>
+         <sc:typeId>C104</sc:typeId>
          <sc:typeName>Tunnel_structMatTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5461,7 +5580,7 @@ The relationship between the feature and the underlying ground (terrain) or wate
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>24</sc:sequenceNumber>
-         <sc:typeId>C104</sc:typeId>
+         <sc:typeId>C105</sc:typeId>
          <sc:typeName>Tunnel_verticalRelativeLocationMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -5502,7 +5621,7 @@ The basis for 'primary' may be, for example, compositional dominance or structur
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C105</sc:typeId>
+         <sc:typeId>C106</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_structMatTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5521,7 +5640,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C106</sc:typeId>
+         <sc:typeId>C107</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_conspicuousAirCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5540,7 +5659,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>3</sc:sequenceNumber>
-         <sc:typeId>C107</sc:typeId>
+         <sc:typeId>C108</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_conspicuousGroundCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5558,7 +5677,7 @@ The recognized authority responsible for establishing and maintaining the admini
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>4</sc:sequenceNumber>
-         <sc:typeId>C20</sc:typeId>
+         <sc:typeId>C21</sc:typeId>
          <sc:typeName>CharacterStringMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5577,7 +5696,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>5</sc:sequenceNumber>
-         <sc:typeId>C108</sc:typeId>
+         <sc:typeId>C109</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_conspicuousSeaCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5596,7 +5715,7 @@ Controlling authorities may be distinguished by organizational level (for exampl
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>6</sc:sequenceNumber>
-         <sc:typeId>C109</sc:typeId>
+         <sc:typeId>C110</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_controllingAuthorityMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5615,7 +5734,7 @@ Includes actual operations, operational capability, and planned or proposed man-
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>7</sc:sequenceNumber>
-         <sc:typeId>C110</sc:typeId>
+         <sc:typeId>C111</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_facilityOperationalStatusMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5633,7 +5752,7 @@ An indication that a structure is floodlit.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>8</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5653,7 +5772,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>9</sc:sequenceNumber>
-         <sc:typeId>C38</sc:typeId>
+         <sc:typeId>C39</sc:typeId>
          <sc:typeName>HeightMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5673,7 +5792,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>10</sc:sequenceNumber>
-         <sc:typeId>C39</sc:typeId>
+         <sc:typeId>C40</sc:typeId>
          <sc:typeName>ElevationMeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5692,7 +5811,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>11</sc:sequenceNumber>
-         <sc:typeId>C31</sc:typeId>
+         <sc:typeId>C32</sc:typeId>
          <sc:typeName>MeasureIntervalMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5712,7 +5831,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>12</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5731,7 +5850,7 @@ Temporary features last, or are meant to last, for a limited time only.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>13</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5750,7 +5869,7 @@ The physical condition applies to any phase of the life cycle of a man-made stru
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>14</sc:sequenceNumber>
-         <sc:typeId>C111</sc:typeId>
+         <sc:typeId>C112</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_physicalConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5769,7 +5888,7 @@ Horizontal clearance affects the maximum width of loads that extend laterally be
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>15</sc:sequenceNumber>
-         <sc:typeId>C25</sc:typeId>
+         <sc:typeId>C26</sc:typeId>
          <sc:typeName>BooleanMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5788,7 +5907,7 @@ metre</sc:DescriptorValue>
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>16</sc:sequenceNumber>
-         <sc:typeId>C23</sc:typeId>
+         <sc:typeId>C24</sc:typeId>
          <sc:typeName>MeasureMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5806,7 +5925,7 @@ The type of a transportation route protection structure based on its configurati
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>17</sc:sequenceNumber>
-         <sc:typeId>C112</sc:typeId>
+         <sc:typeId>C113</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_transRteProtStructTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5824,7 +5943,7 @@ The relationship between the feature and the underlying ground (terrain) or wate
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>18</sc:sequenceNumber>
-         <sc:typeId>C113</sc:typeId>
+         <sc:typeId>C114</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_verticalRelativeLocationMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
