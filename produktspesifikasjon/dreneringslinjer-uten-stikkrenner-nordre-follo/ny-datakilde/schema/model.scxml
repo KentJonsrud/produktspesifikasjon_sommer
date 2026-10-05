@@ -1129,7 +1129,7 @@
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_bridgeStructureTypeMeta</sc:name>
+     <sc:name>Bridge_bypassConditionMeta</sc:name>
      <sc:id>C87</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1140,12 +1140,12 @@
        <sc:id>C87_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_bridgeStructureTypeReason</sc:typeName>
+       <sc:typeName>Bridge_bypassConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_bypassConditionMeta</sc:name>
+     <sc:name>Bridge_colourPatternMeta</sc:name>
      <sc:id>C88</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1156,12 +1156,12 @@
        <sc:id>C88_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_bypassConditionReason</sc:typeName>
+       <sc:typeName>Bridge_colourPatternReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_colourPatternMeta</sc:name>
+     <sc:name>Bridge_conspicuousAirCategoryMeta</sc:name>
      <sc:id>C89</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1172,12 +1172,12 @@
        <sc:id>C89_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_colourPatternReason</sc:typeName>
+       <sc:typeName>Bridge_conspicuousAirCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_conspicuousAirCategoryMeta</sc:name>
+     <sc:name>Bridge_conspicuousGroundCategoryMeta</sc:name>
      <sc:id>C90</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1188,12 +1188,12 @@
        <sc:id>C90_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_conspicuousAirCategoryReason</sc:typeName>
+       <sc:typeName>Bridge_conspicuousGroundCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_conspicuousGroundCategoryMeta</sc:name>
+     <sc:name>Bridge_conspicuousSeaCategoryMeta</sc:name>
      <sc:id>C91</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1204,12 +1204,12 @@
        <sc:id>C91_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_conspicuousGroundCategoryReason</sc:typeName>
+       <sc:typeName>Bridge_conspicuousSeaCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_conspicuousSeaCategoryMeta</sc:name>
+     <sc:name>Bridge_controllingAuthorityMeta</sc:name>
      <sc:id>C92</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1220,12 +1220,12 @@
        <sc:id>C92_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_conspicuousSeaCategoryReason</sc:typeName>
+       <sc:typeName>Bridge_controllingAuthorityReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_controllingAuthorityMeta</sc:name>
+     <sc:name>Bridge_navigationMarkColourMeta</sc:name>
      <sc:id>C93</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1236,12 +1236,12 @@
        <sc:id>C93_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_controllingAuthorityReason</sc:typeName>
+       <sc:typeName>Bridge_navigationMarkColourReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_facilityOperationalStatusMeta</sc:name>
+     <sc:name>Bridge_physicalConditionMeta</sc:name>
      <sc:id>C94</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1252,12 +1252,12 @@
        <sc:id>C94_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_facilityOperationalStatusReason</sc:typeName>
+       <sc:typeName>Bridge_physicalConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_navigationMarkColourMeta</sc:name>
+     <sc:name>Bridge_radarSignificanceMeta</sc:name>
      <sc:id>C95</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1268,12 +1268,12 @@
        <sc:id>C95_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_navigationMarkColourReason</sc:typeName>
+       <sc:typeName>Bridge_radarSignificanceReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_physicalConditionMeta</sc:name>
+     <sc:name>Tunnel_bypassConditionMeta</sc:name>
      <sc:id>C96</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1284,12 +1284,12 @@
        <sc:id>C96_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_physicalConditionReason</sc:typeName>
+       <sc:typeName>Tunnel_bypassConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Bridge_radarSignificanceMeta</sc:name>
+     <sc:name>Tunnel_controllingAuthorityMeta</sc:name>
      <sc:id>C97</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1300,12 +1300,12 @@
        <sc:id>C97_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Bridge_radarSignificanceReason</sc:typeName>
+       <sc:typeName>Tunnel_controllingAuthorityReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_bypassConditionMeta</sc:name>
+     <sc:name>Tunnel_crossSectionalProfileMeta</sc:name>
      <sc:id>C98</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1316,12 +1316,12 @@
        <sc:id>C98_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_bypassConditionReason</sc:typeName>
+       <sc:typeName>Tunnel_crossSectionalProfileReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_controllingAuthorityMeta</sc:name>
+     <sc:name>Tunnel_facilityOperationalStatusMeta</sc:name>
      <sc:id>C99</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1332,12 +1332,12 @@
        <sc:id>C99_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_controllingAuthorityReason</sc:typeName>
+       <sc:typeName>Tunnel_facilityOperationalStatusReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_crossSectionalProfileMeta</sc:name>
+     <sc:name>Tunnel_hazardShelterIntendedUseMeta</sc:name>
      <sc:id>C100</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1348,12 +1348,12 @@
        <sc:id>C100_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_crossSectionalProfileReason</sc:typeName>
+       <sc:typeName>Tunnel_hazardShelterIntendedUseReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_facilityOperationalStatusMeta</sc:name>
+     <sc:name>Tunnel_physicalConditionMeta</sc:name>
      <sc:id>C101</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1364,12 +1364,12 @@
        <sc:id>C101_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_facilityOperationalStatusReason</sc:typeName>
+       <sc:typeName>Tunnel_physicalConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_hazardShelterIntendedUseMeta</sc:name>
+     <sc:name>Tunnel_structMatTypeMeta</sc:name>
      <sc:id>C102</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1380,12 +1380,12 @@
        <sc:id>C102_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_hazardShelterIntendedUseReason</sc:typeName>
+       <sc:typeName>Tunnel_structMatTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_physicalConditionMeta</sc:name>
+     <sc:name>Tunnel_verticalRelativeLocationMeta</sc:name>
      <sc:id>C103</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1396,12 +1396,12 @@
        <sc:id>C103_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_physicalConditionReason</sc:typeName>
+       <sc:typeName>Tunnel_verticalRelativeLocationReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_structMatTypeMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_structMatTypeMeta</sc:name>
      <sc:id>C104</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1412,12 +1412,12 @@
        <sc:id>C104_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_structMatTypeReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_structMatTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>Tunnel_verticalRelativeLocationMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_conspicuousAirCategoryMeta</sc:name>
      <sc:id>C105</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1428,12 +1428,12 @@
        <sc:id>C105_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>Tunnel_verticalRelativeLocationReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_conspicuousAirCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_structMatTypeMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_conspicuousGroundCategoryMeta</sc:name>
      <sc:id>C106</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1444,12 +1444,12 @@
        <sc:id>C106_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_structMatTypeReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_conspicuousGroundCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_conspicuousAirCategoryMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_conspicuousSeaCategoryMeta</sc:name>
      <sc:id>C107</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1460,12 +1460,12 @@
        <sc:id>C107_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_conspicuousAirCategoryReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_conspicuousSeaCategoryReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_conspicuousGroundCategoryMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_controllingAuthorityMeta</sc:name>
      <sc:id>C108</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1476,12 +1476,12 @@
        <sc:id>C108_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_conspicuousGroundCategoryReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_controllingAuthorityReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_conspicuousSeaCategoryMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_facilityOperationalStatusMeta</sc:name>
      <sc:id>C109</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1492,12 +1492,12 @@
        <sc:id>C109_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_conspicuousSeaCategoryReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_facilityOperationalStatusReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_controllingAuthorityMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_physicalConditionMeta</sc:name>
      <sc:id>C110</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1508,12 +1508,12 @@
        <sc:id>C110_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_controllingAuthorityReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_physicalConditionReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_facilityOperationalStatusMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_transRteProtStructTypeMeta</sc:name>
      <sc:id>C111</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1524,12 +1524,12 @@
        <sc:id>C111_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_facilityOperationalStatusReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_transRteProtStructTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_physicalConditionMeta</sc:name>
+     <sc:name>TransRouteProtectStruct_verticalRelativeLocationMeta</sc:name>
      <sc:id>C112</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1540,12 +1540,12 @@
        <sc:id>C112_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_physicalConditionReason</sc:typeName>
+       <sc:typeName>TransRouteProtectStruct_verticalRelativeLocationReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_transRteProtStructTypeMeta</sc:name>
+     <sc:name>VoidCollectionArea_voidCollectionReasonMeta</sc:name>
      <sc:id>C113</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1556,12 +1556,12 @@
        <sc:id>C113_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_transRteProtStructTypeReason</sc:typeName>
+       <sc:typeName>VoidCollectionArea_voidCollectionReasonReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>TransRouteProtectStruct_verticalRelativeLocationMeta</sc:name>
+     <sc:name>VoidCollectionArea_voidCollectionTypeMeta</sc:name>
      <sc:id>C114</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1572,12 +1572,12 @@
        <sc:id>C114_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>TransRouteProtectStruct_verticalRelativeLocationReason</sc:typeName>
+       <sc:typeName>VoidCollectionArea_voidCollectionTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>VoidCollectionArea_voidCollectionReasonMeta</sc:name>
+     <sc:name>GeneralLocation_namedLocationTypeMeta</sc:name>
      <sc:id>C115</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1588,12 +1588,12 @@
        <sc:id>C115_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>VoidCollectionArea_voidCollectionReasonReason</sc:typeName>
+       <sc:typeName>GeneralLocation_namedLocationTypeReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>VoidCollectionArea_voidCollectionTypeMeta</sc:name>
+     <sc:name>GeneralLocation_thematicClassificationMeta</sc:name>
      <sc:id>C116</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1604,12 +1604,12 @@
        <sc:id>C116_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>VoidCollectionArea_voidCollectionTypeReason</sc:typeName>
+       <sc:typeName>GeneralLocation_thematicClassificationReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>GeneralLocation_namedLocationTypeMeta</sc:name>
+     <sc:name>CI_ContactMeta</sc:name>
      <sc:id>C117</sc:id>
      <sc:stereotypes>
       <sc:Stereotype>datatype</sc:Stereotype>
@@ -1620,39 +1620,360 @@
        <sc:id>C117_1</sc:id>
        <sc:cardinality>1</sc:cardinality>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>GeneralLocation_namedLocationTypeReason</sc:typeName>
+       <sc:typeName>CI_ContactReason</sc:typeName>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>GeneralLocation_thematicClassificationMeta</sc:name>
+     <sc:name>Bridge_bridgeStructureType</sc:name>
      <sc:id>C118</sc:id>
      <sc:stereotypes>
-      <sc:Stereotype>datatype</sc:Stereotype>
+      <sc:Stereotype>enumeration</sc:Stereotype>
      </sc:stereotypes>
      <sc:properties>
       <sc:Property>
-       <sc:name>valueOrReason</sc:name>
+       <sc:name>cantilever</sc:name>
        <sc:id>C118_1</sc:id>
-       <sc:cardinality>1</sc:cardinality>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Consists of beams or trusses that project from piers or abutments toward each other and, when joined directly or by a suspended connecting member, form a bridge span.
+-- Description --
+The beams or trusses are anchored at one end and unsupported at the other end.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>GeneralLocation_thematicClassificationReason</sc:typeName>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>deck</sc:name>
+       <sc:id>C118_2</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Carries the travelled way upon the upper chords.
+-- Description --</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>2</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>floating</sc:name>
+       <sc:id>C118_3</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Fixed, floating, and supported by pontoons.
+-- Description --
+Usually temporary in nature.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>3</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>girder</sc:name>
+       <sc:id>C118_4</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Consists of two or more girders supporting a separate floor or system.
+-- Description --
+May be assembled as single spans or combined into multiple spans with intermediate supports.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>4</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>slab</sc:name>
+       <sc:id>C118_5</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+A self-supporting slab.
+-- Description --</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>5</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>stringerBeam</sc:name>
+       <sc:id>C118_6</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Consists of two or more beams supporting a separate floor or system.
+-- Description --
+The stringers may be in standard rolled shapes in spans up to 90 feet in length and as beams built-up with welded steel plate in the 60 to 120 foot span range.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>6</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>suspension</sc:name>
+       <sc:id>C118_7</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+The deck is suspended by hangars from cables attached to and extending between supports.
+-- Description --
+The supports may be in the form of towers located between the ends of the bridge.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>7</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>towerSuspension</sc:name>
+       <sc:id>C118_8</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+The deck is suspended by hangars from cables that pass over two (or more) towers and are anchored by backstays to a firm foundation.
+-- Description --</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>8</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>transporter</sc:name>
+       <sc:id>C118_9</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Consists of towers on each side of the watercourse connected by a system of girders on which a carriage runs.
+-- Description --</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>9</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>truss</sc:name>
+       <sc:id>C118_10</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Supported by a framework of rafters, posts and struts.
+-- Description --
+Typically used in long spans from 150 to 1,000 feet or more.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>10</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>bowstringBridge</sc:name>
+       <sc:id>C118_11</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+A girder bridge consisting of an arch (the 'bow'), a horizontal tie, and a series of hangars providing additional load-carrying support.
+-- Description --
+Hangers descend vertically at regular intervals from the cables to the bridge deck.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>11</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>covered</sc:name>
+       <sc:id>C118_12</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Including protection from the weather for the travel surface.
+-- Description --</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>12</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>openSpandrelArch</sc:name>
+       <sc:id>C118_13</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Arch, where the space above the right and left curves of the arch is open.
+-- Description --</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>13</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>cableStayed</sc:name>
+       <sc:id>C118_14</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+The deck is suspended from cables attached directly to tower-like supports.
+-- Description --
+There are two major classes of cable-stayed bridges, differentiated by how the cables are connected to the towers. In a parallel attachment design, the cables are made nearly parallel by having the height of attachment on the tower be similar to the distance from the pillar along the roadway. In a radial attachment design, the cables all connect to or pass over the top of the pillar.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>14</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>closedSpandrelArch</sc:name>
+       <sc:id>C118_15</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Arch, where the space above the right and left curves of the arch is closed.
+-- Description --</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>15</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>arch</sc:name>
+       <sc:id>C118_16</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Supported by an arch underneath the bridge that directs pressure and weight of the bridge outward to the supports along the arch.
+-- Description --</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>16</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>trestle</sc:name>
+       <sc:id>C118_17</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Consists of a large number of short spans, supported by splayed vertical elements to provide lateral rigidity.
+-- Description --
+Traditionally used mainly for railways and constructed from wood timbers. Twentieth century construction has eliminated much of the need for trestles by using more extensive grading and tunneling, however they remain in use as approaches to bridges where required by the local topography.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>17</sc:sequenceNumber>
       </sc:Property>
      </sc:properties>
     </sc:Class>
     <sc:Class>
-     <sc:name>CI_ContactMeta</sc:name>
+     <sc:name>Bridge_facilityOperationalStatus</sc:name>
      <sc:id>C119</sc:id>
      <sc:stereotypes>
-      <sc:Stereotype>datatype</sc:Stereotype>
+      <sc:Stereotype>codelist</sc:Stereotype>
      </sc:stereotypes>
      <sc:properties>
       <sc:Property>
-       <sc:name>valueOrReason</sc:name>
+       <sc:name>nonOperational</sc:name>
        <sc:id>C119_1</sc:id>
-       <sc:cardinality>1</sc:cardinality>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Not in operation due to it being non-functional and operation is not scheduled to be restored.
+-- Description --</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
        <sc:sequenceNumber>1</sc:sequenceNumber>
-       <sc:typeName>CI_ContactReason</sc:typeName>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>notInOperation</sc:name>
+       <sc:id>C119_2</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Fully functional and ready for operation however has not been certified or commissioned for such use.
+-- Description --
+The operational capacity may not be authorized for various reasons, such as newly installed and not yet commissioned or certified, or operational but has been taken out of service for non-technical reasons, awaiting certification or commissioning status.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>2</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>operational</sc:name>
+       <sc:id>C119_3</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Fully capable of operation.
+-- Description --
+The schedule of operations may be indeterminate or unknown.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>3</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>partiallyOperational</sc:name>
+       <sc:id>C119_4</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Functional, but operating with only partial capability for some reason.
+-- Description --
+Parts of the man-made structure are not in operation; or, the operation is running below capacity.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>4</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>planned</sc:name>
+       <sc:id>C119_5</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Future operations are scheduled.
+-- Description --</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>5</sc:sequenceNumber>
+      </sc:Property>
+      <sc:Property>
+       <sc:name>temporarilyNonOperational</sc:name>
+       <sc:id>C119_6</sc:id>
+       <sc:descriptors>
+        <sc:documentation>
+         <sc:descriptorValues>
+          <sc:DescriptorValue>-- Definition --
+Temporarily not in operation due to it being non-functional and operation is scheduled to be restored.
+-- Description --
+Usually an unscheduled loss of operation.</sc:DescriptorValue>
+         </sc:descriptorValues>
+        </sc:documentation>
+       </sc:descriptors>
+       <sc:sequenceNumber>6</sc:sequenceNumber>
       </sc:Property>
      </sc:properties>
     </sc:Class>
@@ -1878,7 +2199,7 @@ The reason(s) that geospatial data was not collected.
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C115</sc:typeId>
+         <sc:typeId>C113</sc:typeId>
          <sc:typeName>VoidCollectionArea_voidCollectionReasonMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -1896,7 +2217,7 @@ The type(s) of geospatial data that were not collected.
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C116</sc:typeId>
+         <sc:typeId>C114</sc:typeId>
          <sc:typeName>VoidCollectionArea_voidCollectionTypeMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -2052,7 +2373,7 @@ The type of a location that normally does not appear as a specific, characterize
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C117</sc:typeId>
+         <sc:typeId>C115</sc:typeId>
          <sc:typeName>GeneralLocation_namedLocationTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2070,7 +2391,7 @@ The classification of a feature among geographic themes.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C118</sc:typeId>
+         <sc:typeId>C116</sc:typeId>
          <sc:typeName>GeneralLocation_thematicClassificationMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -2126,7 +2447,7 @@ The telephone, postal, electronic and/or other contact information for a facilit
          </sc:descriptors>
          <sc:cardinality>1</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C119</sc:typeId>
+         <sc:typeId>C117</sc:typeId>
          <sc:typeName>CI_ContactMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -4492,8 +4813,8 @@ The type(s) of structural design of a bridge, bridge span, or bridge superstruct
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>8</sc:sequenceNumber>
-         <sc:typeId>C87</sc:typeId>
-         <sc:typeName>Bridge_bridgeStructureTypeMeta</sc:typeName>
+         <sc:typeId>C118</sc:typeId>
+         <sc:typeName>Bridge_bridgeStructureType</sc:typeName>
         </sc:Property>
         <sc:Property>
          <sc:name>bypassCondition</sc:name>
@@ -4511,7 +4832,7 @@ Bypass condition will not consider other bridges in bypass determination.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>9</sc:sequenceNumber>
-         <sc:typeId>C88</sc:typeId>
+         <sc:typeId>C87</sc:typeId>
          <sc:typeName>Bridge_bypassConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4530,7 +4851,7 @@ The Attribute: 'Navigation Mark Colour' may be used to specify the colours in th
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>10</sc:sequenceNumber>
-         <sc:typeId>C89</sc:typeId>
+         <sc:typeId>C88</sc:typeId>
          <sc:typeName>Bridge_colourPatternMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4549,7 +4870,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>11</sc:sequenceNumber>
-         <sc:typeId>C90</sc:typeId>
+         <sc:typeId>C89</sc:typeId>
          <sc:typeName>Bridge_conspicuousAirCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4568,7 +4889,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>12</sc:sequenceNumber>
-         <sc:typeId>C91</sc:typeId>
+         <sc:typeId>C90</sc:typeId>
          <sc:typeName>Bridge_conspicuousGroundCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4587,7 +4908,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>13</sc:sequenceNumber>
-         <sc:typeId>C92</sc:typeId>
+         <sc:typeId>C91</sc:typeId>
          <sc:typeName>Bridge_conspicuousSeaCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4606,7 +4927,7 @@ Controlling authorities may be distinguished by organizational level (for exampl
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>14</sc:sequenceNumber>
-         <sc:typeId>C93</sc:typeId>
+         <sc:typeId>C92</sc:typeId>
          <sc:typeName>Bridge_controllingAuthorityMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4663,8 +4984,8 @@ Includes actual operations, operational capability, and planned or proposed man-
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>17</sc:sequenceNumber>
-         <sc:typeId>C94</sc:typeId>
-         <sc:typeName>Bridge_facilityOperationalStatusMeta</sc:typeName>
+         <sc:typeId>C119</sc:typeId>
+         <sc:typeName>Bridge_facilityOperationalStatus</sc:typeName>
         </sc:Property>
         <sc:Property>
          <sc:name>heightAboveSurfaceLevel</sc:name>
@@ -4895,7 +5216,7 @@ When the navigation mark is patterned, the Attribute: 'Colour Pattern' may be us
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>29</sc:sequenceNumber>
-         <sc:typeId>C95</sc:typeId>
+         <sc:typeId>C93</sc:typeId>
          <sc:typeName>Bridge_navigationMarkColourMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4953,7 +5274,7 @@ The physical condition applies to any phase of the life cycle of a man-made stru
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>32</sc:sequenceNumber>
-         <sc:typeId>C96</sc:typeId>
+         <sc:typeId>C94</sc:typeId>
          <sc:typeName>Bridge_physicalConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -4971,7 +5292,7 @@ The predominant exposed surface material, categorized by its significance to rad
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>33</sc:sequenceNumber>
-         <sc:typeId>C97</sc:typeId>
+         <sc:typeId>C95</sc:typeId>
          <sc:typeName>Bridge_radarSignificanceMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5162,7 +5483,7 @@ Bypass condition will not consider other bridges in bypass determination.
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C98</sc:typeId>
+         <sc:typeId>C96</sc:typeId>
          <sc:typeName>Tunnel_bypassConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5181,7 +5502,7 @@ Controlling authorities may be distinguished by organizational level (for exampl
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>3</sc:sequenceNumber>
-         <sc:typeId>C99</sc:typeId>
+         <sc:typeId>C97</sc:typeId>
          <sc:typeName>Tunnel_controllingAuthorityMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5217,7 +5538,7 @@ The cross-sectional profile of an opening (for example: a tunnel or the space un
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>5</sc:sequenceNumber>
-         <sc:typeId>C100</sc:typeId>
+         <sc:typeId>C98</sc:typeId>
          <sc:typeName>Tunnel_crossSectionalProfileMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5275,7 +5596,7 @@ Includes actual operations, operational capability, and planned or proposed man-
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>8</sc:sequenceNumber>
-         <sc:typeId>C101</sc:typeId>
+         <sc:typeId>C99</sc:typeId>
          <sc:typeName>Tunnel_facilityOperationalStatusMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5294,7 +5615,7 @@ Hazard shelters may be located inside buildings or other structures. Shelters ma
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>9</sc:sequenceNumber>
-         <sc:typeId>C102</sc:typeId>
+         <sc:typeId>C100</sc:typeId>
          <sc:typeName>Tunnel_hazardShelterIntendedUseMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5485,7 +5806,7 @@ The physical condition applies to any phase of the life cycle of a man-made stru
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>19</sc:sequenceNumber>
-         <sc:typeId>C103</sc:typeId>
+         <sc:typeId>C101</sc:typeId>
          <sc:typeName>Tunnel_physicalConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5562,7 +5883,7 @@ The basis for 'primary' may be, for example, compositional dominance or structur
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>23</sc:sequenceNumber>
-         <sc:typeId>C104</sc:typeId>
+         <sc:typeId>C102</sc:typeId>
          <sc:typeName>Tunnel_structMatTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5580,7 +5901,7 @@ The relationship between the feature and the underlying ground (terrain) or wate
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>24</sc:sequenceNumber>
-         <sc:typeId>C105</sc:typeId>
+         <sc:typeId>C103</sc:typeId>
          <sc:typeName>Tunnel_verticalRelativeLocationMeta</sc:typeName>
         </sc:Property>
        </sc:properties>
@@ -5621,7 +5942,7 @@ The basis for 'primary' may be, for example, compositional dominance or structur
          </sc:descriptors>
          <sc:cardinality>0..*</sc:cardinality>
          <sc:sequenceNumber>1</sc:sequenceNumber>
-         <sc:typeId>C106</sc:typeId>
+         <sc:typeId>C104</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_structMatTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5640,7 +5961,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>2</sc:sequenceNumber>
-         <sc:typeId>C107</sc:typeId>
+         <sc:typeId>C105</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_conspicuousAirCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5659,7 +5980,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>3</sc:sequenceNumber>
-         <sc:typeId>C108</sc:typeId>
+         <sc:typeId>C106</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_conspicuousGroundCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5696,7 +6017,7 @@ A conspicuous feature is easily detected and identified under varying conditions
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>5</sc:sequenceNumber>
-         <sc:typeId>C109</sc:typeId>
+         <sc:typeId>C107</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_conspicuousSeaCategoryMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5715,7 +6036,7 @@ Controlling authorities may be distinguished by organizational level (for exampl
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>6</sc:sequenceNumber>
-         <sc:typeId>C110</sc:typeId>
+         <sc:typeId>C108</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_controllingAuthorityMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5734,7 +6055,7 @@ Includes actual operations, operational capability, and planned or proposed man-
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>7</sc:sequenceNumber>
-         <sc:typeId>C111</sc:typeId>
+         <sc:typeId>C109</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_facilityOperationalStatusMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5869,7 +6190,7 @@ The physical condition applies to any phase of the life cycle of a man-made stru
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>14</sc:sequenceNumber>
-         <sc:typeId>C112</sc:typeId>
+         <sc:typeId>C110</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_physicalConditionMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5925,7 +6246,7 @@ The type of a transportation route protection structure based on its configurati
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>17</sc:sequenceNumber>
-         <sc:typeId>C113</sc:typeId>
+         <sc:typeId>C111</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_transRteProtStructTypeMeta</sc:typeName>
         </sc:Property>
         <sc:Property>
@@ -5943,7 +6264,7 @@ The relationship between the feature and the underlying ground (terrain) or wate
          </sc:descriptors>
          <sc:cardinality>0..1</sc:cardinality>
          <sc:sequenceNumber>18</sc:sequenceNumber>
-         <sc:typeId>C114</sc:typeId>
+         <sc:typeId>C112</sc:typeId>
          <sc:typeName>TransRouteProtectStruct_verticalRelativeLocationMeta</sc:typeName>
         </sc:Property>
        </sc:properties>

@@ -1,0 +1,21 @@
+---
+label: Bridge_bridgeStructureType
+entries:
+  arch: arch
+  bowstringBridge: bowstringBridge
+  cableStayed: cableStayed
+  cantilever: cantilever
+  closedSpandrelArch: closedSpandrelArch
+  covered: covered
+  deck: deck
+  floating: floating
+  girder: girder
+  openSpandrelArch: openSpandrelArch
+  slab: slab
+  stringerBeam: stringerBeam
+  suspension: suspension
+  towerSuspension: towerSuspension
+  transporter: transporter
+  trestle: trestle
+  truss: truss
+sourceType: TEMPLATES

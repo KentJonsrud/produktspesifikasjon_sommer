@@ -30,7 +30,7 @@ Nordre Follo kommune
   - **Til**: 2020-05-06
 
 ## Om spesifikasjonen
-Versjon 2 2026-10-05
+Versjon 2.1 2026-10-05
 
 > **Denne versjonen av produktspesifikasjonen:** <br>
 > **Opprettet dato:** 2020-05-06<br>

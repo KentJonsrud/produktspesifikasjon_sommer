@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><ShapeChangeResult xmlns="http://www.interactive-instruments.de/ShapeChange/Result" xmlns:r="http://www.interactive-instruments.de/ShapeChange/Result" config="/home/runner/work/produktspesifikasjon_sommer/produktspesifikasjon_sommer/produktspesifikasjon/dreneringslinjer-uten-stikkrenner-nordre-follo/ny-datakilde/schema/shapechange-config.xml" end="Mon Oct 05 09:32:29 UTC 2026" resultCode="0" start="Mon Oct 05 09:32:20 UTC 2026" version="4.0.0">
+<?xml version="1.0" encoding="UTF-8"?><ShapeChangeResult xmlns="http://www.interactive-instruments.de/ShapeChange/Result" xmlns:r="http://www.interactive-instruments.de/ShapeChange/Result" config="/home/runner/work/produktspesifikasjon_sommer/produktspesifikasjon_sommer/produktspesifikasjon/dreneringslinjer-uten-stikkrenner-nordre-follo/ny-datakilde/schema/shapechange-config.xml" end="Mon Oct 05 10:45:52 UTC 2026" resultCode="0" start="Mon Oct 05 10:45:43 UTC 2026" version="4.0.0">
   <Messages>
     <ProcessFlowInfo message="---------- Semantic validation of ShapeChange configuration: START ----------"/>
     <Info message="Validating input parameters."/>
@@ -10,12 +10,6 @@
     <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.json.JsonSchemaTarget' and @inputs 'INPUT' ..."/>
     <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.ldproxy2.Ldproxy2Target' and @inputs 'LDPROXY_FLAT' ..."/>
     <ProcessFlowInfo message="---------- Semantic validation of ShapeChange configuration: COMPLETE ----------"/>
-    <Warning message="The type 'Tunnel_crossSectionalProfileReason' of property 'Tunnel_crossSectionalProfileMeta.valueOrReason' was not found.">
-      <Detail message="Context: Property 'ny-datakilde::Tunnel_crossSectionalProfileMeta::valueOrReason'"/>
-    </Warning>
-    <Warning message="The type 'Tunnel_facilityOperationalStatusReason' of property 'Tunnel_facilityOperationalStatusMeta.valueOrReason' was not found.">
-      <Detail message="Context: Property 'ny-datakilde::Tunnel_facilityOperationalStatusMeta::valueOrReason'"/>
-    </Warning>
     <Warning message="The type 'Tunnel_hazardShelterIntendedUseReason' of property 'Tunnel_hazardShelterIntendedUseMeta.valueOrReason' was not found.">
       <Detail message="Context: Property 'ny-datakilde::Tunnel_hazardShelterIntendedUseMeta::valueOrReason'"/>
     </Warning>
@@ -274,9 +268,6 @@
     <Warning message="The type 'Bridge_bridgeOpeningTypeReason' of property 'Bridge_bridgeOpeningTypeMeta.valueOrReason' was not found.">
       <Detail message="Context: Property 'ny-datakilde::Bridge_bridgeOpeningTypeMeta::valueOrReason'"/>
     </Warning>
-    <Warning message="The type 'Bridge_bridgeStructureTypeReason' of property 'Bridge_bridgeStructureTypeMeta.valueOrReason' was not found.">
-      <Detail message="Context: Property 'ny-datakilde::Bridge_bridgeStructureTypeMeta::valueOrReason'"/>
-    </Warning>
     <Warning message="The type 'Bridge_bypassConditionReason' of property 'Bridge_bypassConditionMeta.valueOrReason' was not found.">
       <Detail message="Context: Property 'ny-datakilde::Bridge_bypassConditionMeta::valueOrReason'"/>
     </Warning>
@@ -295,9 +286,6 @@
     <Warning message="The type 'Bridge_controllingAuthorityReason' of property 'Bridge_controllingAuthorityMeta.valueOrReason' was not found.">
       <Detail message="Context: Property 'ny-datakilde::Bridge_controllingAuthorityMeta::valueOrReason'"/>
     </Warning>
-    <Warning message="The type 'Bridge_facilityOperationalStatusReason' of property 'Bridge_facilityOperationalStatusMeta.valueOrReason' was not found.">
-      <Detail message="Context: Property 'ny-datakilde::Bridge_facilityOperationalStatusMeta::valueOrReason'"/>
-    </Warning>
     <Warning message="The type 'Bridge_navigationMarkColourReason' of property 'Bridge_navigationMarkColourMeta.valueOrReason' was not found.">
       <Detail message="Context: Property 'ny-datakilde::Bridge_navigationMarkColourMeta::valueOrReason'"/>
     </Warning>
@@ -312,6 +300,12 @@
     </Warning>
     <Warning message="The type 'Tunnel_controllingAuthorityReason' of property 'Tunnel_controllingAuthorityMeta.valueOrReason' was not found.">
       <Detail message="Context: Property 'ny-datakilde::Tunnel_controllingAuthorityMeta::valueOrReason'"/>
+    </Warning>
+    <Warning message="The type 'Tunnel_crossSectionalProfileReason' of property 'Tunnel_crossSectionalProfileMeta.valueOrReason' was not found.">
+      <Detail message="Context: Property 'ny-datakilde::Tunnel_crossSectionalProfileMeta::valueOrReason'"/>
+    </Warning>
+    <Warning message="The type 'Tunnel_facilityOperationalStatusReason' of property 'Tunnel_facilityOperationalStatusMeta.valueOrReason' was not found.">
+      <Detail message="Context: Property 'ny-datakilde::Tunnel_facilityOperationalStatusMeta::valueOrReason'"/>
     </Warning>
     <ProcessFlowInfo message="Application schema found, package name: 'ny-datakilde', target namespace: 'https://skjema.geonorge.no/SOSI/produktspesifikasjon/dreneringslinjer-uten-stikkrenner-nordre-follo/ny-datakilde/1.0'"/>
     <ProcessFlowInfo message="Now processing target 'XML Schema' for input 'INPUT'."/>
@@ -429,9 +423,6 @@
     <Error message="The type 'Bridge_bridgeOpeningTypeReason' of property 'Bridge_bridgeOpeningTypeMeta.valueOrReason' was not found.">
       <Detail message="Context: Property 'ny-datakilde::Bridge_bridgeOpeningTypeMeta::valueOrReason'"/>
     </Error>
-    <Error message="The type 'Bridge_bridgeStructureTypeReason' of property 'Bridge_bridgeStructureTypeMeta.valueOrReason' was not found.">
-      <Detail message="Context: Property 'ny-datakilde::Bridge_bridgeStructureTypeMeta::valueOrReason'"/>
-    </Error>
     <Error message="The type 'Bridge_bypassConditionReason' of property 'Bridge_bypassConditionMeta.valueOrReason' was not found.">
       <Detail message="Context: Property 'ny-datakilde::Bridge_bypassConditionMeta::valueOrReason'"/>
     </Error>
@@ -452,9 +443,6 @@
     </Error>
     <Error message="The type 'Bridge_directivityReason' of property 'Bridge_directivityMeta.valueOrReason' was not found.">
       <Detail message="Context: Property 'ny-datakilde::Bridge_directivityMeta::valueOrReason'"/>
-    </Error>
-    <Error message="The type 'Bridge_facilityOperationalStatusReason' of property 'Bridge_facilityOperationalStatusMeta.valueOrReason' was not found.">
-      <Detail message="Context: Property 'ny-datakilde::Bridge_facilityOperationalStatusMeta::valueOrReason'"/>
     </Error>
     <Error message="The type 'Bridge_navigationMarkColourReason' of property 'Bridge_navigationMarkColourMeta.valueOrReason' was not found.">
       <Detail message="Context: Property 'ny-datakilde::Bridge_navigationMarkColourMeta::valueOrReason'"/>
@@ -659,7 +647,6 @@
     <Warning message="JSON Schema definition for type 'BridgeTower_towerShapeReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'Bridge_bridgeInfoReliabilityReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'Bridge_bridgeOpeningTypeReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
-    <Warning message="JSON Schema definition for type 'Bridge_bridgeStructureTypeReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'Bridge_bypassConditionReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'Bridge_colourPatternReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'Bridge_conspicuousAirCategoryReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
@@ -667,7 +654,6 @@
     <Warning message="JSON Schema definition for type 'Bridge_conspicuousSeaCategoryReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'Bridge_controllingAuthorityReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'Bridge_directivityReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
-    <Warning message="JSON Schema definition for type 'Bridge_facilityOperationalStatusReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'Bridge_navigationMarkColourReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'Bridge_physicalConditionReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'Bridge_radarSignificanceReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
@@ -777,6 +763,12 @@
     <Error message="Type 'VoidCollectionArea' has one or more supertypes. Conversion of inheritance relationships is only supported by this target if parameter 'enableFragments' is set to 'true'. The relationship will be ignored.">
       <Detail message="Context: class 'ny-datakilde::NyFoundation::VoidCollectionArea'"/>
     </Error>
+    <Info message="Could not compute a label for codelist/enumeration 'Bridge_bridgeStructureType'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'ny-datakilde::Bridge_bridgeStructureType'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'Bridge_facilityOperationalStatus'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'ny-datakilde::Bridge_facilityOperationalStatus'"/>
+    </Info>
     <Error message="The value type 'Bridge_directivityReason' of property 'directivity_valueOrReason' (of class 'Bridge') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
       <Detail message="Context: property 'ny-datakilde::NyTransportation::Bridge::directivity_valueOrReason'"/>
     </Error>
@@ -797,9 +789,6 @@
     </Error>
     <Error message="The value type 'CharacterStringReason' of property 'bridgeReferenceNumber_valueOrReason' (of class 'Bridge') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
       <Detail message="Context: property 'ny-datakilde::NyTransportation::Bridge::bridgeReferenceNumber_valueOrReason'"/>
-    </Error>
-    <Error message="The value type 'Bridge_bridgeStructureTypeReason' of property 'bridgeStructureType_valueOrReason' (of class 'Bridge') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
-      <Detail message="Context: property 'ny-datakilde::NyTransportation::Bridge::bridgeStructureType_valueOrReason'"/>
     </Error>
     <Error message="The value type 'Bridge_bypassConditionReason' of property 'bypassCondition_valueOrReason' (of class 'Bridge') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
       <Detail message="Context: property 'ny-datakilde::NyTransportation::Bridge::bypassCondition_valueOrReason'"/>
@@ -824,9 +813,6 @@
     </Error>
     <Error message="The value type 'MeasureReason' of property 'elevationMsl_valueOrReason' (of class 'Bridge') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
       <Detail message="Context: property 'ny-datakilde::NyTransportation::Bridge::elevationMsl_valueOrReason'"/>
-    </Error>
-    <Error message="The value type 'Bridge_facilityOperationalStatusReason' of property 'facilityOperationalStatus_valueOrReason' (of class 'Bridge') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
-      <Detail message="Context: property 'ny-datakilde::NyTransportation::Bridge::facilityOperationalStatus_valueOrReason'"/>
     </Error>
     <Error message="The value type 'HeightMeasureReason' of property 'heightAboveSurfaceLevel_valueOrReason' (of class 'Bridge') is not mapped and either not present in the model, not correctly linked, or not encoded. The property will therefore not be encoded. Either define a mapping for the value type, or ensure that the value type is correctly linked to and that it actually is defined to be encoded by this target.">
       <Detail message="Context: property 'ny-datakilde::NyTransportation::Bridge::heightAboveSurfaceLevel_valueOrReason'"/>
