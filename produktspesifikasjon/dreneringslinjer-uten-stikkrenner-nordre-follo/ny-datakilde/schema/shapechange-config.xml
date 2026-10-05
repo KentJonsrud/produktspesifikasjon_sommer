@@ -50,14 +50,21 @@
    <xi:include href="file:///home/runner/work/produktspesifikasjon_sommer/produktspesifikasjon_sommer/.psactions/shapechange/data/StandardMapEntries_sosi.xml" />
   </TargetXmlSchema>
   <Target class="de.interactive_instruments.shapechange.core.target.json.JsonSchemaTarget" mode="enabled" inputs="INPUT">
+   <advancedProcessConfigurations>
+    <JsonSchemaAnnotations>
+     <annotations>
+      <SimpleAnnotation annotation="description" descriptorOrTaggedValue="documentation" noValueBehavior="ignore" />
+      <SimpleAnnotation annotation="title" descriptorOrTaggedValue="alias" noValueBehavior="ignore" />
+      <SimpleAnnotation annotation="codelist" descriptorOrTaggedValue="TV:codeList" noValueBehavior="ignore" />
+     </annotations>
+    </JsonSchemaAnnotations>
+   </advancedProcessConfigurations>
    <targetParameter name="outputDirectory" value="/home/runner/work/produktspesifikasjon_sommer/produktspesifikasjon_sommer/produktspesifikasjon/dreneringslinjer-uten-stikkrenner-nordre-follo/ny-datakilde/schema/jsonschema" />
    <targetParameter name="sortedOutput" value="true" />
    <targetParameter name="jsonSchemaVersion" value="draft-07" />
    <targetParameter name="jsonBaseUri" value="https://skjema.geonorge.no/SOSI/produktspesifikasjon/dreneringslinjer-uten-stikkrenner-nordre-follo/ny-datakilde" />
    <targetParameter name="entityTypeName" value="@type" />
    <targetParameter name="defaultEncodingRule" value="sosiJson" />
-   <targetParameter name="documentationTemplate" value="[[documentation]]" />
-   <targetParameter name="documentationNoValue" value="" />
    <rules>
     <EncodingRule name="sosiJson">
      <rule name="rule-json-cls-basictype" />
@@ -68,6 +75,7 @@
      <rule name="rule-json-cls-union-propertyCount" />
      <rule name="rule-json-cls-valueTypeOptions" />
      <rule name="rule-json-all-documentation" />
+     <rule name="rule-json-cls-documentation-enumDescription" />
     </EncodingRule>
    </rules>
    <mapEntries>

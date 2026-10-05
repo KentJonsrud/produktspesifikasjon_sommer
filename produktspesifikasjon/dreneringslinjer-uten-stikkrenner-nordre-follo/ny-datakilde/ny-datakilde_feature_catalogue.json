@@ -481,7 +481,8 @@
         {
           "target": "LandmarkInfo",
           "role": "navigationLandmarkInfoDescribedBy",
-          "cardinality": "0..1"
+          "cardinality": "0..1",
+          "sourceCardinality": "1"
         }
       ]
     },
@@ -1048,7 +1049,8 @@
         {
           "target": "LandmarkInfo",
           "role": "navigationLandmarkInfoDescribedBy",
-          "cardinality": "0..1"
+          "cardinality": "0..1",
+          "sourceCardinality": "1"
         }
       ]
     },
@@ -1289,12 +1291,14 @@
         {
           "target": "LandmarkInfo",
           "role": "navigationLandmarkInfoDescribedBy",
-          "cardinality": "0..1"
+          "cardinality": "0..1",
+          "sourceCardinality": "1"
         },
         {
           "target": "AeronauticalObstacleInfo",
           "role": "aeroObstacleDescribedBy",
-          "cardinality": "0..1"
+          "cardinality": "0..1",
+          "sourceCardinality": "1"
         }
       ]
     },
@@ -1521,12 +1525,14 @@
         {
           "target": "LandmarkInfo",
           "role": "navigationLandmarkInfoDescribedBy",
-          "cardinality": "0..1"
+          "cardinality": "0..1",
+          "sourceCardinality": "1"
         },
         {
           "target": "AeronauticalObstacleInfo",
           "role": "aeroObstacleDescribedBy",
-          "cardinality": "0..1"
+          "cardinality": "0..1",
+          "sourceCardinality": "1"
         }
       ]
     },
@@ -2059,12 +2065,14 @@
         {
           "target": "LandmarkInfo",
           "role": "navigationLandmarkInfoDescribedBy",
-          "cardinality": "0..1"
+          "cardinality": "0..1",
+          "sourceCardinality": "1"
         },
         {
           "target": "AeronauticalObstacleInfo",
           "role": "aeroObstacleDescribedBy",
-          "cardinality": "0..1"
+          "cardinality": "0..1",
+          "sourceCardinality": "1"
         }
       ]
     },
@@ -2644,7 +2652,8 @@
         {
           "target": "LandmarkInfo",
           "role": "navigationLandmarkInfoDescribedBy",
-          "cardinality": "0..1"
+          "cardinality": "0..1",
+          "sourceCardinality": "1"
         }
       ]
     },
@@ -2703,7 +2712,8 @@
         {
           "target": "AeronauticalObstacleInfo",
           "role": "aeroObstacleDescribedBy",
-          "cardinality": "0..1"
+          "cardinality": "0..1",
+          "sourceCardinality": "1"
         },
         {
           "target": "AddressInfo",
@@ -2725,7 +2735,7 @@
     "attributes": [
       {
         "name": "geometry",
-        "type": "GM_Object",
+        "type": "GM_Curve",
         "description": "-- Definition --\nSpecification(s) of the location where an object (such as: a facility, instrument, or actor) exists, or where an event occurs.\n-- Description --\nA location may be spatially localized as a zero-dimensional point or spatially extensive in one or more dimensions (for example: a curve, a surface, or a volume). An entity that consists of components with different locations (for example: the Great Lakes) may be characterized itself as having multiple distinct locations. An entity may have multiple specifications of its location(s) based on the quality and accuracy of each approximating representation.\n-- UnitOfMeasure --",
         "cardinality": "1"
       }
@@ -2743,12 +2753,15 @@
         },
         {
           "target": "GeoNameInfo",
-          "cardinality": "0..*"
+          "cardinality": "0..*",
+          "sourceRole": "geoNameInfoDescribedBy",
+          "sourceCardinality": "0..*"
         },
         {
           "target": "SourceInfo",
           "role": "sourceInfoDescribedBy",
-          "cardinality": "0..*"
+          "cardinality": "0..*",
+          "sourceCardinality": "1"
         },
         {
           "target": "RestrictionInfo",
@@ -2840,6 +2853,83 @@
     "package": "NyFoundation"
   },
   {
+    "name": "Entity",
+    "description": "-- Definition --\nAn abstract modeling entity that is a superclass for modeling entities having identity and that represents common properties (attributes and association roles) of its subclasses.\n-- Description --\nIdentity enables the ability to reference entity instances from other modeling entities. Common properties may include entity-related metadata, notes, and/or data-dissemination restriction(s) and security control(s) regarding the entity.",
+    "attributes": [
+      {
+        "name": "externalReferences",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nA list of external references that may provide additional or ancillary information about this entity instance.\n-- Description --\nFor example: a website URL, a link to a photo or document, etc.\n-- UnitOfMeasure --",
+        "cardinality": "0..*",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "uniqueUniversalEntityIdentifier",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nA globally exclusive, distinct, and persistent identifier assigned to an entity (ex. feature, event, actor, etc.).\n-- Description --\nThis identifier is used to support such things as: the unique identification of any individual instance of an entity, relationships between features in a relational database, and version control.\n-- UnitOfMeasure --",
+        "cardinality": "1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "beginLifespanVersion",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nDate and time at which this version of the spatial object was inserted or changed in the spatial data set.\n-- Description --\n\n-- UnitOfMeasure --\nsecond",
+        "cardinality": "1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "endLifespanVersion",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nDate and time at which this version of the spatial object was superseded or retired in the spatial data set.\n-- Description --\n-- UnitOfMeasure --\nsecond",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      },
+      {
+        "name": "specifiedDomainValues",
+        "type": "CharacterStringMeta",
+        "description": "-- Definition --\nOne or more intended attribute domain values for one or more enumeration or codelist attributes that are not currently valid members of their respective attribute ranges.\n-- Description --\nThe actual attribute domain values may have been previously, or may become in the future, valid members of the attribute domain range.\n-- UnitOfMeasure --",
+        "cardinality": "0..1",
+        "attributes": [
+          {
+            "name": "valueOrReason",
+            "type": "CharacterStringReason",
+            "cardinality": "1"
+          }
+        ]
+      }
+    ],
+    "abstract": true,
+    "relationships": {
+      "inheritance": [],
+      "associations": []
+    },
+    "package": "NyFoundation"
+  },
+  {
     "name": "GeneralLocation",
     "description": "-- Definition --\nA location that normally does not appear as a specific, characterized object but that has either a name that is required to be displayed or other specific information associated with that location.\n-- Description --\nFor example, the name of the Alps or the Sahara.",
     "attributes": [
@@ -2892,7 +2982,8 @@
         {
           "target": "AddressInfo",
           "role": "hasLocationAddress",
-          "cardinality": "0..*"
+          "cardinality": "0..*",
+          "sourceCardinality": "0..*"
         }
       ]
     },
@@ -2925,7 +3016,9 @@
         {
           "target": "Organisation",
           "role": "mainOrganisation",
-          "cardinality": "0..*"
+          "cardinality": "0..*",
+          "sourceRole": "subUnit",
+          "sourceCardinality": "0..*"
         }
       ]
     },

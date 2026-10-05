@@ -8983,7 +8983,7 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>GM_Object</td>
+      <td>GM_Curve</td>
     </tr>
   </tbody>
 </table>
@@ -9204,6 +9204,242 @@ Relasjoner
 
 **Arv**
 FeatureEntity
+
+#### Entity (abstrakt)
+
+-- Definition --<br />An abstract modeling entity that is a superclass for modeling entities having identity and that represents common properties (attributes and association roles) of its subclasses.<br />-- Description --<br />Identity enables the ability to reference entity instances from other modeling entities. Common properties may include entity-related metadata, notes, and/or data-dissemination restriction(s) and security control(s) regarding the entity.
+
+Egenskaper
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>externalReferences</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />A list of external references that may provide additional or ancillary information about this entity instance.<br />-- Description --<br />For example: a website URL, a link to a photo or document, etc.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>externalReferences.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>uniqueUniversalEntityIdentifier</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />A globally exclusive, distinct, and persistent identifier assigned to an entity (ex. feature, event, actor, etc.).<br />-- Description --<br />This identifier is used to support such things as: the unique identification of any individual instance of an entity, relationships between features in a relational database, and version control.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>uniqueUniversalEntityIdentifier.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>beginLifespanVersion</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />Date and time at which this version of the spatial object was inserted or changed in the spatial data set.<br />-- Description --<br /><br />-- UnitOfMeasure --<br />second</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>beginLifespanVersion.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>endLifespanVersion</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />Date and time at which this version of the spatial object was superseded or retired in the spatial data set.<br />-- Description --<br />-- UnitOfMeasure --<br />second</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>endLifespanVersion.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>specifiedDomainValues</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Definisjon:</th>
+      <td>-- Definition --<br />One or more intended attribute domain values for one or more enumeration or codelist attributes that are not currently valid members of their respective attribute ranges.<br />-- Description --<br />The actual attribute domain values may have been previously, or may become in the future, valid members of the attribute domain range.<br />-- UnitOfMeasure --</td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringMeta</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="feature-attribute-table">
+  <colgroup>
+    <col style="width: 35%;" />
+    <col style="width: 65%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="row">Navn:</th>
+      <td><strong>specifiedDomainValues.valueOrReason</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Multiplisitet:</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Type:</th>
+      <td>CharacterStringReason</td>
+    </tr>
+  </tbody>
+</table>
 
 #### GeneralLocation
 

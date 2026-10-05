@@ -1981,7 +1981,76 @@ The relationship between the feature and surrounding (including covering and/or 
       <element ref="nydatakilde:ElevationMeasureMeta"/>
     </sequence>
   </complexType>
-  <element abstract="true" name="FeatureEntity" substitutionGroup="gml:AbstractFeature" type="nydatakilde:FeatureEntityType">
+  <element abstract="true" name="Entity" substitutionGroup="gml:AbstractFeature" type="nydatakilde:EntityType">
+    <annotation>
+      <documentation>-- Definition --
+An abstract modeling entity that is a superclass for modeling entities having identity and that represents common properties (attributes and association roles) of its subclasses.
+-- Description --
+Identity enables the ability to reference entity instances from other modeling entities. Common properties may include entity-related metadata, notes, and/or data-dissemination restriction(s) and security control(s) regarding the entity.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="EntityType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="externalReferences" type="nydatakilde:CharacterStringMetaPropertyType">
+            <annotation>
+              <documentation>-- Definition --
+A list of external references that may provide additional or ancillary information about this entity instance.
+-- Description --
+For example: a website URL, a link to a photo or document, etc.
+-- UnitOfMeasure --</documentation>
+            </annotation>
+          </element>
+          <element name="uniqueUniversalEntityIdentifier" type="nydatakilde:CharacterStringMetaPropertyType">
+            <annotation>
+              <documentation>-- Definition --
+A globally exclusive, distinct, and persistent identifier assigned to an entity (ex. feature, event, actor, etc.).
+-- Description --
+This identifier is used to support such things as: the unique identification of any individual instance of an entity, relationships between features in a relational database, and version control.
+-- UnitOfMeasure --</documentation>
+            </annotation>
+          </element>
+          <element name="beginLifespanVersion" type="nydatakilde:CharacterStringMetaPropertyType">
+            <annotation>
+              <documentation>-- Definition --
+Date and time at which this version of the spatial object was inserted or changed in the spatial data set.
+-- Description --
+
+-- UnitOfMeasure --
+second</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="endLifespanVersion" type="nydatakilde:CharacterStringMetaPropertyType">
+            <annotation>
+              <documentation>-- Definition --
+Date and time at which this version of the spatial object was superseded or retired in the spatial data set.
+-- Description --
+-- UnitOfMeasure --
+second</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="specifiedDomainValues" type="nydatakilde:CharacterStringMetaPropertyType">
+            <annotation>
+              <documentation>-- Definition --
+One or more intended attribute domain values for one or more enumeration or codelist attributes that are not currently valid members of their respective attribute ranges.
+-- Description --
+The actual attribute domain values may have been previously, or may become in the future, valid members of the attribute domain range.
+-- UnitOfMeasure --</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="EntityPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nydatakilde:Entity"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="FeatureEntity" substitutionGroup="nydatakilde:Entity" type="nydatakilde:FeatureEntityType">
     <annotation>
       <documentation>-- Definition --
 An abstract modeling entity that is a superclass for feature types, which are representations of temporally persistent real-world phenomena, including their geometric position and extent.
@@ -1991,9 +2060,9 @@ The concept of a 'feature' is that of the ISO 19100-series standards and as such
   </element>
   <complexType abstract="true" name="FeatureEntityType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="nydatakilde:EntityType">
         <sequence>
-          <element name="geometry" type="gml:GeometryPropertyType">
+          <element name="geometry" type="gml:CurvePropertyType">
             <annotation>
               <documentation>-- Definition --
 Specification(s) of the location where an object (such as: a facility, instrument, or actor) exists, or where an event occurs.

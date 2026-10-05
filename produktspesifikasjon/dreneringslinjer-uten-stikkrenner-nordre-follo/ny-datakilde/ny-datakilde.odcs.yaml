@@ -5,6 +5,51 @@ id: urn:odcs:dreneringslinjer-uten-stikkrenner-nordre-follo-ny-datakilde:1.0.0
 version: 1.0.0
 status: active
 name: Dreneringslinjer uten stikkrenner Nordre Follo - Ny datakilde
+tags:
+- Det offentlige kartgrunnlaget
+- fellesDatakatalog
+- Basis geodata
+- Åpne data
+price:
+  priceAmount: 0
+  priceUnit: dataset
+description:
+  limitations: Åpne data. Lisens
+authoritativeDefinitions:
+- url: https://kartkatalog.geonorge.no/metadata/9b1f60f1-5f93-4964-ac98-c3cfd443cd54
+  type: businessDefinition
+  description: Metadata i Kartkatalogen
+team:
+  members:
+  - username: magnus.haugstad@nordrefollo.kommune.no
+    name: Nordre Follo kommune
+    role: owner, pointOfContact, publisher
+support:
+- channel: Nordre Follo kommune
+  tool: email
+  url: mailto:magnus.haugstad@nordrefollo.kommune.no
+  scope: issues
+  description: Kontaktpunkt hos Nordre Follo kommune
+slaProperties:
+- property: frequency
+  value: Etter behov
+  driver: operational
+customProperties:
+- property: license
+  value: No conditions apply to access and use
+- property: licenseUrl
+  value: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+- property: accessConstraints
+  value: Åpne data
+- property: useConstraints
+  value: Lisens
+- property: language
+  value: nor
+servers:
+- server: geonorge-filnedlastning
+  type: api
+  location: https://nedlasting.geonorge.no/geonorge/KommunaleDOKData/9b1f60f1-5f93-4964-ac98-c3cfd443cd54.zip
+  description: Geonorge filnedlastning
 schema:
 - name: TunnelMouth
   physicalName: tunnelmouth
@@ -61,13 +106,102 @@ schema:
   - property: inheritsFrom
     value: FeatureEntity
   properties:
+  - name: externalReferences
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A list of external references that may provide additional or ancillary information
+      about this entity instance.
+
+      -- Description --
+
+      For example: a website URL, a link to a photo or document, etc.
+
+      -- UnitOfMeasure --'
+  - name: uniqueUniversalEntityIdentifier
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A globally exclusive, distinct, and persistent identifier assigned to an entity
+      (ex. feature, event, actor, etc.).
+
+      -- Description --
+
+      This identifier is used to support such things as: the unique identification
+      of any individual instance of an entity, relationships between features in a
+      relational database, and version control.
+
+      -- UnitOfMeasure --'
+    required: true
+  - name: beginLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --
+
+      second'
+    required: true
+  - name: endLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was superseded or
+      retired in the spatial data set.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      second'
+  - name: specifiedDomainValues
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      One or more intended attribute domain values for one or more enumeration or
+      codelist attributes that are not currently valid members of their respective
+      attribute ranges.
+
+      -- Description --
+
+      The actual attribute domain values may have been previously, or may become in
+      the future, valid members of the attribute domain range.
+
+      -- UnitOfMeasure --'
   - name: geometry
     logicalType: object
-    physicalType: geometry(Geometry)
+    physicalType: geometry(LineString)
     required: true
     customProperties:
     - property: geometryType
-      value: Geometry
+      value: LineString
   - name: controllingAuthority
     logicalType: object
     properties:
@@ -343,13 +477,102 @@ schema:
   - property: inheritsFrom
     value: FeatureEntity
   properties:
+  - name: externalReferences
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A list of external references that may provide additional or ancillary information
+      about this entity instance.
+
+      -- Description --
+
+      For example: a website URL, a link to a photo or document, etc.
+
+      -- UnitOfMeasure --'
+  - name: uniqueUniversalEntityIdentifier
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A globally exclusive, distinct, and persistent identifier assigned to an entity
+      (ex. feature, event, actor, etc.).
+
+      -- Description --
+
+      This identifier is used to support such things as: the unique identification
+      of any individual instance of an entity, relationships between features in a
+      relational database, and version control.
+
+      -- UnitOfMeasure --'
+    required: true
+  - name: beginLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --
+
+      second'
+    required: true
+  - name: endLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was superseded or
+      retired in the spatial data set.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      second'
+  - name: specifiedDomainValues
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      One or more intended attribute domain values for one or more enumeration or
+      codelist attributes that are not currently valid members of their respective
+      attribute ranges.
+
+      -- Description --
+
+      The actual attribute domain values may have been previously, or may become in
+      the future, valid members of the attribute domain range.
+
+      -- UnitOfMeasure --'
   - name: geometry
     logicalType: object
-    physicalType: geometry(Geometry)
+    physicalType: geometry(LineString)
     required: true
     customProperties:
     - property: geometryType
-      value: Geometry
+      value: LineString
   - name: conspicuousAirCategory
     logicalType: object
     properties:
@@ -662,13 +885,102 @@ schema:
   - property: inheritsFrom
     value: FeatureEntity
   properties:
+  - name: externalReferences
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A list of external references that may provide additional or ancillary information
+      about this entity instance.
+
+      -- Description --
+
+      For example: a website URL, a link to a photo or document, etc.
+
+      -- UnitOfMeasure --'
+  - name: uniqueUniversalEntityIdentifier
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A globally exclusive, distinct, and persistent identifier assigned to an entity
+      (ex. feature, event, actor, etc.).
+
+      -- Description --
+
+      This identifier is used to support such things as: the unique identification
+      of any individual instance of an entity, relationships between features in a
+      relational database, and version control.
+
+      -- UnitOfMeasure --'
+    required: true
+  - name: beginLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --
+
+      second'
+    required: true
+  - name: endLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was superseded or
+      retired in the spatial data set.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      second'
+  - name: specifiedDomainValues
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      One or more intended attribute domain values for one or more enumeration or
+      codelist attributes that are not currently valid members of their respective
+      attribute ranges.
+
+      -- Description --
+
+      The actual attribute domain values may have been previously, or may become in
+      the future, valid members of the attribute domain range.
+
+      -- UnitOfMeasure --'
   - name: geometry
     logicalType: object
-    physicalType: geometry(Geometry)
+    physicalType: geometry(LineString)
     required: true
     customProperties:
     - property: geometryType
-      value: Geometry
+      value: LineString
   - name: angleOfIntendedPassage
     logicalType: object
     properties:
@@ -1207,13 +1519,102 @@ schema:
   - property: inheritsFrom
     value: FeatureEntity
   properties:
+  - name: externalReferences
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A list of external references that may provide additional or ancillary information
+      about this entity instance.
+
+      -- Description --
+
+      For example: a website URL, a link to a photo or document, etc.
+
+      -- UnitOfMeasure --'
+  - name: uniqueUniversalEntityIdentifier
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A globally exclusive, distinct, and persistent identifier assigned to an entity
+      (ex. feature, event, actor, etc.).
+
+      -- Description --
+
+      This identifier is used to support such things as: the unique identification
+      of any individual instance of an entity, relationships between features in a
+      relational database, and version control.
+
+      -- UnitOfMeasure --'
+    required: true
+  - name: beginLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --
+
+      second'
+    required: true
+  - name: endLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was superseded or
+      retired in the spatial data set.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      second'
+  - name: specifiedDomainValues
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      One or more intended attribute domain values for one or more enumeration or
+      codelist attributes that are not currently valid members of their respective
+      attribute ranges.
+
+      -- Description --
+
+      The actual attribute domain values may have been previously, or may become in
+      the future, valid members of the attribute domain range.
+
+      -- UnitOfMeasure --'
   - name: geometry
     logicalType: object
-    physicalType: geometry(Geometry)
+    physicalType: geometry(LineString)
     required: true
     customProperties:
     - property: geometryType
-      value: Geometry
+      value: LineString
   - name: structMatType
     logicalType: array
     items:
@@ -1429,13 +1830,102 @@ schema:
   - property: inheritsFrom
     value: FeatureEntity
   properties:
+  - name: externalReferences
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A list of external references that may provide additional or ancillary information
+      about this entity instance.
+
+      -- Description --
+
+      For example: a website URL, a link to a photo or document, etc.
+
+      -- UnitOfMeasure --'
+  - name: uniqueUniversalEntityIdentifier
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A globally exclusive, distinct, and persistent identifier assigned to an entity
+      (ex. feature, event, actor, etc.).
+
+      -- Description --
+
+      This identifier is used to support such things as: the unique identification
+      of any individual instance of an entity, relationships between features in a
+      relational database, and version control.
+
+      -- UnitOfMeasure --'
+    required: true
+  - name: beginLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --
+
+      second'
+    required: true
+  - name: endLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was superseded or
+      retired in the spatial data set.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      second'
+  - name: specifiedDomainValues
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      One or more intended attribute domain values for one or more enumeration or
+      codelist attributes that are not currently valid members of their respective
+      attribute ranges.
+
+      -- Description --
+
+      The actual attribute domain values may have been previously, or may become in
+      the future, valid members of the attribute domain range.
+
+      -- UnitOfMeasure --'
   - name: geometry
     logicalType: object
-    physicalType: geometry(Geometry)
+    physicalType: geometry(LineString)
     required: true
     customProperties:
     - property: geometryType
-      value: Geometry
+      value: LineString
   - name: structMatType
     logicalType: array
     items:
@@ -1793,13 +2283,102 @@ schema:
   - property: inheritsFrom
     value: FeatureEntity
   properties:
+  - name: externalReferences
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A list of external references that may provide additional or ancillary information
+      about this entity instance.
+
+      -- Description --
+
+      For example: a website URL, a link to a photo or document, etc.
+
+      -- UnitOfMeasure --'
+  - name: uniqueUniversalEntityIdentifier
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A globally exclusive, distinct, and persistent identifier assigned to an entity
+      (ex. feature, event, actor, etc.).
+
+      -- Description --
+
+      This identifier is used to support such things as: the unique identification
+      of any individual instance of an entity, relationships between features in a
+      relational database, and version control.
+
+      -- UnitOfMeasure --'
+    required: true
+  - name: beginLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --
+
+      second'
+    required: true
+  - name: endLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was superseded or
+      retired in the spatial data set.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      second'
+  - name: specifiedDomainValues
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      One or more intended attribute domain values for one or more enumeration or
+      codelist attributes that are not currently valid members of their respective
+      attribute ranges.
+
+      -- Description --
+
+      The actual attribute domain values may have been previously, or may become in
+      the future, valid members of the attribute domain range.
+
+      -- UnitOfMeasure --'
   - name: geometry
     logicalType: object
-    physicalType: geometry(Geometry)
+    physicalType: geometry(LineString)
     required: true
     customProperties:
     - property: geometryType
-      value: Geometry
+      value: LineString
   - name: structMatType
     logicalType: array
     items:
@@ -2049,13 +2628,102 @@ schema:
   - property: inheritsFrom
     value: FeatureEntity
   properties:
+  - name: externalReferences
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A list of external references that may provide additional or ancillary information
+      about this entity instance.
+
+      -- Description --
+
+      For example: a website URL, a link to a photo or document, etc.
+
+      -- UnitOfMeasure --'
+  - name: uniqueUniversalEntityIdentifier
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A globally exclusive, distinct, and persistent identifier assigned to an entity
+      (ex. feature, event, actor, etc.).
+
+      -- Description --
+
+      This identifier is used to support such things as: the unique identification
+      of any individual instance of an entity, relationships between features in a
+      relational database, and version control.
+
+      -- UnitOfMeasure --'
+    required: true
+  - name: beginLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --
+
+      second'
+    required: true
+  - name: endLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was superseded or
+      retired in the spatial data set.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      second'
+  - name: specifiedDomainValues
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      One or more intended attribute domain values for one or more enumeration or
+      codelist attributes that are not currently valid members of their respective
+      attribute ranges.
+
+      -- Description --
+
+      The actual attribute domain values may have been previously, or may become in
+      the future, valid members of the attribute domain range.
+
+      -- UnitOfMeasure --'
   - name: geometry
     logicalType: object
-    physicalType: geometry(Geometry)
+    physicalType: geometry(LineString)
     required: true
     customProperties:
     - property: geometryType
-      value: Geometry
+      value: LineString
   - name: directivity
     logicalType: object
     properties:
@@ -2752,13 +3420,102 @@ schema:
   - property: inheritsFrom
     value: FeatureEntity
   properties:
+  - name: externalReferences
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A list of external references that may provide additional or ancillary information
+      about this entity instance.
+
+      -- Description --
+
+      For example: a website URL, a link to a photo or document, etc.
+
+      -- UnitOfMeasure --'
+  - name: uniqueUniversalEntityIdentifier
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A globally exclusive, distinct, and persistent identifier assigned to an entity
+      (ex. feature, event, actor, etc.).
+
+      -- Description --
+
+      This identifier is used to support such things as: the unique identification
+      of any individual instance of an entity, relationships between features in a
+      relational database, and version control.
+
+      -- UnitOfMeasure --'
+    required: true
+  - name: beginLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --
+
+      second'
+    required: true
+  - name: endLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was superseded or
+      retired in the spatial data set.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      second'
+  - name: specifiedDomainValues
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      One or more intended attribute domain values for one or more enumeration or
+      codelist attributes that are not currently valid members of their respective
+      attribute ranges.
+
+      -- Description --
+
+      The actual attribute domain values may have been previously, or may become in
+      the future, valid members of the attribute domain range.
+
+      -- UnitOfMeasure --'
   - name: geometry
     logicalType: object
-    physicalType: geometry(Geometry)
+    physicalType: geometry(LineString)
     required: true
     customProperties:
     - property: geometryType
-      value: Geometry
+      value: LineString
   - name: angleOfIntendedPassage
     logicalType: object
     properties:
@@ -3188,13 +3945,102 @@ schema:
   - property: inheritsFrom
     value: FeatureEntity
   properties:
+  - name: externalReferences
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A list of external references that may provide additional or ancillary information
+      about this entity instance.
+
+      -- Description --
+
+      For example: a website URL, a link to a photo or document, etc.
+
+      -- UnitOfMeasure --'
+  - name: uniqueUniversalEntityIdentifier
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A globally exclusive, distinct, and persistent identifier assigned to an entity
+      (ex. feature, event, actor, etc.).
+
+      -- Description --
+
+      This identifier is used to support such things as: the unique identification
+      of any individual instance of an entity, relationships between features in a
+      relational database, and version control.
+
+      -- UnitOfMeasure --'
+    required: true
+  - name: beginLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --
+
+      second'
+    required: true
+  - name: endLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was superseded or
+      retired in the spatial data set.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      second'
+  - name: specifiedDomainValues
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      One or more intended attribute domain values for one or more enumeration or
+      codelist attributes that are not currently valid members of their respective
+      attribute ranges.
+
+      -- Description --
+
+      The actual attribute domain values may have been previously, or may become in
+      the future, valid members of the attribute domain range.
+
+      -- UnitOfMeasure --'
   - name: geometry
     logicalType: object
-    physicalType: geometry(Geometry)
+    physicalType: geometry(LineString)
     required: true
     customProperties:
     - property: geometryType
-      value: Geometry
+      value: LineString
   - name: structMatType
     logicalType: array
     items:
@@ -3522,13 +4368,102 @@ schema:
   - property: inheritsFrom
     value: FeatureEntity
   properties:
+  - name: externalReferences
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A list of external references that may provide additional or ancillary information
+      about this entity instance.
+
+      -- Description --
+
+      For example: a website URL, a link to a photo or document, etc.
+
+      -- UnitOfMeasure --'
+  - name: uniqueUniversalEntityIdentifier
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A globally exclusive, distinct, and persistent identifier assigned to an entity
+      (ex. feature, event, actor, etc.).
+
+      -- Description --
+
+      This identifier is used to support such things as: the unique identification
+      of any individual instance of an entity, relationships between features in a
+      relational database, and version control.
+
+      -- UnitOfMeasure --'
+    required: true
+  - name: beginLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --
+
+      second'
+    required: true
+  - name: endLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was superseded or
+      retired in the spatial data set.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      second'
+  - name: specifiedDomainValues
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      One or more intended attribute domain values for one or more enumeration or
+      codelist attributes that are not currently valid members of their respective
+      attribute ranges.
+
+      -- Description --
+
+      The actual attribute domain values may have been previously, or may become in
+      the future, valid members of the attribute domain range.
+
+      -- UnitOfMeasure --'
   - name: geometry
     logicalType: object
-    physicalType: geometry(Geometry)
+    physicalType: geometry(LineString)
     required: true
     customProperties:
     - property: geometryType
-      value: Geometry
+      value: LineString
   - name: highestElevation
     logicalType: object
     properties:
@@ -3613,13 +4548,102 @@ schema:
   - property: inheritsFrom
     value: FeatureEntity
   properties:
+  - name: externalReferences
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A list of external references that may provide additional or ancillary information
+      about this entity instance.
+
+      -- Description --
+
+      For example: a website URL, a link to a photo or document, etc.
+
+      -- UnitOfMeasure --'
+  - name: uniqueUniversalEntityIdentifier
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A globally exclusive, distinct, and persistent identifier assigned to an entity
+      (ex. feature, event, actor, etc.).
+
+      -- Description --
+
+      This identifier is used to support such things as: the unique identification
+      of any individual instance of an entity, relationships between features in a
+      relational database, and version control.
+
+      -- UnitOfMeasure --'
+    required: true
+  - name: beginLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --
+
+      second'
+    required: true
+  - name: endLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was superseded or
+      retired in the spatial data set.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      second'
+  - name: specifiedDomainValues
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      One or more intended attribute domain values for one or more enumeration or
+      codelist attributes that are not currently valid members of their respective
+      attribute ranges.
+
+      -- Description --
+
+      The actual attribute domain values may have been previously, or may become in
+      the future, valid members of the attribute domain range.
+
+      -- UnitOfMeasure --'
   - name: geometry
     logicalType: object
-    physicalType: geometry(Geometry)
+    physicalType: geometry(LineString)
     required: true
     customProperties:
     - property: geometryType
-      value: Geometry
+      value: LineString
   - name: qualityIssueImpact
     logicalType: object
     properties:
@@ -3668,13 +4692,102 @@ schema:
   - property: inheritsFrom
     value: FeatureEntity
   properties:
+  - name: externalReferences
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A list of external references that may provide additional or ancillary information
+      about this entity instance.
+
+      -- Description --
+
+      For example: a website URL, a link to a photo or document, etc.
+
+      -- UnitOfMeasure --'
+  - name: uniqueUniversalEntityIdentifier
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A globally exclusive, distinct, and persistent identifier assigned to an entity
+      (ex. feature, event, actor, etc.).
+
+      -- Description --
+
+      This identifier is used to support such things as: the unique identification
+      of any individual instance of an entity, relationships between features in a
+      relational database, and version control.
+
+      -- UnitOfMeasure --'
+    required: true
+  - name: beginLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --
+
+      second'
+    required: true
+  - name: endLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was superseded or
+      retired in the spatial data set.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      second'
+  - name: specifiedDomainValues
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      One or more intended attribute domain values for one or more enumeration or
+      codelist attributes that are not currently valid members of their respective
+      attribute ranges.
+
+      -- Description --
+
+      The actual attribute domain values may have been previously, or may become in
+      the future, valid members of the attribute domain range.
+
+      -- UnitOfMeasure --'
   - name: geometry
     logicalType: object
-    physicalType: geometry(Geometry)
+    physicalType: geometry(LineString)
     required: true
     customProperties:
     - property: geometryType
-      value: Geometry
+      value: LineString
   - name: voidCollectionReason
     logicalType: array
     items:
@@ -3724,13 +4837,102 @@ schema:
   - property: inheritsFrom
     value: FeatureEntity
   properties:
+  - name: externalReferences
+    logicalType: array
+    items:
+      logicalType: object
+      properties:
+      - name: valueOrReason
+        logicalType: string
+        required: true
+    description: '-- Definition --
+
+      A list of external references that may provide additional or ancillary information
+      about this entity instance.
+
+      -- Description --
+
+      For example: a website URL, a link to a photo or document, etc.
+
+      -- UnitOfMeasure --'
+  - name: uniqueUniversalEntityIdentifier
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      A globally exclusive, distinct, and persistent identifier assigned to an entity
+      (ex. feature, event, actor, etc.).
+
+      -- Description --
+
+      This identifier is used to support such things as: the unique identification
+      of any individual instance of an entity, relationships between features in a
+      relational database, and version control.
+
+      -- UnitOfMeasure --'
+    required: true
+  - name: beginLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.
+
+      -- Description --
+
+
+      -- UnitOfMeasure --
+
+      second'
+    required: true
+  - name: endLifespanVersion
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      Date and time at which this version of the spatial object was superseded or
+      retired in the spatial data set.
+
+      -- Description --
+
+      -- UnitOfMeasure --
+
+      second'
+  - name: specifiedDomainValues
+    logicalType: object
+    properties:
+    - name: valueOrReason
+      logicalType: string
+      required: true
+    description: '-- Definition --
+
+      One or more intended attribute domain values for one or more enumeration or
+      codelist attributes that are not currently valid members of their respective
+      attribute ranges.
+
+      -- Description --
+
+      The actual attribute domain values may have been previously, or may become in
+      the future, valid members of the attribute domain range.
+
+      -- UnitOfMeasure --'
   - name: geometry
     logicalType: object
-    physicalType: geometry(Geometry)
+    physicalType: geometry(LineString)
     required: true
     customProperties:
     - property: geometryType
-      value: Geometry
+      value: LineString
   - name: namedLocationType
     logicalType: object
     properties:

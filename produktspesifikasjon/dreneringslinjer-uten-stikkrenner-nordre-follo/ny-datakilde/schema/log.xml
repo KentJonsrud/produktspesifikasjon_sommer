@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><ShapeChangeResult xmlns="http://www.interactive-instruments.de/ShapeChange/Result" xmlns:r="http://www.interactive-instruments.de/ShapeChange/Result" config="/home/runner/work/produktspesifikasjon_sommer/produktspesifikasjon_sommer/produktspesifikasjon/dreneringslinjer-uten-stikkrenner-nordre-follo/ny-datakilde/schema/shapechange-config.xml" end="Wed Sep 23 12:08:52 UTC 2026" resultCode="0" start="Wed Sep 23 12:08:44 UTC 2026" version="4.0.0">
+<?xml version="1.0" encoding="UTF-8"?><ShapeChangeResult xmlns="http://www.interactive-instruments.de/ShapeChange/Result" xmlns:r="http://www.interactive-instruments.de/ShapeChange/Result" config="/home/runner/work/produktspesifikasjon_sommer/produktspesifikasjon_sommer/produktspesifikasjon/dreneringslinjer-uten-stikkrenner-nordre-follo/ny-datakilde/schema/shapechange-config.xml" end="Mon Oct 05 09:32:29 UTC 2026" resultCode="0" start="Mon Oct 05 09:32:20 UTC 2026" version="4.0.0">
   <Messages>
     <ProcessFlowInfo message="---------- Semantic validation of ShapeChange configuration: START ----------"/>
     <Info message="Validating input parameters."/>
@@ -10,6 +10,9 @@
     <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.json.JsonSchemaTarget' and @inputs 'INPUT' ..."/>
     <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.ldproxy2.Ldproxy2Target' and @inputs 'LDPROXY_FLAT' ..."/>
     <ProcessFlowInfo message="---------- Semantic validation of ShapeChange configuration: COMPLETE ----------"/>
+    <Warning message="The type 'Tunnel_crossSectionalProfileReason' of property 'Tunnel_crossSectionalProfileMeta.valueOrReason' was not found.">
+      <Detail message="Context: Property 'ny-datakilde::Tunnel_crossSectionalProfileMeta::valueOrReason'"/>
+    </Warning>
     <Warning message="The type 'Tunnel_facilityOperationalStatusReason' of property 'Tunnel_facilityOperationalStatusMeta.valueOrReason' was not found.">
       <Detail message="Context: Property 'ny-datakilde::Tunnel_facilityOperationalStatusMeta::valueOrReason'"/>
     </Warning>
@@ -309,9 +312,6 @@
     </Warning>
     <Warning message="The type 'Tunnel_controllingAuthorityReason' of property 'Tunnel_controllingAuthorityMeta.valueOrReason' was not found.">
       <Detail message="Context: Property 'ny-datakilde::Tunnel_controllingAuthorityMeta::valueOrReason'"/>
-    </Warning>
-    <Warning message="The type 'Tunnel_crossSectionalProfileReason' of property 'Tunnel_crossSectionalProfileMeta.valueOrReason' was not found.">
-      <Detail message="Context: Property 'ny-datakilde::Tunnel_crossSectionalProfileMeta::valueOrReason'"/>
     </Warning>
     <ProcessFlowInfo message="Application schema found, package name: 'ny-datakilde', target namespace: 'https://skjema.geonorge.no/SOSI/produktspesifikasjon/dreneringslinjer-uten-stikkrenner-nordre-follo/ny-datakilde/1.0'"/>
     <ProcessFlowInfo message="Now processing target 'XML Schema' for input 'INPUT'."/>
@@ -684,9 +684,6 @@
     <Warning message="JSON Schema definition for type 'CausewayStructure_waterLevelEffectReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'CharacterStringReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'ElevationMeasureReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
-    <Warning message="Value type 'GM_Object' of primary geometry property 'geometry' is not one of the GeoJSON compatible geometry types defined via target parameter geoJsonCompatibleGeometryTypes. No restriction will be encoded for the &quot;geometry&quot; member.">
-      <Detail message="Context: property 'ny-datakilde::NyFoundation::FeatureEntity::geometry'"/>
-    </Warning>
     <Warning message="JSON Schema definition for type 'GeneralLocation_namedLocationTypeReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'GeneralLocation_thematicClassificationReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
     <Warning message="JSON Schema definition for type 'HeightMeasureReason' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
@@ -753,6 +750,9 @@
     <Error message="Type 'CausewayStructure' has one or more supertypes. Conversion of inheritance relationships is only supported by this target if parameter 'enableFragments' is set to 'true'. The relationship will be ignored.">
       <Detail message="Context: class 'ny-datakilde::NyTransportation::CausewayStructure'"/>
     </Error>
+    <Warning message="Type 'Entity' is abstract. Conversion of abstract types is only supported by this target if parameter 'enableFragments' is set to 'true'. The type will be ignored.">
+      <Detail message="Context: class 'ny-datakilde::NyFoundation::Entity'"/>
+    </Warning>
     <Warning message="Type 'FeatureEntity' is abstract. Conversion of abstract types is only supported by this target if parameter 'enableFragments' is set to 'true'. The type will be ignored.">
       <Detail message="Context: class 'ny-datakilde::NyFoundation::FeatureEntity'"/>
     </Warning>

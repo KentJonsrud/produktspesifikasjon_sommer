@@ -19,7 +19,6 @@
     "supplementalInformation": "Det tas forbehold om feil i kartgrunnlaget.\nDet tas forbehold om riktigheten eller fullstendigheten av kartgrunnlaget. Det kan ikke rettes krav som følge av at disse opplysningene benyttes som grunnlag til beslutninger",
     "uniqueId": "9b1f60f1-5f93-4964-ac98-c3cfd443cd54",
     "keyword": [
-      "Nordre Follo kommune",
       "Det offentlige kartgrunnlaget",
       "fellesDatakatalog",
       "Basis geodata"
@@ -57,6 +56,9 @@
         "southBoundLatitude": "59.618675",
         "northBoundLatitude": "59.839283"
       },
+      "geographicDescription": [
+        "Nordre Follo kommune"
+      ],
       "temporalElement": {
         "timePeriod": {
           "beginPosition": "2020-05-06",
@@ -184,5 +186,22 @@
       "codeSpace": "https://kartkatalog.geonorge.no/metadata/",
       "metadataLinkage": "https://kartkatalog.geonorge.no/metadata/9b1f60f1-5f93-4964-ac98-c3cfd443cd54"
     }
+  },
+  "chapterAutofill": {
+    "om_spesifikasjonen": 9,
+    "om_produktet": 46,
+    "formaal": 0,
+    "bruksomraade": 0,
+    "omfang": 25,
+    "datainnhold_og_struktur": 0,
+    "referansesystem": 0,
+    "datakvalitet": 1,
+    "datafangst_og_produksjon": 0,
+    "vedlikehold": 2,
+    "presentasjon": 0,
+    "leveranse": 26,
+    "metadata": 15,
+    "tilleggsinformasjon": 32,
+    "datamodell": 11702
   }
 }

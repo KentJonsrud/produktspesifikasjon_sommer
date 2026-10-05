@@ -22,6 +22,7 @@
       ]
     },
     "Bridge": {
+      "description": "-- Definition --\nA structure that connects two locations and provides for the passage of a transportation route (for example: a road or a railway) over a terrain obstacle (for example: a waterbody, a gully, and/or a road).\n-- Description --\nA bridge consists of a set of two abutments and/or zero or more bridge piers joined by bridge spans. A bridge may serve, for example, as an overpass or a viaduct. In the context of a bridge, the scope of the term \u0027transportation route\u0027 includes the transportation of liquids or gases by means of either pipelines or aqueducts.",
       "allOf": [
         {
           "$ref": "#/definitions/FeatureEntity"
@@ -30,9 +31,11 @@
           "type": "object",
           "properties": {
             "directivity": {
+              "description": "-- Definition --\nThe side(s) of a feature that produce the greatest visual significance and/or reflectivity potential.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Bridge_directivityMeta"
             },
             "structMatType": {
+              "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for \u0027primary\u0027 may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Bridge_structMatTypeMeta"
@@ -40,12 +43,15 @@
               "uniqueItems": true
             },
             "angleOfIntendedPassage": {
+              "description": "-- Definition --\nThe angular distance in the horizontal plane measured from true north (0 degrees) clockwise to the path on the feature (0-180 degrees) where passage was intended.\n-- Description --\nThe path of intended passage may go across or over the feature (ex. a bridge) or through it (ex. a tunnel).\n-- UnitOfMeasure --\narcDegree",
               "$ref": "#/definitions/AngleMeasureMeta"
             },
             "bridgeInfoReliability": {
+              "description": "-- Definition --\nThe reliability of information regarding bridge military load classification and related characteristics.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Bridge_bridgeInfoReliabilityMeta"
             },
             "controllingAuthorityIdent": {
+              "description": "-- Definition --\nThe recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.\n-- Description --\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/CharacterStringMeta"
@@ -53,12 +59,15 @@
               "uniqueItems": true
             },
             "bridgeOpeningType": {
+              "description": "-- Definition --\nThe type of structure or mechanism by which a bridge or bridge span is moved to allow passage of a vessel.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Bridge_bridgeOpeningTypeMeta"
             },
             "bridgeReferenceNumber": {
+              "description": "-- Definition --\nThe unique identifier of a bridge in accordance with the provisions of terrain analysis databases (for example: PTADB or TTADB).\n-- Description --\nThe identifier is assigned consecutively (for example: within a map sheet or within a local area of interest) and begins with the northwest grid square of the UTM reference system and proceeds from left to right to the east edge of the sheet or area, continuing consecutively in the same way starting back at the west edge of the next line of UTM grid squares below those previously completed. The resulting identifiers are used to index an associated Bridge Information Table.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CharacterStringMeta"
             },
             "bridgeStructureType": {
+              "description": "-- Definition --\nThe type(s) of structural design of a bridge, bridge span, or bridge superstructure.\n-- Description --\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Bridge_bridgeStructureTypeMeta"
@@ -66,66 +75,87 @@
               "uniqueItems": true
             },
             "bypassCondition": {
+              "description": "-- Definition --\nThe ease or ability to circumvent a destroyed section of bridge, tunnel or pass within a distance of two kilometres from the feature.\n-- Description --\nBypass condition will not consider other bridges in bypass determination.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Bridge_bypassConditionMeta"
             },
             "colourPattern": {
+              "description": "-- Definition --\nThe colour pattern(s) of an aid to navigation (for example: a buoy, a beacon, and/or a navigation light) or other feature of importance to maritime navigation.\n-- Description --\nThe Attribute: \u0027Navigation Mark Colour\u0027 may be used to specify the colours in the order in which they appear in the pattern.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Bridge_colourPatternMeta"
             },
             "conspicuousAirCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Bridge_conspicuousAirCategoryMeta"
             },
             "conspicuousGroundCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Bridge_conspicuousGroundCategoryMeta"
             },
             "conspicuousSeaCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Bridge_conspicuousSeaCategoryMeta"
             },
             "controllingAuthority": {
+              "description": "-- Definition --\nThe controlling authority responsible for a facility or site.\n-- Description --\nControlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Bridge_controllingAuthorityMeta"
             },
             "deckCount": {
+              "description": "-- Definition --\nThe number of vertically stacked decks, one over another, in a transportation structure (for example: a bridge or a tunnel).\n-- Description --\n-- UnitOfMeasure --\nunitless",
               "$ref": "#/definitions/IntegerMeta"
             },
             "elevationMsl": {
+              "description": "-- Definition --\nThe vertical distance of a point or a level, on or affixed to the surface of the Earth, measured from Mean Sea Level (MSL).\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "facilityOperationalStatus": {
+              "description": "-- Definition --\nThe status of operation of a man-made structure, as a whole.\n-- Description --\nIncludes actual operations, operational capability, and planned or proposed man-made structures.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Bridge_facilityOperationalStatusMeta"
             },
             "heightAboveSurfaceLevel": {
+              "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/HeightMeasureMeta"
             },
             "highestElevation": {
+              "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/ElevationMeasureMeta"
             },
             "horizontalClearance": {
+              "description": "-- Definition --\nThe distance available to pass a load that extends laterally beyond the wheels of a vehicle.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureIntervalMeta"
             },
             "loadClassType1": {
+              "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for one-way, wheeled vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
               "$ref": "#/definitions/IntegerMeta"
             },
             "loadClassType2": {
+              "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for two-way, wheeled vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
               "$ref": "#/definitions/IntegerMeta"
             },
             "loadClassType3": {
+              "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for one-way, tracked vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
               "$ref": "#/definitions/IntegerMeta"
             },
             "loadClassType4": {
+              "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for two-way, tracked vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
               "$ref": "#/definitions/IntegerMeta"
             },
             "maritimeNavigationMarked": {
+              "description": "-- Definition --\nAn indication that a feature is significant to maritime safety of navigation and is marked (for example: by a light or beacon) by a maritime-specific navigational aid.\n-- Description --\nMariners may also use other prominent features (for example: rotating aeronautical beacons or lighted structures) for informal navigational purposes.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "maximumVerticalClearance": {
+              "description": "-- Definition --\nThe greatest distance between the travelled way and any obstruction vertically above it.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "militaryBridgeInformation": {
+              "description": "-- Definition --\nInformation describing a bridge, typically one that is subject to preplanned military interdiction.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CharacterStringMeta"
             },
             "mobileBridgeSpan": {
+              "description": "-- Definition --\nAn indication that a bridge span moves in some manner to allow passage underneath.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "navigationMarkColour": {
+              "description": "-- Definition --\nThe colour(s) of a International Association of Lighthouse Authorities (IALA) navigation mark.\n-- Description --\nWhen the navigation mark is patterned, the Attribute: \u0027Colour Pattern\u0027 may be used to identify the pattern and a corresponding list of colours specified.\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Bridge_navigationMarkColourMeta"
@@ -133,36 +163,47 @@
               "uniqueItems": true
             },
             "overheadClearance": {
+              "description": "-- Definition --\nThe least distance between the travelled way and any obstruction vertically above it.\n-- Description --\nReference STANAG 2253.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "permanent": {
+              "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "physicalCondition": {
+              "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Bridge_physicalConditionMeta"
             },
             "radarSignificance": {
+              "description": "-- Definition --\nThe predominant exposed surface material, categorized by its significance to radar-based sensors.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Bridge_radarSignificanceMeta"
             },
             "restrictHorizClearance": {
+              "description": "-- Definition --\nAn indication that horizontal clearance for vehicles on a land transportation route is restricted.\n-- Description --\nHorizontal clearance affects the maximum width of loads that extend laterally beyond the wheels of a vehicle.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "restrictOverheadClearance": {
+              "description": "-- Definition --\nAn indication that there is an overhead obstruction located less than 4.3 metres above a land transportation route.\n-- Description --\nVertical clearance affects the maximum height of vehicle loads. (Reference STANAG 2253)\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "roofed": {
+              "description": "-- Definition --\nAn indication that a feature is covered by a roof.\n-- Description --\nThe roof may be supported by spaced pillars with intervening openings or the sides may be completely closed (for example: by walls or windows) and thus afford substantial protection from the weather.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "spanCount": {
+              "description": "-- Definition --\nThe number of spans in a bridge.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/IntegerMeta"
             },
             "underbridgeClearance": {
+              "description": "-- Definition --\nClearance below bridge, measured from the lowest surface level to the base of the lower of either a cross beam or the lowest bridge deck.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureIntervalMeta"
             },
             "verticalClearanceSafe": {
+              "description": "-- Definition --\nThe safe vertical clearance of an object measured from the horizontal plane toward the object overhead.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/HydroClearRefMeta"
             },
             "waterbodyOverheadObstruct": {
+              "description": "-- Definition --\nAn indication that an object is an overhead obstruction over a navigable waterbody.\n-- Description --\n-- UnitOfMeasure --",
               "type": "string"
             }
           }
@@ -170,6 +211,7 @@
       ]
     },
     "BridgePier": {
+      "description": "-- Definition --\nA pillar or abutment that supports a bridge span.\n-- Description --",
       "allOf": [
         {
           "$ref": "#/definitions/FeatureEntity"
@@ -178,6 +220,7 @@
           "type": "object",
           "properties": {
             "structMatType": {
+              "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for \u0027primary\u0027 may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/BridgePier_structMatTypeMeta"
@@ -185,30 +228,39 @@
               "uniqueItems": true
             },
             "colourPattern": {
+              "description": "-- Definition --\nThe colour pattern(s) of an aid to navigation (for example: a buoy, a beacon, and/or a navigation light) or other feature of importance to maritime navigation.\n-- Description --\nThe Attribute: \u0027Navigation Mark Colour\u0027 may be used to specify the colours in the order in which they appear in the pattern.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgePier_colourPatternMeta"
             },
             "conspicuousAirCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgePier_conspicuousAirCategoryMeta"
             },
             "conspicuousGroundCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgePier_conspicuousGroundCategoryMeta"
             },
             "conspicuousSeaCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgePier_conspicuousSeaCategoryMeta"
             },
             "crossSectionalShape": {
+              "description": "-- Definition --\nThe cross-sectional shape of a feature in the horizontal plane.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgePier_crossSectionalShapeMeta"
             },
             "heightAboveSurfaceLevel": {
+              "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/HeightMeasureMeta"
             },
             "highestElevation": {
+              "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/ElevationMeasureMeta"
             },
             "maritimeNavigationMarked": {
+              "description": "-- Definition --\nAn indication that a feature is significant to maritime safety of navigation and is marked (for example: by a light or beacon) by a maritime-specific navigational aid.\n-- Description --\nMariners may also use other prominent features (for example: rotating aeronautical beacons or lighted structures) for informal navigational purposes.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "navigationMarkColour": {
+              "description": "-- Definition --\nThe colour(s) of a International Association of Lighthouse Authorities (IALA) navigation mark.\n-- Description --\nWhen the navigation mark is patterned, the Attribute: \u0027Colour Pattern\u0027 may be used to identify the pattern and a corresponding list of colours specified.\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/BridgePier_navigationMarkColourMeta"
@@ -216,6 +268,7 @@
               "uniqueItems": true
             },
             "physicalCondition": {
+              "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgePier_physicalConditionMeta"
             }
           }
@@ -295,6 +348,7 @@
       ]
     },
     "BridgeSpan": {
+      "description": "-- Definition --\nA component of the deck of a bridge spanning successive bridge piers.\n-- Description --",
       "allOf": [
         {
           "$ref": "#/definitions/FeatureEntity"
@@ -303,12 +357,15 @@
           "type": "object",
           "properties": {
             "angleOfIntendedPassage": {
+              "description": "-- Definition --\nThe angular distance in the horizontal plane measured from true north (0 degrees) clockwise to the path on the feature (0-180 degrees) where passage was intended.\n-- Description --\nThe path of intended passage may go across or over the feature (ex. a bridge) or through it (ex. a tunnel).\n-- UnitOfMeasure --\narcDegree",
               "$ref": "#/definitions/AngleMeasureMeta"
             },
             "horizontalClearanceOpen": {
+              "description": "-- Definition --\nThe horizontal clearance measured between two points for an opening span.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "structMatType": {
+              "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for \u0027primary\u0027 may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/BridgeSpan_structMatTypeMeta"
@@ -316,18 +373,23 @@
               "uniqueItems": true
             },
             "verticalClearanceClosed": {
+              "description": "-- Definition --\nThe vertical clearance of a feature in closed condition (for example: a closed lifting bridge) measured from the horizontal plane towards the feature overhead.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "verticalClearanceOpen": {
+              "description": "-- Definition --\nThe vertical clearance of a feature in opened condition (for example an open lifting bridge) measured from the horizontal plane towards the feature overhead.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "bridgeOpeningType": {
+              "description": "-- Definition --\nThe type of structure or mechanism by which a bridge or bridge span is moved to allow passage of a vessel.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeSpan_bridgeOpeningTypeMeta"
             },
             "bridgeReferenceNumber": {
+              "description": "-- Definition --\nThe unique identifier of a bridge in accordance with the provisions of terrain analysis databases (for example: PTADB or TTADB).\n-- Description --\nThe identifier is assigned consecutively (for example: within a map sheet or within a local area of interest) and begins with the northwest grid square of the UTM reference system and proceeds from left to right to the east edge of the sheet or area, continuing consecutively in the same way starting back at the west edge of the next line of UTM grid squares below those previously completed. The resulting identifiers are used to index an associated Bridge Information Table.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CharacterStringMeta"
             },
             "bridgeStructureType": {
+              "description": "-- Definition --\nThe type(s) of structural design of a bridge, bridge span, or bridge superstructure.\n-- Description --\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/BridgeSpan_bridgeStructureTypeMeta"
@@ -335,69 +397,91 @@
               "uniqueItems": true
             },
             "bypassCondition": {
+              "description": "-- Definition --\nThe ease or ability to circumvent a destroyed section of bridge, tunnel or pass within a distance of two kilometres from the feature.\n-- Description --\nBypass condition will not consider other bridges in bypass determination.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeSpan_bypassConditionMeta"
             },
             "conspicuousAirCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeSpan_conspicuousAirCategoryMeta"
             },
             "conspicuousGroundCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeSpan_conspicuousGroundCategoryMeta"
             },
             "conspicuousSeaCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeSpan_conspicuousSeaCategoryMeta"
             },
             "facilityOperationalStatus": {
+              "description": "-- Definition --\nThe status of operation of a man-made structure, as a whole.\n-- Description --\nIncludes actual operations, operational capability, and planned or proposed man-made structures.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeSpan_facilityOperationalStatusMeta"
             },
             "heightAboveSurfaceLevel": {
+              "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/HeightMeasureMeta"
             },
             "highestElevation": {
+              "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/ElevationMeasureMeta"
             },
             "horizontalClearance": {
+              "description": "-- Definition --\nThe distance available to pass a load that extends laterally beyond the wheels of a vehicle.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureIntervalMeta"
             },
             "loadClassType1": {
+              "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for one-way, wheeled vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
               "$ref": "#/definitions/IntegerMeta"
             },
             "loadClassType2": {
+              "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for two-way, wheeled vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
               "$ref": "#/definitions/IntegerMeta"
             },
             "loadClassType3": {
+              "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for one-way, tracked vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
               "$ref": "#/definitions/IntegerMeta"
             },
             "loadClassType4": {
+              "description": "-- Definition --\nThe dynamic live load weight-bearing capacity of a bridge or bridge span for two-way, tracked vehicle traffic in MLC units.\n-- Description --\nMilitary load classification values are calculated in part from the size, cross-sectional shape, and material of the stringers under the bridge span; they are similar to, but not the same as, short tons. See STANAGs 2021 and 2253 for the method of calculation.\n-- UnitOfMeasure --\nmilitaryLoadClass",
               "$ref": "#/definitions/IntegerMeta"
             },
             "maximumVerticalClearance": {
+              "description": "-- Definition --\nThe greatest distance between the travelled way and any obstruction vertically above it.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "mobileBridgeSpan": {
+              "description": "-- Definition --\nAn indication that a bridge span moves in some manner to allow passage underneath.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "overheadClearance": {
+              "description": "-- Definition --\nThe least distance between the travelled way and any obstruction vertically above it.\n-- Description --\nReference STANAG 2253.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "permanent": {
+              "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "physicalCondition": {
+              "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeSpan_physicalConditionMeta"
             },
             "restrictHorizClearance": {
+              "description": "-- Definition --\nAn indication that horizontal clearance for vehicles on a land transportation route is restricted.\n-- Description --\nHorizontal clearance affects the maximum width of loads that extend laterally beyond the wheels of a vehicle.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "restrictOverheadClearance": {
+              "description": "-- Definition --\nAn indication that there is an overhead obstruction located less than 4.3 metres above a land transportation route.\n-- Description --\nVertical clearance affects the maximum height of vehicle loads. (Reference STANAG 2253)\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "underbridgeClearance": {
+              "description": "-- Definition --\nClearance below bridge, measured from the lowest surface level to the base of the lower of either a cross beam or the lowest bridge deck.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureIntervalMeta"
             },
             "verticalClearanceSafe": {
+              "description": "-- Definition --\nThe safe vertical clearance of an object measured from the horizontal plane toward the object overhead.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/HydroClearRefMeta"
             },
             "waterbodyOverheadObstruct": {
+              "description": "-- Definition --\nAn indication that an object is an overhead obstruction over a navigable waterbody.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             }
           }
@@ -486,6 +570,7 @@
       ]
     },
     "BridgeSuperstructure": {
+      "description": "-- Definition --\nA superstructure of a bridge, above the lowest deck, not including pylons or towers.\n-- Description --",
       "allOf": [
         {
           "$ref": "#/definitions/FeatureEntity"
@@ -494,6 +579,7 @@
           "type": "object",
           "properties": {
             "structMatType": {
+              "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for \u0027primary\u0027 may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/BridgeSuperstructure_structMatTypeMeta"
@@ -501,9 +587,11 @@
               "uniqueItems": true
             },
             "bridgeReferenceNumber": {
+              "description": "-- Definition --\nThe unique identifier of a bridge in accordance with the provisions of terrain analysis databases (for example: PTADB or TTADB).\n-- Description --\nThe identifier is assigned consecutively (for example: within a map sheet or within a local area of interest) and begins with the northwest grid square of the UTM reference system and proceeds from left to right to the east edge of the sheet or area, continuing consecutively in the same way starting back at the west edge of the next line of UTM grid squares below those previously completed. The resulting identifiers are used to index an associated Bridge Information Table.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CharacterStringMeta"
             },
             "bridgeStructureType": {
+              "description": "-- Definition --\nThe type(s) of structural design of a bridge, bridge span, or bridge superstructure.\n-- Description --\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/BridgeSuperstructure_bridgeStructureTypeMeta"
@@ -511,45 +599,59 @@
               "uniqueItems": true
             },
             "conspicuousAirCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeSuperstructure_conspicuousAirCategoryMeta"
             },
             "conspicuousGroundCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeSuperstructure_conspicuousGroundCategoryMeta"
             },
             "conspicuousSeaCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeSuperstructure_conspicuousSeaCategoryMeta"
             },
             "directivity": {
+              "description": "-- Definition --\nThe side(s) of a feature that produce the greatest visual significance and/or reflectivity potential.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeSuperstructure_directivityMeta"
             },
             "heightAboveSurfaceLevel": {
+              "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/HeightMeasureMeta"
             },
             "heightOfObject": {
+              "description": "-- Definition --\nThe vertical distance measured from the base to the top of the feature that gives the greatest value.\n-- Description --\nFor example, the Height of Object of a two story building with a basement is three stories while the Height of Object of a man doesn\u0027t change as a result of standing in a trench whereas his Height Above Surface Level (based on the prevailing terrain surface level) may be considered to be correspondingly reduced by the depth of the trench.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureIntervalMeta"
             },
             "highestElevation": {
+              "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/ElevationMeasureMeta"
             },
             "maritimeNavigationMarked": {
+              "description": "-- Definition --\nAn indication that a feature is significant to maritime safety of navigation and is marked (for example: by a light or beacon) by a maritime-specific navigational aid.\n-- Description --\nMariners may also use other prominent features (for example: rotating aeronautical beacons or lighted structures) for informal navigational purposes.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "mobileBridgeSpan": {
+              "description": "-- Definition --\nAn indication that a bridge span moves in some manner to allow passage underneath.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "overheadClearance": {
+              "description": "-- Definition --\nThe least distance between the travelled way and any obstruction vertically above it.\n-- Description --\nReference STANAG 2253.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "permanent": {
+              "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "physicalCondition": {
+              "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeSuperstructure_physicalConditionMeta"
             },
             "radarSignificance": {
+              "description": "-- Definition --\nThe predominant exposed surface material, categorized by its significance to radar-based sensors.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeSuperstructure_radarSignificanceMeta"
             },
             "restrictOverheadClearance": {
+              "description": "-- Definition --\nAn indication that there is an overhead obstruction located less than 4.3 metres above a land transportation route.\n-- Description --\nVertical clearance affects the maximum height of vehicle loads. (Reference STANAG 2253)\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             }
           }
@@ -629,6 +731,7 @@
       ]
     },
     "BridgeTower": {
+      "description": "-- Definition --\nA tower and/or pylon from which the deck of a bridge is suspended.\n-- Description --",
       "allOf": [
         {
           "$ref": "#/definitions/FeatureEntity"
@@ -637,6 +740,7 @@
           "type": "object",
           "properties": {
             "structMatType": {
+              "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for \u0027primary\u0027 may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/BridgeTower_structMatTypeMeta"
@@ -644,39 +748,51 @@
               "uniqueItems": true
             },
             "bridgeReferenceNumber": {
+              "description": "-- Definition --\nThe unique identifier of a bridge in accordance with the provisions of terrain analysis databases (for example: PTADB or TTADB).\n-- Description --\nThe identifier is assigned consecutively (for example: within a map sheet or within a local area of interest) and begins with the northwest grid square of the UTM reference system and proceeds from left to right to the east edge of the sheet or area, continuing consecutively in the same way starting back at the west edge of the next line of UTM grid squares below those previously completed. The resulting identifiers are used to index an associated Bridge Information Table.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CharacterStringMeta"
             },
             "conspicuousAirCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeTower_conspicuousAirCategoryMeta"
             },
             "conspicuousGroundCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeTower_conspicuousGroundCategoryMeta"
             },
             "conspicuousSeaCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeTower_conspicuousSeaCategoryMeta"
             },
             "directivity": {
+              "description": "-- Definition --\nThe side(s) of a feature that produce the greatest visual significance and/or reflectivity potential.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeTower_directivityMeta"
             },
             "heightAboveSurfaceLevel": {
+              "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/HeightMeasureMeta"
             },
             "highestElevation": {
+              "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/ElevationMeasureMeta"
             },
             "maritimeNavigationMarked": {
+              "description": "-- Definition --\nAn indication that a feature is significant to maritime safety of navigation and is marked (for example: by a light or beacon) by a maritime-specific navigational aid.\n-- Description --\nMariners may also use other prominent features (for example: rotating aeronautical beacons or lighted structures) for informal navigational purposes.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "physicalCondition": {
+              "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeTower_physicalConditionMeta"
             },
             "pylonConfiguration": {
+              "description": "-- Definition --\nThe configuration of a pylon or pole.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeTower_pylonConfigurationMeta"
             },
             "radarSignificance": {
+              "description": "-- Definition --\nThe predominant exposed surface material, categorized by its significance to radar-based sensors.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeTower_radarSignificanceMeta"
             },
             "towerShape": {
+              "description": "-- Definition --\nThe general shape and/or structure of a tower.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BridgeTower_towerShapeMeta"
             }
           }
@@ -909,6 +1025,7 @@
       ]
     },
     "CausewayStructure": {
+      "description": "-- Definition --\nA solid raised way across a terrain obstacle (for example: a wetland or a body of shallow water) that is intended to support a transportation route (for example: a road or a railway).\n-- Description --\nThe causeway structure is often constructed from local fill supplemented by other materials (for example: rocks, boulders or gravel) and consists of a solid linear structure in the configuration of an embankment. Causeway structures are built just high enough to insure that the transportation route will remain passable during periods of flooding, tides and seasonal rainfall. Culverts may occur along the length of the causeway structure and individual sections of the causeway structure may be interrupted by bridges.",
       "allOf": [
         {
           "$ref": "#/definitions/FeatureEntity"
@@ -917,18 +1034,23 @@
           "type": "object",
           "properties": {
             "conspicuousAirCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CausewayStructure_conspicuousAirCategoryMeta"
             },
             "conspicuousGroundCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CausewayStructure_conspicuousGroundCategoryMeta"
             },
             "conspicuousSeaCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CausewayStructure_conspicuousSeaCategoryMeta"
             },
             "controllingAuthority": {
+              "description": "-- Definition --\nThe controlling authority responsible for a facility or site.\n-- Description --\nControlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CausewayStructure_controllingAuthorityMeta"
             },
             "controllingAuthorityIdent": {
+              "description": "-- Definition --\nThe recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.\n-- Description --\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/CharacterStringMeta"
@@ -936,33 +1058,43 @@
               "uniqueItems": true
             },
             "directivity": {
+              "description": "-- Definition --\nThe side(s) of a feature that produce the greatest visual significance and/or reflectivity potential.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CausewayStructure_directivityMeta"
             },
             "facilityOperationalStatus": {
+              "description": "-- Definition --\nThe status of operation of a man-made structure, as a whole.\n-- Description --\nIncludes actual operations, operational capability, and planned or proposed man-made structures.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CausewayStructure_facilityOperationalStatusMeta"
             },
             "floodlit": {
+              "description": "-- Definition --\nAn indication that a structure is floodlit.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "heightAboveSurfaceLevel": {
+              "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/HeightMeasureMeta"
             },
             "highestElevation": {
+              "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/ElevationMeasureMeta"
             },
             "maximumObstacleHeight": {
+              "description": "-- Definition --\nThe maximum distance from the bottom to the top of a terrain (or waterbody floor) obstacle.\n-- Description --\nMay be a height or a depth.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "permanent": {
+              "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "physicalCondition": {
+              "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CausewayStructure_physicalConditionMeta"
             },
             "predominantFeatureHeight": {
+              "description": "-- Definition --\nThe predominant height (the height of at least 50 percent) of the feature measured from the lowest point of the base at ground or water level (downhill side/downstream side).\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureIntervalMeta"
             },
             "structMatType": {
+              "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for \u0027primary\u0027 may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/CausewayStructure_structMatTypeMeta"
@@ -970,9 +1102,11 @@
               "uniqueItems": true
             },
             "surfaceSlope": {
+              "description": "-- Definition --\nThe slope (rate of upward inclination of the surface from the horizontal) of the surface of a feature (for example: the terrain or a waterbody floor).\n-- Description --\nThe (percent) slope is determined as the change in height divided by the horizontal distance over which the change takes place, multiplied by one hundred: ((h2-h1)/d)*100. Generally the slope is determined along the primary alignment of a feature (its established direction of flow or use; for example: a road, a railway, a ridge line, and/or a bridge). In those cases where the primary alignment is essentially horizontal (for example, a beach, a watercourse bank, or a cut) the surface slope is typically determined at right angles to the primary alignment.\n-- UnitOfMeasure --\npercent",
               "$ref": "#/definitions/MeasureIntervalMeta"
             },
             "waterLevelEffect": {
+              "description": "-- Definition --\nThe relationship between the feature and surrounding (including covering and/or underlying) water.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CausewayStructure_waterLevelEffectMeta"
             }
           }
@@ -1078,7 +1212,8 @@
         "valueOrReason"
       ]
     },
-    "FeatureEntity": {
+    "Entity": {
+      "description": "-- Definition --\nAn abstract modeling entity that is a superclass for modeling entities having identity and that represents common properties (attributes and association roles) of its subclasses.\n-- Description --\nIdentity enables the ability to reference entity instances from other modeling entities. Common properties may include entity-related metadata, notes, and/or data-dissemination restriction(s) and security control(s) regarding the entity.",
       "type": "object",
       "properties": {
         "@type": {
@@ -1086,13 +1221,56 @@
         },
         "id": {
           "type": "string"
+        },
+        "externalReferences": {
+          "description": "-- Definition --\nA list of external references that may provide additional or ancillary information about this entity instance.\n-- Description --\nFor example: a website URL, a link to a photo or document, etc.\n-- UnitOfMeasure --",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CharacterStringMeta"
+          },
+          "uniqueItems": true
+        },
+        "uniqueUniversalEntityIdentifier": {
+          "description": "-- Definition --\nA globally exclusive, distinct, and persistent identifier assigned to an entity (ex. feature, event, actor, etc.).\n-- Description --\nThis identifier is used to support such things as: the unique identification of any individual instance of an entity, relationships between features in a relational database, and version control.\n-- UnitOfMeasure --",
+          "$ref": "#/definitions/CharacterStringMeta"
+        },
+        "beginLifespanVersion": {
+          "description": "-- Definition --\nDate and time at which this version of the spatial object was inserted or changed in the spatial data set.\n-- Description --\n\n-- UnitOfMeasure --\nsecond",
+          "$ref": "#/definitions/CharacterStringMeta"
+        },
+        "endLifespanVersion": {
+          "description": "-- Definition --\nDate and time at which this version of the spatial object was superseded or retired in the spatial data set.\n-- Description --\n-- UnitOfMeasure --\nsecond",
+          "$ref": "#/definitions/CharacterStringMeta"
+        },
+        "specifiedDomainValues": {
+          "description": "-- Definition --\nOne or more intended attribute domain values for one or more enumeration or codelist attributes that are not currently valid members of their respective attribute ranges.\n-- Description --\nThe actual attribute domain values may have been previously, or may become in the future, valid members of the attribute domain range.\n-- UnitOfMeasure --",
+          "$ref": "#/definitions/CharacterStringMeta"
         }
       },
       "required": [
-        "@type"
+        "@type",
+        "beginLifespanVersion",
+        "uniqueUniversalEntityIdentifier"
+      ]
+    },
+    "FeatureEntity": {
+      "description": "-- Definition --\nAn abstract modeling entity that is a superclass for feature types, which are representations of temporally persistent real-world phenomena, including their geometric position and extent.\n-- Description --\nThe concept of a \u0027feature\u0027 is that of the ISO 19100-series standards and as such is not constrained to any specific representation; for example, surface representation such as grids and images are allowed in addition to vector representations.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
       ]
     },
     "GeneralLocation": {
+      "description": "-- Definition --\nA location that normally does not appear as a specific, characterized object but that has either a name that is required to be displayed or other specific information associated with that location.\n-- Description --\nFor example, the name of the Alps or the Sahara.",
       "allOf": [
         {
           "$ref": "#/definitions/FeatureEntity"
@@ -1101,12 +1279,15 @@
           "type": "object",
           "properties": {
             "namedLocationType": {
+              "description": "-- Definition --\nThe type of a location that normally does not appear as a specific, characterized object but that has a name that is required to be displayed in association with that location.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/GeneralLocation_namedLocationTypeMeta"
             },
             "thematicClassification": {
+              "description": "-- Definition --\nThe classification of a feature among geographic themes.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/GeneralLocation_thematicClassificationMeta"
             },
             "informationReference": {
+              "description": "-- Definition --\nA reference to an external source or additional information.\n-- Description --\nFor example a hyperlink.\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/CharacterStringMeta"
@@ -1154,6 +1335,7 @@
       ]
     },
     "IdentifiedQualityIssue": {
+      "description": "-- Definition --\nA modeling entity where issues with data quality are identified.\n-- Description --\nFor example, the identification of specific known problems in the data that could not be fixed within the context of the dataset delivery. This feature indicates to the user the potential need for caution when utilizing any data that touches, crosses, or exists within the identified location.",
       "allOf": [
         {
           "$ref": "#/definitions/FeatureEntity"
@@ -1162,9 +1344,11 @@
           "type": "object",
           "properties": {
             "qualityIssueImpact": {
+              "description": "-- Definition --\nAn explanation of the assessed impact of the identified quality issue on data utilization.\n-- Description --\n\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CharacterStringMeta"
             },
             "qualityIssueDescription": {
+              "description": "-- Definition --\nAn explanation of the type, nature, or origin of the identified quality issue.\n-- Description --\nThe intent of this attribute is to fully inform data users of the scope and breadth of the quality issue so that informed decisions can be made to how the data is employed.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CharacterStringMeta"
             }
           }
@@ -1199,6 +1383,7 @@
       ]
     },
     "MiscFeatureType": {
+      "description": "-- Definition --\nAny feature type that falls within the scope of a feature type domain (for example: a feature coverage or a product specification) but is not explicitly specified in that domain.\n-- Description --\nMay be used to allow for the flexible capture of feature instances that are unanticipated at the time of specifying the feature type domain. This ensures that feature instances deemed important for a particular mission and/or user can be captured, even though the most appropriate feature type is not used.",
       "allOf": [
         {
           "$ref": "#/definitions/FeatureEntity"
@@ -1207,12 +1392,15 @@
           "type": "object",
           "properties": {
             "highestElevation": {
+              "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/ElevationMeasureMeta"
             },
             "miscFeatureTypeDescription": {
+              "description": "-- Definition --\nAn explanation of the feature being captured such that a user of the data can understand what is being represented by the geometry.\n-- Description --\nWhen the use of MiscFeatureType is required to capture an unanticipated feature instance, this description will enable the end-user to understand what has been captured and represented by the feature geometry.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/CharacterStringMeta"
             },
             "heightAboveSurfaceLevel": {
+              "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/HeightMeasureMeta"
             }
           }
@@ -1220,6 +1408,7 @@
       ]
     },
     "OrganisationalUnit": {
+      "description": "-- Definition --\nAn actor established to manage the performance of activities to achieve one or more purposes of an organisation.\n-- Description --\nFor example, a task unit or local office group.",
       "type": "object",
       "properties": {
         "@type": {
@@ -1229,6 +1418,7 @@
           "type": "string"
         },
         "contactInfo": {
+          "description": "-- Definition --\nThe telephone, postal, electronic and/or other contact information for a facility, organisation or person.\n-- Description --\n-- UnitOfMeasure --",
           "$ref": "#/definitions/CI_ContactMeta"
         }
       },
@@ -1238,6 +1428,7 @@
       ]
     },
     "TransRouteProtectStruct": {
+      "description": "-- Definition --\nA structure built over and/or along a transportation route designed to prevent damage to, or blockage of, the route from rock slides, snow slides and/or weather phenomena.\n-- Description --\nFor example, a snow shed, a rock shed or a gallery. These structures are usually located in rugged mountainous regions.",
       "allOf": [
         {
           "$ref": "#/definitions/FeatureEntity"
@@ -1246,6 +1437,7 @@
           "type": "object",
           "properties": {
             "structMatType": {
+              "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for \u0027primary\u0027 may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/TransRouteProtectStruct_structMatTypeMeta"
@@ -1253,12 +1445,15 @@
               "uniqueItems": true
             },
             "conspicuousAirCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the air.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TransRouteProtectStruct_conspicuousAirCategoryMeta"
             },
             "conspicuousGroundCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from on the ground.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TransRouteProtectStruct_conspicuousGroundCategoryMeta"
             },
             "controllingAuthorityIdent": {
+              "description": "-- Definition --\nThe recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.\n-- Description --\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/CharacterStringMeta"
@@ -1266,45 +1461,59 @@
               "uniqueItems": true
             },
             "conspicuousSeaCategory": {
+              "description": "-- Definition --\nThe manner in which an object is conspicuous when viewed from the sea.\n-- Description --\nA conspicuous feature is easily detected and identified under varying conditions (for example: lighting). Factors affecting conspicuousness include size, shape, and/or height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TransRouteProtectStruct_conspicuousSeaCategoryMeta"
             },
             "controllingAuthority": {
+              "description": "-- Definition --\nThe controlling authority responsible for a facility or site.\n-- Description --\nControlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TransRouteProtectStruct_controllingAuthorityMeta"
             },
             "facilityOperationalStatus": {
+              "description": "-- Definition --\nThe status of operation of a man-made structure, as a whole.\n-- Description --\nIncludes actual operations, operational capability, and planned or proposed man-made structures.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TransRouteProtectStruct_facilityOperationalStatusMeta"
             },
             "floodlit": {
+              "description": "-- Definition --\nAn indication that a structure is floodlit.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "heightAboveSurfaceLevel": {
+              "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/HeightMeasureMeta"
             },
             "highestElevation": {
+              "description": "-- Definition --\nThe elevation from a specified vertical datum to the highest point on a feature.\n-- Description --\nIn the case of multiple features that may be stacked on each other (for example: a railway on a bridge, a superstructure on a building, or an aerial on a tower) the highest elevation is that of the entire feature stack. For example, the highest elevation of a church is that of its steeple and not that of the roof of the church itself. The church itself may have a height above surface level that excludes the additional height of the steeple superstructure located on the church roof.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/ElevationMeasureMeta"
             },
             "horizontalClearance": {
+              "description": "-- Definition --\nThe distance available to pass a load that extends laterally beyond the wheels of a vehicle.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureIntervalMeta"
             },
             "overheadClearance": {
+              "description": "-- Definition --\nThe least distance between the travelled way and any obstruction vertically above it.\n-- Description --\nReference STANAG 2253.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "permanent": {
+              "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "physicalCondition": {
+              "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TransRouteProtectStruct_physicalConditionMeta"
             },
             "restrictHorizClearance": {
+              "description": "-- Definition --\nAn indication that horizontal clearance for vehicles on a land transportation route is restricted.\n-- Description --\nHorizontal clearance affects the maximum width of loads that extend laterally beyond the wheels of a vehicle.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "safeHorizontalClearance": {
+              "description": "-- Definition --\nMinimum safe horizontal distance between adjacent structures on either side of a navigable channel.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "transRteProtStructType": {
+              "description": "-- Definition --\nThe type of a transportation route protection structure based on its configuration and/or intended purpose.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TransRouteProtectStruct_transRteProtStructTypeMeta"
             },
             "verticalRelativeLocation": {
+              "description": "-- Definition --\nThe relationship between the feature and the underlying ground (terrain) or waterbody bottom.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TransRouteProtectStruct_verticalRelativeLocationMeta"
             }
           }
@@ -1393,6 +1602,7 @@
       ]
     },
     "TransportationPlatform": {
+      "description": "-- Definition --\nA permanent raised physical structure which serves as a surface for disembarking or taking on passengers or freight from a form of transport.\n-- Description --",
       "type": "object",
       "properties": {
         "@type": {
@@ -1402,6 +1612,7 @@
           "type": "string"
         },
         "meansTransportation": {
+          "description": "-- Definition --\nThe intended method or means of moving from one place to another related to the feature or the feature\u0027s intended use.\n-- Description --\n-- UnitOfMeasure --",
           "type": "array",
           "maxItems": 3,
           "items": {
@@ -1410,6 +1621,7 @@
           "uniqueItems": true
         },
         "transportationUse": {
+          "description": "-- Definition --\nThe primary use(s) of a transportation system.\n-- Description --\n-- UnitOfMeasure --",
           "type": "array",
           "maxItems": 2,
           "items": {
@@ -1441,6 +1653,7 @@
       ]
     },
     "Tunnel": {
+      "description": "-- Definition --\nAn underground passage that is open at both ends and usually contains a land transportation route (for example: a road and/or a railway).\n-- Description --\nCommonly used to pass through a hill or mountain, or under a river or road. May also provide underground passage in a mine.",
       "allOf": [
         {
           "$ref": "#/definitions/FeatureEntity"
@@ -1449,15 +1662,19 @@
           "type": "object",
           "properties": {
             "angleOfIntendedPassage": {
+              "description": "-- Definition --\nThe angular distance in the horizontal plane measured from true north (0 degrees) clockwise to the path on the feature (0-180 degrees) where passage was intended.\n-- Description --\nThe path of intended passage may go across or over the feature (ex. a bridge) or through it (ex. a tunnel).\n-- UnitOfMeasure --\narcDegree",
               "$ref": "#/definitions/AngleMeasureMeta"
             },
             "bypassCondition": {
+              "description": "-- Definition --\nThe ease or ability to circumvent a destroyed section of bridge, tunnel or pass within a distance of two kilometres from the feature.\n-- Description --\nBypass condition will not consider other bridges in bypass determination.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Tunnel_bypassConditionMeta"
             },
             "controllingAuthority": {
+              "description": "-- Definition --\nThe controlling authority responsible for a facility or site.\n-- Description --\nControlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Tunnel_controllingAuthorityMeta"
             },
             "controllingAuthorityIdent": {
+              "description": "-- Definition --\nThe recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.\n-- Description --\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/CharacterStringMeta"
@@ -1465,18 +1682,23 @@
               "uniqueItems": true
             },
             "crossSectionalProfile": {
+              "description": "-- Definition --\nThe cross-sectional profile of an opening (for example: a tunnel or the space under a bridge span).\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Tunnel_crossSectionalProfileMeta"
             },
             "deckCount": {
+              "description": "-- Definition --\nThe number of vertically stacked decks, one over another, in a transportation structure (for example: a bridge or a tunnel).\n-- Description --\n-- UnitOfMeasure --\nunitless",
               "$ref": "#/definitions/IntegerMeta"
             },
             "deepDepthBelowSurfLevel": {
+              "description": "-- Definition --\nThe distance measured from ground or water level (uphill/upstream side of the feature) to the deepest point of the feature.\n-- Description --\nMay be used to measure the depth of an inland waterbody (for example: a lake), the depth of a terrain surface depression or excavation (for example: a crevice or trench), the distance to the deepest point of a drilled feature (for example: a water well or borehole) or the distance to the deepest point of a feature located entirely underground (for example: a cave chamber). In the case of a feature located below a waterbody (for example: a non-water well) the reference surface is the waterbody bottom, rather than the waterbody surface.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "facilityOperationalStatus": {
+              "description": "-- Definition --\nThe status of operation of a man-made structure, as a whole.\n-- Description --\nIncludes actual operations, operational capability, and planned or proposed man-made structures.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Tunnel_facilityOperationalStatusMeta"
             },
             "hazardShelterIntendedUse": {
+              "description": "-- Definition --\nThe intended use(s) of a designated hazard protection shelter based on the kind of emergency.\n-- Description --\nHazard shelters may be located inside buildings or other structures. Shelters may be equipped with disaster supplies and equipment such as food and cots.\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Tunnel_hazardShelterIntendedUseMeta"
@@ -1484,45 +1706,59 @@
               "uniqueItems": true
             },
             "heightAboveSurfaceLevel": {
+              "description": "-- Definition --\nThe vertical distance measured from the lowest point of the base of the feature at ground or water level (downhill/downstream side) to the tallest point of the feature.\n-- Description --\nFor non-inland water bodies, the water level is usually understood to be Mean Sea Level (MSL). Note that the feature may be supported above the surface by another feature (for example: a tower supported by a building) and as a consequence the value of the Height Above Surface Level is different (larger) than the base-to-top height of the feature (for example: supported tower) itself.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/HeightMeasureMeta"
             },
             "horizontalClearance": {
+              "description": "-- Definition --\nThe distance available to pass a load that extends laterally beyond the wheels of a vehicle.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureIntervalMeta"
             },
             "leastDepthBelowSurfLevel": {
+              "description": "-- Definition --\nThe distance measured from ground or water level (uphill/upstream side of the feature) to the highest point of a feature located completely underground.\n-- Description --\nFor example, in the case of an underground dwelling the least depth below surface level would be measured to its ceiling. The least depth below surface level may be located at ground or water level and therefore have a value of zero (for example: an opencast extraction mine, a terrain depression or a lake). For depths defined with respect to a time-varying water level, consideration should be given to the use of Attribute: \u0027Hydrographic Depth\u0027.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "manMade": {
+              "description": "-- Definition --\nAn indication that a feature is man-made.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "maximumVerticalClearance": {
+              "description": "-- Definition --\nThe greatest distance between the travelled way and any obstruction vertically above it.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "monitored": {
+              "description": "-- Definition --\nAn indication that a feature is actively monitored.\n-- Description --\nFor example, attended or watched over by personnel.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "overheadClearance": {
+              "description": "-- Definition --\nThe least distance between the travelled way and any obstruction vertically above it.\n-- Description --\nReference STANAG 2253.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "pedestrianTraversable": {
+              "description": "-- Definition --\nAn indication that a feature is traversable on foot.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "permanent": {
+              "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "physicalCondition": {
+              "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Tunnel_physicalConditionMeta"
             },
             "restrictHorizClearance": {
+              "description": "-- Definition --\nAn indication that horizontal clearance for vehicles on a land transportation route is restricted.\n-- Description --\nHorizontal clearance affects the maximum width of loads that extend laterally beyond the wheels of a vehicle.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "routeTotalUsableWidth": {
+              "description": "-- Definition --\nThe total usable width of the travelled way of a route.\n-- Description --\nIncludes pavements and shoulders.\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureIntervalMeta"
             },
             "safeHorizontalClearance": {
+              "description": "-- Definition --\nMinimum safe horizontal distance between adjacent structures on either side of a navigable channel.\n-- Description --\n-- UnitOfMeasure --\nmetre",
               "$ref": "#/definitions/MeasureMeta"
             },
             "structMatType": {
+              "description": "-- Definition --\nThe primary type(s) of material composing a feature, exclusive of the surface.\n-- Description --\nThe basis for \u0027primary\u0027 may be, for example, compositional dominance or structural organization.\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Tunnel_structMatTypeMeta"
@@ -1530,6 +1766,7 @@
               "uniqueItems": true
             },
             "verticalRelativeLocation": {
+              "description": "-- Definition --\nThe relationship between the feature and the underlying ground (terrain) or waterbody bottom.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/Tunnel_verticalRelativeLocationMeta"
             }
           }
@@ -1537,6 +1774,7 @@
       ]
     },
     "TunnelMouth": {
+      "description": "-- Definition --\nThe opening of a tunnel into a larger space (for example: onto the terrain surface).\n-- Description --\nA tunnel is usually open to the terrain surface at both ends, but may sometimes lead to an enclosed space, for example: leading to an underground bunker, into an underground mine (termed an \u0027adit\u0027) or into an underground railway station.",
       "type": "object",
       "properties": {
         "@type": {
@@ -1546,6 +1784,7 @@
           "type": "string"
         },
         "crossSectionalProfile": {
+          "description": "-- Definition --\nThe cross-sectional profile of an opening (for example: a tunnel or the space under a bridge span).\n-- Description --\n-- UnitOfMeasure --",
           "$ref": "#/definitions/TunnelMouth_crossSectionalProfileMeta"
         }
       },
@@ -1635,6 +1874,7 @@
       ]
     },
     "TurnaroundSite": {
+      "description": "-- Definition --\nA shaped area at the terminus of a road that provides sufficient turning space allowing incoming traffic to turn around and exit without performing a stop-and-change-direction manoeuvre.\n-- Description --\nConstruction is typically in the form of a defined shape (for example: circle, loop, or crescent). A median-like structure may exist in the center of the turnaround site, thus ensuring a well-defined pattern of vehicle movement. In residential areas the turnaround site often has multiple adjoining properties, each of which may have a separate driveway and/or defined parking area along the perimeter of the shaped area.",
       "allOf": [
         {
           "$ref": "#/definitions/FeatureEntity"
@@ -1643,9 +1883,11 @@
           "type": "object",
           "properties": {
             "controllingAuthority": {
+              "description": "-- Definition --\nThe controlling authority responsible for a facility or site.\n-- Description --\nControlling authorities may be distinguished by organizational level (for example: national, sub-national, or military district) and/or type (for example: private or public).\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TurnaroundSite_controllingAuthorityMeta"
             },
             "controllingAuthorityIdent": {
+              "description": "-- Definition --\nThe recognized authority responsible for establishing and maintaining the administrative affairs of all matters relating to a particular field or subject.\n-- Description --\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/CharacterStringMeta"
@@ -1653,21 +1895,27 @@
               "uniqueItems": true
             },
             "generalPavementCondition": {
+              "description": "-- Definition --\nA general description of the surface quality of a paved surface.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TurnaroundSite_generalPavementConditionMeta"
             },
             "loadBearingSurfaceType": {
+              "description": "-- Definition --\nThe physical surface composition of a terrain surface that is intended to bear loads.\n-- Description --\nFor example, the surface of a road, a runway, a hard standing, or a vehicle storage lot.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TurnaroundSite_loadBearingSurfaceTypeMeta"
             },
             "maximumVehicleHeight": {
+              "description": "-- Definition --\nThe maximum height of a vehicle that can pass through the obstructing feature on a travelled way.\n-- Description --\nThe height limitation assumes that the vehicle is less than 12 metres long and has a maximum rectangular width of 2.6 metres.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/MeasureMeta"
             },
             "maximumVehicleLength": {
+              "description": "-- Definition --\nThe maximum length of a vehicle that can pass through the obstructing feature on a travelled way.\n-- Description --\nThe length limitation assumes that the vehicle has a maximum rectangular height of 4.3 metres and a maximum rectangular width of 2.6 metres.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/MeasureMeta"
             },
             "maximumVehicleWidth": {
+              "description": "-- Definition --\nThe maximum width of a vehicle that can pass through the obstructing feature on a travelled way.\n-- Description --\nThe width limitation assumes that the vehicle is less than 12 metres long and has a maximum rectangular height of 4.3 metres.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/MeasureMeta"
             },
             "meansTransportation": {
+              "description": "-- Definition --\nThe intended method or means of moving from one place to another related to the feature or the feature\u0027s intended use.\n-- Description --\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/TurnaroundSite_meansTransportationMeta"
@@ -1675,15 +1923,19 @@
               "uniqueItems": true
             },
             "medianPresent": {
+              "description": "-- Definition --\nAn indication that the lanes or tracks of a divided land transportation route (for example: a road or a railway) are separated by a vertical median barrier.\n-- Description --\nOften used to separate opposing flows of traffic in order to improve safety. For example, may be a substantial concrete barrier of approximately 1 metre height.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "permanent": {
+              "description": "-- Definition --\nAn indication that a feature is permanent.\n-- Description --\nTemporary features last, or are meant to last, for a limited time only.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/BooleanMeta"
             },
             "physicalCondition": {
+              "description": "-- Definition --\nThe physical condition of a man-made structure, as a whole, including the inside and/or outside of the structure and any contained and/or associated equipment.\n-- Description --\nThe physical condition applies to any phase of the life cycle of a man-made structure from construction to destruction. Examples of man-made structures include roads, canals, buildings, towers, aerodromes and facilities.\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TurnaroundSite_physicalConditionMeta"
             },
             "trafficRestrictionType": {
+              "description": "-- Definition --\nThe reason for traffic restriction based on the nature of the route.\n-- Description --\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/TurnaroundSite_trafficRestrictionTypeMeta"
@@ -1691,15 +1943,19 @@
               "uniqueItems": true
             },
             "verticalRelativeLocation": {
+              "description": "-- Definition --\nThe relationship between the feature and the underlying ground (terrain) or waterbody bottom.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TurnaroundSite_verticalRelativeLocationMeta"
             },
             "waySurfaceCategory": {
+              "description": "-- Definition --\nA categorisation based on the general pavement characteristic of the surface intending to sustain ground transport.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TurnaroundSite_waySurfaceCategoryMeta"
             },
             "weatherRestrictionType": {
+              "description": "-- Definition --\nThe type of weather conditions under which a feature is usable.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/TurnaroundSite_weatherRestrictionTypeMeta"
             },
             "weightBearingCapacity": {
+              "description": "-- Definition --\nThe maximum weight that can be supported by a surface.\n-- Description --\n-- UnitOfMeasure --",
               "$ref": "#/definitions/MeasureIntervalMeta"
             }
           }
@@ -1788,6 +2044,7 @@
       ]
     },
     "VoidCollectionArea": {
+      "description": "-- Definition --\nA data collection region lacking suitable source coverage and/or where data is not required.\n-- Description --",
       "allOf": [
         {
           "$ref": "#/definitions/FeatureEntity"
@@ -1796,6 +2053,7 @@
           "type": "object",
           "properties": {
             "voidCollectionReason": {
+              "description": "-- Definition --\nThe reason(s) that geospatial data was not collected.\n-- Description --\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/VoidCollectionArea_voidCollectionReasonMeta"
@@ -1803,6 +2061,7 @@
               "uniqueItems": true
             },
             "voidCollectionType": {
+              "description": "-- Definition --\nThe type(s) of geospatial data that were not collected.\n-- Description --\n-- UnitOfMeasure --",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/VoidCollectionArea_voidCollectionTypeMeta"

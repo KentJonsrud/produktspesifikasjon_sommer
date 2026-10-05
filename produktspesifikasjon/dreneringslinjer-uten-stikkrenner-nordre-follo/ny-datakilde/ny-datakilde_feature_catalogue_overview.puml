@@ -37,6 +37,8 @@ package "NyFoundation" {
   }
   class VoidCollectionArea <<featureType>> {
   }
+  abstract class Entity <<featureType>> {
+  }
   class GeneralLocation <<featureType>> {
   }
   class OrganisationalUnit <<featureType>> {

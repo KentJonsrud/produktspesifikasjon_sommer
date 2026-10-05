@@ -259,7 +259,7 @@ package "Objekttyper" {
   }
 
   abstract class FeatureEntity <<featureType>> {
-    + geometry [1] : GM_Object
+    + geometry [1] : GM_Curve
   }
 
   class IdentifiedQualityIssue <<featureType>> {
@@ -270,6 +270,14 @@ package "Objekttyper" {
   class VoidCollectionArea <<featureType>> {
     + voidCollectionReason [0..*] : VoidCollectionArea_voidCollectionReasonMeta
     + voidCollectionType [0..*] : VoidCollectionArea_voidCollectionTypeMeta
+  }
+
+  abstract class Entity <<featureType>> {
+    + externalReferences [0..*] : CharacterStringMeta
+    + uniqueUniversalEntityIdentifier [1] : CharacterStringMeta
+    + beginLifespanVersion [1] : CharacterStringMeta
+    + endLifespanVersion [0..1] : CharacterStringMeta
+    + specifiedDomainValues [0..1] : CharacterStringMeta
   }
 
   class GeneralLocation <<featureType>> {
