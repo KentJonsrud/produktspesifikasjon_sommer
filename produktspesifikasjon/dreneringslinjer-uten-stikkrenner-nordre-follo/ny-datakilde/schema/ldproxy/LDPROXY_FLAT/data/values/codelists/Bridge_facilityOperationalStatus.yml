@@ -1,0 +1,10 @@
+---
+label: Bridge_facilityOperationalStatus
+entries:
+  nonOperational: nonOperational
+  notInOperation: notInOperation
+  operational: operational
+  partiallyOperational: partiallyOperational
+  planned: planned
+  temporarilyNonOperational: temporarilyNonOperational
+sourceType: TEMPLATES

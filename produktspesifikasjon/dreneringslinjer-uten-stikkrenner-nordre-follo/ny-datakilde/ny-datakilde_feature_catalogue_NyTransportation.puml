@@ -169,7 +169,7 @@ package "NyTransportation" {
     + controllingAuthorityIdent [0..*] : CharacterStringMeta
     + bridgeOpeningType [0..1] : Bridge_bridgeOpeningTypeMeta
     + bridgeReferenceNumber [0..1] : CharacterStringMeta
-    + bridgeStructureType [0..*] : Bridge_bridgeStructureTypeMeta
+    + bridgeStructureType [0..*] : Bridge_bridgeStructureType
     + bypassCondition [0..1] : Bridge_bypassConditionMeta
     + colourPattern [0..1] : Bridge_colourPatternMeta
     + conspicuousAirCategory [0..1] : Bridge_conspicuousAirCategoryMeta
@@ -178,7 +178,7 @@ package "NyTransportation" {
     + controllingAuthority [0..1] : Bridge_controllingAuthorityMeta
     + deckCount [0..1] : IntegerMeta
     + elevationMsl [0..1] : MeasureMeta
-    + facilityOperationalStatus [0..1] : Bridge_facilityOperationalStatusMeta
+    + facilityOperationalStatus [0..1] : Bridge_facilityOperationalStatus
     + heightAboveSurfaceLevel [0..1] : HeightMeasureMeta
     + highestElevation [0..1] : ElevationMeasureMeta
     + horizontalClearance [0..1] : MeasureIntervalMeta
@@ -524,10 +524,6 @@ package "NyTransportation" {
     + valueOrReason [1] : Bridge_bridgeOpeningTypeReason
   }
 
-  class Bridge_bridgeStructureTypeMeta <<dataType>> {
-    + valueOrReason [1] : Bridge_bridgeStructureTypeReason
-  }
-
   class Bridge_bypassConditionMeta <<dataType>> {
     + valueOrReason [1] : Bridge_bypassConditionReason
   }
@@ -550,10 +546,6 @@ package "NyTransportation" {
 
   class Bridge_controllingAuthorityMeta <<dataType>> {
     + valueOrReason [1] : Bridge_controllingAuthorityReason
-  }
-
-  class Bridge_facilityOperationalStatusMeta <<dataType>> {
-    + valueOrReason [1] : Bridge_facilityOperationalStatusReason
   }
 
   class Bridge_navigationMarkColourMeta <<dataType>> {

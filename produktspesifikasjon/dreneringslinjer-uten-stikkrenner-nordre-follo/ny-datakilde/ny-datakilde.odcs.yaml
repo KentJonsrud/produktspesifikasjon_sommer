@@ -2844,11 +2844,154 @@ schema:
   - name: bridgeStructureType
     logicalType: array
     items:
-      logicalType: object
-      properties:
-      - name: valueOrReason
-        logicalType: string
-        required: true
+      logicalType: string
+      logicalTypeOptions:
+        pattern: ^(cantilever|deck|floating|girder|slab|stringerBeam|suspension|towerSuspension|transporter|truss|bowstringBridge|covered|openSpandrelArch|cableStayed|closedSpandrelArch|arch|trestle)$
+      customProperties:
+      - property: allowedValues
+        value:
+        - value: cantilever
+          label: '-- Definition --
+
+            Consists of beams or trusses that project from piers or abutments toward
+            each other and, when joined directly or by a suspended connecting member,
+            form a bridge span.
+
+            -- Description --
+
+            The beams or trusses are anchored at one end and unsupported at the other
+            end.'
+        - value: deck
+          label: '-- Definition --
+
+            Carries the travelled way upon the upper chords.
+
+            -- Description --'
+        - value: floating
+          label: '-- Definition --
+
+            Fixed, floating, and supported by pontoons.
+
+            -- Description --
+
+            Usually temporary in nature.'
+        - value: girder
+          label: '-- Definition --
+
+            Consists of two or more girders supporting a separate floor or system.
+
+            -- Description --
+
+            May be assembled as single spans or combined into multiple spans with
+            intermediate supports.'
+        - value: slab
+          label: '-- Definition --
+
+            A self-supporting slab.
+
+            -- Description --'
+        - value: stringerBeam
+          label: '-- Definition --
+
+            Consists of two or more beams supporting a separate floor or system.
+
+            -- Description --
+
+            The stringers may be in standard rolled shapes in spans up to 90 feet
+            in length and as beams built-up with welded steel plate in the 60 to 120
+            foot span range.'
+        - value: suspension
+          label: '-- Definition --
+
+            The deck is suspended by hangars from cables attached to and extending
+            between supports.
+
+            -- Description --
+
+            The supports may be in the form of towers located between the ends of
+            the bridge.'
+        - value: towerSuspension
+          label: '-- Definition --
+
+            The deck is suspended by hangars from cables that pass over two (or more)
+            towers and are anchored by backstays to a firm foundation.
+
+            -- Description --'
+        - value: transporter
+          label: '-- Definition --
+
+            Consists of towers on each side of the watercourse connected by a system
+            of girders on which a carriage runs.
+
+            -- Description --'
+        - value: truss
+          label: '-- Definition --
+
+            Supported by a framework of rafters, posts and struts.
+
+            -- Description --
+
+            Typically used in long spans from 150 to 1,000 feet or more.'
+        - value: bowstringBridge
+          label: '-- Definition --
+
+            A girder bridge consisting of an arch (the ''bow''), a horizontal tie,
+            and a series of hangars providing additional load-carrying support.
+
+            -- Description --
+
+            Hangers descend vertically at regular intervals from the cables to the
+            bridge deck.'
+        - value: covered
+          label: '-- Definition --
+
+            Including protection from the weather for the travel surface.
+
+            -- Description --'
+        - value: openSpandrelArch
+          label: '-- Definition --
+
+            Arch, where the space above the right and left curves of the arch is open.
+
+            -- Description --'
+        - value: cableStayed
+          label: '-- Definition --
+
+            The deck is suspended from cables attached directly to tower-like supports.
+
+            -- Description --
+
+            There are two major classes of cable-stayed bridges, differentiated by
+            how the cables are connected to the towers. In a parallel attachment design,
+            the cables are made nearly parallel by having the height of attachment
+            on the tower be similar to the distance from the pillar along the roadway.
+            In a radial attachment design, the cables all connect to or pass over
+            the top of the pillar.'
+        - value: closedSpandrelArch
+          label: '-- Definition --
+
+            Arch, where the space above the right and left curves of the arch is closed.
+
+            -- Description --'
+        - value: arch
+          label: '-- Definition --
+
+            Supported by an arch underneath the bridge that directs pressure and weight
+            of the bridge outward to the supports along the arch.
+
+            -- Description --'
+        - value: trestle
+          label: '-- Definition --
+
+            Consists of a large number of short spans, supported by splayed vertical
+            elements to provide lateral rigidity.
+
+            -- Description --
+
+            Traditionally used mainly for railways and constructed from wood timbers.
+            Twentieth century construction has eliminated much of the need for trestles
+            by using more extensive grading and tunneling, however they remain in
+            use as approaches to bridges where required by the local topography.'
     description: '-- Definition --
 
       The type(s) of structural design of a bridge, bridge span, or bridge superstructure.
@@ -2990,11 +3133,63 @@ schema:
 
       metre'
   - name: facilityOperationalStatus
-    logicalType: object
-    properties:
-    - name: valueOrReason
-      logicalType: string
-      required: true
+    logicalType: string
+    logicalTypeOptions:
+      pattern: ^(nonOperational|notInOperation|operational|partiallyOperational|planned|temporarilyNonOperational)$
+    customProperties:
+    - property: allowedValues
+      value:
+      - value: nonOperational
+        label: '-- Definition --
+
+          Not in operation due to it being non-functional and operation is not scheduled
+          to be restored.
+
+          -- Description --'
+      - value: notInOperation
+        label: '-- Definition --
+
+          Fully functional and ready for operation however has not been certified
+          or commissioned for such use.
+
+          -- Description --
+
+          The operational capacity may not be authorized for various reasons, such
+          as newly installed and not yet commissioned or certified, or operational
+          but has been taken out of service for non-technical reasons, awaiting certification
+          or commissioning status.'
+      - value: operational
+        label: '-- Definition --
+
+          Fully capable of operation.
+
+          -- Description --
+
+          The schedule of operations may be indeterminate or unknown.'
+      - value: partiallyOperational
+        label: '-- Definition --
+
+          Functional, but operating with only partial capability for some reason.
+
+          -- Description --
+
+          Parts of the man-made structure are not in operation; or, the operation
+          is running below capacity.'
+      - value: planned
+        label: '-- Definition --
+
+          Future operations are scheduled.
+
+          -- Description --'
+      - value: temporarilyNonOperational
+        label: '-- Definition --
+
+          Temporarily not in operation due to it being non-functional and operation
+          is scheduled to be restored.
+
+          -- Description --
+
+          Usually an unscheduled loss of operation.'
     description: '-- Definition --
 
       The status of operation of a man-made structure, as a whole.

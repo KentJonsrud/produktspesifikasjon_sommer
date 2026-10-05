@@ -95,7 +95,7 @@ The identifier is assigned consecutively (for example: within a map sheet or wit
 -- UnitOfMeasure --</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="bridgeStructureType" type="nydatakilde:Bridge_bridgeStructureTypeMetaPropertyType">
+          <element maxOccurs="unbounded" minOccurs="0" name="bridgeStructureType" type="nydatakilde:Bridge_bridgeStructureTypeType">
             <annotation>
               <documentation>-- Definition --
 The type(s) of structural design of a bridge, bridge span, or bridge superstructure.
@@ -175,7 +175,7 @@ The vertical distance of a point or a level, on or affixed to the surface of the
 metre</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="facilityOperationalStatus" type="nydatakilde:Bridge_facilityOperationalStatusMetaPropertyType">
+          <element minOccurs="0" name="facilityOperationalStatus" type="nydatakilde:Bridge_facilityOperationalStatusType">
             <annotation>
               <documentation>-- Definition --
 The status of operation of a man-made structure, as a whole.
@@ -1530,17 +1530,138 @@ The general shape and/or structure of a tower.
       <element ref="nydatakilde:Bridge_bridgeOpeningTypeMeta"/>
     </sequence>
   </complexType>
-  <element name="Bridge_bridgeStructureTypeMeta" substitutionGroup="gml:AbstractObject" type="nydatakilde:Bridge_bridgeStructureTypeMetaType"/>
-  <complexType name="Bridge_bridgeStructureTypeMetaType">
-    <sequence>
-      <element name="valueOrReason"/>
-    </sequence>
-  </complexType>
-  <complexType name="Bridge_bridgeStructureTypeMetaPropertyType">
-    <sequence>
-      <element ref="nydatakilde:Bridge_bridgeStructureTypeMeta"/>
-    </sequence>
-  </complexType>
+  <simpleType name="Bridge_bridgeStructureTypeType">
+    <restriction base="string">
+      <enumeration value="cantilever">
+        <annotation>
+          <documentation>-- Definition --
+Consists of beams or trusses that project from piers or abutments toward each other and, when joined directly or by a suspended connecting member, form a bridge span.
+-- Description --
+The beams or trusses are anchored at one end and unsupported at the other end.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="deck">
+        <annotation>
+          <documentation>-- Definition --
+Carries the travelled way upon the upper chords.
+-- Description --</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="floating">
+        <annotation>
+          <documentation>-- Definition --
+Fixed, floating, and supported by pontoons.
+-- Description --
+Usually temporary in nature.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="girder">
+        <annotation>
+          <documentation>-- Definition --
+Consists of two or more girders supporting a separate floor or system.
+-- Description --
+May be assembled as single spans or combined into multiple spans with intermediate supports.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="slab">
+        <annotation>
+          <documentation>-- Definition --
+A self-supporting slab.
+-- Description --</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="stringerBeam">
+        <annotation>
+          <documentation>-- Definition --
+Consists of two or more beams supporting a separate floor or system.
+-- Description --
+The stringers may be in standard rolled shapes in spans up to 90 feet in length and as beams built-up with welded steel plate in the 60 to 120 foot span range.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="suspension">
+        <annotation>
+          <documentation>-- Definition --
+The deck is suspended by hangars from cables attached to and extending between supports.
+-- Description --
+The supports may be in the form of towers located between the ends of the bridge.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="towerSuspension">
+        <annotation>
+          <documentation>-- Definition --
+The deck is suspended by hangars from cables that pass over two (or more) towers and are anchored by backstays to a firm foundation.
+-- Description --</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="transporter">
+        <annotation>
+          <documentation>-- Definition --
+Consists of towers on each side of the watercourse connected by a system of girders on which a carriage runs.
+-- Description --</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="truss">
+        <annotation>
+          <documentation>-- Definition --
+Supported by a framework of rafters, posts and struts.
+-- Description --
+Typically used in long spans from 150 to 1,000 feet or more.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="bowstringBridge">
+        <annotation>
+          <documentation>-- Definition --
+A girder bridge consisting of an arch (the 'bow'), a horizontal tie, and a series of hangars providing additional load-carrying support.
+-- Description --
+Hangers descend vertically at regular intervals from the cables to the bridge deck.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="covered">
+        <annotation>
+          <documentation>-- Definition --
+Including protection from the weather for the travel surface.
+-- Description --</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="openSpandrelArch">
+        <annotation>
+          <documentation>-- Definition --
+Arch, where the space above the right and left curves of the arch is open.
+-- Description --</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="cableStayed">
+        <annotation>
+          <documentation>-- Definition --
+The deck is suspended from cables attached directly to tower-like supports.
+-- Description --
+There are two major classes of cable-stayed bridges, differentiated by how the cables are connected to the towers. In a parallel attachment design, the cables are made nearly parallel by having the height of attachment on the tower be similar to the distance from the pillar along the roadway. In a radial attachment design, the cables all connect to or pass over the top of the pillar.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="closedSpandrelArch">
+        <annotation>
+          <documentation>-- Definition --
+Arch, where the space above the right and left curves of the arch is closed.
+-- Description --</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="arch">
+        <annotation>
+          <documentation>-- Definition --
+Supported by an arch underneath the bridge that directs pressure and weight of the bridge outward to the supports along the arch.
+-- Description --</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="trestle">
+        <annotation>
+          <documentation>-- Definition --
+Consists of a large number of short spans, supported by splayed vertical elements to provide lateral rigidity.
+-- Description --
+Traditionally used mainly for railways and constructed from wood timbers. Twentieth century construction has eliminated much of the need for trestles by using more extensive grading and tunneling, however they remain in use as approaches to bridges where required by the local topography.</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
   <element name="Bridge_bypassConditionMeta" substitutionGroup="gml:AbstractObject" type="nydatakilde:Bridge_bypassConditionMetaType"/>
   <complexType name="Bridge_bypassConditionMetaType">
     <sequence>
@@ -1618,17 +1739,64 @@ The general shape and/or structure of a tower.
       <element ref="nydatakilde:Bridge_directivityMeta"/>
     </sequence>
   </complexType>
-  <element name="Bridge_facilityOperationalStatusMeta" substitutionGroup="gml:AbstractObject" type="nydatakilde:Bridge_facilityOperationalStatusMetaType"/>
-  <complexType name="Bridge_facilityOperationalStatusMetaType">
-    <sequence>
-      <element name="valueOrReason"/>
-    </sequence>
-  </complexType>
-  <complexType name="Bridge_facilityOperationalStatusMetaPropertyType">
-    <sequence>
-      <element ref="nydatakilde:Bridge_facilityOperationalStatusMeta"/>
-    </sequence>
-  </complexType>
+  <simpleType name="Bridge_facilityOperationalStatusType">
+    <union memberTypes="nydatakilde:Bridge_facilityOperationalStatusEnumerationType nydatakilde:Bridge_facilityOperationalStatusOtherType"/>
+  </simpleType>
+  <simpleType name="Bridge_facilityOperationalStatusEnumerationType">
+    <restriction base="string">
+      <enumeration value="nonOperational">
+        <annotation>
+          <documentation>-- Definition --
+Not in operation due to it being non-functional and operation is not scheduled to be restored.
+-- Description --</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="notInOperation">
+        <annotation>
+          <documentation>-- Definition --
+Fully functional and ready for operation however has not been certified or commissioned for such use.
+-- Description --
+The operational capacity may not be authorized for various reasons, such as newly installed and not yet commissioned or certified, or operational but has been taken out of service for non-technical reasons, awaiting certification or commissioning status.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="operational">
+        <annotation>
+          <documentation>-- Definition --
+Fully capable of operation.
+-- Description --
+The schedule of operations may be indeterminate or unknown.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="partiallyOperational">
+        <annotation>
+          <documentation>-- Definition --
+Functional, but operating with only partial capability for some reason.
+-- Description --
+Parts of the man-made structure are not in operation; or, the operation is running below capacity.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="planned">
+        <annotation>
+          <documentation>-- Definition --
+Future operations are scheduled.
+-- Description --</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="temporarilyNonOperational">
+        <annotation>
+          <documentation>-- Definition --
+Temporarily not in operation due to it being non-functional and operation is scheduled to be restored.
+-- Description --
+Usually an unscheduled loss of operation.</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Bridge_facilityOperationalStatusOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Bridge_navigationMarkColourMeta" substitutionGroup="gml:AbstractObject" type="nydatakilde:Bridge_navigationMarkColourMetaType"/>
   <complexType name="Bridge_navigationMarkColourMetaType">
     <sequence>

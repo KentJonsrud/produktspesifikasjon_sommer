@@ -27,6 +27,18 @@ types:
         sourcePath: objid
         type: INTEGER
         role: ID
+      bridgeStructureType:
+        sourcePath: "[objid=bridgeobjid]Bridge_bridgeStructureType/bridgestructuretype"
+        type: VALUE_ARRAY
+        valueType: STRING
+        constraints:
+          codelist: Bridge_bridgeStructureType
+          minOccurrence: 0
+      facilityOperationalStatus:
+        sourcePath: facilityoperationalstatus
+        type: STRING
+        constraints:
+          codelist: Bridge_facilityOperationalStatus
       waterbodyOverheadObstruct:
         sourcePath: waterbodyoverheadobstruct
         type: STRING

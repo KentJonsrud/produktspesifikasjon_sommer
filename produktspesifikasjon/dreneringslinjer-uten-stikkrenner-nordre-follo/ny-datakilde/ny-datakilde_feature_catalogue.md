@@ -5360,28 +5360,54 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>Bridge_bridgeStructureTypeMeta</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>bridgeStructureType.valueOrReason</strong></td>
+      <td>Bridge_bridgeStructureType</td>
     </tr>
     <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>Bridge_bridgeStructureTypeReason</td>
+      <th scope="row">Tillatte verdier:</th>
+      <td>- cantilever – -- Definition --
+Consists of beams or trusses that project from piers or abutments toward each other and, when joined directly or by a suspended connecting member, form a bridge span.
+-- Description --
+The beams or trusses are anchored at one end and unsupported at the other end.<br />- deck – -- Definition --
+Carries the travelled way upon the upper chords.
+-- Description --<br />- floating – -- Definition --
+Fixed, floating, and supported by pontoons.
+-- Description --
+Usually temporary in nature.<br />- girder – -- Definition --
+Consists of two or more girders supporting a separate floor or system.
+-- Description --
+May be assembled as single spans or combined into multiple spans with intermediate supports.<br />- slab – -- Definition --
+A self-supporting slab.
+-- Description --<br />- stringerBeam – -- Definition --
+Consists of two or more beams supporting a separate floor or system.
+-- Description --
+The stringers may be in standard rolled shapes in spans up to 90 feet in length and as beams built-up with welded steel plate in the 60 to 120 foot span range.<br />- suspension – -- Definition --
+The deck is suspended by hangars from cables attached to and extending between supports.
+-- Description --
+The supports may be in the form of towers located between the ends of the bridge.<br />- towerSuspension – -- Definition --
+The deck is suspended by hangars from cables that pass over two (or more) towers and are anchored by backstays to a firm foundation.
+-- Description --<br />- transporter – -- Definition --
+Consists of towers on each side of the watercourse connected by a system of girders on which a carriage runs.
+-- Description --<br />- truss – -- Definition --
+Supported by a framework of rafters, posts and struts.
+-- Description --
+Typically used in long spans from 150 to 1,000 feet or more.<br />- bowstringBridge – -- Definition --
+A girder bridge consisting of an arch (the 'bow'), a horizontal tie, and a series of hangars providing additional load-carrying support.
+-- Description --
+Hangers descend vertically at regular intervals from the cables to the bridge deck.<br />- covered – -- Definition --
+Including protection from the weather for the travel surface.
+-- Description --<br />- openSpandrelArch – -- Definition --
+Arch, where the space above the right and left curves of the arch is open.
+-- Description --<br />- cableStayed – -- Definition --
+The deck is suspended from cables attached directly to tower-like supports.
+-- Description --
+There are two major classes of cable-stayed bridges, differentiated by how the cables are connected to the towers. In a parallel attachment design, the cables are made nearly parallel by having the height of attachment on the tower be similar to the distance from the pillar along the roadway. In a radial attachment design, the cables all connect to or pass over the top of the pillar.<br />- closedSpandrelArch – -- Definition --
+Arch, where the space above the right and left curves of the arch is closed.
+-- Description --<br />- arch – -- Definition --
+Supported by an arch underneath the bridge that directs pressure and weight of the bridge outward to the supports along the arch.
+-- Description --<br />- trestle – -- Definition --
+Consists of a large number of short spans, supported by splayed vertical elements to provide lateral rigidity.
+-- Description --
+Traditionally used mainly for railways and constructed from wood timbers. Twentieth century construction has eliminated much of the need for trestles by using more extensive grading and tunneling, however they remain in use as approaches to bridges where required by the local topography.</td>
     </tr>
   </tbody>
 </table>
@@ -5774,28 +5800,27 @@ Egenskaper
     </tr>
     <tr>
       <th scope="row">Type:</th>
-      <td>Bridge_facilityOperationalStatusMeta</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="feature-attribute-table">
-  <colgroup>
-    <col style="width: 35%;" />
-    <col style="width: 65%;" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th scope="row">Navn:</th>
-      <td><strong>facilityOperationalStatus.valueOrReason</strong></td>
+      <td>Bridge_facilityOperationalStatus</td>
     </tr>
     <tr>
-      <th scope="row">Multiplisitet:</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th scope="row">Type:</th>
-      <td>Bridge_facilityOperationalStatusReason</td>
+      <th scope="row">Tillatte verdier:</th>
+      <td>- nonOperational – -- Definition --
+Not in operation due to it being non-functional and operation is not scheduled to be restored.
+-- Description --<br />- notInOperation – -- Definition --
+Fully functional and ready for operation however has not been certified or commissioned for such use.
+-- Description --
+The operational capacity may not be authorized for various reasons, such as newly installed and not yet commissioned or certified, or operational but has been taken out of service for non-technical reasons, awaiting certification or commissioning status.<br />- operational – -- Definition --
+Fully capable of operation.
+-- Description --
+The schedule of operations may be indeterminate or unknown.<br />- partiallyOperational – -- Definition --
+Functional, but operating with only partial capability for some reason.
+-- Description --
+Parts of the man-made structure are not in operation; or, the operation is running below capacity.<br />- planned – -- Definition --
+Future operations are scheduled.
+-- Description --<br />- temporarilyNonOperational – -- Definition --
+Temporarily not in operation due to it being non-functional and operation is scheduled to be restored.
+-- Description --
+Usually an unscheduled loss of operation.</td>
     </tr>
   </tbody>
 </table>
@@ -9652,3 +9677,211 @@ ActorEntity
 
 **Assosiasjoner**
 Organisation – rolle: mainOrganisation – kardinalitet: 0..*
+
+### Kodelister
+
+#### «Enumeration» Bridge_bridgeStructureType
+
+Koder
+
+<table class="code-list-table">
+  <thead>
+    <tr>
+      <th>Kodenavn:</th>
+      <th>Definisjon:</th>
+      <th>Kodeverdi:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cantilever</td>
+      <td>-- Definition --
+Consists of beams or trusses that project from piers or abutments toward each other and, when joined directly or by a suspended connecting member, form a bridge span.
+-- Description --
+The beams or trusses are anchored at one end and unsupported at the other end.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>deck</td>
+      <td>-- Definition --
+Carries the travelled way upon the upper chords.
+-- Description --</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>floating</td>
+      <td>-- Definition --
+Fixed, floating, and supported by pontoons.
+-- Description --
+Usually temporary in nature.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>girder</td>
+      <td>-- Definition --
+Consists of two or more girders supporting a separate floor or system.
+-- Description --
+May be assembled as single spans or combined into multiple spans with intermediate supports.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>slab</td>
+      <td>-- Definition --
+A self-supporting slab.
+-- Description --</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>stringerBeam</td>
+      <td>-- Definition --
+Consists of two or more beams supporting a separate floor or system.
+-- Description --
+The stringers may be in standard rolled shapes in spans up to 90 feet in length and as beams built-up with welded steel plate in the 60 to 120 foot span range.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>suspension</td>
+      <td>-- Definition --
+The deck is suspended by hangars from cables attached to and extending between supports.
+-- Description --
+The supports may be in the form of towers located between the ends of the bridge.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>towerSuspension</td>
+      <td>-- Definition --
+The deck is suspended by hangars from cables that pass over two (or more) towers and are anchored by backstays to a firm foundation.
+-- Description --</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>transporter</td>
+      <td>-- Definition --
+Consists of towers on each side of the watercourse connected by a system of girders on which a carriage runs.
+-- Description --</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>truss</td>
+      <td>-- Definition --
+Supported by a framework of rafters, posts and struts.
+-- Description --
+Typically used in long spans from 150 to 1,000 feet or more.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>bowstringBridge</td>
+      <td>-- Definition --
+A girder bridge consisting of an arch (the 'bow'), a horizontal tie, and a series of hangars providing additional load-carrying support.
+-- Description --
+Hangers descend vertically at regular intervals from the cables to the bridge deck.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>covered</td>
+      <td>-- Definition --
+Including protection from the weather for the travel surface.
+-- Description --</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>openSpandrelArch</td>
+      <td>-- Definition --
+Arch, where the space above the right and left curves of the arch is open.
+-- Description --</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>cableStayed</td>
+      <td>-- Definition --
+The deck is suspended from cables attached directly to tower-like supports.
+-- Description --
+There are two major classes of cable-stayed bridges, differentiated by how the cables are connected to the towers. In a parallel attachment design, the cables are made nearly parallel by having the height of attachment on the tower be similar to the distance from the pillar along the roadway. In a radial attachment design, the cables all connect to or pass over the top of the pillar.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>closedSpandrelArch</td>
+      <td>-- Definition --
+Arch, where the space above the right and left curves of the arch is closed.
+-- Description --</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>arch</td>
+      <td>-- Definition --
+Supported by an arch underneath the bridge that directs pressure and weight of the bridge outward to the supports along the arch.
+-- Description --</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>trestle</td>
+      <td>-- Definition --
+Consists of a large number of short spans, supported by splayed vertical elements to provide lateral rigidity.
+-- Description --
+Traditionally used mainly for railways and constructed from wood timbers. Twentieth century construction has eliminated much of the need for trestles by using more extensive grading and tunneling, however they remain in use as approaches to bridges where required by the local topography.</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+#### «Enumeration» Bridge_facilityOperationalStatus
+
+Koder
+
+<table class="code-list-table">
+  <thead>
+    <tr>
+      <th>Kodenavn:</th>
+      <th>Definisjon:</th>
+      <th>Kodeverdi:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>nonOperational</td>
+      <td>-- Definition --
+Not in operation due to it being non-functional and operation is not scheduled to be restored.
+-- Description --</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>notInOperation</td>
+      <td>-- Definition --
+Fully functional and ready for operation however has not been certified or commissioned for such use.
+-- Description --
+The operational capacity may not be authorized for various reasons, such as newly installed and not yet commissioned or certified, or operational but has been taken out of service for non-technical reasons, awaiting certification or commissioning status.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>operational</td>
+      <td>-- Definition --
+Fully capable of operation.
+-- Description --
+The schedule of operations may be indeterminate or unknown.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>partiallyOperational</td>
+      <td>-- Definition --
+Functional, but operating with only partial capability for some reason.
+-- Description --
+Parts of the man-made structure are not in operation; or, the operation is running below capacity.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>planned</td>
+      <td>-- Definition --
+Future operations are scheduled.
+-- Description --</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>temporarilyNonOperational</td>
+      <td>-- Definition --
+Temporarily not in operation due to it being non-functional and operation is scheduled to be restored.
+-- Description --
+Usually an unscheduled loss of operation.</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

@@ -1635,16 +1635,82 @@
       },
       {
         "name": "bridgeStructureType",
-        "type": "Bridge_bridgeStructureTypeMeta",
+        "type": "Bridge_bridgeStructureType",
         "description": "-- Definition --\nThe type(s) of structural design of a bridge, bridge span, or bridge superstructure.\n-- Description --\n-- UnitOfMeasure --",
         "cardinality": "0..*",
-        "attributes": [
-          {
-            "name": "valueOrReason",
-            "type": "Bridge_bridgeStructureTypeReason",
-            "cardinality": "1"
-          }
-        ]
+        "valueDomain": {
+          "kind": "enumeration",
+          "listedValues": [
+            {
+              "value": "cantilever",
+              "label": "-- Definition --\nConsists of beams or trusses that project from piers or abutments toward each other and, when joined directly or by a suspended connecting member, form a bridge span.\n-- Description --\nThe beams or trusses are anchored at one end and unsupported at the other end."
+            },
+            {
+              "value": "deck",
+              "label": "-- Definition --\nCarries the travelled way upon the upper chords.\n-- Description --"
+            },
+            {
+              "value": "floating",
+              "label": "-- Definition --\nFixed, floating, and supported by pontoons.\n-- Description --\nUsually temporary in nature."
+            },
+            {
+              "value": "girder",
+              "label": "-- Definition --\nConsists of two or more girders supporting a separate floor or system.\n-- Description --\nMay be assembled as single spans or combined into multiple spans with intermediate supports."
+            },
+            {
+              "value": "slab",
+              "label": "-- Definition --\nA self-supporting slab.\n-- Description --"
+            },
+            {
+              "value": "stringerBeam",
+              "label": "-- Definition --\nConsists of two or more beams supporting a separate floor or system.\n-- Description --\nThe stringers may be in standard rolled shapes in spans up to 90 feet in length and as beams built-up with welded steel plate in the 60 to 120 foot span range."
+            },
+            {
+              "value": "suspension",
+              "label": "-- Definition --\nThe deck is suspended by hangars from cables attached to and extending between supports.\n-- Description --\nThe supports may be in the form of towers located between the ends of the bridge."
+            },
+            {
+              "value": "towerSuspension",
+              "label": "-- Definition --\nThe deck is suspended by hangars from cables that pass over two (or more) towers and are anchored by backstays to a firm foundation.\n-- Description --"
+            },
+            {
+              "value": "transporter",
+              "label": "-- Definition --\nConsists of towers on each side of the watercourse connected by a system of girders on which a carriage runs.\n-- Description --"
+            },
+            {
+              "value": "truss",
+              "label": "-- Definition --\nSupported by a framework of rafters, posts and struts.\n-- Description --\nTypically used in long spans from 150 to 1,000 feet or more."
+            },
+            {
+              "value": "bowstringBridge",
+              "label": "-- Definition --\nA girder bridge consisting of an arch (the 'bow'), a horizontal tie, and a series of hangars providing additional load-carrying support.\n-- Description --\nHangers descend vertically at regular intervals from the cables to the bridge deck."
+            },
+            {
+              "value": "covered",
+              "label": "-- Definition --\nIncluding protection from the weather for the travel surface.\n-- Description --"
+            },
+            {
+              "value": "openSpandrelArch",
+              "label": "-- Definition --\nArch, where the space above the right and left curves of the arch is open.\n-- Description --"
+            },
+            {
+              "value": "cableStayed",
+              "label": "-- Definition --\nThe deck is suspended from cables attached directly to tower-like supports.\n-- Description --\nThere are two major classes of cable-stayed bridges, differentiated by how the cables are connected to the towers. In a parallel attachment design, the cables are made nearly parallel by having the height of attachment on the tower be similar to the distance from the pillar along the roadway. In a radial attachment design, the cables all connect to or pass over the top of the pillar."
+            },
+            {
+              "value": "closedSpandrelArch",
+              "label": "-- Definition --\nArch, where the space above the right and left curves of the arch is closed.\n-- Description --"
+            },
+            {
+              "value": "arch",
+              "label": "-- Definition --\nSupported by an arch underneath the bridge that directs pressure and weight of the bridge outward to the supports along the arch.\n-- Description --"
+            },
+            {
+              "value": "trestle",
+              "label": "-- Definition --\nConsists of a large number of short spans, supported by splayed vertical elements to provide lateral rigidity.\n-- Description --\nTraditionally used mainly for railways and constructed from wood timbers. Twentieth century construction has eliminated much of the need for trestles by using more extensive grading and tunneling, however they remain in use as approaches to bridges where required by the local topography."
+            }
+          ]
+        }
       },
       {
         "name": "bypassCondition",
@@ -1752,16 +1818,38 @@
       },
       {
         "name": "facilityOperationalStatus",
-        "type": "Bridge_facilityOperationalStatusMeta",
+        "type": "Bridge_facilityOperationalStatus",
         "description": "-- Definition --\nThe status of operation of a man-made structure, as a whole.\n-- Description --\nIncludes actual operations, operational capability, and planned or proposed man-made structures.\n-- UnitOfMeasure --",
         "cardinality": "0..1",
-        "attributes": [
-          {
-            "name": "valueOrReason",
-            "type": "Bridge_facilityOperationalStatusReason",
-            "cardinality": "1"
-          }
-        ]
+        "valueDomain": {
+          "kind": "codelist",
+          "listedValues": [
+            {
+              "value": "nonOperational",
+              "label": "-- Definition --\nNot in operation due to it being non-functional and operation is not scheduled to be restored.\n-- Description --"
+            },
+            {
+              "value": "notInOperation",
+              "label": "-- Definition --\nFully functional and ready for operation however has not been certified or commissioned for such use.\n-- Description --\nThe operational capacity may not be authorized for various reasons, such as newly installed and not yet commissioned or certified, or operational but has been taken out of service for non-technical reasons, awaiting certification or commissioning status."
+            },
+            {
+              "value": "operational",
+              "label": "-- Definition --\nFully capable of operation.\n-- Description --\nThe schedule of operations may be indeterminate or unknown."
+            },
+            {
+              "value": "partiallyOperational",
+              "label": "-- Definition --\nFunctional, but operating with only partial capability for some reason.\n-- Description --\nParts of the man-made structure are not in operation; or, the operation is running below capacity."
+            },
+            {
+              "value": "planned",
+              "label": "-- Definition --\nFuture operations are scheduled.\n-- Description --"
+            },
+            {
+              "value": "temporarilyNonOperational",
+              "label": "-- Definition --\nTemporarily not in operation due to it being non-functional and operation is scheduled to be restored.\n-- Description --\nUsually an unscheduled loss of operation."
+            }
+          ]
+        }
       },
       {
         "name": "heightAboveSurfaceLevel",
