@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:jordsmonn="https://skjema.geonorge.no/SOSI/produktspesifikasjon/jordsmonn/jordsmonn/1.0" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://skjema.geonorge.no/SOSI/produktspesifikasjon/jordsmonn/jordsmonn/1.0" version="1.0">
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="https://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Identifikasjon" substitutionGroup="gml:AbstractObject" type="jordsmonn:IdentifikasjonType"/>
+  <complexType name="IdentifikasjonType">
+    <sequence>
+      <element name="lokalId" type="string">
+        <annotation>
+          <documentation>lokal identifikator av et objekt
+Merknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren er unik innenfor navnerommet.</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">LOKALID</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="navnerom" type="string">
+        <annotation>
+          <documentation>navnerom som unikt identifiserer datakilden til et objekt, anbefales å være en http-URI
+Eksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0
+Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar for de unike identifikatorene og må være registrert i data.geonorge.no eller data.norge.no</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">NAVNEROM</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="IdentifikasjonPropertyType">
+    <sequence>
+      <element ref="jordsmonn:Identifikasjon"/>
+    </sequence>
+  </complexType>
+  <element name="Jordsmonn" substitutionGroup="jordsmonn:Jordsmonn_Fellesegenskaper" type="jordsmonn:JordsmonnType">
+    <annotation>
+      <documentation>geografisk område med tilnærmet enhetlige egenskaper i jordsmonnet
+-- Definition --
+geographic area with approximately uniform soil characteristics</documentation>
+    </annotation>
+  </element>
+  <complexType name="JordsmonnType">
+    <complexContent>
+      <extension base="jordsmonn:Jordsmonn_FellesegenskaperType">
+        <sequence>
+          <element name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>objektets utstrekning
+-- Definition --
+area over which an object extends</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">Flate</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="dominerendeTeksturOverflatesjikt" type="gml:CodeType">
+            <annotation>
+              <documentation>Viser arealets dominerende tekstur (og grusinnhold) i overflatesjikt registrert under jordkartlegging i felt.
+-- Definition --
+category for the dominant texture in the surface layer recorded during fieldwork.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/jordsmonn/dominerendeteksturoverflatesjikt</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">DOMTEKSTUROVERFLATE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="forstyrrelser" type="gml:CodeType">
+            <annotation>
+              <documentation>Viser hva slags menneskelig aktivitet, utover vanlig jordarbeiding/grøfting, som har forstyrret arealet.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/jordsmonn/forstyrrelser</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">FORSTYRRELSER</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="helling" type="gml:CodeType">
+            <annotation>
+              <documentation>Viser dominerende helling på arealet.
+-- Definition --
+inclination class for the soil figure</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/jordsmonn/helling</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">HELLING</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="jordsmonnklassifikasjon" type="gml:CodeType">
+            <annotation>
+              <documentation>Viser hvilken jordgruppe som dominerer på arealet
+-- Definition --
+Shows which soiltype which is dominating the area.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/jordsmonn/jordsmonnklassifikasjon</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">JMKLASSIFIKASJON</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="kartleggingsmetodikk" type="gml:CodeType">
+            <annotation>
+              <documentation>Viser hvilken opprinnelig kartleggingsmetodikk som er brukt under jordsmonnkartlegging.
+--Definition--
+Displays the methodolgy used during field mapping.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/jordsmonn/kartleggingsmetodikk</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">KL_METODIKK</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="kartleggingsår" type="string">
+            <annotation>
+              <documentation>Viser årstall for når jordsmonnkartlegging er utført.
+-- Definition --
+year of mapping</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KL_ÅR</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="mestBegrensendeJordegenskap" type="gml:CodeType">
+            <annotation>
+              <documentation>Viser den jordegenskapen som er mest begrensende for bruken av arealet</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/jordsmonn/mestbegrensendejordegenskap</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">MESTBEGRENSENDEJORDEGENSKAP</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="naturligeDreneringsforhold" type="gml:CodeType">
+            <annotation>
+              <documentation>Viser jordsmonnets naturlige evne til å bli kvitt overflødig vann.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/jordsmonn/naturligedreneringsforhold</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">NATDRENFORHOLD</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="organiskMateriale" type="gml:CodeType">
+            <annotation>
+              <documentation>Viser jordsmonnets innhold av organisk materiale i overflatesjiktet, samt tykkelse på organisk jord der denne finnes.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/jordsmonn/organiskmateriale</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">ORGANISKMATERIALE</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="steinBlokk" type="gml:CodeType">
+            <annotation>
+              <documentation>Viser stein- og blokkinnhold (0–50 cm) på arealet på kartleggingstidspunktet</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/jordsmonn/steinblokk</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">STEINBLOKK</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tilleggsinformasjon" type="gml:CodeType">
+            <annotation>
+              <documentation>Viser tilleggsinformasjon om andre egenskaper ved arealet.</documentation>
+              <appinfo>
+                <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/jordsmonn/tilleggsinformasjon</sc:targetCodeListURI>
+                <sc:taggedValue tag="SOSI_navn">TILLEGG</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="opprinneligLokalId" type="integer">
+            <annotation>
+              <documentation>Opprinnelig id i databasen
+— Definition —
+Original ID in the soil database</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">FIGURID</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="avgrensesAvJordsmonngrense" type="jordsmonn:JordsmonnGrensePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="JordsmonnPropertyType">
+    <sequence minOccurs="0">
+      <element ref="jordsmonn:Jordsmonn"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="JordsmonnGrense" substitutionGroup="gml:AbstractFeature" type="jordsmonn:JordsmonnGrenseType">
+    <annotation>
+      <documentation>grensen for jordsmonnflata
+-- Definition --
+the boundary of an expanse of soil</documentation>
+    </annotation>
+  </element>
+  <complexType name="JordsmonnGrenseType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="grense" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger overgang mellom ulike fenomener
+-- Definition --
+course follwing the transition between different real world phenomena</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">Kurve</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="JordsmonnGrensePropertyType">
+    <sequence minOccurs="0">
+      <element ref="jordsmonn:JordsmonnGrense"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="Jordsmonn_Fellesegenskaper" substitutionGroup="gml:AbstractFeature" type="jordsmonn:Jordsmonn_FellesegenskaperType">
+    <annotation>
+      <documentation>abstrakt objekttype som bærer sentrale egenskaper som er anbefalt for bruk i produktspesifikasjoner.
+Merknad: Disse egenskapene skal derfor ikke modelleres inn i fagområdemodeller.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="Jordsmonn_FellesegenskaperType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="identifikasjon" type="jordsmonn:IdentifikasjonPropertyType">
+            <annotation>
+              <documentation>unik identifikasjon av et objekt</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">IDENT</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="kopidata" type="jordsmonn:KopidataPropertyType">
+            <annotation>
+              <documentation>angivelse av at objektet er hentet fra et kopidatasett og ikke fra originaldatasettet
+
+Merknad: Inneholder informasjon om når kopidatasettet ble kopiert fra originaldatasettet og hvem som er originaldataansvarlig</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KOPIDATA</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kvalitet" type="jordsmonn:PosisjonskvalitetPropertyType">
+            <annotation>
+              <documentation>Beskrivelse av kvaliteten på stedfestingen.</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">KVALITET</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="verifiseringsdato" type="date">
+            <annotation>
+              <documentation>dato når dataene er fastslått å være i samsvar med virkeligheten
+Merknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI</documentation>
+              <appinfo>
+                <sc:taggedValue tag="SOSI_navn">VERIFISERINGSDATO</sc:taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="Jordsmonn_FellesegenskaperPropertyType">
+    <sequence minOccurs="0">
+      <element ref="jordsmonn:Jordsmonn_Fellesegenskaper"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Kopidata" substitutionGroup="gml:AbstractObject" type="jordsmonn:KopidataType"/>
+  <complexType name="KopidataType">
+    <sequence>
+      <element name="områdeId" type="integer">
+        <annotation>
+          <documentation>identifikasjon av område som dataene dekker
+Merknad: Kan angis med kommunenummer eller fylkesnummer. Disse bør spesifiseres nærmere.</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">OMRÅDEID</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="originalDatavert" type="string">
+        <annotation>
+          <documentation>ansvarlig etat for forvaltning av data</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">ORIGINALDATAVERT</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="kopidato" type="date">
+        <annotation>
+          <documentation>dato når objektet ble kopiert fra originaldatasettet
+
+Merknad:
+Er en del av egenskapen Kopidata. Brukes i de tilfeller hvor en kopidatabase brukes til distribusjon.
+Å kopiere et datasett til en kopidatabase skal ikke føre til at Oppdateringsdato blir endret.
+Eventuell redigering av data i et kopidatasett medfører ny Oppdateringsdato, Datafangstdato og/eller Verifiseringsdato.</documentation>
+          <appinfo>
+            <sc:taggedValue tag="SOSI_navn">KOPIDATO</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="KopidataPropertyType">
+    <sequence>
+      <element ref="jordsmonn:Kopidata"/>
+    </sequence>
+  </complexType>
+  <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject" type="jordsmonn:PosisjonskvalitetType"/>
+  <complexType name="PosisjonskvalitetType">
+    <sequence>
+      <element name="målemetode" type="gml:CodeType">
+        <annotation>
+          <documentation>metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss</documentation>
+          <appinfo>
+            <sc:targetCodeListURI>https://register.geonorge.no/sosi-kodelister/generelle-konsepter/4.5/m%C3%A5lemetodekode</sc:targetCodeListURI>
+            <sc:taggedValue tag="SOSI_navn">MÅLEMETODE</sc:taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PosisjonskvalitetPropertyType">
+    <sequence>
+      <element ref="jordsmonn:Posisjonskvalitet"/>
+    </sequence>
+  </complexType>
+</schema>

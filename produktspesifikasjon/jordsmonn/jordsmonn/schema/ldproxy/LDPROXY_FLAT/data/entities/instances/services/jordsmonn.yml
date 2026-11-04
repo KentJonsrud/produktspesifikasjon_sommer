@@ -1,0 +1,15 @@
+---
+id: jordsmonn
+label: FIXME
+description: FIXME
+enabled: true
+serviceType: OGC_API
+collections:
+  jordsmonn:
+    id: jordsmonn
+    label: jordsmonn
+    enabled: true
+  jordsmonngrense:
+    id: jordsmonngrense
+    label: jordsmonngrense
+    enabled: true

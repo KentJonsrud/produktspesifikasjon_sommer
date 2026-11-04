@@ -1,0 +1,261 @@
+{
+  "$comment": "JSON Schema document created by ShapeChange - https://shapechange.net/",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://skjema.geonorge.no/SOSI/produktspesifikasjon/jordsmonn/jordsmonn/jordsmonn/jordsmonn.json",
+  "definitions": {
+    "DominerendeTeksturOverflatesjikt": {
+      "description": "Viser arealets dominerende tekstur (og grusinnhold) i overflatesjikt registrert under jordkartlegging i felt.\n-- Definition - -\ncategory for the dominant texture in the surface layer recorded during fieldwork.",
+      "codelist": "https://register.geonorge.no/sosi-kodelister/jordsmonn/dominerendeteksturoverflatesjikt",
+      "type": "string",
+      "format": "uri"
+    },
+    "Forstyrrelser": {
+      "description": "Viser hva slags menneskelig aktivitet, utover vanlig jordarbeiding/grøfting, som har forstyrret arealet.",
+      "codelist": "https://register.geonorge.no/sosi-kodelister/jordsmonn/forstyrrelser",
+      "type": "string",
+      "format": "uri"
+    },
+    "Helling": {
+      "description": "Viser dominerende helling på arealet.\n-- Definition --\ninclination class for the soil figure",
+      "codelist": "https://register.geonorge.no/sosi-kodelister/jordsmonn/helling",
+      "type": "string",
+      "format": "uri"
+    },
+    "Identifikasjon": {
+      "type": "object",
+      "properties": {
+        "lokalId": {
+          "description": "lokal identifikator av et objekt\nMerknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren er unik innenfor navnerommet.",
+          "type": "string"
+        },
+        "navnerom": {
+          "description": "navnerom som unikt identifiserer datakilden til et objekt, anbefales å være en http-URI\nEksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0\nMerknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar for de unike identifikatorene og må være registrert i data.geonorge.no eller data.norge.no",
+          "type": "string"
+        }
+      },
+      "required": [
+        "lokalId",
+        "navnerom"
+      ]
+    },
+    "Jordsmonn": {
+      "description": "geografisk område med tilnærmet enhetlige egenskaper i jordsmonnet\n-- Definition --\ngeographic area with approximately uniform soil characteristics",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Jordsmonn_Fellesegenskaper"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "dominerendeTeksturOverflatesjikt": {
+              "description": "Viser arealets dominerende tekstur (og grusinnhold) i overflatesjikt registrert under jordkartlegging i felt.\n-- Definition --\ncategory for the dominant texture in the surface layer recorded during fieldwork.",
+              "$ref": "#/definitions/DominerendeTeksturOverflatesjikt"
+            },
+            "forstyrrelser": {
+              "description": "Viser hva slags menneskelig aktivitet, utover vanlig jordarbeiding/grøfting, som har forstyrret arealet.",
+              "$ref": "#/definitions/Forstyrrelser"
+            },
+            "helling": {
+              "description": "Viser dominerende helling på arealet.\n-- Definition --\ninclination class for the soil figure",
+              "$ref": "#/definitions/Helling"
+            },
+            "jordsmonnklassifikasjon": {
+              "description": "Viser hvilken jordgruppe som dominerer på arealet\n-- Definition --\nShows which soiltype which is dominating the area.",
+              "$ref": "#/definitions/Jordsmonnklassifikasjon"
+            },
+            "kartleggingsmetodikk": {
+              "description": "Viser hvilken opprinnelig kartleggingsmetodikk som er brukt under jordsmonnkartlegging.\n--Definition--\nDisplays the methodolgy used during field mapping.",
+              "$ref": "#/definitions/Kartleggingsmetodikk"
+            },
+            "kartleggingsår": {
+              "description": "Viser årstall for når jordsmonnkartlegging er utført.\n-- Definition --\nyear of mapping",
+              "type": "string"
+            },
+            "mestBegrensendeJordegenskap": {
+              "description": "Viser den jordegenskapen som er mest begrensende for bruken av arealet",
+              "$ref": "#/definitions/MestBegrensendeJordegenskap"
+            },
+            "naturligeDreneringsforhold": {
+              "description": "Viser jordsmonnets naturlige evne til å bli kvitt overflødig vann.",
+              "$ref": "#/definitions/NaturligeDreneringsforhold"
+            },
+            "organiskMateriale": {
+              "description": "Viser jordsmonnets innhold av organisk materiale i overflatesjiktet, samt tykkelse på organisk jord der denne finnes.",
+              "$ref": "#/definitions/OrganiskMateriale"
+            },
+            "steinBlokk": {
+              "description": "Viser stein- og blokkinnhold (0–50 cm) på arealet på kartleggingstidspunktet",
+              "$ref": "#/definitions/SteinBlokk"
+            },
+            "tilleggsinformasjon": {
+              "description": "Viser tilleggsinformasjon om andre egenskaper ved arealet.",
+              "$ref": "#/definitions/Tilleggsinformasjon"
+            },
+            "opprinneligLokalId": {
+              "description": "Opprinnelig id i databasen\n— Definition —\nOriginal ID in the soil database",
+              "type": "integer"
+            },
+            "avgrensesAvJordsmonngrense": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "dominerendeTeksturOverflatesjikt",
+            "forstyrrelser",
+            "jordsmonnklassifikasjon",
+            "kartleggingsmetodikk",
+            "kartleggingsår",
+            "mestBegrensendeJordegenskap",
+            "naturligeDreneringsforhold",
+            "opprinneligLokalId",
+            "organiskMateriale",
+            "steinBlokk"
+          ]
+        }
+      ]
+    },
+    "JordsmonnGrense": {
+      "description": "grensen for jordsmonnflata\n-- Definition --\nthe boundary of an expanse of soil",
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/LineString.json"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@type"
+      ]
+    },
+    "Jordsmonn_Fellesegenskaper": {
+      "description": "abstrakt objekttype som bærer sentrale egenskaper som er anbefalt for bruk i produktspesifikasjoner.\nMerknad: Disse egenskapene skal derfor ikke modelleres inn i fagområdemodeller.",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "identifikasjon": {
+          "description": "unik identifikasjon av et objekt",
+          "$ref": "#/definitions/Identifikasjon"
+        },
+        "kopidata": {
+          "description": "angivelse av at objektet er hentet fra et kopidatasett og ikke fra originaldatasettet\n\nMerknad: Inneholder informasjon om når kopidatasettet ble kopiert fra originaldatasettet og hvem som er originaldataansvarlig",
+          "$ref": "#/definitions/Kopidata"
+        },
+        "kvalitet": {
+          "description": "Beskrivelse av kvaliteten på stedfestingen.",
+          "$ref": "#/definitions/Posisjonskvalitet"
+        },
+        "verifiseringsdato": {
+          "description": "dato når dataene er fastslått å være i samsvar med virkeligheten\nMerknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI",
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "@type",
+        "identifikasjon",
+        "kopidata"
+      ]
+    },
+    "Jordsmonnklassifikasjon": {
+      "description": "Viser hvilken jordgruppe som dominerer på arealet\n-- Definition --\nShows which soiltype which is dominating the area.",
+      "codelist": "https://register.geonorge.no/sosi-kodelister/jordsmonn/jordsmonnklassifikasjon",
+      "type": "string",
+      "format": "uri"
+    },
+    "Kartleggingsmetodikk": {
+      "description": "Viser hvilken opprinnelig kartleggingsmetodikk som er brukt under jordsmonnkartlegging.\n--Definition--\nDisplays the methodolgy used during field mapping.",
+      "codelist": "https://register.geonorge.no/sosi-kodelister/jordsmonn/kartleggingsmetodikk",
+      "type": "string",
+      "format": "uri"
+    },
+    "Kopidata": {
+      "type": "object",
+      "properties": {
+        "områdeId": {
+          "description": "identifikasjon av område som dataene dekker\nMerknad: Kan angis med kommunenummer eller fylkesnummer. Disse bør spesifiseres nærmere.",
+          "type": "integer"
+        },
+        "originalDatavert": {
+          "description": "ansvarlig etat for forvaltning av data",
+          "type": "string"
+        },
+        "kopidato": {
+          "description": "dato når objektet ble kopiert fra originaldatasettet\n\nMerknad:\nEr en del av egenskapen Kopidata. Brukes i de tilfeller hvor en kopidatabase brukes til distribusjon.\nÅ kopiere et datasett til en kopidatabase skal ikke føre til at Oppdateringsdato blir endret.\nEventuell redigering av data i et kopidatasett medfører ny Oppdateringsdato, Datafangstdato og/eller Verifiseringsdato.",
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "kopidato",
+        "områdeId",
+        "originalDatavert"
+      ]
+    },
+    "MestBegrensendeJordegenskap": {
+      "description": "Viser den jordegenskapen som er mest begrensende for bruken av arealet",
+      "codelist": "https://register.geonorge.no/sosi-kodelister/jordsmonn/mestbegrensendejordegenskap",
+      "type": "string",
+      "format": "uri"
+    },
+    "Målemetode": {
+      "description": "metode som ligger til grunn for registrering av posisjon\n-- Definition - -\nmethod on which registration of position is based",
+      "codelist": "https://register.geonorge.no/sosi-kodelister/generelle-konsepter/4.5/m%C3%A5lemetodekode",
+      "type": "string",
+      "format": "uri"
+    },
+    "NaturligeDreneringsforhold": {
+      "description": "Viser jordsmonnets naturlige evne til å bli kvitt overflødig vann.",
+      "codelist": "https://register.geonorge.no/sosi-kodelister/jordsmonn/naturligedreneringsforhold",
+      "type": "string",
+      "format": "uri"
+    },
+    "OrganiskMateriale": {
+      "description": "Viser jordsmonnets innhold av organisk materiale i overflatesjiktet, samt tykkelse på organisk jord der denne finnes.",
+      "codelist": "https://register.geonorge.no/sosi-kodelister/jordsmonn/organiskmateriale",
+      "type": "string",
+      "format": "uri"
+    },
+    "Posisjonskvalitet": {
+      "type": "object",
+      "properties": {
+        "målemetode": {
+          "description": "metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss",
+          "$ref": "#/definitions/Målemetode"
+        }
+      },
+      "required": [
+        "målemetode"
+      ]
+    },
+    "SteinBlokk": {
+      "description": "Viser stein- og blokkinnhold (0–50 cm) på arealet på kartleggingstidspunktet",
+      "codelist": "https://register.geonorge.no/sosi-kodelister/jordsmonn/steinblokk",
+      "type": "string",
+      "format": "uri"
+    },
+    "Tilleggsinformasjon": {
+      "description": "Viser tilleggsinformasjon om andre egenskaper ved arealet.",
+      "codelist": "https://register.geonorge.no/sosi-kodelister/jordsmonn/tilleggsinformasjon",
+      "type": "string",
+      "format": "uri"
+    }
+  }
+}
