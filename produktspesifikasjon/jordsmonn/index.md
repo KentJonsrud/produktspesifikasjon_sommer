@@ -152,6 +152,10 @@ Dagens harmoniserte jordsmonnbase ble lansert i mai 2022.
 | Jordsmonn - Potensial for grønnsaksdyrking - WMS | [Lenke](https://wms.nibio.no/cgi-bin/grsak?) | WMS-tjeneste | png |  |
 | Jordressurser - WMS | [Lenke](https://wms.nibio.no/cgi-bin/jordressurser?service=wms&request=getcapabilities) | WMS-tjeneste | jpg |  |
 | Erosjonsrisiko - WMS | [Lenke](https://wms.nibio.no/cgi-bin/jordsmonn_erosjonsrisiko?) | WMS-tjeneste | jpg |  |
+| GeoPackage: jordsmonn | [Lenke](https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/jordsmonn/jordsmonn/jordsmonn.gpkg) | Nedlasting | GPKG |  |
+| PostGIS-skript: jordsmonn.postgis | [Lenke](https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/jordsmonn/jordsmonn/jordsmonn.postgis.sql) | Nedlasting | SQL |  |
+| GML/XSD-skjema: jordsmonn | [Lenke](https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/jordsmonn/jordsmonn/schema/xsd/INPUT/jordsmonn.xsd) | Nedlasting | XSD |  |
+| JSON Schema: jordsmonn | [Lenke](https://raw.githubusercontent.com/KentJonsrud/produktspesifikasjon_sommer/main/produktspesifikasjon/jordsmonn/jordsmonn/schema/jsonschema/INPUT/jordsmonn/jordsmonn.json) | Nedlasting | JSON Schema |  |
 
 ## Metadata
 
