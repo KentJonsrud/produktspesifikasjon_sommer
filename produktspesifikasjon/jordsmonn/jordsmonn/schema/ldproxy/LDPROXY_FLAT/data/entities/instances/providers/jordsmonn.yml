@@ -1,0 +1,137 @@
+---
+id: jordsmonn
+enabled: true
+providerType: FEATURE
+providerSubType: SQL
+nativeCrs:
+  code: 25833
+  forceAxisOrder: NONE
+nativeTimeZone: Europe/Oslo
+connectionInfo:
+  database: FIXME
+  host: FIXME
+  user: FIXME
+  password: FIXME-base64-encoded
+  schemas:
+  - public
+sourcePathDefaults:
+  primaryKey: objid
+  sortKey: objid
+types:
+  jordsmonn:
+    sourcePath: /jordsmonn
+    type: OBJECT
+    objectType: Jordsmonn
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      dominerendeTeksturOverflatesjikt:
+        sourcePath: dominerendeteksturoverflatesjikt
+        type: STRING
+        constraints:
+          codelist: DominerendeTeksturOverflatesjikt
+          required: true
+      forstyrrelser:
+        sourcePath: forstyrrelser
+        type: STRING
+        constraints:
+          codelist: Forstyrrelser
+          required: true
+      helling:
+        sourcePath: helling
+        type: STRING
+        constraints:
+          codelist: Helling
+      jordsmonnklassifikasjon:
+        sourcePath: jordsmonnklassifikasjon
+        type: STRING
+        constraints:
+          codelist: Jordsmonnklassifikasjon
+          required: true
+      kartleggingsmetodikk:
+        sourcePath: kartleggingsmetodikk
+        type: STRING
+        constraints:
+          codelist: Kartleggingsmetodikk
+          required: true
+      kartleggingsår:
+        sourcePath: kartleggingsår
+        type: STRING
+        constraints:
+          required: true
+      mestBegrensendeJordegenskap:
+        sourcePath: mestbegrensendejordegenskap
+        type: STRING
+        constraints:
+          codelist: MestBegrensendeJordegenskap
+          required: true
+      naturligeDreneringsforhold:
+        sourcePath: naturligedreneringsforhold
+        type: STRING
+        constraints:
+          codelist: NaturligeDreneringsforhold
+          required: true
+      organiskMateriale:
+        sourcePath: organiskmateriale
+        type: STRING
+        constraints:
+          codelist: OrganiskMateriale
+          required: true
+      steinBlokk:
+        sourcePath: steinblokk
+        type: STRING
+        constraints:
+          codelist: SteinBlokk
+          required: true
+      tilleggsinformasjon:
+        sourcePath: tilleggsinformasjon
+        type: STRING
+        constraints:
+          codelist: Tilleggsinformasjon
+      opprinneligLokalId:
+        sourcePath: opprinneliglokalid
+        type: INTEGER
+        constraints:
+          required: true
+      avgrensesAvJordsmonngrense:
+        sourcePath: "[objid=jordsmonnobjid]Jordsmonn_avgrensesAvJordsmonngrense/[jordsmonngrenseobjid=objid]jordsmonngrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: JordsmonnGrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: JordsmonnGrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/jordsmonngrense/items/{{value}}"
+  jordsmonngrense:
+    sourcePath: /jordsmonngrense
+    type: OBJECT
+    objectType: JordsmonnGrense
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
